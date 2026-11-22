@@ -54,7 +54,10 @@ const VinhetaTopo: React.FC = () => {
   );
 };
 
-const Corpo: React.FC = () => {
+type Riscada = { topoPct: number; escala: number };
+const RISCADA_PADRAO: Riscada = { topoPct: 3.2, escala: 0.72 };
+
+const Corpo: React.FC<{ riscada: Riscada }> = ({ riscada }) => {
   const fr = useCurrentFrame();
   const p = interpolate(fr, [VIDEO_FRAMES - SAIDA, VIDEO_FRAMES], [0, 1], {
     ...clamp,
@@ -119,18 +122,20 @@ const Corpo: React.FC = () => {
         <PalavraRiscada
           chamada="Simplesmente"
           palavra="Editar"
-          topoPct={3.2}
-          escala={0.72}
+          topoPct={riscada.topoPct}
+          escala={riscada.escala}
         />
       </Sequence>
     </AbsoluteFill>
   );
 };
 
-export const C02Broll: React.FC = () => (
+export const C02Broll: React.FC<{ riscada?: Riscada }> = ({
+  riscada = RISCADA_PADRAO,
+}) => (
   <AbsoluteFill style={{ background: "#000" }}>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <Corpo />
+      <Corpo riscada={riscada} />
     </Sequence>
     <Sequence from={VIDEO_FRAMES} durationInFrames={FECHO_FRAMES}>
       <FechoSimples durationInFrames={FECHO_FRAMES} desfoque={18} />

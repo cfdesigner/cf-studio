@@ -11,6 +11,7 @@ description: Use quando o usuário pedir para criar, montar ou editar um vídeo 
 3. **Pasta da produção:** `producoes/<nome>/` com a composição. Registre em `producoes/index.tsx` (uma `<Composition>` com `id` único). Use só componentes e efeitos do design system escolhido.
 4. **Vídeo com fala ou pedido de legenda:** siga a skill `legendas` (transcreve sozinho, sugere frases de efeito, espera aprovação).
 4b. **Texto atrás da pessoa** (frase de efeito grande atrás da cabeça, pessoa recortada por cima): recorte com `scripts/recortar-pessoa.py` e use o `TextoAtras` do CFDesigner (`tecnicas/recorte-pessoa/README.md`, `design-systems/cfdesigner/docs/efeitos.md`). Só o trecho que precisa; mostrar o quadro ao dono.
+4c. **Texto preso à cena** (parapeito, parede, atrás de árvore): `tecnicas/texto-no-plano/README.md` (`scripts/rastrear-plano.py --refinar`, `scripts/mascara-arvore.py`). Conferir o rastreio em vários quadros antes de renderizar.
 5. **Conferir:** renderize 2–3 quadros-chave (`npx remotion still ... --frame=N`) e olhe antes de renderizar o vídeo. Teste um quadro de cada tipo de elemento (legenda, terceiro, número, fecho).
 6. **Escolhas visuais novas** (não cobertas pela ficha): mostre em imagem e peça aprovação. Depois registre na ficha do design system.
 7. **Renderizar e entregar:** `npx remotion render <id> out/<nome>.mp4 --browser-executable=/opt/pw-browsers/chromium` e envie o MP4 na conversa. Nunca versione o vídeo.
