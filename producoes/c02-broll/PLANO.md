@@ -76,5 +76,7 @@ Composição `C02Broll`, 23,3 s (20,8 s de vídeo + fecho de 2,5 s), -14,1 LUFS.
 - **"Construir uma experiência visual":** zoom de aproximação 1,4x (ponto fixo embaixo, rosto sobe) com "CONSTRUIR UMA" pequeno, "EXPERIÊNCIA" âmbar e "VISUAL" branco gelo do mesmo tamanho. `PunchLine` ganhou `depoisEscala` e `antesMax`.
 - Respiro entre "interessante?" e "Às vezes" mantido (música entra ali, edição do dono).
 - Vazamento de luz no corte de 15,4 s; fecho com o logo (`FechoSimples`).
+- **Look Dourado Suave** (LUT `design-systems/cfdesigner/assets/luts/dourado-suave.cube`) no vídeo-base e nas camadas recortadas (pessoa, árvore); gráficos e texto sem look.
+- **Som:** efeitos do dono (`som/SOM.md`, kit em `design-systems/cfdesigner/assets/sfx/`); música do Suno aguardando o arquivo.
 
 Lições: rastreio encadeado escorrega e treme, use ECC contra a referência; modelos de recorte prontos pegam o objeto "saliente" (o parapeito, não a árvore); legenda deve ficar por cima do recorte da pessoa; o zoom de aproximação com ponto fixo embaixo libera espaço para o texto sem cobrir o rosto.

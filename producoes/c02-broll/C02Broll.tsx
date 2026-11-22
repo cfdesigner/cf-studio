@@ -59,14 +59,17 @@ const RISCADA_PADRAO: Riscada = { topoPct: 13, escala: 1.15 }; // versão B apro
 /** Zoom de aproximação em "construir uma experiência visual": escala final e ponto fixo (em % do quadro). */
 type Zoom = { escala: number; origemX: number; origemY: number };
 const ZOOM_PADRAO: Zoom = { escala: 1.4, origemX: 28, origemY: 88 }; // opção 2 aprovada pelo dono
+/** Look (LUT) do vídeo-base: sufixo das pastas/arquivos já gradados ("" = sem look). Dourado Suave aprovado pelo dono. */
+const LOOK_PADRAO = "-dourado";
 type Final = { depoisEscala: number; antesMax: number };
 const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 52 }; // opção 2 aprovada
 
-const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
-  riscada,
-  final,
-  zoom,
-}) => {
+const Corpo: React.FC<{
+  riscada: Riscada;
+  final: Final;
+  zoom: Zoom;
+  look: string;
+}> = ({ riscada, final, zoom, look }) => {
   const fr = useCurrentFrame();
   const p = interpolate(fr, [VIDEO_FRAMES - SAIDA, VIDEO_FRAMES], [0, 1], {
     ...clamp,
@@ -93,14 +96,14 @@ const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
         }}
       >
         <OffthreadVideo
-          src={staticFile("entrada/c02-broll-n.mp4")}
+          src={staticFile(`entrada/c02-broll-n${look}.mp4`)}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </AbsoluteFill>
       {/* Cena 1: texto gigante atrás dele (0 a 3,6 s) */}
       <Sequence from={0} durationInFrames={f(3.57)}>
         <TextoAtras
-          pessoa="entrada/pessoa-c02"
+          pessoa={`entrada/pessoa-c02${look}`}
           quadros={108}
           entra={69}
           fundoPct={41}
@@ -133,7 +136,7 @@ const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
           trilha={trilhaParapeito}
           primeiroQuadro={10}
           duracao={61}
-          frente={{ pasta: "entrada/arvore-c02" }}
+          frente={{ pasta: `entrada/arvore-c02${look}` }}
           linhas={[
             [{ texto: "TRANSFORMAR", tamanho: 208 }],
             [{ texto: "COMPLETAMENTE", tamanho: 186, cor: colors.cinema.amber }],
@@ -176,14 +179,16 @@ export const C02Broll: React.FC<{
   riscada?: Riscada;
   final?: Final;
   zoom?: Zoom;
+  look?: string;
 }> = ({
   riscada = RISCADA_PADRAO,
   final = FINAL_PADRAO,
   zoom = ZOOM_PADRAO,
+  look = LOOK_PADRAO,
 }) => (
   <AbsoluteFill style={{ background: "#000" }}>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <Corpo riscada={riscada} final={final} zoom={zoom} />
+      <Corpo riscada={riscada} final={final} zoom={zoom} look={look} />
     </Sequence>
     <Sequence from={VIDEO_FRAMES} durationInFrames={FECHO_FRAMES}>
       <FechoSimples durationInFrames={FECHO_FRAMES} desfoque={18} />
