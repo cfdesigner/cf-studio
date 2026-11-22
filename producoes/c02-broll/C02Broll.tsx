@@ -20,14 +20,14 @@ import {
   type Caption,
   type PunchLine,
 } from "../../design-systems/cfdesigner";
+import { TextoNoParapeito } from "./TextoNoPlano";
 import legendasJson from "./legendas.json";
 
 const captions = legendasJson as Caption[];
 
-// Frases de efeito (aprovadas pelo dono: "câmera melhor" e "experiência visual"; "transformar completamente" sugerida por mim).
+// Frases de efeito (aprovadas pelo dono). "Transformar completamente" é um texto rastreado no parapeito (TextoNoParapeito).
 const punchLines: PunchLine[] = [
   { startMs: 6300, endMs: 7180, keyword: "câmera" },
-  { startMs: 12900, endMs: 13800, keyword: "transformar" },
   { startMs: 18850, endMs: 20300, keyword: "experiência" },
 ];
 
@@ -102,6 +102,10 @@ const Corpo: React.FC = () => {
             { texto: "Som", marcaEmMs: 2920 },
           ]}
         />
+      </Sequence>
+      {/* "Transformar completamente" preso ao parapeito (rastreado): quadros 8 a 47 do trecho que começa em 12,7 s */}
+      <Sequence from={f(12.7) + 7} durationInFrames={40}>
+        <TextoNoParapeito primeiro={8} duracao={40} />
       </Sequence>
       {/* Legendas por cima de tudo (inclusive da pessoa recortada) */}
       <Legendas captions={captions} punchLines={punchLines} />
