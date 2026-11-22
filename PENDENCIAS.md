@@ -42,14 +42,14 @@
 
 ### Testes que ainda não foram feitos
 
-- [ ] **[dono + Claude]** Legendas com mais vídeos reais: música ao fundo, vídeo longo e horizontal (o primeiro vídeo real, CERTI News, já foi feito: fala real, vertical, arquivo chegou por anexo) O C02 (vertical, fala real, sem música) foi feito e aprovado no CFDesigner; faltam música ao fundo, vídeo longo e horizontal
+- [ ] **[dono + Claude]** Legendas com mais vídeos reais: vídeo longo e horizontal (música ao fundo já foi testada no C02) (o primeiro vídeo real, CERTI News, já foi feito: fala real, vertical, arquivo chegou por anexo) O C02 (vertical, fala real, sem música) foi feito e aprovado no CFDesigner; faltam música ao fundo, vídeo longo e horizontal
 - [ ] **[Claude]** Confirmar com mais uma referência real o processo `criar-design-system` (já usado no CERTI com prints, sem vídeo)
 
 ### C02 com b-roll
 
 - [x] **[Claude]** Vídeo final entregue (CFDesigner): texto atrás da pessoa, checklist vertical, texto rastreado no parapeito atrás da árvore, zoom final. Novos no design system: `TextoAtras`, `ChecklistVertical`. Novas técnicas: `tecnicas/recorte-pessoa/`, `tecnicas/texto-no-plano/`
 - [x] **[Claude]** Texto rastreado virou o efeito `TextoNoPlano` do CFDesigner (guia em `design-systems/cfdesigner/docs/efeitos.md`); o C02 já usa o efeito
-- [ ] **[dono]** Nas próximas produções, testar música ao fundo (o C02 tem o respiro de 1,6 s para a música entrar na edição dele)
+- [x] **Música ao fundo testada no C02** (música do Suno + efeitos do dono + look Dourado Suave); receita em `producoes/c02-broll/som/SOM.md`. Segue pendente: vídeo longo e horizontal
 
 ### Ferramenta de recorte (texto atrás da pessoa)
 

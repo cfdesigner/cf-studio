@@ -1,6 +1,6 @@
 # Som do C02: efeitos e música
 
-Status: efeitos com os **sons do próprio dono** (extraídos do `C01_SFX`) aguardando aprovação; música a ser gerada por ele no Suno. Nenhuma ferramenta de IA paga usada. O kit sintetizado (`kit.py`) ficou só como reserva (`--sintetico`).
+Status: **FECHADO**: efeitos do dono + música do Suno ("A Minor Focus", Suno `UhZf0TdZ55TPW1P5`, instrumental, lá menor/dó maior, 100 BPM, 3:21, 6 s de silêncio no início) mixados. Antes: efeitos com os **sons do próprio dono** (extraídos do `C01_SFX`) aguardando aprovação; música a ser gerada por ele no Suno. Nenhuma ferramenta de IA paga usada. O kit sintetizado (`kit.py`) ficou só como reserva (`--sintetico`).
 
 ## Leitura do C01 do dono (referência)
 
@@ -78,3 +78,11 @@ Gere **3 ou 4 variações de 30 a 60 s**; eu escolho o melhor trecho, alinho o i
 
 **Variações do estilo (se a primeira não agradar):** (B, mais quente) trocar "dark with one warm amber glow" por "warm, hopeful, inspiring, gentle build"; (C, mais tenso) "dark, tense, thriller-like, low drone, slow heartbeat pulse".
 
+
+## Música: como foi editada (versão final)
+
+- Arquivo: `public/entrada/musica/c02-suno.mp3` (ignorado pelo Git; o link do Suno não deixa baixar, o dono mandou o MP3).
+- Trecho usado: da faixa de **20,64 s a 43,96 s**. O primeiro drop da música tem o impacto de sub em **25,40 s**; ele cai em **4,76 s do vídeo**, um décimo antes da fala voltar ("Às vezes", 4,86 s), no fim do respiro de 1,6 s. O build da música (22,5 a 25,3 s) preenche o respiro. A quebra com o baixo caindo (40,4 a 43,9 s) vira o fecho do logo. Fade de entrada 0,5 s e de saída 1,6 s (a cauda termina no fim do vídeo).
+- Mixagem (`mixar.py --musica ... --musica-inicio 20.64 --musica-db 2`): corte do baixo-médio (250 Hz, -4 dB) e dos médios da voz (2,5 kHz, -3 dB); redução automática por sidechain com a voz (limiar 0,06, razão 3, ataque 30 ms, release 400 ms); reforço de +8 dB na intro e no respiro até o impacto e de +7 dB depois da fala (a música "respira" quando ele não fala).
+- Resultado medido: na fala a música fica de **11 a 15 dB abaixo da voz** (16 dB na intro); fim em -14,1 LUFS, LRA 3,5 LU.
+- Comando completo: `python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2`
