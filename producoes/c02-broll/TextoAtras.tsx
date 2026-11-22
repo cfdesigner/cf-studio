@@ -15,13 +15,17 @@ import "../../design-systems/cfdesigner/fonts";
 const c = colors.cinema;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-type Linha = { texto: string; tamanho: number; cor: string };
-
-/** Linhas do texto de fundo (cada uma ocupa a largura do quadro). */
-const LINHAS: Linha[] = [
-  { texto: "MUITO MAIS", tamanho: 270, cor: "#eef3f6" },
-  { texto: "INTERESSANTE", tamanho: 222, cor: c.amber },
-];
+const BRANCO = "#eef3f6";
+const SOMBRA = "0 6px 40px rgba(0,0,0,0.3)";
+const fonte = (tamanho: number, cor: string): React.CSSProperties => ({
+  fontFamily: "Bebas Neue, sans-serif",
+  fontSize: tamanho,
+  lineHeight: 0.9,
+  color: cor,
+  whiteSpace: "nowrap",
+  letterSpacing: 2,
+  textShadow: SOMBRA,
+});
 
 export const TextoAtras: React.FC<{
   /** Quadro (no vídeo) em que o texto começa a entrar. */
@@ -32,11 +36,17 @@ export const TextoAtras: React.FC<{
   fundo?: number;
 }> = ({ entra, sai, fundo = 790 }) => {
   const fr = useCurrentFrame();
-  const p = interpolate(fr, [entra, entra + 14], [0, 1], {
-    ...clamp,
-    easing: Easing.out(Easing.exp),
+  // cada linha sobe de baixo (opacidade 0 a 100%), uma logo depois da outra
+  const sobe = (atraso: number) =>
+    interpolate(fr, [entra + atraso, entra + atraso + 16], [0, 1], {
+      ...clamp,
+      easing: Easing.out(Easing.exp),
+    });
+  const estilo = (p: number): React.CSSProperties => ({
+    opacity: p,
+    transform: `translateY(${(1 - p) * 150}px)`,
   });
-  const escurece = interpolate(fr, [entra, entra + 14], [0, 0.32], clamp);
+  const escurece = interpolate(fr, [entra, entra + 14], [0, 0.07], clamp);
   const visivel = fr >= entra && fr < sai;
   const n = String(Math.min(fr + 1, 108)).padStart(3, "0");
   return (
@@ -52,27 +62,22 @@ export const TextoAtras: React.FC<{
             justifyContent: "flex-end",
             alignItems: "center",
             paddingBottom: 1920 - fundo,
-            opacity: p,
-            transform: `translateY(${(1 - p) * 40}px) scale(${1.07 - p * 0.07})`,
-            filter: `blur(${(1 - p) * 14}px)`,
           }}
         >
-          {LINHAS.map((l) => (
-            <div
-              key={l.texto}
-              style={{
-                fontFamily: "Bebas Neue, sans-serif",
-                fontSize: l.tamanho,
-                lineHeight: 0.9,
-                color: l.cor,
-                whiteSpace: "nowrap",
-                letterSpacing: 2,
-                textShadow: "0 6px 40px rgba(0,0,0,0.35)",
-              }}
-            >
-              {l.texto}
-            </div>
-          ))}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              gap: 26,
+              ...estilo(sobe(0)),
+            }}
+          >
+            <span style={fonte(170, BRANCO)}>MUITO</span>
+            <span style={fonte(310, BRANCO)}>MAIS</span>
+          </div>
+          <div style={{ ...fonte(222, c.amber), ...estilo(sobe(4)) }}>
+            INTERESSANTE
+          </div>
         </AbsoluteFill>
       )}
       {/* a pessoa recortada, por cima do texto */}
