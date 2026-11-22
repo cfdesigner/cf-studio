@@ -82,3 +82,29 @@ Composição `C02Broll`, 23,3 s (20,8 s de vídeo + fecho de 2,5 s), -14,1 LUFS.
 Lições: rastreio encadeado escorrega e treme, use ECC contra a referência; modelos de recorte prontos pegam o objeto "saliente" (o parapeito, não a árvore); legenda deve ficar por cima do recorte da pessoa; o zoom de aproximação com ponto fixo embaixo libera espaço para o texto sem cobrir o rosto.
 
 - **Correção final (fala):** "composição" virou "percepção" na frase "você consegue transformar completamente a percepção daquela cena" (áudio regravado pelo dono e legenda). Detalhes em `som/SOM.md`.
+
+## Refazer o C02 do zero (os arquivos grandes ficam fora do Git)
+
+Entradas em `public/entrada/` (ignorada pelo Git): `c02-broll.mp4` (o vídeo bruto `C02.mp4` do dono), `musica/c02-suno.mp3` (música do Suno "A Minor Focus"), e os arquivos de fala `C02` original cru e `C02_1` (regravação). Ambiente: `/opt/recorte-venv` (o `cf-studio` já cria). Passos, na ordem:
+
+```bash
+# 1. áudio do vídeo-base normalizado
+ffmpeg -i public/entrada/c02-broll.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 48000 -c:a aac -b:a 192k public/entrada/c02-broll-n.mp4
+# 2. recorte dele na cena 1 (texto atrás dele)
+/opt/recorte-venv/bin/python scripts/recortar-pessoa.py public/entrada/c02-broll.mp4 public/entrada/pessoa-c02 --inicio 0 --duracao 3.6
+# 3. rastreio do parapeito (12,7 s em diante) e máscara da árvore; o JSON do rastreio JÁ está no Git (trilha-parapeito.json)
+mkdir -p /tmp/rail && ffmpeg -ss 12.7 -t 2.8 -i public/entrada/c02-broll.mp4 -vf fps=30 /tmp/rail/%03d.png
+/opt/recorte-venv/bin/python scripts/rastrear-plano.py /tmp/rail 22 producoes/c02-broll/trilha-parapeito.json --quad 30,454,900,648,900,938,30,974 --regiao 0,940,700,915,700,1320,0,1560 --largura 1000 --altura 465 --refinar --janela 2,70 --suavizar 1.5
+/opt/recorte-venv/bin/python scripts/mascara-arvore.py /tmp/rail producoes/c02-broll/trilha-parapeito.json public/entrada/arvore-c02
+# 4. look Dourado Suave no vídeo-base e nas camadas recortadas (veja design-systems/cfdesigner/assets/luts/README.md)
+L=$PWD/design-systems/cfdesigner/assets/luts/dourado-suave.cube
+ffmpeg -i public/entrada/c02-broll-n.mp4 -vf "lut3d=file=$L:interp=tetrahedral" -c:v libx264 -crf 16 -pix_fmt yuv420p -c:a copy public/entrada/c02-broll-n-dourado.mp4
+for d in pessoa-c02 arvore-c02; do mkdir -p public/entrada/$d-dourado; ffmpeg -i public/entrada/$d/%03d.png -filter_complex "[0:v]format=rgba,split[a][b];[a]format=rgb24,lut3d=file=$L:interp=tetrahedral[c];[b]alphaextract[d];[c][d]alphamerge" -start_number 1 public/entrada/$d-dourado/%03d.png; done
+# 5. vídeo (legendas, gráficos, textos, zoom, fecho)
+npx remotion render C02Broll out/c02-dourado.mp4 --browser-executable=/opt/pw-browsers/chromium
+# 6. voz com o trecho regravado e mixagem final (efeitos do dono + música); comandos em som/SOM.md
+python3 producoes/c02-broll/som/trocar_trecho_voz.py out/c02-dourado.mp4 <C02-original.mp4> <C02_1.mp4> public/entrada/voz-c02-corrigida.wav --de 12.43,12.47 --ate 15.325,15.350
+python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --voz public/entrada/voz-c02-corrigida.wav --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2 --musica-final 39.20,173.58
+```
+
+Resultado final aprovado: `out/c02-final-completo.mp4`, 1080×1920, 23,3 s, -14,2 LUFS (entregue na conversa; vídeo nunca vai para o Git).

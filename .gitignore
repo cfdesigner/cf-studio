@@ -8,3 +8,6 @@ out
 
 # Vídeos enviados para legendar (não vão para o Git)
 public/entrada
+
+# Python
+__pycache__
