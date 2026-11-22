@@ -16,7 +16,7 @@ O b-roll (praia, mar, pedras, lancha) **já está dentro do vídeo**, em voz em 
 
 | # | Origem | Plano | Fala | Por cima | Entrada |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 0,0–3,6 s | Ele sentado na mesa de pedra, falando (rosto no centro, ~35% da altura) | "Sabe quando tu olha para uma imagem e sente que ela poderia ser muito mais interessante?" | Legenda dia a dia. Sem gráfico (gancho limpo) | início |
+| 1 | 0,0–3,6 s | Ele sentado na mesa de pedra, falando (rosto no centro, ~35% da altura) | "Sabe quando tu olha para uma imagem e sente que ela poderia ser muito mais interessante?" | Legenda dia a dia. **Frase de efeito atrás de você: "MUITO MAIS INTERESSANTE"** (entra em ~2,3 s, some no corte de 3,6 s), você recortado do fundo (pedido do dono). Resto só legenda | início |
 | 2 | 3,6–6,2 s | Praia: ele de costas, depois selfie fechada | pausa, "Às vezes, não precisa de uma câmera melhor" | Legenda. **Frase de efeito: "CÂMERA MELHOR"** (~5,8–7,0 s) | corte seco |
 | 3 | 6,2–8,6 s | Mar e pedras | "nem de uma produção gigantesca" | Legenda | corte seco |
 | 4 | 8,6–12,8 s | Árvore e lancha no mar | "Com algumas escolhas de direção, composição, cor, iluminação e som" | **Checklist de 5 itens** no topo, cada ✓ 0,2 s antes da palavra (9,5 / 10,2 / 11,1 / 11,4 / 12,1 s). Sem rosto na cena, área livre | corte seco |
