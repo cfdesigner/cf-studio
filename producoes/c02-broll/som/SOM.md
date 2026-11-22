@@ -86,3 +86,14 @@ Gere **3 ou 4 variações de 30 a 60 s**; eu escolho o melhor trecho, alinho o i
 - Mixagem (`mixar.py --musica ... --musica-inicio 20.64 --musica-db 2`): corte do baixo-médio (250 Hz, -4 dB) e dos médios da voz (2,5 kHz, -3 dB); redução automática por sidechain com a voz (limiar 0,06, razão 3, ataque 30 ms, release 400 ms); reforço de +8 dB na intro e no respiro até o impacto e de +7 dB depois da fala (a música "respira" quando ele não fala).
 - Resultado medido: na fala a música fica de **11 a 15 dB abaixo da voz** (16 dB na intro); fim em -14,1 LUFS, LRA 3,5 LU.
 - Comando completo: `python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2`
+
+## Final com "cara de final" (emenda no final real da faixa)
+
+Antes, a música terminava em fade-out sobre a quebra (soava cortada). Agora o final é o **final real da faixa**:
+
+- A música do Suno termina com o último golpe do groove (em 174,25 s da faixa), seguido de um acorde de **sol** sustentado que decai até 200 s.
+- No groove, o baixo faz **dó → sol** em 39,80 s da faixa (o mesmo lugar do último golpe do final: dó → sol em 174,25 s). Emendei os dois numa batida em que o baixo está em **dó** (faixa 39,20 s ↔ final 173,58 s), alinhando os dois kicks ao milissegundo (distância kick→troca de acorde: 0,600 s e 0,6045 s) e com crossfade de 30 ms terminando no kick. A harmonia fica contínua e a troca para sol acontece no mesmo ponto das duas.
+- No vídeo, a emenda cai em 18,55 s e o **golpe final da música em 19,15 s**, junto do zoom de "EXPERIÊNCIA VISUAL" (o som `grande` do dono foi movido para 18,95 s para o pico cair aí). O acorde decai por ~4 s sob o fecho do logo, com fade nos últimos 2 s (de -20 a -34 dB).
+- O golpe ganha +6 dB (`REFORCO_GOLPE`) porque a fala está em cima e a redução automática o esconderia.
+- Comando: `python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2 --musica-final 39.20,173.58`
+- Regra para outras produções: ache a troca de acorde do groove e a troca do final real da música, emende numa batida com o mesmo baixo e alinhe pelos kicks (`monta_musica` e `onset_kick` em `mixar.py`).
