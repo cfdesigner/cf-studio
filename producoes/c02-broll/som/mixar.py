@@ -2,7 +2,7 @@
 """Mixa os efeitos sonoros do C02 sobre a voz e grava um MP4 (vídeo copiado, sem recompressão).
 
 Uso: python3 producoes/c02-broll/som/mixar.py <video-in.mp4> <video-out.mp4> [--kit <pasta com WAVs do dono>]
-Sem --kit usa o kit sintetizado (kit.py). Com --kit, cada nome do mapa (tick, whoosh, hit...) é lido de <kit>/<nome>.wav.
+Padrão: os sons do dono em design-systems/cfdesigner/assets/sfx. --kit <pasta> usa outra pasta; --sintetico usa o kit sintetizado (kit.py, nomes antigos).
 Tempo de cada evento = INÍCIO do som (o pico do whoosh cai perto do fim dele, por isso começa antes do corte).
 """
 import os, subprocess, sys, tempfile, wave
@@ -11,29 +11,30 @@ sys.path.insert(0, os.path.dirname(__file__))
 import kit as K
 
 SR = K.SR
-# (tempo s, som, ganho dB, o que é)
+# (tempo s, som, ganho dB, o que é). Sons do dono (design-systems/cfdesigner/assets/sfx), no volume original (0 dB).
+# Regras lidas no C01 do dono: whoosh de cartão ~0,1 s ANTES do elemento; clique em cada marca (o último, tick_final);
+# whoosh baixinho (fraco) na saída do cartão; som grande no zoom e no logo.
 EVENTOS = [
-    (2.20, "whoosh_card", -6, "texto 'MUITO MAIS' sobe atrás dele"),
-    (2.52, "hit", -12, "'INTERESSANTE' entra (impacto leve)"),
-    (3.36, "whoosh", -8, "corte para a praia (o respiro de 1,6 s fica livre para a música do dono)"),
-    (6.00, "whoosh", -9, "corte para o mar"),
-    (6.36, "hit", -5, "frase de efeito 'CÂMERA MELHOR'"),
-    (8.40, "whoosh", -9, "corte para a árvore"),
-    (8.85, "whoosh_card", -8, "cartão do checklist entra"),
-    (9.30, "tick", -6, "✓ Direção"), (10.00, "tick", -6, "✓ Composição"), (10.90, "tick", -6, "✓ Cor"),
-    (11.25, "tick", -6, "✓ Iluminação"), (11.92, "tick", -6, "✓ Som"),
-    (12.55, "whoosh", -8, "corte para o parapeito"),
-    (13.02, "hit", -11, "'TRANSFORMAR COMPLETAMENTE' emerge de trás da árvore"),
-    (15.12, "whoosh", -8, "corte em que ele aparece"),
-    (15.20, "shimmer", -10, "vazamento de luz âmbar"),
-    (15.36, "hit", -9, "'E é justamente aí'"),
-    (16.84, "whoosh_card", -10, "'SIMPLESMENTE' entra"),
-    (17.58, "zip", -8, "risco em 'EDITAR'"),
-    (18.78, "whoosh_zoom", -7, "zoom de aproximação"),
-    (19.34, "hit", -4, "'EXPERIÊNCIA VISUAL'"),
-    (20.05, "reverso", -9, "saída: zoom e desfoque"),
-    (20.95, "ding", -10, "logo CFDesigner"),
+    (2.12, "cartao", 0, "texto 'MUITO MAIS INTERESSANTE' sobe atrás dele"),
+    (3.30, "fraco", 0, "corte para a praia (o respiro de 1,6 s fica livre para a música do dono)"),
+    (5.92, "fraco", 0, "corte para o mar"),
+    (6.20, "cartao", 0, "frase de efeito 'CÂMERA MELHOR'"),
+    (8.35, "fraco", 0, "corte para a árvore"),
+    (8.90, "cartao", 0, "cartão do checklist entra"),
+    (9.30, "tick", 0, "✓ Direção"), (10.00, "tick", 0, "✓ Composição"), (10.90, "tick", 0, "✓ Cor"),
+    (11.25, "tick", 0, "✓ Iluminação"), (11.92, "tick_final", 0, "✓ Som (última marca)"),
+    (12.62, "fraco", 0, "checklist sai e corte para o parapeito"),
+    (12.86, "cartao", 0, "'TRANSFORMAR COMPLETAMENTE' entra"),
+    (15.08, "cartao", 0, "corte em que ele aparece + vazamento de luz"),
+    (16.76, "cartao", 0, "'SIMPLESMENTE EDITAR' entra"),
+    (18.10, "fraco", 0, "palavra riscada sai"),
+    (18.70, "grande", 0, "zoom de aproximação: 'EXPERIÊNCIA VISUAL'"),
+    (20.14, "fraco", 0, "saída: zoom e desfoque"),
+    (20.70, "grande", 0, "logo CFDesigner"),
+    (22.95, "fraco", 0, "logo sai"),
 ]
+# o C01 do dono tem a fala a -16,7 LUFS; o nosso vídeo, a -14,1: sobe os efeitos junto para manter o equilíbrio dele
+MASTER_DB = 2.6
 DURACAO = 23.317
 
 
@@ -43,14 +44,15 @@ def le_wav(p):
 
 
 def main():
-    a = [x for x in sys.argv[1:] if not x.startswith("--")]
+    a = [x for i, x in enumerate(sys.argv[1:], 1) if not x.startswith("--") and sys.argv[i - 1] != "--kit"]
     entrada, saida = a[0], a[1]
-    kit_dir = sys.argv[sys.argv.index("--kit") + 1] if "--kit" in sys.argv else None
+    raiz = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+    kit_dir = sys.argv[sys.argv.index("--kit") + 1] if "--kit" in sys.argv else os.path.join(raiz, "design-systems", "cfdesigner", "assets", "sfx")
     n = int(DURACAO * SR); sfx = np.zeros((n, 2))
     for t, nome, db, _ in EVENTOS:
-        s = le_wav(os.path.join(kit_dir, nome + ".wav")) if kit_dir else K.KIT[nome]()
+        s = K.KIT[nome]() if "--sintetico" in sys.argv else le_wav(os.path.join(kit_dir, nome + ".wav"))
         i = int(t * SR); j = min(n, i + len(s))
-        sfx[i:j] += s[: j - i] * 10 ** (db / 20)
+        sfx[i:j] += s[: j - i] * 10 ** ((db + MASTER_DB) / 20)
     with tempfile.TemporaryDirectory() as tmp:
         voz = os.path.join(tmp, "voz.wav"); mix = os.path.join(tmp, "mix.wav")
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", entrada, "-vn", "-ac", "2", "-ar", str(SR), voz], check=True)

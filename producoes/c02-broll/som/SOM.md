@@ -1,6 +1,6 @@
 # Som do C02: efeitos e música
 
-Status: PRÉVIA dos efeitos (kit sintetizado) para o dono ouvir; música a ser gerada por ele no Suno. Nenhuma ferramenta de IA paga usada.
+Status: efeitos com os **sons do próprio dono** (extraídos do `C01_SFX`) aguardando aprovação; música a ser gerada por ele no Suno. Nenhuma ferramenta de IA paga usada. O kit sintetizado (`kit.py`) ficou só como reserva (`--sintetico`).
 
 ## Leitura do C01 do dono (referência)
 
@@ -8,33 +8,35 @@ Status: PRÉVIA dos efeitos (kit sintetizado) para o dono ouvir; música a ser g
 - A fala domina o áudio; a música está baixa por baixo: **lá menor** (sub A1, e pad com E, A, G, B, C), cauda de ~4 s no fim, andamento em torno de **100 BPM** (batidas a cada 0,3 s no respiro de 7,4 a 8,4 s).
 - Não dá para extrair os sons dele da mistura (voz e música por cima). **Pedir ao dono um export só com os efeitos** (sem voz e sem música) para usar os sons exatos.
 
+## Sons do dono (stem `C01_SFX`)
+
+O stem só de efeitos tem 19 sons, que são poucos arquivos repetidos em volumes diferentes (agrupados por correlação): `cartao` (3 vezes), `tick` (3), `tick_final` (2), `fraco` (4), `icone` (2), `grande` (2), `timeline_in`, `timeline_out`, `suave`, e 12 tiques de relógio no ícone de cronômetro. Kit em `design-systems/cfdesigner/assets/sfx/` (README com o uso de cada um). Padrões do C01: o whoosh de cartão vem ~0,1 s antes do cartão; um clique por marca (o último é o `tick_final`); `fraco` quando o cartão sai; `grande` no zoom e no logo.
+
 ## Mapa de efeitos do C02 (`mixar.py`, lista `EVENTOS`)
 
-Tempo = início do som (o pico do whoosh cai perto do fim dele).
+Tempo = início do som, no volume original do dono (+2,6 dB de ajuste geral porque a fala do nosso vídeo está a -14,1 LUFS e a do C01 a -16,7).
 
 | Tempo | Som | O que é |
 | --- | --- | --- |
-| 2,20 | whoosh_card | texto "MUITO MAIS" sobe atrás dele |
-| 2,52 | hit (leve) | "INTERESSANTE" entra |
-| 3,36 | whoosh | corte para a praia (o respiro de 1,6 s fica livre para a música) |
-| 6,00 | whoosh | corte para o mar |
-| 6,36 | hit | frase de efeito "CÂMERA MELHOR" |
-| 8,40 | whoosh | corte para a árvore |
-| 8,85 | whoosh_card | cartão do checklist entra |
-| 9,30 · 10,00 · 10,90 · 11,25 · 11,92 | tick | ✓ Direção, Composição, Cor, Iluminação, Som (0,2 s antes de cada palavra) |
-| 12,55 | whoosh | corte para o parapeito |
-| 13,02 | hit (leve) | "TRANSFORMAR COMPLETAMENTE" emerge de trás da árvore |
-| 15,12 | whoosh | corte em que ele aparece |
-| 15,20 | shimmer | vazamento de luz âmbar |
-| 15,36 | hit | "E é justamente aí" |
-| 16,84 | whoosh_card | "SIMPLESMENTE" entra |
-| 17,58 | zip | risco em "EDITAR" |
-| 18,78 | whoosh_zoom | zoom de aproximação |
-| 19,34 | hit (forte) | "EXPERIÊNCIA VISUAL" |
-| 20,05 | reverso | saída (zoom e desfoque) |
-| 20,95 | ding | logo CFDesigner |
+| 2,12 | cartao | texto "MUITO MAIS INTERESSANTE" sobe atrás dele |
+| 3,30 | fraco | corte para a praia (o respiro de 1,6 s fica livre para a música) |
+| 5,92 | fraco | corte para o mar |
+| 6,20 | cartao | frase de efeito "CÂMERA MELHOR" |
+| 8,35 | fraco | corte para a árvore |
+| 8,90 | cartao | cartão do checklist entra |
+| 9,30 · 10,00 · 10,90 · 11,25 | tick | ✓ Direção, Composição, Cor, Iluminação |
+| 11,92 | tick_final | ✓ Som (última marca) |
+| 12,62 | fraco | checklist sai e corte para o parapeito |
+| 12,86 | cartao | "TRANSFORMAR COMPLETAMENTE" entra |
+| 15,08 | cartao | corte em que ele aparece + vazamento de luz |
+| 16,76 | cartao | "SIMPLESMENTE EDITAR" entra |
+| 18,10 | fraco | palavra riscada sai |
+| 18,70 | grande | zoom de aproximação, "EXPERIÊNCIA VISUAL" |
+| 20,14 | fraco | saída: zoom e desfoque |
+| 20,70 | grande | logo CFDesigner |
+| 22,95 | fraco | logo sai |
 
-Trocar pelos sons do dono: `python3 producoes/c02-broll/som/mixar.py <video> <saida> --kit <pasta com tick.wav, whoosh.wav, hit.wav...>`.
+Rodar: `python3 producoes/c02-broll/som/mixar.py out/c02-final.mp4 out/c02-sfx-dono.mp4` (sem música; a música do Suno entra depois).
 
 ## Música para o Suno (instrumental)
 
@@ -76,6 +78,3 @@ Gere **3 ou 4 variações de 30 a 60 s**; eu escolho o melhor trecho, alinho o i
 
 **Variações do estilo (se a primeira não agradar):** (B, mais quente) trocar "dark with one warm amber glow" por "warm, hopeful, inspiring, gentle build"; (C, mais tenso) "dark, tense, thriller-like, low drone, slow heartbeat pulse".
 
-## Para os efeitos do dono
-
-Exportar do editor, na mesma linha do tempo do C01: **áudio só com os efeitos** (mute na fala e na música), WAV de preferência. Se tiver os arquivos soltos de cada som, melhor ainda: tick/pop da marca, whoosh de corte, entrada de cartão, impacto, risco, tom do logo.
