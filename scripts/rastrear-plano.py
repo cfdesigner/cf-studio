@@ -33,7 +33,7 @@ def passo(a, b, poly):
     p0 = cv2.goodFeaturesToTrack(ga, 600, 0.005, 8, mask=mascara(poly, a.shape))
     p1, st, _ = cv2.calcOpticalFlowPyrLK(ga, gb, p0, None, winSize=(31, 31), maxLevel=4)
     ok = st.ravel() == 1
-    H, inl = cv2.findHomography(p0[ok], p1[ok], cv2.RANSAC, 2.5)
+    H, inl = cv2.findHomography(p0[ok], p1[ok], cv2.USAC_MAGSAC, 2.0)
     return H
 
 

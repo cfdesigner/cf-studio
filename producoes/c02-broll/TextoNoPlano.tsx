@@ -37,13 +37,14 @@ export const TextoNoParapeito: React.FC<{
           left: 0,
           top: 0,
           width: 1000,
-          height: 460,
+          height: 540,
           transformOrigin: "0 0",
           transform: `matrix3d(${t.matriz.join(",")})`,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-end",
+          paddingBottom: 14,
           opacity: sobe * sai,
         }}
       >
@@ -53,8 +54,8 @@ export const TextoNoParapeito: React.FC<{
             textAlign: "center",
           }}
         >
-          <div style={linha("#eef3f6", 178)}>TRANSFORMAR</div>
-          <div style={linha(c.amber, 150)}>COMPLETAMENTE</div>
+          <div style={linha("#eef3f6", 200)}>TRANSFORMAR</div>
+          <div style={linha(c.amber, 178)}>COMPLETAMENTE</div>
         </div>
       </div>
     </AbsoluteFill>

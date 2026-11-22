@@ -103,9 +103,9 @@ const Corpo: React.FC = () => {
           ]}
         />
       </Sequence>
-      {/* "Transformar completamente" preso ao parapeito (rastreado): quadros 8 a 47 do trecho que começa em 12,7 s */}
-      <Sequence from={f(12.7) + 7} durationInFrames={40}>
-        <TextoNoParapeito primeiro={8} duracao={40} />
+      {/* "Transformar completamente" preso ao parapeito (rastreado): quadros 10 a 61 do trecho que começa em 12,7 s */}
+      <Sequence from={f(12.7) + 9} durationInFrames={52}>
+        <TextoNoParapeito primeiro={10} duracao={52} />
       </Sequence>
       {/* Legendas por cima de tudo (inclusive da pessoa recortada) */}
       <Legendas captions={captions} punchLines={punchLines} />
