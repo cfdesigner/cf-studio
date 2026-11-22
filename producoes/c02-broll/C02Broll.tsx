@@ -57,9 +57,9 @@ type Riscada = { topoPct: number; escala: number };
 const RISCADA_PADRAO: Riscada = { topoPct: 13, escala: 1.15 }; // versão B aprovada pelo dono
 /** Zoom de aproximação em "construir uma experiência visual": escala final e ponto fixo (em % do quadro). */
 type Zoom = { escala: number; origemX: number; origemY: number };
-const ZOOM_PADRAO: Zoom = { escala: 1.35, origemX: 28, origemY: 85 };
+const ZOOM_PADRAO: Zoom = { escala: 1.4, origemX: 28, origemY: 88 }; // opção 2 aprovada pelo dono
 type Final = { depoisEscala: number; antesMax: number };
-const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 56 };
+const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 52 }; // opção 2 aprovada
 
 const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
   riscada,

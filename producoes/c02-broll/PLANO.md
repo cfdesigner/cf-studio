@@ -1,6 +1,6 @@
 # Plano de edição: C02 com b-roll (CFDesigner)
 
-Status: PROPOSTA, aguardando aprovação do dono.
+Status: **FECHADO** (vídeo final entregue). Veja "Depois da edição" no fim.
 **Design system:** CFDesigner · **Formato:** vertical 1080×1920 · **Duração:** 20,8 s de vídeo + fecho (~1,5 s) · **Plataforma:** Reels
 **Terceiro de nome:** não (dono não pediu).
 
@@ -64,3 +64,17 @@ Rosto: nas cenas 1 e 6 as caixas ficam no topo ou na lateral livre, nunca sobre 
 - Composição `C02Broll` (`C02Broll.tsx`): cena 1 com `TextoAtras`; legendas corrigidas (`legendas.json`); frases de efeito CÂMERA MELHOR (6,3 s), TRANSFORMAR COMPLETAMENTE (12,9 s, sugestão minha) e EXPERIÊNCIA VISUAL (18,85 s); checklist vertical (cartão escuro de cantos arredondados + linha âmbar + perspectiva leve virada para o centro) das 9,0 às 12,81 s; LightLeak no corte de 15,4 s; palavra riscada em 17,1 s (com vinheta suave no topo); saída com zoom/desfoque e fecho `FechoSimples` (2,5 s).
 - Áudio normalizado para -14 LUFS (`public/entrada/c02-broll-n.mp4`).
 - Aguardando o dono aprovar a prévia. Se aprovar o checklist vertical, mover para o design system.
+
+## Depois da edição (versão final)
+
+Composição `C02Broll`, 23,3 s (20,8 s de vídeo + fecho de 2,5 s), -14,1 LUFS. O que mudou em relação ao plano inicial:
+
+- **Cena 1:** "MUITO MAIS INTERESSANTE" atrás dele (recorte da pessoa com dois modelos, borda suave): virou o efeito `TextoAtras` do CFDesigner.
+- **Checklist:** versão vertical (cartão arredondado + linha âmbar + perspectiva leve): virou `ChecklistVertical` no CFDesigner.
+- **"Transformar completamente":** texto rastreado em cima do parapeito (rastreio ECC refinado + suavizado), saindo de trás da árvore (máscara por cor). Técnica em `tecnicas/texto-no-plano/`.
+- **Palavra riscada:** versão B (13% do topo, 1,15x) com vinheta suave no topo.
+- **"Construir uma experiência visual":** zoom de aproximação 1,4x (ponto fixo embaixo, rosto sobe) com "CONSTRUIR UMA" pequeno, "EXPERIÊNCIA" âmbar e "VISUAL" branco gelo do mesmo tamanho. `PunchLine` ganhou `depoisEscala` e `antesMax`.
+- Respiro entre "interessante?" e "Às vezes" mantido (música entra ali, edição do dono).
+- Vazamento de luz no corte de 15,4 s; fecho com o logo (`FechoSimples`).
+
+Lições: rastreio encadeado escorrega e treme, use ECC contra a referência; modelos de recorte prontos pegam o objeto "saliente" (o parapeito, não a árvore); legenda deve ficar por cima do recorte da pessoa; o zoom de aproximação com ponto fixo embaixo libera espaço para o texto sem cobrir o rosto.

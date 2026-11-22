@@ -45,6 +45,12 @@
 - [ ] **[dono + Claude]** Legendas com mais vídeos reais: música ao fundo, vídeo longo e horizontal (o primeiro vídeo real, CERTI News, já foi feito: fala real, vertical, arquivo chegou por anexo) O C02 (vertical, fala real, sem música) foi feito e aprovado no CFDesigner; faltam música ao fundo, vídeo longo e horizontal
 - [ ] **[Claude]** Confirmar com mais uma referência real o processo `criar-design-system` (já usado no CERTI com prints, sem vídeo)
 
+### C02 com b-roll
+
+- [x] **[Claude]** Vídeo final entregue (CFDesigner): texto atrás da pessoa, checklist vertical, texto rastreado no parapeito atrás da árvore, zoom final. Novos no design system: `TextoAtras`, `ChecklistVertical`. Novas técnicas: `tecnicas/recorte-pessoa/`, `tecnicas/texto-no-plano/`
+- [ ] **[Claude]** (opcional) Transformar o texto rastreado (`TextoNoPlano.tsx`) em efeito reutilizável do CFDesigner, se o dono quiser replicar em outras peças
+- [ ] **[dono]** Nas próximas produções, testar música ao fundo (o C02 tem o respiro de 1,6 s para a música entrar na edição dele)
+
 ### Ferramenta de recorte (texto atrás da pessoa)
 
 - [x] **[Claude]** `scripts/recortar-pessoa.py` + efeito `TextoAtras` do CFDesigner, aprovado pelo dono no C02 (cena 1)
