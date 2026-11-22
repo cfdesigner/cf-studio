@@ -80,3 +80,5 @@ Composição `C02Broll`, 23,3 s (20,8 s de vídeo + fecho de 2,5 s), -14,1 LUFS.
 - **Som:** efeitos do dono (`som/SOM.md`, kit em `design-systems/cfdesigner/assets/sfx/`); música do Suno aguardando o arquivo.
 
 Lições: rastreio encadeado escorrega e treme, use ECC contra a referência; modelos de recorte prontos pegam o objeto "saliente" (o parapeito, não a árvore); legenda deve ficar por cima do recorte da pessoa; o zoom de aproximação com ponto fixo embaixo libera espaço para o texto sem cobrir o rosto.
+
+- **Correção final (fala):** "composição" virou "percepção" na frase "você consegue transformar completamente a percepção daquela cena" (áudio regravado pelo dono e legenda). Detalhes em `som/SOM.md`.

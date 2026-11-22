@@ -2,6 +2,7 @@
 """Mixa os efeitos sonoros do C02 sobre a voz e grava um MP4 (vídeo copiado, sem recompressão).
 
 Uso: python3 producoes/c02-broll/som/mixar.py <video-in.mp4> <video-out.mp4> [--kit <pasta com WAVs do dono>]
+Voz (opcional): --voz <wav> usa essa voz no lugar do áudio do vídeo (ex.: com um trecho regravado, veja trocar_trecho_voz.py).
 Música (opcional): --musica <arquivo> [--musica-inicio S] [--musica-db DB (ganho base; usado: 2)]  (o impacto da música cai em IMPACTO_VIDEO s do vídeo;
 o início é o ponto da faixa que vira 0:00). A música é cortada do vídeo, ganha fade, abaixa quando há fala (sidechain) e sobe nas pausas.
 Padrão: os sons do dono em design-systems/cfdesigner/assets/sfx. --kit <pasta> usa outra pasta; --sintetico usa o kit sintetizado (kit.py, nomes antigos).
@@ -174,7 +175,7 @@ def arg(nome, padrao=None):
 
 
 def main():
-    skip = {"--kit", "--musica", "--musica-inicio", "--musica-db", "--musica-final"}
+    skip = {"--kit", "--musica", "--musica-inicio", "--musica-db", "--musica-final", "--voz"}
     a = [x for i, x in enumerate(sys.argv[1:], 1) if not x.startswith("--") and sys.argv[i - 1] not in skip]
     entrada, saida = a[0], a[1]
     raiz = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
@@ -195,8 +196,10 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         voz, fx, mus, mix = (os.path.join(tmp, f) for f in ("voz.wav", "sfx.wav", "mus.wav", "mix.wav"))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", entrada, "-vn", "-ac", "2", "-ar", str(SR), voz], check=True)
+        if arg("--voz"):                               # voz já corrigida (ex.: trocar_trecho_voz.py)
+            voz = arg("--voz")
         v = le_wav(voz); vv = np.zeros((n, 2)); vv[: min(n, len(v))] = v[:n]
-        grava(voz, vv); grava(fx, sfx)
+        voz_tmp = os.path.join(tmp, "voz_tmp.wav"); grava(voz_tmp, vv); grava(fx, sfx)
         golpe = None
         if musica:
             if final:

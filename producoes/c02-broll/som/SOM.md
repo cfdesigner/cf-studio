@@ -112,3 +112,13 @@ Problemas do primeiro caminho (ffmpeg puro): o filtro `volume` com expressão mu
 ## Frase "UMA CÂMERA MELHOR"
 
 `PunchLine.depoisTamanho`: "MELHOR" com o mesmo tamanho do "VISUAL" (203 px na base de 1080). "UMA" e "CÂMERA" não mudaram.
+
+## Correção de fala: "composição" → "percepção" (última alteração do C02)
+
+O dono regravou a frase "você consegue transformar completamente a percepção daquela cena" (vídeo `C02_1`). A referência é **a mesma gravação** do original (correlação 1,000 em todo o vídeo), **exceto** de 12,47 a 15,35 s, que é o trecho regravado.
+
+- `producoes/c02-broll/som/trocar_trecho_voz.py`: troca só esse trecho. Crossfades de 40 ms (12,43–12,47 s, na pausa antes de "você") e de 25 ms (15,325–15,350 s, na pausa antes de "E é justamente aí"). Fora do trecho, a voz é **bit a bit idêntica** à anterior (diferença máxima 0).
+- O ganho da normalização varia ao longo do vídeo (+4,7 a +8,7 dB nesse trecho). O trecho novo recebe a curva real de ganho que a normalização aplicou à fala antiga (energia de 0,3 s), não uma rampa reta. Nível do trecho: -17,4 dBFS antes e depois.
+- Legenda: `legendas.json` com "percepção" e os tempos das palavras regravadas (a "composição" de 10,22 s, do checklist, continua).
+- Mixar com a voz corrigida: `python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --voz public/entrada/voz-c02-corrigida.wav --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2 --musica-final 39.20,173.58`
+- Regerar a voz: `python3 producoes/c02-broll/som/trocar_trecho_voz.py out/c02-dourado.mp4 <C02-original-cru.mp4> <C02_1.mp4> public/entrada/voz-c02-corrigida.wav --de 12.43,12.47 --ate 15.325,15.350`

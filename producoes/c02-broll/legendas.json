@@ -275,58 +275,58 @@
  {
   "text": " você",
   "startMs": 12500,
-  "endMs": 12660,
-  "timestampMs": 12580,
+  "endMs": 12680,
+  "timestampMs": 12590,
   "confidence": 0.987
  },
  {
   "text": " consegue",
-  "startMs": 12660,
-  "endMs": 12980,
-  "timestampMs": 12820,
-  "confidence": 0.997
+  "startMs": 12680,
+  "endMs": 13020,
+  "timestampMs": 12850,
+  "confidence": 0.994
  },
  {
   "text": " transformar",
-  "startMs": 12980,
-  "endMs": 13480,
-  "timestampMs": 13230,
-  "confidence": 0.995
+  "startMs": 13020,
+  "endMs": 13540,
+  "timestampMs": 13280,
+  "confidence": 0.997
  },
  {
   "text": " completamente",
-  "startMs": 13480,
-  "endMs": 13840,
-  "timestampMs": 13660,
-  "confidence": 0.98
+  "startMs": 13540,
+  "endMs": 13900,
+  "timestampMs": 13720,
+  "confidence": 0.995
  },
  {
   "text": " a",
-  "startMs": 13840,
-  "endMs": 14260,
-  "timestampMs": 14050,
+  "startMs": 13900,
+  "endMs": 14240,
+  "timestampMs": 14070,
   "confidence": 0.989
  },
  {
-  "text": " composição",
-  "startMs": 14260,
-  "endMs": 14720,
-  "timestampMs": 14490,
-  "confidence": 0.998
+  "text": " percepção",
+  "startMs": 14240,
+  "endMs": 14760,
+  "timestampMs": 14500,
+  "confidence": 0.995
  },
  {
   "text": " daquela",
-  "startMs": 14720,
-  "endMs": 15020,
-  "timestampMs": 14870,
-  "confidence": 0.904
+  "startMs": 14760,
+  "endMs": 15060,
+  "timestampMs": 14910,
+  "confidence": 0.976
  },
  {
   "text": " cena.",
-  "startMs": 15020,
-  "endMs": 15280,
-  "timestampMs": 15150,
-  "confidence": 0.391
+  "startMs": 15060,
+  "endMs": 15300,
+  "timestampMs": 15180,
+  "confidence": 0.832
  },
  {
   "text": " E",
