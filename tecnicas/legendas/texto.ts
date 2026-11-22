@@ -17,6 +17,10 @@ export type PunchLine = {
   endMs: number;
   /** Palavra-chave. Se omitida, escolhe-se automaticamente (número, senão a palavra mais longa). */
   keyword?: string;
+  /** Tamanho do texto DEPOIS da palavra-chave, como fração do tamanho da palavra-chave (padrão: pequeno, estilo legenda). Ex.: 1 = igual. */
+  depoisEscala?: number;
+  /** Tamanho máximo, em px na base de 1080, do texto ANTES da palavra-chave (padrão 96). */
+  antesMax?: number;
 };
 
 export type Page = { words: Caption[]; startMs: number; endMs: number };

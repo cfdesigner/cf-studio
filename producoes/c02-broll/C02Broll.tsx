@@ -28,7 +28,6 @@ const captions = legendasJson as Caption[];
 // Frases de efeito (aprovadas pelo dono). "Transformar completamente" é um texto rastreado no parapeito (TextoNoParapeito).
 const punchLines: PunchLine[] = [
   { startMs: 6300, endMs: 7180, keyword: "câmera" },
-  { startMs: 18850, endMs: 20300, keyword: "experiência" },
 ];
 
 const f = (s: number) => Math.round(s * 30);
@@ -55,9 +54,14 @@ const VinhetaTopo: React.FC = () => {
 };
 
 type Riscada = { topoPct: number; escala: number };
-const RISCADA_PADRAO: Riscada = { topoPct: 3.2, escala: 0.72 };
+const RISCADA_PADRAO: Riscada = { topoPct: 13, escala: 1.15 }; // versão B aprovada pelo dono
+type Final = { depoisEscala: number; antesMax: number };
+const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 56 };
 
-const Corpo: React.FC<{ riscada: Riscada }> = ({ riscada }) => {
+const Corpo: React.FC<{ riscada: Riscada; final: Final }> = ({
+  riscada,
+  final,
+}) => {
   const fr = useCurrentFrame();
   const p = interpolate(fr, [VIDEO_FRAMES - SAIDA, VIDEO_FRAMES], [0, 1], {
     ...clamp,
@@ -111,7 +115,19 @@ const Corpo: React.FC<{ riscada: Riscada }> = ({ riscada }) => {
         <TextoNoParapeito primeiro={10} duracao={61} />
       </Sequence>
       {/* Legendas por cima de tudo (inclusive da pessoa recortada) */}
-      <Legendas captions={captions} punchLines={punchLines} />
+      <Legendas
+        captions={captions}
+        punchLines={[
+          ...punchLines,
+          {
+            startMs: 18850,
+            endMs: 20300,
+            keyword: "experiência",
+            depoisEscala: final.depoisEscala,
+            antesMax: final.antesMax,
+          },
+        ]}
+      />
       {/* Vazamento de luz no corte em que ele aparece: "E é justamente aí" */}
       <Sequence from={f(15.38) - 6} durationInFrames={36}>
         <LightLeak durationInFrames={36} from="left" />
@@ -130,12 +146,13 @@ const Corpo: React.FC<{ riscada: Riscada }> = ({ riscada }) => {
   );
 };
 
-export const C02Broll: React.FC<{ riscada?: Riscada }> = ({
+export const C02Broll: React.FC<{ riscada?: Riscada; final?: Final }> = ({
   riscada = RISCADA_PADRAO,
+  final = FINAL_PADRAO,
 }) => (
   <AbsoluteFill style={{ background: "#000" }}>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <Corpo riscada={riscada} />
+      <Corpo riscada={riscada} final={final} />
     </Sequence>
     <Sequence from={VIDEO_FRAMES} durationInFrames={FECHO_FRAMES}>
       <FechoSimples durationInFrames={FECHO_FRAMES} desfoque={18} />
