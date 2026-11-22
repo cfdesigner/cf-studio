@@ -39,15 +39,17 @@ const FECHO_FRAMES = 75;
 export const C02_FRAMES = VIDEO_FRAMES + FECHO_FRAMES;
 const TRANSICAO = 27;
 
-const Broll: React.FC<{ arquivo: string; startFrom?: number }> = ({
-  arquivo,
-  startFrom = 0,
-}) => (
+const Broll: React.FC<{
+  arquivo: string;
+  startFrom?: number;
+  velocidade?: number;
+}> = ({ arquivo, startFrom = 0, velocidade = 1 }) => (
   <AbsoluteFill>
     <OffthreadVideo
       src={staticFile(arquivo)}
       muted
       startFrom={startFrom}
+      playbackRate={velocidade}
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
     />
   </AbsoluteFill>
@@ -91,7 +93,8 @@ const Corpo: React.FC = () => {
       />
       {/* B-roll 1: "uma imagem" (imagem sem vida) */}
       <Sequence from={f(0.9)} durationInFrames={f(1.4)}>
-        <Broll arquivo="entrada/broll/b1.mp4" />
+        {/* clipe de 3 s acelerado (2,15x) para caber inteiro nos 1,4 s */}
+        <Broll arquivo="entrada/broll/b1.mp4" velocidade={2.15} />
       </Sequence>
       {/* B-roll 2: "produção gigantesca" */}
       <Sequence from={f(5.5)} durationInFrames={f(1.3)}>
