@@ -12,6 +12,7 @@ description: Use SEMPRE que o dono enviar um vídeo bruto (ou vários) para edit
 - **FFmpeg 6.1** no sistema (`ffmpeg`, `ffprobe`; H.264, H.265/HEVC, AAC; filtros `xfade`, `scdet`, `silencedetect`, `loudnorm`). O Remotion traz o dele: `npx remotion ffmpeg`.
 - **Whisper** (CPU) para transcrição: skill `whisper`.
 - **Pacotes oficiais do Remotion 4.0.544**: `@remotion/transitions` (`TransitionSeries`, 21 apresentações), `@remotion/motion-blur` (só o `HtmlInCanvasMotionBlur` funciona bem: veja o passo 5), `@remotion/media-utils`, `@remotion/captions`.
+- **`scripts/recortar-pessoa.py`**: recorta a pessoa do fundo (grátis, CPU) para texto atrás dela. Veja `tecnicas/recorte-pessoa/README.md` e o efeito `TextoAtras` do CFDesigner.
 - **`scripts/analisar-video.py`**: a ferramenta de análise (abaixo).
 - Skills oficiais de apoio (leia só a que for usar): `remotion-markup/transitions.md`, `video-editing.md`, `silence-detection.md`, `ffmpeg.md`, `sfx.md`, `audio.md`.
 

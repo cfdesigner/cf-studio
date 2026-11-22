@@ -24,6 +24,7 @@ import {
 
 - `FlashCut` (clarão branco-gelo, 12 frames) e `LightLeak` (vazamento âmbar, ~1 s) **em cortes**. Nunca atrás de texto.
 - `WipeReveal` para revelar blocos; `BlurIn` para entradas suaves.
+- `TextoAtras`: texto entrando atrás da pessoa recortada (veja Legendas).
 - Um destaque âmbar por peça: não empilhe efeito âmbar com texto âmbar no mesmo instante.
 
 ## Legendas
@@ -33,6 +34,7 @@ import {
 - **Posição:** acima dos ~24% de baixo (botões de Reels/Shorts).
 - **Agrupamento** (`buildPages`): até 34 caracteres, 7 palavras, pausa de 550 ms.
 - **Entrelinha 1,12** (escolha do dono, entre 1,25, 1,12 e 1,0): as linhas ficam mais próximas, mas as letras que descem (g, p, q, ç) ainda têm folga. Parâmetro `entrelinha`.
+- **Frase de efeito atrás da pessoa** (`TextoAtras`, alternativa ao Título de cinema quando a pessoa está falando para a câmera): texto gigante em Bebas, branco gelo + uma palavra em âmbar, sobe de baixo para cima atrás da cabeça, com a pessoa recortada por cima. Guia em `docs/efeitos.md`; recorte em `tecnicas/recorte-pessoa/`. Aprovada pelo dono.
 - Componente: `Legendas` (captions + punchLines aprovadas). As frases de efeito são sugeridas por `scripts/frases-de-efeito.mjs` e **sempre aprovadas pelo dono**.
 
 ## Terceiro de nome
