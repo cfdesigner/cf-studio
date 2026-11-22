@@ -49,3 +49,12 @@ Rosto: nas cenas 1 e 6 as caixas ficam no topo ou na lateral livre, nunca sobre 
 - Cena 1: rosto pequeno e centralizado, o gráfico não entra. Por isso o gancho fica só com legenda.
 - Cortes 8,61/8,64 e 12,81/12,85 aparecem duplos na análise, é o mesmo corte (conferido na folha de contato).
 - Já existe `producoes/c02-legendas` (versão anterior, 19,5 s, só com legendas). Esta é outra montagem, por isso a pasta nova `c02-broll`.
+
+## Decisões do dono (sessão 1)
+
+- Respiro de 1,6 s entre "interessante?" e "Às vezes": **manter** (ele vai subir a música ali, impacto).
+- Frase de efeito "CÂMERA MELHOR": aprovada. Outras frases de impacto: o dono indica se quiser.
+- Cena 1: "MUITO MAIS INTERESSANTE" atrás dele (aprovado, já no design system como `TextoAtras`). A frase inicial "Sabe quando tu olha…" vai só como legenda.
+- Checklist: fazer versão **vertical** (b-roll é vertical); rascunho em `ChecklistVertical.tsx`, aguardando escolha A (cartão) ou B (painel). Se ficar bom, vai para o design system.
+- Volume: normalizar para -14 LUFS (testar; se não ficar bom, voltar).
+- Fecho com o logo, como nas outras produções (`FechoSimples`).

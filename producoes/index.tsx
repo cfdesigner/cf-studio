@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition } from "remotion";
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
+import { ChecklistTeste } from "./c02-broll/ChecklistVertical";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
 import { CERTI_NEWS_FRAMES, CertiNews } from "./certi-news/CertiNews";
 
@@ -35,5 +36,7 @@ export const Producoes: React.FC = () => (
       width={1080}
       height={1920}
     />
+    <Composition id="ChecklistCartao" component={() => <ChecklistTeste variante="cartao" />} durationInFrames={126} fps={30} width={1080} height={1920} />
+    <Composition id="ChecklistLivre" component={() => <ChecklistTeste variante="livre" />} durationInFrames={126} fps={30} width={1080} height={1920} />
   </>
 );
