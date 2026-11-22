@@ -55,17 +55,26 @@ const VinhetaTopo: React.FC = () => {
 
 type Riscada = { topoPct: number; escala: number };
 const RISCADA_PADRAO: Riscada = { topoPct: 13, escala: 1.15 }; // versão B aprovada pelo dono
+/** Zoom de aproximação em "construir uma experiência visual": escala final e ponto fixo (em % do quadro). */
+type Zoom = { escala: number; origemX: number; origemY: number };
+const ZOOM_PADRAO: Zoom = { escala: 1.35, origemX: 28, origemY: 85 };
 type Final = { depoisEscala: number; antesMax: number };
 const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 56 };
 
-const Corpo: React.FC<{ riscada: Riscada; final: Final }> = ({
+const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
   riscada,
   final,
+  zoom,
 }) => {
   const fr = useCurrentFrame();
   const p = interpolate(fr, [VIDEO_FRAMES - SAIDA, VIDEO_FRAMES], [0, 1], {
     ...clamp,
     easing: Easing.in(Easing.cubic),
+  });
+  // aproximação em "construir uma experiência visual" (a fala começa em 18,9 s)
+  const zoomP = interpolate(fr, [f(18.85), f(18.85) + 18], [0, 1], {
+    ...clamp,
+    easing: Easing.out(Easing.cubic),
   });
   const escuro = interpolate(fr, [VIDEO_FRAMES - 10, VIDEO_FRAMES], [1, 0], clamp);
   return (
@@ -76,10 +85,17 @@ const Corpo: React.FC<{ riscada: Riscada; final: Final }> = ({
         filter: `blur(${p * 14}px)`,
       }}
     >
-      <OffthreadVideo
-        src={staticFile("entrada/c02-broll-n.mp4")}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
+      <AbsoluteFill
+        style={{
+          transformOrigin: `${zoom.origemX}% ${zoom.origemY}%`,
+          transform: `scale(${1 + (zoom.escala - 1) * zoomP})`,
+        }}
+      >
+        <OffthreadVideo
+          src={staticFile("entrada/c02-broll-n.mp4")}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </AbsoluteFill>
       {/* Cena 1: texto gigante atrás dele (0 a 3,6 s) */}
       <Sequence from={0} durationInFrames={f(3.57)}>
         <TextoAtras
@@ -146,13 +162,18 @@ const Corpo: React.FC<{ riscada: Riscada; final: Final }> = ({
   );
 };
 
-export const C02Broll: React.FC<{ riscada?: Riscada; final?: Final }> = ({
+export const C02Broll: React.FC<{
+  riscada?: Riscada;
+  final?: Final;
+  zoom?: Zoom;
+}> = ({
   riscada = RISCADA_PADRAO,
   final = FINAL_PADRAO,
+  zoom = ZOOM_PADRAO,
 }) => (
   <AbsoluteFill style={{ background: "#000" }}>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <Corpo riscada={riscada} final={final} />
+      <Corpo riscada={riscada} final={final} zoom={zoom} />
     </Sequence>
     <Sequence from={VIDEO_FRAMES} durationInFrames={FECHO_FRAMES}>
       <FechoSimples durationInFrames={FECHO_FRAMES} desfoque={18} />
