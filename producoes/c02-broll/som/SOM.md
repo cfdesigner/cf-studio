@@ -1,0 +1,81 @@
+# Som do C02: efeitos e música
+
+Status: PRÉVIA dos efeitos (kit sintetizado) para o dono ouvir; música a ser gerada por ele no Suno. Nenhuma ferramenta de IA paga usada.
+
+## Leitura do C01 do dono (referência)
+
+- Efeitos curtos, secos, colados nos gráficos: clique/"pop" nas marcas do checklist (ex.: ~20,9 s, "SOM"), whooshes que **começam ~0,15 a 0,25 s antes do corte** (3,6 · 8,8 · 16,7 · 21,6 s), impactos graves, e um tom agudo discreto perto do logo.
+- A fala domina o áudio; a música está baixa por baixo: **lá menor** (sub A1, e pad com E, A, G, B, C), cauda de ~4 s no fim, andamento em torno de **100 BPM** (batidas a cada 0,3 s no respiro de 7,4 a 8,4 s).
+- Não dá para extrair os sons dele da mistura (voz e música por cima). **Pedir ao dono um export só com os efeitos** (sem voz e sem música) para usar os sons exatos.
+
+## Mapa de efeitos do C02 (`mixar.py`, lista `EVENTOS`)
+
+Tempo = início do som (o pico do whoosh cai perto do fim dele).
+
+| Tempo | Som | O que é |
+| --- | --- | --- |
+| 2,20 | whoosh_card | texto "MUITO MAIS" sobe atrás dele |
+| 2,52 | hit (leve) | "INTERESSANTE" entra |
+| 3,36 | whoosh | corte para a praia (o respiro de 1,6 s fica livre para a música) |
+| 6,00 | whoosh | corte para o mar |
+| 6,36 | hit | frase de efeito "CÂMERA MELHOR" |
+| 8,40 | whoosh | corte para a árvore |
+| 8,85 | whoosh_card | cartão do checklist entra |
+| 9,30 · 10,00 · 10,90 · 11,25 · 11,92 | tick | ✓ Direção, Composição, Cor, Iluminação, Som (0,2 s antes de cada palavra) |
+| 12,55 | whoosh | corte para o parapeito |
+| 13,02 | hit (leve) | "TRANSFORMAR COMPLETAMENTE" emerge de trás da árvore |
+| 15,12 | whoosh | corte em que ele aparece |
+| 15,20 | shimmer | vazamento de luz âmbar |
+| 15,36 | hit | "E é justamente aí" |
+| 16,84 | whoosh_card | "SIMPLESMENTE" entra |
+| 17,58 | zip | risco em "EDITAR" |
+| 18,78 | whoosh_zoom | zoom de aproximação |
+| 19,34 | hit (forte) | "EXPERIÊNCIA VISUAL" |
+| 20,05 | reverso | saída (zoom e desfoque) |
+| 20,95 | ding | logo CFDesigner |
+
+Trocar pelos sons do dono: `python3 producoes/c02-broll/som/mixar.py <video> <saida> --kit <pasta com tick.wav, whoosh.wav, hit.wav...>`.
+
+## Música para o Suno (instrumental)
+
+**Estilo (cole em "Style of Music"):**
+
+> Instrumental cinematic minimal electronic, premium and modern, dark with one warm amber glow. A minor, 100 BPM. Deep sub bass (A1) with a soft pulse, warm felt piano and muted pluck arpeggio, airy analog pad, tight understated percussion (soft kick, light rim click, fine hi-hats). Confident, focused, elegant. Leaves space for a voice-over: sparse mid-range, nothing busy between 300 Hz and 3 kHz. Clean mix, tasteful reverb, long natural tail at the end. No vocals.
+
+**Versão curta (limite de 200 caracteres):**
+
+> Instrumental cinematic minimal electronic, A minor 100 BPM, deep sub bass, warm felt piano, muted pluck, airy pad, soft kick, premium, space for voice-over, no vocals
+
+**Excluir (Exclude Styles):** vocals, lyrics, choir, EDM drop, trap hi-hat rolls, distorted guitar, 8-bit, lo-fi crackle, bright happy pop, ukulele
+
+**Estrutura (cole em "Lyrics", só as marcas):**
+
+```
+[Instrumental]
+[Intro: sparse, soft pad and sub bass only, no drums, intimate]
+[Build: filtered riser, drums drop out, one beat of silence, tension]
+[Drop: soft kick and deep sub enter on the downbeat, steady minimal groove]
+[Verse: felt piano and muted pluck, light hats, steady, understated]
+[Lift: pluck arpeggio opens up, pad widens, a little brighter]
+[Build: short rising tension, drums thin out]
+[Outro: sustained A minor pad rings out with long reverb tail, fade, clean ending]
+```
+
+**Como o vídeo se encaixa (para eu editar):**
+
+| Vídeo | Música |
+| --- | --- |
+| 0:00–0:03 (ele fala, texto atrás dele) | intro esparsa, pad + sub |
+| 0:03–0:05 (respiro de 1,6 s) | build com riser e 1 batida de silêncio, **impacto em 0:04,9** ("Às vezes") |
+| 0:05–0:15 | groove estável, baixo nível (a voz manda) |
+| 0:15 ("E é justamente aí") | lift: arpejo abre, pad alarga |
+| 0:19–0:21 (experiência visual) | tensão curta |
+| 0:21–0:23 (logo) | pad de lá menor soltando, cauda longa |
+
+Gere **3 ou 4 variações de 30 a 60 s**; eu escolho o melhor trecho, alinho o impacto a 4,9 s, aparo para 23,3 s com cauda e deixo a música uns 18 a 20 dB abaixo da fala (com "ducking" quando ele fala).
+
+**Variações do estilo (se a primeira não agradar):** (B, mais quente) trocar "dark with one warm amber glow" por "warm, hopeful, inspiring, gentle build"; (C, mais tenso) "dark, tense, thriller-like, low drone, slow heartbeat pulse".
+
+## Para os efeitos do dono
+
+Exportar do editor, na mesma linha do tempo do C01: **áudio só com os efeitos** (mute na fala e na música), WAV de preferência. Se tiver os arquivos soltos de cada som, melhor ainda: tick/pop da marca, whoosh de corte, entrada de cartão, impacto, risco, tom do logo.
