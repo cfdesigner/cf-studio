@@ -19,6 +19,8 @@ export type PunchLine = {
   keyword?: string;
   /** Tamanho do texto DEPOIS da palavra-chave, como fração do tamanho da palavra-chave (padrão: pequeno, estilo legenda). Ex.: 1 = igual. */
   depoisEscala?: number;
+  /** Escurecimento do fundo durante a frase de efeito, de 0 a 1 (padrão 0,4). Menos = fundo mais claro. */
+  escurece?: number;
   /** Tamanho máximo, em px na base de 1080, do texto ANTES da palavra-chave (padrão 96). */
   antesMax?: number;
 };

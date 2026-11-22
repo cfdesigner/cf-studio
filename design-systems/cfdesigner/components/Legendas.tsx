@@ -102,7 +102,10 @@ export const Legendas: React.FC<LegendasProps> = ({
     return (
       <AbsoluteFill>
         <AbsoluteFill
-          style={{ background: "rgba(11,12,14,.4)", opacity: dim }}
+          style={{
+            background: `rgba(11,12,14,${punch.escurece ?? 0.4})`,
+            opacity: dim,
+          }}
         />
         <AbsoluteFill style={zone}>
           <div

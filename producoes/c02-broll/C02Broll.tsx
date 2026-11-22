@@ -61,6 +61,7 @@ type Zoom = { escala: number; origemX: number; origemY: number };
 const ZOOM_PADRAO: Zoom = { escala: 1.4, origemX: 28, origemY: 88 }; // opção 2 aprovada pelo dono
 /** Look (LUT) do vídeo-base: sufixo das pastas/arquivos já gradados ("" = sem look). Dourado Suave aprovado pelo dono. */
 const LOOK_PADRAO = "-dourado";
+const ESCURECE_PADRAO = 0.4;
 type Final = { depoisEscala: number; antesMax: number };
 const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 52 }; // opção 2 aprovada
 
@@ -69,7 +70,8 @@ const Corpo: React.FC<{
   final: Final;
   zoom: Zoom;
   look: string;
-}> = ({ riscada, final, zoom, look }) => {
+  escurece: number;
+}> = ({ riscada, final, zoom, look, escurece }) => {
   const fr = useCurrentFrame();
   const p = interpolate(fr, [VIDEO_FRAMES - SAIDA, VIDEO_FRAMES], [0, 1], {
     ...clamp,
@@ -147,13 +149,14 @@ const Corpo: React.FC<{
       <Legendas
         captions={captions}
         punchLines={[
-          ...punchLines,
+          ...punchLines.map((p) => ({ ...p, escurece })),
           {
             startMs: 18850,
             endMs: 20300,
             keyword: "experiência",
             depoisEscala: final.depoisEscala,
             antesMax: final.antesMax,
+            escurece,
           },
         ]}
       />
@@ -180,15 +183,24 @@ export const C02Broll: React.FC<{
   final?: Final;
   zoom?: Zoom;
   look?: string;
+  /** Escurecimento do fundo nas frases de efeito (0 a 1). */
+  escurece?: number;
 }> = ({
   riscada = RISCADA_PADRAO,
   final = FINAL_PADRAO,
   zoom = ZOOM_PADRAO,
   look = LOOK_PADRAO,
+  escurece = ESCURECE_PADRAO,
 }) => (
   <AbsoluteFill style={{ background: "#000" }}>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <Corpo riscada={riscada} final={final} zoom={zoom} look={look} />
+      <Corpo
+        riscada={riscada}
+        final={final}
+        zoom={zoom}
+        look={look}
+        escurece={escurece}
+      />
     </Sequence>
     <Sequence from={VIDEO_FRAMES} durationInFrames={FECHO_FRAMES}>
       <FechoSimples durationInFrames={FECHO_FRAMES} desfoque={18} />
