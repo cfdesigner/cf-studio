@@ -28,7 +28,8 @@ const captions = legendasJson as Caption[];
 
 // Frases de efeito (aprovadas pelo dono). "Transformar completamente" é um texto rastreado no parapeito (TextoNoParapeito).
 const punchLines: PunchLine[] = [
-  { startMs: 6300, endMs: 7180, keyword: "câmera" },
+  // "MELHOR" no mesmo tamanho do "VISUAL" do final (fit de "EXPERIÊNCIA": 960 / (11 × 0,43) ≈ 203 px)
+  { startMs: 6300, endMs: 7180, keyword: "câmera", depoisTamanho: 203 },
 ];
 
 const f = (s: number) => Math.round(s * 30);

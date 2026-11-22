@@ -97,3 +97,18 @@ Antes, a música terminava em fade-out sobre a quebra (soava cortada). Agora o f
 - O golpe ganha +6 dB (`REFORCO_GOLPE`) porque a fala está em cima e a redução automática o esconderia.
 - Comando: `python3 producoes/c02-broll/som/mixar.py out/c02-dourado.mp4 out/c02-final-completo.mp4 --musica public/entrada/musica/c02-suno.mp3 --musica-inicio 20.64 --musica-db 2 --musica-final 39.20,173.58`
 - Regra para outras produções: ache a troca de acorde do groove e a troca do final real da música, emende numa batida com o mesmo baixo e alinhe pelos kicks (`monta_musica` e `onset_kick` em `mixar.py`).
+
+## Mixagem refinada (substitui o caminho antigo com `sidechaincompress` e `loudnorm`)
+
+Problemas do primeiro caminho (ffmpeg puro): o filtro `volume` com expressão muda de ganho em degraus de ~20 ms (chiado nas rampas), o `loudnorm` dinâmico mexe no nível durante a cauda, o som `grande` caía 60 ms depois do golpe da música (flam) e o `fraco` em 22,95 s abria um blip no meio da cauda. Agora (`mixa_com_musica` em `mixar.py`), tudo em numpy:
+
+- **Automação suave, amostra a amostra:** curvas em cosseno (`suave`) para o reforço da intro/respiro (desce em 0,5 s depois do impacto), a subida da saída (0,8 s) e o reforço do golpe final.
+- **Redução da música por detecção de fala** (não por compressor): janela de 40 ms, antecipação de 30 ms (a música já está baixa quando a voz começa), ataque 40 ms, solta 380 ms (não "bombeia" entre palavras), 7 dB de redução.
+- **Fades em cosseno:** entrada 0,8 s, saída 2 s; sem `fraco` no fim, só a cauda do acorde.
+- **Normalização linear** para -14 LUFS (ganho estático medido) e limitador de pico (`alimiter`, teto 0,84): sem pumping na cauda.
+- **Emenda:** crossfade de 30 ms terminando no kick, com ajuste de fase de ±2 ms; sem pico de alta frequência na emenda; `grande` alinhado ao golpe (0 ms de defasagem; o crescendo dele termina em ~0,25 s, então começa em 18,90 s).
+- Resultado: -14,1 LUFS, LRA 4,4 LU.
+
+## Frase "UMA CÂMERA MELHOR"
+
+`PunchLine.depoisTamanho`: "MELHOR" com o mesmo tamanho do "VISUAL" (203 px na base de 1080). "UMA" e "CÂMERA" não mudaram.

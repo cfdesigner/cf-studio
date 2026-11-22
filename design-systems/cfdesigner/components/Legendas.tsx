@@ -140,7 +140,9 @@ export const Legendas: React.FC<LegendasProps> = ({
               <div
                 style={{
                   ...line,
-                  fontSize: punch.depoisEscala
+                  fontSize: punch.depoisTamanho
+                    ? punch.depoisTamanho * k
+                    : punch.depoisEscala
                     ? fit(texts[ki]?.length ?? 1, maxW, 300 * k, 110 * k) *
                       punch.depoisEscala
                     : fit(below.length, maxW, 96 * k, 48 * k),

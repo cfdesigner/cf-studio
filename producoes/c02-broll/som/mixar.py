@@ -30,10 +30,9 @@ EVENTOS = [
     (15.08, "cartao", 0, "corte em que ele aparece + vazamento de luz"),
     (16.76, "cartao", 0, "'SIMPLESMENTE EDITAR' entra"),
     (18.10, "fraco", 0, "palavra riscada sai"),
-    (18.95, "grande", 0, "zoom de aproximação + golpe final da música: 'EXPERIÊNCIA VISUAL'"),
+    (18.90, "grande", 0, "zoom de aproximação + golpe final da música (o crescendo do som termina em ~0,25 s, em cima do golpe)"),
     (20.14, "fraco", 0, "saída: zoom e desfoque"),
     (20.70, "grande", 0, "logo CFDesigner"),
-    (22.95, "fraco", 0, "logo sai"),
 ]
 # o C01 do dono tem a fala a -16,7 LUFS; o nosso vídeo, a -14,1: sobe os efeitos junto para manter o equilíbrio dele
 MASTER_DB = 2.6
@@ -76,13 +75,98 @@ def monta_musica(arquivo, m_ini, batida_a, batida_b, xf=0.03):
     i_a0 = int(m_ini * SR); i_cut = int((ta - xf) * SR)
     a = m[i_a0:i_cut]; out[: len(a)] = a
     # parte B: começa xf antes do kick de B
-    i_b0 = int((tb - xf) * SR); b = m[i_b0: i_b0 + (n - len(a))]
+    i_b0 = int((tb - xf) * SR)
+    # ajuste fino de fase (±2 ms): o grave (dó) de A e de B tem que estar em fase na emenda, senão se cancelam no crossfade
+    lp = lambda z: np.convolve(z, np.ones(48) / 48, mode="same")
+    ref = lp(mono[i_cut - int(0.08 * SR): i_cut])
+    melhor, melhor_c = 0, -2
+    for d in range(-int(0.002 * SR), int(0.002 * SR) + 1):
+        cand = lp(mono[i_b0 + d - int(0.08 * SR): i_b0 + d])
+        c = float(ref @ cand / (np.linalg.norm(ref) * np.linalg.norm(cand) + 1e-12))
+        if c > melhor_c: melhor, melhor_c = d, c
+    i_b0 += melhor
+    print(f"ajuste de fase da emenda: {melhor / SR * 1000:+.2f} ms (correlação do grave {melhor_c:.2f})")
+    b = m[i_b0: i_b0 + (n - len(a))]
     # crossfade de potência igual nos xf segundos finais de A
     nx = int(xf * SR); t = np.linspace(0, np.pi / 2, nx)
     a_cauda = m[i_cut: i_cut + nx]
     out[len(a): len(a) + nx] = a_cauda * np.cos(t)[:, None] + b[:nx] * np.sin(t)[:, None]
     rest = b[nx:]; out[len(a) + nx: len(a) + nx + len(rest)] = rest[: n - len(a) - nx]
     return out, t_emenda
+
+
+# ---------------------------------------------------------------- mixagem com música (automação suave, amostra a amostra)
+DUCK_DB = 7.0          # redução da música quando há fala
+DUCK_ATAQUE = 0.040    # s (a música cede em 40 ms, com 30 ms de antecipação: já está baixa quando a voz começa)
+DUCK_SOLTA = 0.380     # s (volta devagar; entre palavras não "bombeia")
+ANTECIPA = 0.030
+
+
+def suave(t, a, b):
+    """0 antes de a, 1 depois de b, com curva de cosseno (sem degrau nem quina)."""
+    u = np.clip((t - a) / (b - a), 0, 1)
+    return 0.5 - 0.5 * np.cos(np.pi * u)
+
+
+def atividade_voz(v, n):
+    """0..1 por amostra: há fala? Janela de 40 ms, antecipação e ataque/solta assimétricos num grid de 200 Hz."""
+    mono = v.mean(1); c = np.cumsum(mono ** 2); w = int(0.04 * SR)
+    rms = np.sqrt(np.maximum(c[w:] - c[:-w], 0) / w); rms = np.concatenate([np.zeros(w), rms])
+    db = 20 * np.log10(rms + 1e-9)
+    ativ = suave(db, -46, -36)                                   # 0 em silêncio, 1 com fala
+    passo = SR // 200; m = len(ativ) // passo
+    g = ativ[: m * passo].reshape(m, passo).max(1)               # pico por bloco de 5 ms
+    g = np.concatenate([g[int(ANTECIPA * 200):], np.zeros(int(ANTECIPA * 200))])
+    out = np.zeros(m); y = 0.0
+    ka = 1 - np.exp(-1 / (DUCK_ATAQUE * 200)); ks = 1 - np.exp(-1 / (DUCK_SOLTA * 200))
+    for i in range(m):
+        y += (ka if g[i] > y else ks) * (g[i] - y); out[i] = y
+    return np.interp(np.arange(n) / SR, np.arange(m) / 200, out)
+
+
+def ganho_musica(n, v, m_db, golpe):
+    t = np.arange(n) / SR
+    db = m_db + np.zeros(n)
+    db += REFORCO_INTRO * (1 - suave(t, IMPACTO_VIDEO + 0.03, IMPACTO_VIDEO + 0.55))     # intro e respiro mais altos, descem suave depois do impacto
+    db += REFORCO_SAIDA * suave(t, 20.1, 20.9)                                           # sobe devagar depois da fala
+    if golpe is not None:                                                                # protege o golpe final (a fala está em cima)
+        db += REFORCO_GOLPE * suave(t, golpe - 0.12, golpe + 0.03) * (1 - suave(t, golpe + 0.30, golpe + 1.0))
+    db -= DUCK_DB * atividade_voz(v, n)
+    return 10 ** (db / 20)
+
+
+def eq_musica(m):
+    with tempfile.TemporaryDirectory() as tmp:
+        a, b = os.path.join(tmp, "a.wav"), os.path.join(tmp, "b.wav")
+        pcm = (np.clip(m, -1, 1) * 32767).astype(np.int16)
+        with wave.open(a, "wb") as w:
+            w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a, "-af",
+                        "highpass=f=35,equalizer=f=250:t=q:w=1.2:g=-4,equalizer=f=2500:t=q:w=1.0:g=-3", b], check=True)
+        return le_wav(b)
+
+
+def mixa_com_musica(vv, sfx, mus, m_db, golpe, saida, entrada):
+    n = len(vv)
+    mus = eq_musica(mus[:n])
+    t = np.arange(n) / SR
+    mus = mus * ganho_musica(n, vv, m_db, golpe)[:, None]
+    mus *= (suave(t, 0, 0.8) * (1 - suave(t, DURACAO - FADE_FINAL, DURACAO)))[:, None]       # entrada e saída em cosseno
+    mix = vv + sfx + mus
+    esc = 0.5 / np.abs(mix).max()                                                         # escala segura só para medir
+    with tempfile.TemporaryDirectory() as tmp:
+        pre = os.path.join(tmp, "pre.wav")
+        pcm = (np.clip(mix * esc, -1, 1) * 32767).astype(np.int16)
+        with wave.open(pre, "wb") as w:
+            w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
+        r = subprocess.run(["ffmpeg", "-nostats", "-i", pre, "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True)
+        lufs = float([l for l in r.stderr.splitlines() if "I:" in l][-1].split("I:")[1].split("LUFS")[0])
+        ganho = -14.0 - lufs                                                              # ganho ESTÁTICO (sem loudnorm dinâmico)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", entrada, "-i", pre, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                        "-af", f"volume={ganho}dB,alimiter=limit=0.84:attack=5:release=80:level=0",
+                        "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-shortest", saida], check=True)
+    print(f"ganho estático {ganho:+.2f} dB; ok: {saida}")
+
 
 
 def arg(nome, padrao=None):
@@ -113,28 +197,22 @@ def main():
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", entrada, "-vn", "-ac", "2", "-ar", str(SR), voz], check=True)
         v = le_wav(voz); vv = np.zeros((n, 2)); vv[: min(n, len(v))] = v[:n]
         grava(voz, vv); grava(fx, sfx)
-        protege = ""
-        if musica and final:
-            ba, bb = (float(v) for v in final.split(","))
-            arr, t_emenda = monta_musica(musica, m_ini, ba, bb)
-            musica = os.path.join(tmp, "musica_montada.wav"); grava(musica, arr)
-            print(f"emenda no vídeo: {t_emenda:.3f} s; golpe final da música: {t_emenda + 0.6:.3f} s")
-            m_ini = 0
-            h = t_emenda + 0.6
-            protege = f"+{REFORCO_GOLPE}*clip((t-{h - 0.1})/0.05,0,1)*clip(({h + 0.8}-t)/0.4,0,1)"
+        golpe = None
         if musica:
-            # corta o trecho da música; fade de entrada e fade de saída com a cauda terminando no fim do vídeo
-            filtro_m = (f"[0:a]atrim=start={m_ini}:duration={DURACAO},asetpts=PTS-STARTPTS,"
-                        f"afade=t=in:st=0:d=0.8,afade=t=out:st={DURACAO - FADE_FINAL}:d={FADE_FINAL},"
-                        f"highpass=f=35,equalizer=f=250:t=q:w=1.2:g=-4,equalizer=f=2500:t=q:w=1.0:g=-3,"
-                        f"volume='pow(10,({m_db}+{REFORCO_INTRO}*clip(({IMPACTO_VIDEO + 0.14}-t)/0.15,0,1)+{REFORCO_SAIDA}*clip((t-20.1)/0.4,0,1){protege})/20)':eval=frame[m];"
-                        f"[1:a]asplit[v1][v2];"
-                        f"[m][v2]sidechaincompress=threshold=0.06:ratio=3:attack=30:release=400:makeup=1[md];"
-                        f"[v1][2:a][md]amix=inputs=3:normalize=0:duration=first[o]")
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", musica, "-i", voz, "-i", fx, "-filter_complex", filtro_m,
-                            "-map", "[o]", "-ar", str(SR), "-ac", "2", mix], check=True)
-        else:
-            grava(mix, np.clip(vv + sfx, -1, 1))
+            if final:
+                ba, bb = (float(v) for v in final.split(","))
+                arr, t_emenda = monta_musica(musica, m_ini, ba, bb)
+                golpe = t_emenda + 0.6
+                print(f"emenda no vídeo: {t_emenda:.3f} s; golpe final da música: {golpe:.3f} s")
+            else:
+                with tempfile.TemporaryDirectory() as t2:
+                    wv = os.path.join(t2, "m.wav")
+                    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(m_ini), "-t", str(DURACAO), "-i", musica, "-ac", "2", "-ar", str(SR), wv], check=True)
+                    arr = le_wav(wv)
+            full = np.zeros((n, 2)); full[: min(n, len(arr))] = arr[:n]
+            mixa_com_musica(vv, sfx, full, m_db, golpe, saida, entrada)
+            return
+        grava(mix, np.clip(vv + sfx, -1, 1))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", entrada, "-i", mix, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
                         "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-c:a", "aac", "-b:a", "192k", "-shortest", saida], check=True)
     print("ok:", saida)
