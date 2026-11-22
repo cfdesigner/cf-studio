@@ -54,6 +54,7 @@ import {
 Vindos do vídeo de referência C01 e aprovados pelo dono. Todos em corte seco (aparecem de uma vez), sem animação de entrada.
 
 - `ChecklistCard`: cartão escuro com borda dourada fina, chamada em Montserrat espaçada e itens em Bebas Neue com caixinha. Marcas `x` (riscado e apagado) e `check` (dourado) trocam num quadro só. Marque uns décimos de segundo ANTES da palavra dita.
+- `ChecklistVertical`: versão em coluna do checklist, para vídeo/b-roll vertical (aprovada pelo dono no C02). Cartão escuro de cantos arredondados, borda dourada fina, **linha âmbar na lateral** e **perspectiva leve** (12° em X, 14° em Y) virada para o centro da imagem (sentido automático). Marque cada item uns 0,2 s antes da palavra. Posição por `esquerda`/`topo` (padrão: esquerda, no alto).
 - `IconeRotulo`: quadrado escuro com ícone dourado (`cronometro` com ponteiro girando, `play`) e palavra em Bebas dourado. **Inclinado 25° em X e 25° em Y por padrão** (`inclinacao`, `inclinacaoY`); o sentido do Y é automático: a caixinha fica sempre virada para o centro da imagem.
 - `PalavraRiscada`: chamada dourada pequena e palavra grande em Bebas branco com fio dourado.
 - `TelaComRosto`: fundo preto, gravação de tela em cima e câmera embaixo em moldura arredondada.

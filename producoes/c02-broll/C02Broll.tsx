@@ -10,6 +10,7 @@ import {
   useCurrentFrame,
 } from "remotion";
 import {
+  ChecklistVertical,
   colors,
   FechoSimples,
   LightLeak,
@@ -19,7 +20,6 @@ import {
   type Caption,
   type PunchLine,
 } from "../../design-systems/cfdesigner";
-import { ChecklistVertical } from "./ChecklistVertical";
 import legendasJson from "./legendas.json";
 
 const captions = legendasJson as Caption[];
