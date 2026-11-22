@@ -61,7 +61,7 @@ type Zoom = { escala: number; origemX: number; origemY: number };
 const ZOOM_PADRAO: Zoom = { escala: 1.4, origemX: 28, origemY: 88 }; // opção 2 aprovada pelo dono
 /** Look (LUT) do vídeo-base: sufixo das pastas/arquivos já gradados ("" = sem look). Dourado Suave aprovado pelo dono. */
 const LOOK_PADRAO = "-dourado";
-const ESCURECE_PADRAO = 0.4;
+const ESCURECE_PADRAO = 0.1; // aprovado pelo dono: fundo quase sem escurecer
 type Final = { depoisEscala: number; antesMax: number };
 const FINAL_PADRAO: Final = { depoisEscala: 1, antesMax: 52 }; // opção 2 aprovada
 
