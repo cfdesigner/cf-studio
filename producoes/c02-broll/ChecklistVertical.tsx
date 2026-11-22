@@ -13,10 +13,13 @@ export const ChecklistVertical: React.FC<{
   titulo: string;
   itens: ItemV[];
   durationInFrames: number;
-  variante: "cartao" | "livre";
+  variante?: "cartao" | "livre" | "mista";
+  /** Perspectiva leve (graus). O sentido do Y é automático: o cartão fica virado para o centro da imagem. */
+  inclinacaoX?: number;
+  inclinacaoY?: number;
   esquerda?: number;
   topo?: number;
-}> = ({ titulo, itens, durationInFrames, variante, esquerda = 48, topo = 250 }) => {
+}> = ({ titulo, itens, durationInFrames, variante = "mista", inclinacaoX = 12, inclinacaoY = 14, esquerda = 48, topo = 250 }) => {
   const f = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const k = (width / 1080) * 1.3;
@@ -24,7 +27,9 @@ export const ChecklistVertical: React.FC<{
   const endMs = (durationInFrames / fps) * 1000;
   const saida = interpolate(ms, [endMs - 250, endMs], [1, 0], clamp);
   const entra = interpolate(f, [0, 10], [0, 1], clamp);
-  const cartao = variante === "cartao";
+  const cartao = variante !== "livre";
+  const mista = variante === "mista";
+  const centro = (esquerda + 270) * k / 1.3 <= 540 ? 1 : -1; // à esquerda: afasta o lado direito
   return (
     <AbsoluteFill style={{ opacity: saida * entra, pointerEvents: "none" }}>
       <div
@@ -37,7 +42,9 @@ export const ChecklistVertical: React.FC<{
           background: cartao ? "rgba(11,12,14,0.82)" : "rgba(11,12,14,0.5)",
           backdropFilter: cartao ? undefined : `blur(${14 * k}px)`,
           border: cartao ? `${1 * k}px solid rgba(217,164,65,0.45)` : "none",
-          borderLeft: cartao ? undefined : `${4 * k}px solid ${c.amber}`,
+          borderLeft: mista || !cartao ? `${5 * k}px solid ${c.amber}` : undefined,
+          transform: `perspective(${1100 * k}px) rotateX(${inclinacaoX}deg) rotateY(${centro * Math.abs(inclinacaoY)}deg)`,
+          transformOrigin: "50% 50%",
         }}
       >
         <div
@@ -105,7 +112,7 @@ const ITENS: ItemV[] = [
   { texto: "Iluminação", marcaEmMs: 2650 },
   { texto: "Som", marcaEmMs: 3300 },
 ];
-export const ChecklistTeste: React.FC<{ variante: "cartao" | "livre" }> = ({ variante }) => (
+export const ChecklistTeste: React.FC<{ variante?: "cartao" | "livre" | "mista" }> = ({ variante }) => (
   <AbsoluteFill>
     <AbsoluteFillVideo />
     <ChecklistVertical titulo="O que muda a cena" itens={ITENS} durationInFrames={126} variante={variante} />

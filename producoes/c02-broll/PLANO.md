@@ -58,3 +58,9 @@ Rosto: nas cenas 1 e 6 as caixas ficam no topo ou na lateral livre, nunca sobre 
 - Checklist: fazer versão **vertical** (b-roll é vertical); rascunho em `ChecklistVertical.tsx`, aguardando escolha A (cartão) ou B (painel). Se ficar bom, vai para o design system.
 - Volume: normalizar para -14 LUFS (testar; se não ficar bom, voltar).
 - Fecho com o logo, como nas outras produções (`FechoSimples`).
+
+## Estado (prévia montada)
+
+- Composição `C02Broll` (`C02Broll.tsx`): cena 1 com `TextoAtras`; legendas corrigidas (`legendas.json`); frases de efeito CÂMERA MELHOR (6,3 s), TRANSFORMAR COMPLETAMENTE (12,9 s, sugestão minha) e EXPERIÊNCIA VISUAL (18,85 s); checklist vertical (cartão escuro de cantos arredondados + linha âmbar + perspectiva leve virada para o centro) das 9,0 às 12,81 s; LightLeak no corte de 15,4 s; palavra riscada em 17,1 s (com vinheta suave no topo); saída com zoom/desfoque e fecho `FechoSimples` (2,5 s).
+- Áudio normalizado para -14 LUFS (`public/entrada/c02-broll-n.mp4`).
+- Aguardando o dono aprovar a prévia. Se aprovar o checklist vertical, mover para o design system.

@@ -1,0 +1,457 @@
+[
+ {
+  "text": " Sabe",
+  "startMs": 0,
+  "endMs": 480,
+  "timestampMs": 240,
+  "confidence": 0.922
+ },
+ {
+  "text": " quando",
+  "startMs": 480,
+  "endMs": 570,
+  "timestampMs": 525,
+  "confidence": 0.874
+ },
+ {
+  "text": " tu",
+  "startMs": 570,
+  "endMs": 660,
+  "timestampMs": 615,
+  "confidence": 0.874
+ },
+ {
+  "text": " olha",
+  "startMs": 660,
+  "endMs": 940,
+  "timestampMs": 800,
+  "confidence": 0.673
+ },
+ {
+  "text": " para",
+  "startMs": 940,
+  "endMs": 1080,
+  "timestampMs": 1010,
+  "confidence": 0.621
+ },
+ {
+  "text": " uma",
+  "startMs": 1080,
+  "endMs": 1160,
+  "timestampMs": 1120,
+  "confidence": 0.799
+ },
+ {
+  "text": " imagem",
+  "startMs": 1160,
+  "endMs": 1420,
+  "timestampMs": 1290,
+  "confidence": 0.992
+ },
+ {
+  "text": " e",
+  "startMs": 1420,
+  "endMs": 1560,
+  "timestampMs": 1490,
+  "confidence": 0.081
+ },
+ {
+  "text": " sente",
+  "startMs": 1560,
+  "endMs": 1640,
+  "timestampMs": 1600,
+  "confidence": 0.517
+ },
+ {
+  "text": " que",
+  "startMs": 1640,
+  "endMs": 1780,
+  "timestampMs": 1710,
+  "confidence": 0.817
+ },
+ {
+  "text": " ela",
+  "startMs": 1780,
+  "endMs": 1880,
+  "timestampMs": 1830,
+  "confidence": 0.633
+ },
+ {
+  "text": " poderia",
+  "startMs": 1880,
+  "endMs": 2180,
+  "timestampMs": 2030,
+  "confidence": 0.974
+ },
+ {
+  "text": " ser",
+  "startMs": 2180,
+  "endMs": 2360,
+  "timestampMs": 2270,
+  "confidence": 0.994
+ },
+ {
+  "text": " muito",
+  "startMs": 2360,
+  "endMs": 2580,
+  "timestampMs": 2470,
+  "confidence": 0.959
+ },
+ {
+  "text": " mais",
+  "startMs": 2580,
+  "endMs": 2760,
+  "timestampMs": 2670,
+  "confidence": 0.996
+ },
+ {
+  "text": " interessante?",
+  "startMs": 2760,
+  "endMs": 3280,
+  "timestampMs": 3020,
+  "confidence": 0.987
+ },
+ {
+  "text": " Às",
+  "startMs": 4860,
+  "endMs": 5340,
+  "timestampMs": 5100,
+  "confidence": 0.669
+ },
+ {
+  "text": " vezes,",
+  "startMs": 5340,
+  "endMs": 5560,
+  "timestampMs": 5450,
+  "confidence": 0.999
+ },
+ {
+  "text": " não",
+  "startMs": 5800,
+  "endMs": 5940,
+  "timestampMs": 5870,
+  "confidence": 0.97
+ },
+ {
+  "text": " precisa",
+  "startMs": 5940,
+  "endMs": 6120,
+  "timestampMs": 6030,
+  "confidence": 0.979
+ },
+ {
+  "text": " de",
+  "startMs": 6120,
+  "endMs": 6360,
+  "timestampMs": 6240,
+  "confidence": 0.989
+ },
+ {
+  "text": " uma",
+  "startMs": 6360,
+  "endMs": 6420,
+  "timestampMs": 6390,
+  "confidence": 0.938
+ },
+ {
+  "text": " câmera",
+  "startMs": 6420,
+  "endMs": 6720,
+  "timestampMs": 6570,
+  "confidence": 0.991
+ },
+ {
+  "text": " melhor,",
+  "startMs": 6720,
+  "endMs": 7020,
+  "timestampMs": 6870,
+  "confidence": 0.887
+ },
+ {
+  "text": " nem",
+  "startMs": 7200,
+  "endMs": 7320,
+  "timestampMs": 7260,
+  "confidence": 0.982
+ },
+ {
+  "text": " de",
+  "startMs": 7320,
+  "endMs": 7400,
+  "timestampMs": 7360,
+  "confidence": 0.98
+ },
+ {
+  "text": " uma",
+  "startMs": 7400,
+  "endMs": 7460,
+  "timestampMs": 7430,
+  "confidence": 0.954
+ },
+ {
+  "text": " produção",
+  "startMs": 7460,
+  "endMs": 7760,
+  "timestampMs": 7610,
+  "confidence": 0.993
+ },
+ {
+  "text": " gigantesca.",
+  "startMs": 7760,
+  "endMs": 8440,
+  "timestampMs": 8100,
+  "confidence": 0.925
+ },
+ {
+  "text": " Com",
+  "startMs": 8520,
+  "endMs": 8660,
+  "timestampMs": 8590,
+  "confidence": 0.987
+ },
+ {
+  "text": " algumas",
+  "startMs": 8660,
+  "endMs": 8840,
+  "timestampMs": 8750,
+  "confidence": 0.792
+ },
+ {
+  "text": " escolhas",
+  "startMs": 8840,
+  "endMs": 9360,
+  "timestampMs": 9100,
+  "confidence": 0.995
+ },
+ {
+  "text": " de",
+  "startMs": 9360,
+  "endMs": 9520,
+  "timestampMs": 9440,
+  "confidence": 0.991
+ },
+ {
+  "text": " direção,",
+  "startMs": 9520,
+  "endMs": 10040,
+  "timestampMs": 9780,
+  "confidence": 0.992
+ },
+ {
+  "text": " composição,",
+  "startMs": 10220,
+  "endMs": 10820,
+  "timestampMs": 10520,
+  "confidence": 0.99
+ },
+ {
+  "text": " cor,",
+  "startMs": 11100,
+  "endMs": 11180,
+  "timestampMs": 11140,
+  "confidence": 0.992
+ },
+ {
+  "text": " iluminação",
+  "startMs": 11440,
+  "endMs": 11840,
+  "timestampMs": 11640,
+  "confidence": 0.995
+ },
+ {
+  "text": " e",
+  "startMs": 11840,
+  "endMs": 12120,
+  "timestampMs": 11980,
+  "confidence": 0.966
+ },
+ {
+  "text": " som,",
+  "startMs": 12120,
+  "endMs": 12320,
+  "timestampMs": 12220,
+  "confidence": 0.996
+ },
+ {
+  "text": " você",
+  "startMs": 12500,
+  "endMs": 12660,
+  "timestampMs": 12580,
+  "confidence": 0.987
+ },
+ {
+  "text": " consegue",
+  "startMs": 12660,
+  "endMs": 12980,
+  "timestampMs": 12820,
+  "confidence": 0.997
+ },
+ {
+  "text": " transformar",
+  "startMs": 12980,
+  "endMs": 13480,
+  "timestampMs": 13230,
+  "confidence": 0.995
+ },
+ {
+  "text": " completamente",
+  "startMs": 13480,
+  "endMs": 13840,
+  "timestampMs": 13660,
+  "confidence": 0.98
+ },
+ {
+  "text": " a",
+  "startMs": 13840,
+  "endMs": 14260,
+  "timestampMs": 14050,
+  "confidence": 0.989
+ },
+ {
+  "text": " composição",
+  "startMs": 14260,
+  "endMs": 14720,
+  "timestampMs": 14490,
+  "confidence": 0.998
+ },
+ {
+  "text": " daquela",
+  "startMs": 14720,
+  "endMs": 15020,
+  "timestampMs": 14870,
+  "confidence": 0.904
+ },
+ {
+  "text": " cena.",
+  "startMs": 15020,
+  "endMs": 15280,
+  "timestampMs": 15150,
+  "confidence": 0.391
+ },
+ {
+  "text": " E",
+  "startMs": 15360,
+  "endMs": 15400,
+  "timestampMs": 15380,
+  "confidence": 0.473
+ },
+ {
+  "text": " é",
+  "startMs": 15400,
+  "endMs": 15440,
+  "timestampMs": 15420,
+  "confidence": 0.993
+ },
+ {
+  "text": " justamente",
+  "startMs": 15440,
+  "endMs": 15660,
+  "timestampMs": 15550,
+  "confidence": 0.997
+ },
+ {
+  "text": " aí",
+  "startMs": 15660,
+  "endMs": 16160,
+  "timestampMs": 15910,
+  "confidence": 0.974
+ },
+ {
+  "text": " que",
+  "startMs": 16160,
+  "endMs": 16320,
+  "timestampMs": 16240,
+  "confidence": 0.979
+ },
+ {
+  "text": " está",
+  "startMs": 16320,
+  "endMs": 16500,
+  "timestampMs": 16410,
+  "confidence": 0.982
+ },
+ {
+  "text": " a",
+  "startMs": 16500,
+  "endMs": 16540,
+  "timestampMs": 16520,
+  "confidence": 0.95
+ },
+ {
+  "text": " diferença",
+  "startMs": 16540,
+  "endMs": 16880,
+  "timestampMs": 16710,
+  "confidence": 0.999
+ },
+ {
+  "text": " entre",
+  "startMs": 16880,
+  "endMs": 17140,
+  "timestampMs": 17010,
+  "confidence": 0.667
+ },
+ {
+  "text": " simplesmente",
+  "startMs": 17140,
+  "endMs": 17620,
+  "timestampMs": 17380,
+  "confidence": 0.986
+ },
+ {
+  "text": " editar",
+  "startMs": 17620,
+  "endMs": 17960,
+  "timestampMs": 17790,
+  "confidence": 0.905
+ },
+ {
+  "text": " um",
+  "startMs": 17960,
+  "endMs": 18120,
+  "timestampMs": 18040,
+  "confidence": 0.993
+ },
+ {
+  "text": " vídeo",
+  "startMs": 18120,
+  "endMs": 18400,
+  "timestampMs": 18260,
+  "confidence": 0.992
+ },
+ {
+  "text": " e",
+  "startMs": 18400,
+  "endMs": 18900,
+  "timestampMs": 18650,
+  "confidence": 0.946
+ },
+ {
+  "text": " construir",
+  "startMs": 18900,
+  "endMs": 19220,
+  "timestampMs": 19060,
+  "confidence": 0.989
+ },
+ {
+  "text": " uma",
+  "startMs": 19220,
+  "endMs": 19380,
+  "timestampMs": 19300,
+  "confidence": 0.994
+ },
+ {
+  "text": " experiência",
+  "startMs": 19380,
+  "endMs": 19760,
+  "timestampMs": 19570,
+  "confidence": 0.998
+ },
+ {
+  "text": " visual.",
+  "startMs": 19760,
+  "endMs": 20140,
+  "timestampMs": 19950,
+  "confidence": 0.992
+ }
+]
