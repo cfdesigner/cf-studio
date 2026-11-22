@@ -48,13 +48,13 @@
 ### C02 com b-roll
 
 - [x] **[Claude]** Vídeo final entregue (CFDesigner): texto atrás da pessoa, checklist vertical, texto rastreado no parapeito atrás da árvore, zoom final. Novos no design system: `TextoAtras`, `ChecklistVertical`. Novas técnicas: `tecnicas/recorte-pessoa/`, `tecnicas/texto-no-plano/`
-- [ ] **[Claude]** (opcional) Transformar o texto rastreado (`TextoNoPlano.tsx`) em efeito reutilizável do CFDesigner, se o dono quiser replicar em outras peças
+- [x] **[Claude]** Texto rastreado virou o efeito `TextoNoPlano` do CFDesigner (guia em `design-systems/cfdesigner/docs/efeitos.md`); o C02 já usa o efeito
 - [ ] **[dono]** Nas próximas produções, testar música ao fundo (o C02 tem o respiro de 1,6 s para a música entrar na edição dele)
 
 ### Ferramenta de recorte (texto atrás da pessoa)
 
 - [x] **[Claude]** `scripts/recortar-pessoa.py` + efeito `TextoAtras` do CFDesigner, aprovado pelo dono no C02 (cena 1)
-- [ ] **[dono]** (opcional) Incluir no script de preparação do ambiente `cf-studio` a criação do venv do recorte (`python3 -m venv /opt/recorte-venv && /opt/recorte-venv/bin/pip install -r scripts/requirements-recorte.txt`), para não instalar a cada sessão (~2 min)
+- [x] Script de preparação do ambiente `cf-studio` agora cria o venv do recorte (`/opt/recorte-venv`) e baixa os modelos. Testado aqui; **ainda não provado numa sessão nova**: na próxima sessão, conferir `ls /opt/recorte-venv` e `/opt/recorte-venv/bin/python -c "import cv2, rembg"`
 
 ### Conferências rápidas
 

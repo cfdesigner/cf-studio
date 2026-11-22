@@ -14,6 +14,7 @@ Componentes em `efeitos/`, importados de `design-systems/cfdesigner`. Todos usam
 | `BlurIn`      | Entrada suave: sai do desfoque, sobe e ganha opacidade.                                                                                        | `from`, `durationInFrames`, `blur`, `y`                                      |
 | `FilmGrain`   | Granulado de filme animado (muda a cada quadro), 7% por padrão. Não usar sobre texto pequeno.                                                  | `opacity`                                                                    |
 | `TextoAtras`  | Frase de efeito **atrás da pessoa**: texto gigante (Bebas) sobe de baixo para cima, de 0 a 100% de opacidade, e a pessoa recortada fica por cima. Precisa do recorte (`scripts/recortar-pessoa.py`). | `linhas`, `pessoa`, `quadros`, `entra`, `sai`, `fundoPct`, `escurece`        |
+| `TextoNoPlano` | Texto **preso a um plano do vídeo** (parapeito, parede, mesa), seguindo a câmera com a perspectiva do plano, e podendo entrar **por trás** de um objeto (árvore, pessoa). Precisa do rastreio (`scripts/rastrear-plano.py`) e, para o objeto à frente, da máscara. | `linhas`, `trilha`, `primeiroQuadro`, `duracao`, `frente`, `largura`, `altura`, `deslizaDe` |
 | `LogoOutro`   | Fecho: logo metálico empilhado sobre void. A assinatura embaixo é de propósito bem discreta (pequena, cinza, só um fade): o logo é o destaque. | `tagline`, `durationInFrames`                                                |
 
 ## Regras de uso
@@ -45,6 +46,35 @@ Aprovado pelo dono no C02 ("MUITO MAIS INTERESSANTE"). Passo a passo:
 - **Fundo:** escurece só 7% (`escurece`). O dono não gostou de fundo escuro: nada de vinheta pesada.
 - Só frase curta e forte, no máximo 2 linhas; só em planos com a pessoa falando para a câmera e sem outro elemento na frente (mesas, braços cruzando o texto etc. conferir no quadro). O texto some no corte.
 - O recorte tem limite nas pernas e mãos soltas: o texto fica acima da cabeça. O destaque âmbar é o da peça: não empilhar com outro âmbar no mesmo instante.
+
+## Texto preso ao plano (`TextoNoPlano`)
+
+Aprovado pelo dono no C02 (uma das melhores peças do design system): "TRANSFORMAR COMPLETAMENTE" assentado em cima do parapeito, acompanhando a câmera, saindo de trás da árvore.
+
+1. Rastreie o plano e gere a máscara do objeto à frente: `tecnicas/texto-no-plano/README.md` (`scripts/rastrear-plano.py --refinar --suavizar 1.5`, `scripts/mascara-arvore.py` ou `scripts/recortar-pessoa.py`). Confira o rastreio em vários quadros.
+2. Dentro de uma `<Sequence>` por cima do vídeo:
+
+```tsx
+import trilha from "./trilha-parapeito.json";
+
+<Sequence from={f(12.7) + 9} durationInFrames={61}>
+  <TextoNoPlano
+    trilha={trilha}
+    primeiroQuadro={10}
+    duracao={61}
+    frente={{ pasta: "entrada/arvore-c02" }}
+    linhas={[
+      [{ texto: "TRANSFORMAR", tamanho: 208 }],
+      [{ texto: "COMPLETAMENTE", tamanho: 186, cor: colors.cinema.amber }],
+    ]}
+  />
+</Sequence>
+```
+
+- `largura`/`altura` têm que ser iguais ao `--largura`/`--altura` do rastreio (a matriz vale para esse retângulo).
+- O texto entra deslizando pelo plano (`deslizaDe`, padrão 620 px) e subindo um pouco; sai em fade nos 8 últimos quadros. Sem objeto à frente, tire `frente` (e `deslizaDe={0}` se quiser só fade).
+- Estilo: Bebas, branco gelo e **uma** palavra em âmbar, como o `TextoAtras`. Textos grandes e curtos; só em planos onde o plano rastreado fica visível (no C02, 2,5 s).
+- Vale para vídeo de 1080 de largura. A legenda vai por cima de tudo.
 
 ## Créditos
 

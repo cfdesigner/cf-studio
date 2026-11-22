@@ -6,7 +6,7 @@ Técnica **sem marca**: separa a pessoa do fundo, para qualquer design system co
 
 1. **Preparar o ambiente (uma vez por container, ~2 min):**
    ```bash
-   python3 -m venv /opt/recorte-venv && /opt/recorte-venv/bin/pip install -r scripts/requirements-recorte.txt
+   python3 -m venv /opt/recorte-venv && /opt/recorte-venv/bin/pip install -r scripts/requirements-recorte.txt   # o ambiente cf-studio já faz isto no script de preparação
    ```
    Os modelos (`u2net_human_seg`, `isnet-general-use`, ~180 MB cada) baixam na primeira execução.
 2. **Recortar só o trecho que precisa** (≈ 1 s de CPU por modelo por quadro; 3,6 s de vídeo levaram poucos minutos):

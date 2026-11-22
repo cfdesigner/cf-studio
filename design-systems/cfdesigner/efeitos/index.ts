@@ -17,4 +17,9 @@ export {
 export { BlurIn, type BlurInProps } from "./BlurIn";
 export { FilmGrain, type FilmGrainProps } from "./FilmGrain";
 export { LogoOutro, type LogoOutroProps } from "./LogoOutro";
+export {
+  TextoNoPlano,
+  type TextoNoPlanoProps,
+  type QuadroTrilha,
+} from "./TextoNoPlano";
 export { TextoAtras, type TextoAtrasProps, type ParteTextoAtras } from "./TextoAtras";

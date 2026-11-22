@@ -25,6 +25,7 @@ import {
 - `FlashCut` (clarão branco-gelo, 12 frames) e `LightLeak` (vazamento âmbar, ~1 s) **em cortes**. Nunca atrás de texto.
 - `WipeReveal` para revelar blocos; `BlurIn` para entradas suaves.
 - `TextoAtras`: texto entrando atrás da pessoa recortada (veja Legendas).
+- `TextoNoPlano`: texto preso a um plano rastreado do vídeo (parapeito, parede), entrando por trás de um objeto (árvore, pessoa). Aprovado pelo dono; guia em `docs/efeitos.md`.
 - Um destaque âmbar por peça: não empilhe efeito âmbar com texto âmbar no mesmo instante.
 
 ## Legendas

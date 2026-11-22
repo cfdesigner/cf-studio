@@ -17,10 +17,11 @@ import {
   Legendas,
   PalavraRiscada,
   TextoAtras,
+  TextoNoPlano,
   type Caption,
   type PunchLine,
 } from "../../design-systems/cfdesigner";
-import { TextoNoParapeito } from "./TextoNoPlano";
+import trilhaParapeito from "./trilha-parapeito.json";
 import legendasJson from "./legendas.json";
 
 const captions = legendasJson as Caption[];
@@ -128,7 +129,16 @@ const Corpo: React.FC<{ riscada: Riscada; final: Final; zoom: Zoom }> = ({
       </Sequence>
       {/* "Transformar completamente" preso ao parapeito (rastreado): quadros 10 a 70 do trecho que começa em 12,7 s */}
       <Sequence from={f(12.7) + 9} durationInFrames={61}>
-        <TextoNoParapeito primeiro={10} duracao={61} />
+        <TextoNoPlano
+          trilha={trilhaParapeito}
+          primeiroQuadro={10}
+          duracao={61}
+          frente={{ pasta: "entrada/arvore-c02" }}
+          linhas={[
+            [{ texto: "TRANSFORMAR", tamanho: 208 }],
+            [{ texto: "COMPLETAMENTE", tamanho: 186, cor: colors.cinema.amber }],
+          ]}
+        />
       </Sequence>
       {/* Legendas por cima de tudo (inclusive da pessoa recortada) */}
       <Legendas
