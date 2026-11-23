@@ -79,8 +79,9 @@
 ### Skill de auditoria de marca
 
 - [x] **[Claude]** Skill `auditoria-de-marca` criada (entrada do cliente, base de conhecimento, auditoria, produção do que ele pedir)
-- [ ] **[dono + Claude]** Testar com um cliente real (ou com o próprio CFDesigner) e ajustar. Ainda sem teste real
-- [ ] **[dono]** Dizer o formato preferido do relatório (Doc, página ou os dois)
+- [ ] **[dono]** Mandar os materiais do CFDesigner (Instagram, site, o que tiver) para o primeiro teste da skill
+- [ ] **[Claude]** Rodar a auditoria do CFDesigner (Doc + página visual) e ajustar a skill com o que o teste mostrar
+- [x] Formato do relatório: **os dois**, documento editável + página visual (escolha do dono; já está na skill)
 
 ### Limpezas pequenas
 

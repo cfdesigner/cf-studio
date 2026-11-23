@@ -76,7 +76,13 @@ Cada peça: referenciar o pilar e a voz da base; mostrar prévia ao dono; só en
 
 ### 6. Entregar e arquivar
 
-Entregue o relatório (resumo no chat; documento ou página se o dono quiser compartilhar) e os arquivos finais. Atualize `BASE.md` com o que aprendeu. Salve no `main` (regra do dono); nunca versionar vídeos nem material bruto.
+**Formato do dono: sempre os dois.** Ele lê o documento para saber o que será preciso e trabalha melhor com o que é visual.
+
+1. **Relatório editável (Doc):** diagnóstico, base do cliente, plano e o que precisa do cliente. Texto direto, sem enfeite.
+2. **Página visual (Artifact, via `action: quickstart` e skill `artifact-design`):** o mesmo conteúdo para ver de relance: notas por área em barras ou medidor, paleta e tipografia medidas, linha do tempo 30/60/90, pilares como cartões, calendário de ideias, e **o que mudar, mostrado visualmente** (antes e depois, mockups simples, exemplos de peças). Respeitar o visual limpo e premium; usar o design system da marca (ou o do dono) nas cores.
+3. Resumo curto no chat, com os dois links. Os arquivos de `clientes/<slug>/` continuam sendo a fonte; se o dono mudar algo no Doc, reler e atualizar.
+
+Atualize `BASE.md` com o que aprendeu. Salve no `main` (regra do dono); nunca versionar vídeos nem material bruto.
 
 ## Checklist de qualidade
 
