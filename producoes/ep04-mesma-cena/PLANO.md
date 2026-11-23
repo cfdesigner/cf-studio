@@ -25,18 +25,18 @@ Status: **aguardando aprovação do storyboard** (`storyboard.html`, publicado c
 
 | # | Tempo | Etapa | Origem na cena | Por cima | Som |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 0–2 s | Gancho | quadro do resultado (aprox. 24,5 s) | "MESMA CENA" (Bebas, "CENA" em âmbar) | `grande` + `cartao` |
+| 1 | 0–2 s | Gancho | quadro do resultado (aprox. 24,5 s), já com o look Âmbar Cinema | "MESMA CENA" (Bebas, "CENA" em âmbar), a meio caminho entre o personagem e o alto do quadro (topo ≈ 410 px) | `grande` + `cartao` |
 | 2 | 2–6 s | Bruto | contínuo 20–24 s, em visual cinza (simulação de log: contraste e cor reduzidos) | selo "ORIGINAL" | só ambiente |
-| 3 | 6–11 s | + Ritmo (ainda bruto) | 4 trechos de 18–30 s, cortes a cada 1,2 s (2 tempos a 100 BPM); aberto e aproximação ≤ 1,35x | etiqueta RITMO | `fraco` 0,15 s antes de cada corte |
-| 4 | 11–16 s | + Cor | clarão e virada para a imagem real com o look por cima | etiqueta COR; clarão curto na troca | `icone` |
-| 5 | 16–21 s | + Som | mesma montagem | `LinhasDeSom` (novo, semitransparente, ao lado do personagem): VOZ, AMBIENTE, WHOOSH, IMPACTO, TIQUE | ambiente mais presente, `fraco` nos cortes, `grande` quando os braços sobem, `tick`/`tick_final` nas marcas |
-| 6 | 21–24 s | Resultado | último plano (você se afastando, ~28–30,7 s) com tudo | "QUAL MUDOU MAIS?" pequeno | `grande` suave |
+| 3 | 6–11 s | + Ritmo (ainda bruto) | 4 trechos de 18–30 s, cortes a cada 1,2 s (2 tempos a 100 BPM); aberto e aproximação ≤ 1,35x | etiqueta RITMO mais alta, entre o personagem e as folhas | `fraco` 0,15 s antes de cada corte |
+| 4 | 11–16 s | + Cor | clarão e virada para a imagem real com o look por cima | etiqueta COR (mesma altura da RITMO); clarão curto na troca | `icone` |
+| 5 | 16–21 s | + Som | mesma montagem | `LinhasDeSom` (novo, semitransparente, entre o personagem e as folhas, topo ≈ 470 px): VOZ, AMBIENTE, WHOOSH, IMPACTO, TIQUE | ambiente mais presente, `fraco` nos cortes, `grande` quando os braços sobem, `tick`/`tick_final` nas marcas |
+| 6 | 21–24 s | Resultado | último plano (você se afastando, ~28–30,7 s) com tudo | "QUAL MUDOU MAIS?" no mesmo estilo do gancho, no alto, entre o personagem e as folhas | `grande` suave |
 | 7 | 24–26 s | Fecho | | `FechoSimples` | `fraco` na saída |
 
 ## Decisões a aprovar
 
 1. Início bruto e cinza (ideia do dono). Se ele filmou em log de verdade, usar o original em vez de simular.
-2. Look: Dourado Suave (aprovado) ou Âmbar Cinema (mais intenso)?
+2. ~~Look~~ **Âmbar Cinema, confirmado pelo dono** (vale também para o gancho). LUT em `design-systems/cfdesigner/assets/luts/ambar-cinema.cube`.
 2. Texto do gancho e convite final.
 3. Música por baixo, ou só efeitos do design system?
 4. Duração: 26 s ou ~20 s?

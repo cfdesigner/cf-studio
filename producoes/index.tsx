@@ -5,7 +5,7 @@ import { C02_BROLL_FRAMES, C02Broll } from "./c02-broll/C02Broll";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
 import { NASCE_FRAMES, UmVideoNasceAqui } from "./um-video-nasce-aqui/UmVideoNasceAqui";
 import { CERTI_NEWS_FRAMES, CertiNews } from "./certi-news/CertiNews";
-import { EP04_SOM_FRAMES, Ep04SomTeste } from "./ep04-mesma-cena/Ep04SomTeste";
+import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTeste } from "./ep04-mesma-cena/Ep04SomTeste";
 
 /**
  * Registro das produções (vídeos e peças de verdade).
@@ -38,6 +38,8 @@ export const Producoes: React.FC = () => (
       width={1080}
       height={1920}
     />
+    <Composition id="Ep04Gancho" component={Ep04Gancho} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="Ep04Convite" component={Ep04Convite} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Ep04SomTeste" component={Ep04SomTeste} durationInFrames={EP04_SOM_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="C02Broll" component={C02Broll} durationInFrames={C02_BROLL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition
