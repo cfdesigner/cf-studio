@@ -62,6 +62,7 @@ Vindos do vídeo de referência C01 e aprovados pelo dono. Todos em corte seco (
 - `EtiquetaRotulo`: etiqueta pequena (ícone de linha `celular`/`tripe`/`papel` + palavra em Bebas âmbar) em caixinha escura de borda dourada fina, inclinada e **virada para o centro** (sentido automático). Aparece em corte seco. Do vídeo "Um vídeo nasce aqui".
 - `LinhaChamada`: anel tracejado que gira + linha fina que se desenha até um pontinho; liga um objeto à etiqueta. Cor branco gelo.
 - `CantosVisor`: cantos finos de visor de câmera que se desenham em volta de uma área (ou do quadro todo).
+- `SeloFlutuante`: selo pequeno e discreto que flutua embaixo da tela (texto espaçado entre fios bronze e losangos), por cima de todas as cenas. Ex.: "Making off".
 - `FechoSimples`: preto puro e logo horizontal branco pequeno (~36% da largura), com fade. É o fecho mais discreto; o `LogoOutro` continua sendo o fecho grande.
 
 Regra do dono: **nenhum gráfico fica na frente do rosto de ninguém**; ajuste `topo`/`esquerda`.
