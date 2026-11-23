@@ -36,5 +36,5 @@ Leia `PENDENCIAS.md` no começo da sessão e **lembre o dono das pendências abe
 
 - Instalar: `npm ci`. Verificar: `npm run lint`.
 - Quadro: `npx remotion still <id> <arquivo.png> --frame=N --browser-executable=/opt/pw-browsers/chromium`
-- Vídeo: `npx remotion render <id> out/<nome>.mp4 --browser-executable=/opt/pw-browsers/chromium`
+- Vídeo: `npx remotion render <id> out/<nome>.mp4 --browser-executable=/opt/pw-browsers/chromium` (a qualidade máxima já está no `remotion.config.ts`: quadros em PNG, CRF 14, preset slow; áudio final com `loudnorm` a −14 LUFS e AAC 256k)
 - Transcrever: veja a skill `whisper` (`/opt/whisper-venv/bin/python scripts/transcrever.py ...`).
