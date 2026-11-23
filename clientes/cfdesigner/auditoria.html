@@ -1,0 +1,278 @@
+<title>Auditoria CFDesigner</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@400;700&family=Montserrat:wght@500;600;700&display=swap">
+<style>
+/* Layout: relatório vertical em seções largas; o antes e depois do feed é o ponto central. Tokens do design system CFDesigner (cinema escuro; daylight no tema claro). */
+:root{
+  --void:#0b0c0e; --surface:#16181c; --raised:#202329; --line:#2e3238; --line-strong:#5b626c;
+  --ink:#eef2f5; --muted:#9aa3ad; --amber:#d9a441; --amber-text:#e2b45a; --amber-soft:#2a2112;
+  --petrol:#0f4c5c; --petrol-text:#7cbccb; --petrol-soft:#0d2a31; --bad:#ff5a5f;
+  --display:"Bebas Neue",Oswald,Impact,sans-serif; --head:"Montserrat","Segoe UI",system-ui,sans-serif; --body:"Lato","Open Sans",system-ui,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --void:#f3f4f5; --surface:#ffffff; --raised:#f3f4f5; --line:#d6dade; --line-strong:#7d858e;
+  --ink:#0b0c0e; --muted:#545c66; --amber:#d9a441; --amber-text:#855d12; --amber-soft:#f6ead0;
+  --petrol:#0f4c5c; --petrol-text:#0f4c5c; --petrol-soft:#dcebee; --bad:#b4232a; color-scheme:light;}}
+:root[data-theme="light"]{
+  --void:#f3f4f5; --surface:#ffffff; --raised:#f3f4f5; --line:#d6dade; --line-strong:#7d858e;
+  --ink:#0b0c0e; --muted:#545c66; --amber:#d9a441; --amber-text:#855d12; --amber-soft:#f6ead0;
+  --petrol:#0f4c5c; --petrol-text:#0f4c5c; --petrol-soft:#dcebee; --bad:#b4232a; color-scheme:light;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--ink);font:16px/1.6 var(--body);padding-block:0 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+h1,h2,h3{font-family:var(--head);margin:0;text-wrap:balance}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,9vw,92px);line-height:.95;letter-spacing:.01em}
+h2{font-size:clamp(20px,3.4vw,26px);font-weight:700;margin-bottom:6px}
+h3{font-size:15px;font-weight:600}
+.eyebrow{font:600 12px var(--head);letter-spacing:.14em;text-transform:uppercase;color:var(--amber-text)}
+header{padding-block:56px 40px;border-bottom:1px solid var(--line)}
+header p{max-width:62ch;color:var(--muted);margin:16px 0 0}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{font:600 12px var(--head);padding:6px 12px;border:1px solid var(--line-strong);border-radius:99px;color:var(--muted);background:transparent}
+a.chip{color:var(--amber-text);border-color:var(--amber);text-decoration:none}
+section{padding-block:48px 8px}
+.lead{color:var(--muted);max-width:64ch;margin:0 0 24px}
+/* prioridades */
+.prio{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:28px}
+.prio div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.prio b{display:block;font:700 15px var(--head);color:var(--amber-text);margin-bottom:6px}
+.prio span{color:var(--muted);font-size:15px}
+/* notas */
+.scores{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:minmax(0,210px) 1fr 54px;gap:14px;align-items:center}
+.row .n{font:600 14px var(--head)}
+.row small{display:block;color:var(--muted);font:400 13px var(--body)}
+.bar{height:10px;background:var(--raised);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--amber);border-radius:99px}
+.bar.low i{background:var(--bad)}
+.row .v{font:700 16px var(--head);text-align:right}
+.row.na .bar{background:repeating-linear-gradient(135deg,var(--raised) 0 6px,var(--line) 6px 12px)}
+.row.na .v{color:var(--muted);font-size:12px}
+@media(max-width:560px){.row{grid-template-columns:1fr 54px}.row .bar{grid-column:1/-1;order:3}}
+/* antes e depois */
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.panel h3{margin-bottom:4px}
+.panel p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:420px}
+.t{aspect-ratio:4/5;border-radius:3px;display:flex;align-items:flex-end;padding:8px;font:600 11px var(--head);color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);line-height:1.15}
+.now .t:nth-child(1){background:linear-gradient(160deg,#c8793a,#4a2a12)}
+.now .t:nth-child(2){background:linear-gradient(160deg,#2f6f8f,#10242e)}
+.now .t:nth-child(3){background:linear-gradient(160deg,#6b4a8c,#241631)}
+.now .t:nth-child(4){background:linear-gradient(160deg,#4f8a4f,#173017)}
+.now .t:nth-child(5){background:linear-gradient(160deg,#c24a4a,#401515)}
+.now .t:nth-child(6){background:linear-gradient(160deg,#9a8f6a,#2c281a)}
+.now .t:nth-child(7){background:linear-gradient(160deg,#3c6fb0,#101d33)}
+.now .t:nth-child(8){background:linear-gradient(160deg,#b0b0b0,#2a2a2a)}
+.now .t:nth-child(9){background:linear-gradient(160deg,#d19a2a,#3a2a07)}
+.next .t{background:var(--surface);border:1px solid var(--line);color:var(--ink);text-shadow:none;position:relative;flex-direction:column;justify-content:flex-end;gap:4px;padding:8px}
+.next .t::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--amber);border-radius:3px 3px 0 0}
+.next .t em{font:400 17px/1 var(--display);font-style:normal;letter-spacing:.02em;display:block}
+.next .t u{text-decoration:none;font:600 9px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--amber-text)}
+.next .t.face{background:var(--petrol-soft);border-color:var(--petrol)}
+.next .t.face u{color:var(--petrol-text)}
+.legend{margin-top:10px;font-size:13px;color:var(--muted)}
+.note{margin-top:22px;padding:14px 16px;border-left:3px solid var(--amber);background:var(--amber-soft);border-radius:0 8px 8px 0;font-size:14px}
+/* falhas e autoridade */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.card .k{font:600 11px var(--head);letter-spacing:.1em;text-transform:uppercase;color:var(--bad)}
+.card.good .k{color:var(--amber-text)}
+.pil{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pil .card{border-top:3px solid var(--amber)}
+.pil .card:nth-child(2){border-top-color:var(--petrol-text)}
+.pil .card:nth-child(4){border-top-color:var(--line-strong)}
+/* ideias */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.filters button{font:600 12px var(--head);padding:7px 14px;border-radius:99px;border:1px solid var(--line-strong);background:transparent;color:var(--muted);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--amber);color:#0b0c0e;border-color:var(--amber)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--amber-text);outline-offset:2px}
+.ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.idea .tag{display:flex;gap:8px;font:600 11px var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--amber-text);margin-bottom:6px}
+.idea .tag span:last-child{color:var(--muted)}
+.idea h3{margin-bottom:4px}
+.idea p{margin:0;color:var(--muted);font-size:14px}
+/* semanas */
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.wk{padding:18px;background:var(--surface);border-right:1px solid var(--line)}
+.wk:last-child{border-right:0}
+.wk b{font:400 34px/1 var(--display);color:var(--amber-text);letter-spacing:.02em;display:block}
+.wk h3{margin:4px 0 8px}
+.wk ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+/* checklist */
+.check{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--amber);width:18px;height:18px;flex:none}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Auditoria de marca · 23 nov 2026</div>
+  <h1>CFDesigner</h1>
+  <p>Muita produção e pouca promessa. O feed mostra o que você faz, mas não diz o que você vende nem prova a sua autoridade em vídeo com IA.</p>
+  <div class="meta">
+    <span class="chip">Base: 1 print do perfil + 3 páginas do Notion</span>
+    <span class="chip">Sem métricas e sem vídeos vistos</span>
+    <span class="chip">Notas provisórias</span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">Resumo</div>
+  <h2>As 3 prioridades</h2>
+  <div class="prio">
+    <div><b>1. Uma promessa só</b><span>Sair de "editor cinematográfico" para o que só você diz: produção completa de vídeo com IA, do roteiro ao fecho.</span></div>
+    <div><b>2. Processo à mostra</b><span>Imagem pronta qualquer um posta. Etapas, prompts e antes e depois provam que você domina.</span></div>
+    <div><b>3. Feed reconhecível</b><span>Preto, ponto de luz dourado e a mesma tipografia nas capas, para o perfil se reconhecer em 2 segundos.</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Auditoria</div>
+  <h2>Notas por área</h2>
+  <p class="lead">De 0 a 10. Faixa listrada é o que não deu para analisar com o material enviado.</p>
+  <div class="scores">
+    <div class="row"><div class="n">Documentação da marca<small>Notion: conceito claro, texto genérico</small></div><div class="bar"><i style="width:60%"></i></div><div class="v">6</div></div>
+    <div class="row"><div class="n">Posicionamento<small>3 mensagens diferentes em 3 lugares</small></div><div class="bar"><i style="width:40%"></i></div><div class="v">4</div></div>
+    <div class="row"><div class="n">Conteúdo e pilares<small>Quase só resultado final</small></div><div class="bar"><i style="width:40%"></i></div><div class="v">4</div></div>
+    <div class="row"><div class="n">Identidade visual do feed<small>Muitos estilos, nenhuma assinatura</small></div><div class="bar low"><i style="width:30%"></i></div><div class="v">3</div></div>
+    <div class="row"><div class="n">Autoridade e prova<small>Sem caso, número ou processo à vista</small></div><div class="bar low"><i style="width:30%"></i></div><div class="v">3</div></div>
+    <div class="row na"><div class="n">Perfil: foto, bio, link<small>Bio ilegível no print</small></div><div class="bar"></div><div class="v">sem dado</div></div>
+    <div class="row na"><div class="n">Voz<small>Sem falas ou legendas</small></div><div class="bar"></div><div class="v">sem dado</div></div>
+    <div class="row na"><div class="n">Público e concorrência<small>Sem material</small></div><div class="bar"></div><div class="v">sem dado</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">O que mudar</div>
+  <h2>O feed hoje e o feed proposto</h2>
+  <p class="lead">Ilustração do conceito, não são seus posts. Do lado esquerdo, a mistura de temas que vi na grade. Do direito, os mesmos assuntos com capa padronizada e um pilar por post.</p>
+  <div class="cmp">
+    <div class="panel now">
+      <h3>Hoje</h3><p>Cada post com cor, estilo e assunto próprios</p>
+      <div class="grid">
+        <div class="t">Retrato de IA</div><div class="t">Selfie</div><div class="t">Criatura de IA</div>
+        <div class="t">Paisagem</div><div class="t">Pôster de marca</div><div class="t">Tela de edição</div>
+        <div class="t">Ensaio fotográfico</div><div class="t">Personagem</div><div class="t">Logo</div>
+      </div>
+      <div class="legend">Resultado: não dá para saber o que seguir nem o que contratar.</div>
+    </div>
+    <div class="panel next">
+      <h3>Proposto</h3><p>Mesma capa, quatro pilares, rosto como âncora</p>
+      <div class="grid">
+        <div class="t"><u>Vídeo com IA</u><em>Do prompt ao vídeo</em></div>
+        <div class="t"><u>Antes e depois</u><em>Isto era só um prompt</em></div>
+        <div class="t face"><u>Ponto de vista</u><em>IA não substitui direção</em></div>
+        <div class="t"><u>Bastidores</u><em>Meu estúdio por dentro</em></div>
+        <div class="t"><u>Vídeo com IA</u><em>5 erros de cara de IA</em></div>
+        <div class="t"><u>Antes e depois</u><em>Como fiz o Avengers Project</em></div>
+        <div class="t face"><u>Ponto de vista</u><em>O que o cliente recebe</em></div>
+        <div class="t"><u>Bastidores</u><em>Um vídeo nasce aqui</em></div>
+        <div class="t"><u>Vídeo com IA</u><em>Mesmo personagem em várias cenas</em></div>
+      </div>
+      <div class="legend">Resultado: em 2 segundos se vê quem é, o que faz e o que vem a seguir.</div>
+    </div>
+  </div>
+  <div class="note">Pôsteres e imagens fortes continuam: entram como parte do pilar "Antes e depois", com a capa padrão. Nada do que você já fez se perde.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Diagnóstico</div>
+  <h2>Onde está falhando</h2>
+  <p class="lead">Da causa mais grave para a menos grave.</p>
+  <div class="cards">
+    <div class="card"><div class="k">Grave</div><h3>Promessas misturadas</h3><p>IA, fotografia, pôsteres e selfies no mesmo feed.</p></div>
+    <div class="card"><div class="k">Grave</div><h3>Só resultado, sem processo</h3><p>Uma imagem pronta não prova que você domina vídeo com IA.</p></div>
+    <div class="card"><div class="k">Grave</div><h3>Sem assinatura visual</h3><p>Nada liga um post ao outro; qualquer perfil de IA parece o seu.</p></div>
+    <div class="card"><div class="k">Médio</div><h3>Plano de freelance fora do foco</h3><p>Fiverr, Upwork e preços em dólar. Seu foco agora é conteúdo; guarde só o conceito visual.</p></div>
+    <div class="card"><div class="k">Médio</div><h3>Texto genérico de ChatGPT</h3><p>"Cinematic editing powered by AI" serve para qualquer editor. Falta o seu ponto de vista.</p></div>
+    <div class="card"><div class="k">Médio</div><h3>Três nomes</h3><p>@cfdesigner.oficial, CFDesigner e @carlosfelipemoura. Escolha um.</p></div>
+    <div class="card"><div class="k">Hipótese</div><h3>Você não fala</h3><p>Há selfies, mas autoridade vem de você explicando em vídeo. Não vi seus vídeos.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Autoridade</div>
+  <h2>Como subir de nível</h2>
+  <p class="lead">Proposta de promessa, para você aprovar: <b style="color:var(--ink)">Produção completa de vídeo com IA, do roteiro ao fecho.</b></p>
+  <div class="cards">
+    <div class="card good"><div class="k">1</div><h3>Método com nome</h3><p>Dê nome às suas etapas e repita a mesma sequência em todo conteúdo.</p></div>
+    <div class="card good"><div class="k">2</div><h3>Prova com número real</h3><p>3 a 5 casos: pedido, tempo, ferramentas e resultado. Sem inventar.</p></div>
+    <div class="card good"><div class="k">3</div><h3>Bastidores do sistema</h3><p>Seu estúdio organizado (design systems, legendas, recorte) é raro. Mostre.</p></div>
+    <div class="card good"><div class="k">4</div><h3>Opinião assumida</h3><p>Posts que tomam posição geram comentário e posicionam.</p></div>
+    <div class="card good"><div class="k">5</div><h3>Rosto e voz</h3><p>Um vídeo falado por semana, mesmo curto.</p></div>
+    <div class="card good"><div class="k">6</div><h3>Reaproveitar o feed</h3><p>Cada imagem boa vira um "como eu fiz".</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Conteúdo</div>
+  <h2>4 pilares, 12 ideias</h2>
+  <p class="lead">Os pilares são hipóteses para você aprovar. Filtre por formato ou pilar.</p>
+  <div class="pil" style="margin-bottom:24px">
+    <div class="card"><h3>Vídeo com IA do zero</h3><p>Prompts, etapas, erros e acertos.</p></div>
+    <div class="card"><h3>Antes e depois</h3><p>Da ideia crua ao vídeo final.</p></div>
+    <div class="card"><h3>Bastidores do estúdio</h3><p>Como o sistema de produção funciona.</p></div>
+    <div class="card"><h3>Ponto de vista</h3><p>Opinião sobre IA, vídeo e mercado.</p></div>
+  </div>
+  <div class="filters" id="f" role="group" aria-label="Filtrar ideias">
+    <button data-k="all" aria-pressed="true">Todas</button>
+    <button data-k="Carrossel" aria-pressed="false">Carrossel</button>
+    <button data-k="Reels" aria-pressed="false">Reels</button>
+    <button data-k="Série" aria-pressed="false">Série</button>
+  </div>
+  <div class="ideas" id="ideas"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Plano</div>
+  <h2>30 dias</h2>
+  <p class="lead">3 publicações por semana: 2 de processo e 1 de opinião ou bastidor. Confirme se é viável.</p>
+  <div class="weeks">
+    <div class="wk"><b>Semana 1</b><h3>Base</h3><ul><li>Escolher promessa e nome</li><li>Foto, bio, link e destaques</li><li>Padrão de capa</li><li>Fixar os 3 melhores posts</li></ul></div>
+    <div class="wk"><b>Semana 2</b><h3>Processo</h3><ul><li>Ideia 1: do prompt ao vídeo</li><li>Ideia 2: 5 erros de cara de IA</li><li>Ideia 3: imagem virando cena</li></ul></div>
+    <div class="wk"><b>Semana 3</b><h3>Bastidores e voz</h3><ul><li>Ideia 6: quanto tempo leva</li><li>Ideia 8: estúdio por dentro</li><li>Ideia 9: você falando</li></ul></div>
+    <div class="wk"><b>Semana 4</b><h3>Prova</h3><ul><li>Caso com número real</li><li>Chamada clara para contato</li><li>Revisar o que funcionou</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Próximo passo</div>
+  <h2>O que preciso de você</h2>
+  <p class="lead">Marque conforme for mandando (a marcação fica só neste aparelho).</p>
+  <ul class="check" id="c"></ul>
+</section>
+
+<footer>Relatório completo e editável no Doc "Auditoria CFDesigner: autoridade e conteúdo". Notas provisórias: baseadas em 1 print do perfil e 3 páginas do Notion.</footer>
+</div>
+
+<script>
+var IDEAS=[
+["Carrossel","Vídeo com IA","Do prompt ao vídeo: as etapas que eu uso","O caminho de 6 passos que evita vídeo com cara de IA"],
+["Carrossel","Vídeo com IA","5 erros que entregam que o vídeo foi feito por IA","Se o seu vídeo parece IA, é por isso"],
+["Reels","Antes e depois","Imagem de IA virando cena em movimento","Isto era só um prompt"],
+["Carrossel","Antes e depois","Como fiz o Avengers Project (ou outro post do feed)","O que ninguém conta por trás deste post"],
+["Reels","Antes e depois","Um plano, três estilos de cor","O mesmo vídeo, três climas"],
+["Carrossel","Bastidores","Quanto tempo leva um vídeo de 30 s com IA","Horas por etapa, sem enfeite"],
+["Reels","Bastidores","Legenda que parece cinema: antes e depois","Tire a legenda e veja o que sobra"],
+["Carrossel","Bastidores","Meu estúdio por dentro: um sistema, várias marcas","Como um repositório vira vídeo"],
+["Reels","Ponto de vista","IA não substitui direção (você falando)","A ferramenta gera, quem decide é você"],
+["Carrossel","Vídeo com IA","Mesmo personagem em várias cenas","O erro que quebra toda história com IA"],
+["Série","Bastidores","Um vídeo nasce aqui (Stories de 15 s, já em produção)","Roteiro, cenas e resultado em 15 s"],
+["Carrossel","Ponto de vista","O que o cliente recebe em um pacote de vídeos","Do briefing à entrega, sem surpresa"]
+];
+var TODO=["Print legível do topo do perfil (bio, seguidores, link) e métricas dos últimos 30 dias","Prints dos 3 posts que mais e dos 3 que menos funcionaram, com os números","Decidir a promessa e o nome único","Áudio ou vídeo seu de 2 minutos falando do trabalho","Texto da conversa do ChatGPT (print ou colado)","Dizer para que você quer autoridade: clientes, cursos, parcerias"];
+var box=document.getElementById('ideas');
+function esc(s){return s.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function draw(k){box.innerHTML=IDEAS.map(function(d,i){return (k==='all'||d[0]===k)?'<div class="idea"><div class="tag"><span>'+esc(d[0])+'</span><span>'+esc(d[1])+'</span></div><h3>'+(i+1)+'. '+esc(d[2])+'</h3><p>'+esc(d[3])+'</p></div>':''}).join('')}
+draw('all');
+document.getElementById('f').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+ Array.prototype.forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});draw(b.dataset.k)});
+var saved={};try{saved=JSON.parse(localStorage.getItem('cfaud')||'{}')}catch(e){}
+var c=document.getElementById('c');
+c.innerHTML=TODO.map(function(t,i){return '<li><label><input type="checkbox" id="t'+i+'"'+(saved['t'+i]?' checked':'')+'><span>'+esc(t)+'</span></label></li>'}).join('');
+c.addEventListener('change',function(e){saved[e.target.id]=e.target.checked;try{localStorage.setItem('cfaud',JSON.stringify(saved))}catch(x){}});
+</script>

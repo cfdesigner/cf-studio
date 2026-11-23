@@ -80,8 +80,10 @@
 ### Skill de auditoria de marca
 
 - [x] **[Claude]** Skill `auditoria-de-marca` criada (entrada do cliente, base de conhecimento, auditoria, produção do que ele pedir)
-- [ ] **[dono]** Mandar os materiais do CFDesigner (Instagram, site, o que tiver) para o primeiro teste da skill
-- [ ] **[Claude]** Rodar a auditoria do CFDesigner (Doc + página visual) e ajustar a skill com o que o teste mostrar
+- [x] **[Claude]** Primeira auditoria (CFDesigner) feita: Doc + página visual, base em `clientes/cfdesigner/` (provisória: só print da grade e Notion)
+- [ ] **[dono]** Mandar para completar a auditoria: print legível da bio e métricas, prints dos melhores e piores posts, 2 min de fala, texto do ChatGPT (o link não abre aqui), objetivo da autoridade
+- [ ] **[dono]** Aprovar promessa ("Produção completa de vídeo com IA, do roteiro ao fecho"), nome único e os 4 pilares
+- [ ] **[Claude]** Ajustar a skill `auditoria-de-marca` com o que o teste mostrou: Instagram e ChatGPT não abrem (pedir prints desde o início)
 - [x] Formato do relatório: **os dois**, documento editável + página visual (escolha do dono; já está na skill)
 
 ### Limpezas pequenas
