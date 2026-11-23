@@ -16,3 +16,9 @@ export { EtiquetaRotulo, type EtiquetaRotuloProps } from "./EtiquetaRotulo";
 export { LinhaChamada, type LinhaChamadaProps } from "./LinhaChamada";
 export { CantosVisor, type CantosVisorProps } from "./CantosVisor";
 export { SeloFlutuante, type SeloFlutuanteProps } from "./SeloFlutuante";
+export {
+  LinhasDeSom,
+  type LinhasDeSomProps,
+  type LinhaDeSom,
+  type LinhaDeSomSegmento,
+} from "./LinhasDeSom";
