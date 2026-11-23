@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Mixa o som do episódio 04 "Mesma cena" e grava o MP4 final (vídeo copiado, sem recompressão).
 
-Uso: python3 producoes/ep04-mesma-cena/mixar.py <video-sem-audio.mp4> <saida.mp4>
+Uso: python3 producoes/ep04-mesma-cena/mixar.py <video-sem-audio.mp4> <saida.mp4> [--so-voz] [--wav-voz <narracao-alinhada.wav>]
+  --so-voz: só a narração (sem música nem efeitos). --wav-voz: também grava a narração alinhada com o vídeo (44,1 kHz, estéreo).
 Usa: public/entrada/ep04/narracao.wav (voz do dono), public/entrada/ep04/musica.mp3 (Suno) e os efeitos de design-systems/cfdesigner/assets/sfx.
 - A voz tem a pausa depois de "e por fim o som" ALARGADA em 1,4 s (corte dentro da pausa) para os efeitos aparecerem sozinhos.
 - A música entra deslocada: o primeiro kick dela (21,9 s do arquivo) cai em 9,2 s do vídeo (clarão da cor). Volume por curva (abaixa na etapa do som e sob a fala).
@@ -53,7 +54,7 @@ def curva(pontos, n):
     return np.interp(t, xs, ys)
 
 
-def main(video, saida):
+def main(video, saida, so_voz=False, wav_voz=None):
     total = int(DURACAO * SR)
     # --- voz: normalizada a −16 LUFS, pausa alargada
     with tempfile.TemporaryDirectory() as d:
@@ -105,7 +106,10 @@ def main(video, saida):
         pos(ef, t, s, db + MASTER + bonus)
 
     print(f"pico dos efeitos: {20*np.log10(np.abs(ef).max()+1e-9):.1f} dBFS; pico da voz: {20*np.log10(np.abs(mix_voz).max()+1e-9):.1f} dBFS")
-    final = mix_voz + mus_mix + ef
+    if wav_voz:   # a narração sozinha, alinhada com o vídeo (pausa alargada), para o dono mixar
+        w = wave.open(wav_voz, "wb"); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
+        w.writeframes((np.clip(mix_voz, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
+    final = mix_voz if so_voz else mix_voz + mus_mix + ef
     pico = np.abs(final).max()
     if pico > 0.98:
         final *= 0.98 / pico
@@ -127,6 +131,11 @@ def main(video, saida):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
+    wav = None
+    resto = sys.argv[1:]
+    if "--wav-voz" in resto:
+        i = resto.index("--wav-voz"); wav = resto[i + 1]; del resto[i:i + 2]
+    args = [a for a in resto if not a.startswith("--")]
+    if len(args) != 2:
         sys.exit(__doc__)
-    main(sys.argv[1], sys.argv[2])
+    main(args[0], args[1], so_voz="--so-voz" in resto, wav_voz=wav)

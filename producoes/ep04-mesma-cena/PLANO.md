@@ -68,3 +68,25 @@ Legendas (dia a dia) só no miolo da fala; o gancho e o convite já têm texto g
 Comando: `npx remotion render Ep04MesmaCena out/ep04-sem-audio.mp4 --browser-executable=/opt/pw-browsers/chromium && python3 producoes/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena.mp4`
 
 **Ajustes de som (pedido do dono):** cliques reduzidos de 3 para 1 (`tick` −6 dB), trocados por `suave`; entrada da caixinha com `timeline_in` (antes `cartao`); todos os efeitos 10 dB mais baixos (MASTER −8 dB; pico dos efeitos −16 dBFS contra −3 dBFS da voz); na pausa dramática depois de "o som" a música sobe ~4,5 dB e os efeitos +4 dB.
+
+## Versão só com a narração (o dono faz música e efeitos)
+
+Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (voz a −14,1 LUFS), `out/ep04-narracao-alinhada.wav` (a voz com a pausa alargada, alinhada com a imagem) e `out/ep04-sem-audio.mp4` (vídeo limpo). Comando: `python3 producoes/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena-so-voz.mp4 --so-voz --wav-voz out/ep04-narracao-alinhada.wav`.
+
+**Marcas de tempo para ele posicionar o som (s):**
+
+| Tempo | O que acontece na imagem |
+| --- | --- |
+| 0,0 | Gancho: texto "MESMA CENA / 3 MUDANÇAS" |
+| 2,6 | Corte para o bruto |
+| 5,6 | Etiqueta RITMO |
+| 6,8 · 8,0 | Cortes na batida (100 BPM) |
+| 9,2 | Clarão e virada para a cor (no projeto, o primeiro kick da música) |
+| 10,4 · 11,6 | Cortes |
+| 12,2 | Entra a caixinha de som |
+| 13,4 · 14,6 · 15,8 | Cortes (giro da caixinha continua) |
+| 14,75 | Braços no alto (impacto) |
+| 13,5 a 16,4 | Pausa dramática depois de "o som" |
+| 16,4 | "QUAL MUDOU MAIS?" |
+| 19,4 | Fecho com o logo |
+| 21,4 | Fim |
