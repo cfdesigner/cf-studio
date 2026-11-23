@@ -59,6 +59,9 @@ Vindos do vídeo de referência C01 e aprovados pelo dono. Todos em corte seco (
 - `IconeRotulo`: quadrado escuro com ícone dourado (`cronometro` com ponteiro girando, `play`) e palavra em Bebas dourado. **Inclinado 25° em X e 25° em Y por padrão** (`inclinacao`, `inclinacaoY`); o sentido do Y é automático: a caixinha fica sempre virada para o centro da imagem.
 - `PalavraRiscada`: chamada dourada pequena e palavra grande em Bebas branco com fio dourado.
 - `TelaComRosto`: fundo preto, gravação de tela em cima e câmera embaixo em moldura arredondada.
+- `EtiquetaRotulo`: etiqueta pequena (ícone de linha `celular`/`tripe`/`papel` + palavra em Bebas âmbar) em caixinha escura de borda dourada fina, inclinada e **virada para o centro** (sentido automático). Aparece em corte seco. Do vídeo "Um vídeo nasce aqui".
+- `LinhaChamada`: anel tracejado que gira + linha fina que se desenha até um pontinho; liga um objeto à etiqueta. Cor branco gelo.
+- `CantosVisor`: cantos finos de visor de câmera que se desenham em volta de uma área (ou do quadro todo).
 - `FechoSimples`: preto puro e logo horizontal branco pequeno (~36% da largura), com fade. É o fecho mais discreto; o `LogoOutro` continua sendo o fecho grande.
 
 Regra do dono: **nenhum gráfico fica na frente do rosto de ninguém**; ajuste `topo`/`esquerda`.
