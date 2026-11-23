@@ -12,9 +12,11 @@ export const Ep04SomTeste: React.FC = () => (
     <OffthreadVideo src={staticFile("entrada/canajure/cena-ambar.mp4")} startFrom={60} muted />
     <LinhasDeSom
       durationInFrames={EP04_SOM_FRAMES}
-      esquerda={34}
-      escala={1.15}
-      topo={470}
+      esquerda={150}
+      escala={1.5}
+      trilha={330}
+      alturaFaixa={26}
+      topo={540}
       faixas={[
         { nome: "Voz", cor: "petroleo", segmentos: [{ deMs: 0, ateMs: 1500 }] },
         { nome: "Ambiente", cor: "ambar", segmentos: [{ deMs: 0, ateMs: 5000 }] },
@@ -43,27 +45,43 @@ export const Ep04SomTeste: React.FC = () => (
   </AbsoluteFill>
 );
 
-/** Texto grande no alto, entre o personagem e as folhas das árvores (gancho e convite final). */
-const TextoAlto: React.FC<{ inicio: number; branco: string; ambar: string; tamanho: number }> = ({ inicio, branco, ambar, tamanho }) => (
-  <AbsoluteFill style={{ background: "#000" }}>
-    <OffthreadVideo src={staticFile("entrada/canajure/cena-ambar.mp4")} startFrom={inicio} muted />
-    <AbsoluteFill style={{ alignItems: "center", top: 410, height: 300, justifyContent: "center" }}>
-      <div
-        style={{
-          fontFamily: fontFamilies.display,
-          fontSize: tamanho,
-          lineHeight: 0.95,
-          letterSpacing: "0.02em",
-          color: colors.cinema.ink,
-          textShadow: "0 4px 24px rgba(0,0,0,0.45)",
-          textAlign: "center",
-        }}
-      >
-        {branco} <span style={{ color: colors.cinema.amber }}>{ambar}</span>
-      </div>
+/** Texto no alto, entre o personagem e as folhas das árvores: uma linha grande e uma pequena (gancho e convite final). */
+const TextoAlto: React.FC<{
+  inicio: number;
+  grande: React.ReactNode;
+  pequena: React.ReactNode;
+  tamanho: number;
+  tamanhoPequena: number;
+  pequenaEmCima?: boolean;
+}> = ({ inicio, grande, pequena, tamanho, tamanhoPequena, pequenaEmCima }) => {
+  const sombra = "0 4px 24px rgba(0,0,0,0.45)";
+  const g = (
+    <div style={{ fontFamily: fontFamilies.display, fontSize: tamanho, lineHeight: 0.95, letterSpacing: "0.02em", color: colors.cinema.ink, textShadow: sombra }}>
+      {grande}
+    </div>
+  );
+  const pq = (
+    <div style={{ fontFamily: fontFamilies.display, fontSize: tamanhoPequena, lineHeight: 1, letterSpacing: "0.14em", color: colors.cinema.ink, opacity: 0.92, textShadow: sombra }}>
+      {pequena}
+    </div>
+  );
+  return (
+    <AbsoluteFill style={{ background: "#000" }}>
+      <OffthreadVideo src={staticFile("entrada/canajure/cena-ambar.mp4")} startFrom={inicio} muted />
+      <AbsoluteFill style={{ alignItems: "center", top: 400, height: 340, justifyContent: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, textAlign: "center" }}>
+          {pequenaEmCima ? pq : g}
+          {pequenaEmCima ? g : pq}
+        </div>
+      </AbsoluteFill>
     </AbsoluteFill>
-  </AbsoluteFill>
-);
+  );
+};
 
-export const Ep04Gancho: React.FC = () => <TextoAlto inicio={195} branco="MESMA" ambar="CENA" tamanho={190} />;
-export const Ep04Convite: React.FC = () => <TextoAlto inicio={320} branco="QUAL MUDOU" ambar="MAIS?" tamanho={150} />;
+const A = colors.cinema.amber;
+export const Ep04Gancho: React.FC = () => (
+  <TextoAlto inicio={195} tamanho={190} tamanhoPequena={64} grande={<>MESMA <span style={{ color: A }}>CENA</span></>} pequena={<><span style={{ color: A }}>3</span> MUDANÇAS</>} />
+);
+export const Ep04Convite: React.FC = () => (
+  <TextoAlto inicio={320} tamanho={150} tamanhoPequena={64} pequenaEmCima grande={<>QUAL MUDOU <span style={{ color: A }}>MAIS?</span></>} pequena={<>MESMA <span style={{ color: A }}>CENA</span></>} />
+);

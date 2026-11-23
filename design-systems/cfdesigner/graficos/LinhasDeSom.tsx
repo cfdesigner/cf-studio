@@ -38,6 +38,10 @@ export type LinhasDeSomProps = {
   topo?: number;
   /** Tamanho geral (padrão 1). */
   escala?: number;
+  /** Largura de cada faixa, em px na base de 1080 de largura, antes da escala (padrão 210). Aumente para uma caixinha mais esticada. */
+  trilha?: number;
+  /** Altura de cada faixa, em px antes da escala (padrão 22). */
+  alturaFaixa?: number;
   /** Perspectiva leve no eixo X, em graus (padrão 10). */
   inclinacaoX?: number;
   /** Perspectiva leve no eixo Y, em graus (padrão 14). O sentido é automático: sempre virado para o centro da imagem. */
@@ -59,6 +63,8 @@ export const LinhasDeSom: React.FC<LinhasDeSomProps> = ({
   esquerda = 40,
   topo = 1000,
   escala = 1,
+  trilha = 210,
+  alturaFaixa: alturaFaixaBase = 22,
   inclinacaoX = 10,
   inclinacaoY = 14,
   saidaMs = 250,
@@ -74,8 +80,8 @@ export const LinhasDeSom: React.FC<LinhasDeSomProps> = ({
     interpolate(f, [0, 10], [0, 1], clamp);
 
   const larguraRotulo = 150 * k;
-  const larguraTrilha = 210 * k;
-  const alturaFaixa = 22 * k;
+  const larguraTrilha = trilha * k;
+  const alturaFaixa = alturaFaixaBase * k;
   const larguraCartao = 40 * k + larguraRotulo + 14 * k + larguraTrilha;
   // cartão à esquerda do centro: afasta o lado direito (+); à direita: afasta o lado esquerdo (−)
   const centroCartao = esquerda * k0 + larguraCartao / 2;

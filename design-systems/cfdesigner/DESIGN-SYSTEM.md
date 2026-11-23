@@ -63,7 +63,7 @@ Vindos do vídeo de referência C01 e aprovados pelo dono. Todos em corte seco (
 - `LinhaChamada`: anel tracejado que gira + linha fina que se desenha até um pontinho; liga um objeto à etiqueta. Cor branco gelo.
 - `CantosVisor`: cantos finos de visor de câmera que se desenham em volta de uma área (ou do quadro todo).
 - `SeloFlutuante`: selo pequeno e discreto que flutua embaixo da tela (texto espaçado entre fios bronze e losangos), por cima de todas as cenas. Ex.: "Making off".
-- `LinhasDeSom` (**proposta do ep. 04, aguardando aprovação do dono**): caixinha semitransparente com uma faixa por camada de áudio (voz, ambiente, whoosh, impacto, tique) e uma linha de reprodução. Âmbar para efeitos, petróleo claro para voz e marcas. Fica ao lado do personagem, virada para o centro, nunca sobre o rosto. Teste: composição `Ep04SomTeste`.
+- `LinhasDeSom` (**proposta do ep. 04, aguardando aprovação do dono**): caixinha semitransparente com uma faixa por camada de áudio (voz, ambiente, whoosh, impacto, tique) e uma linha de reprodução. Âmbar para efeitos, petróleo claro para voz e marcas. Fica ao lado do personagem, virada para o centro, nunca sobre o rosto. Props `trilha` e `alturaFaixa` deixam a caixinha mais esticada. Teste: composição `Ep04SomTeste`.
 - `FechoSimples`: preto puro e logo horizontal branco pequeno (~36% da largura), com fade. É o fecho mais discreto; o `LogoOutro` continua sendo o fecho grande.
 
 Regra do dono: **nenhum gráfico fica na frente do rosto de ninguém**; ajuste `topo`/`esquerda`.
