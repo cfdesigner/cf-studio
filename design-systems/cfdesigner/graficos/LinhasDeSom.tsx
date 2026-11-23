@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Easing,
   interpolate,
   useCurrentFrame,
   useVideoConfig,
@@ -48,6 +49,12 @@ export type LinhasDeSomProps = {
   inclinacaoY?: number;
   /** Fade de saída em ms (padrão 250). */
   saidaMs?: number;
+  /**
+   * Giro no eixo vertical (Y): ângulo inicial e final, em graus. A caixinha fica na mesma posição e vai girando
+   * de um lado até o outro durante toda a duração (ex.: de 30 a −30). Sem estes dois, ela fica parada com `inclinacaoY`.
+   */
+  giroDe?: number;
+  giroAte?: number;
 };
 
 /**
@@ -68,6 +75,8 @@ export const LinhasDeSom: React.FC<LinhasDeSomProps> = ({
   inclinacaoX = 10,
   inclinacaoY = 14,
   saidaMs = 250,
+  giroDe,
+  giroAte,
 }) => {
   const f = useCurrentFrame();
   const { fps, width } = useVideoConfig();
@@ -86,6 +95,13 @@ export const LinhasDeSom: React.FC<LinhasDeSomProps> = ({
   // cartão à esquerda do centro: afasta o lado direito (+); à direita: afasta o lado esquerdo (−)
   const centroCartao = esquerda * k0 + larguraCartao / 2;
   const sentidoY = centroCartao <= width / 2 ? 1 : -1;
+  const giraAnimado = giroDe !== undefined && giroAte !== undefined;
+  const anguloY = giraAnimado
+    ? interpolate(f, [8, durationInFrames - 8], [giroDe, giroAte], {
+        ...clamp,
+        easing: Easing.inOut(Easing.cubic),
+      })
+    : sentidoY * Math.abs(inclinacaoY);
   const xAgora = (ms / endMs) * larguraTrilha;
 
   return (
@@ -100,7 +116,7 @@ export const LinhasDeSom: React.FC<LinhasDeSomProps> = ({
           background: "rgba(11,12,14,0.62)",
           border: `${1 * k}px solid rgba(217,164,65,0.4)`,
           borderLeft: `${5 * k}px solid ${c.amber}`,
-          transform: `perspective(${1100 * k}px) rotateX(${inclinacaoX}deg) rotateY(${sentidoY * Math.abs(inclinacaoY)}deg)`,
+          transform: `perspective(${1100 * k}px) rotateX(${inclinacaoX}deg) rotateY(${anguloY}deg)`,
           transformOrigin: "50% 50%",
         }}
       >

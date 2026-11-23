@@ -16,6 +16,8 @@ export const Ep04SomTeste: React.FC = () => (
       escala={1.5}
       trilha={330}
       alturaFaixa={26}
+      giroDe={32}
+      giroAte={-32}
       topo={540}
       faixas={[
         { nome: "Voz", cor: "petroleo", segmentos: [{ deMs: 0, ateMs: 1500 }] },
@@ -80,8 +82,8 @@ const TextoAlto: React.FC<{
 
 const A = colors.cinema.amber;
 export const Ep04Gancho: React.FC = () => (
-  <TextoAlto inicio={195} tamanho={190} tamanhoPequena={64} grande={<>MESMA <span style={{ color: A }}>CENA</span></>} pequena={<><span style={{ color: A }}>3</span> MUDANÇAS</>} />
+  <TextoAlto inicio={195} tamanho={190} tamanhoPequena={64} grande={<>MESMA <span style={{ color: A }}>CENA</span></>} pequena={<>3 MUDANÇAS</>} />
 );
 export const Ep04Convite: React.FC = () => (
-  <TextoAlto inicio={320} tamanho={150} tamanhoPequena={64} pequenaEmCima grande={<>QUAL MUDOU <span style={{ color: A }}>MAIS?</span></>} pequena={<>MESMA <span style={{ color: A }}>CENA</span></>} />
+  <TextoAlto inicio={320} tamanho={150} tamanhoPequena={64} pequenaEmCima grande={<>QUAL MUDOU <span style={{ color: A }}>MAIS?</span></>} pequena={<>MESMA CENA</>} />
 );

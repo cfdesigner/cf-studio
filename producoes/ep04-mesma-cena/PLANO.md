@@ -25,12 +25,12 @@ Status: **aguardando aprovação do storyboard** (`storyboard.html`, publicado c
 
 | # | Tempo | Etapa | Origem na cena | Por cima | Som |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 0–2 s | Gancho | quadro do resultado (aprox. 24,5 s), já com o look Âmbar Cinema | "MESMA CENA" grande (Bebas, "CENA" em âmbar) e "3 MUDANÇAS" pequeno embaixo, a meio caminho entre o personagem e o alto do quadro (topo ≈ 410 px) | `grande` + `cartao` |
+| 1 | 0–2 s | Gancho | quadro do resultado (aprox. 24,5 s), já com o look Âmbar Cinema | "MESMA CENA" grande (Bebas, "CENA" em âmbar) e "3 MUDANÇAS" pequeno e branco embaixo, a meio caminho entre o personagem e o alto do quadro (topo ≈ 410 px) | `grande` + `cartao` |
 | 2 | 2–6 s | Bruto | contínuo 20–24 s, em visual cinza (simulação de log: contraste e cor reduzidos) | selo "ORIGINAL" | só ambiente |
 | 3 | 6–11 s | + Ritmo (ainda bruto) | 4 trechos de 18–30 s, cortes a cada 1,2 s (2 tempos a 100 BPM); aberto e aproximação ≤ 1,35x | etiqueta RITMO mais alta, entre o personagem e as folhas | `fraco` 0,15 s antes de cada corte |
 | 4 | 11–16 s | + Cor | clarão e virada para a imagem real com o look por cima | etiqueta COR (mesma altura da RITMO); clarão curto na troca | `icone` |
-| 5 | 16–21 s | + Som | mesma montagem | `LinhasDeSom` (novo, semitransparente, centralizada e esticada, ~75% da largura, entre o personagem e as folhas, topo ≈ 540 px, escala 1,5): VOZ, AMBIENTE, WHOOSH, IMPACTO, TIQUE | ambiente mais presente, `fraco` nos cortes, `grande` quando os braços sobem, `tick`/`tick_final` nas marcas |
-| 6 | 21–24 s | Resultado | último plano (você se afastando, ~28–30,7 s) com tudo | "MESMA CENA" pequeno em cima e "QUAL MUDOU MAIS?" grande, no alto, entre o personagem e as folhas | `grande` suave |
+| 5 | 16–21 s | + Som | mesma montagem | `LinhasDeSom` (novo, semitransparente, centralizada e esticada, ~75% da largura, entre o personagem e as folhas, topo ≈ 540 px, escala 1,5), girando no eixo Y de +32° a −32° durante a etapa (`giroDe`/`giroAte`): VOZ, AMBIENTE, WHOOSH, IMPACTO, TIQUE | ambiente mais presente, `fraco` nos cortes, `grande` quando os braços sobem, `tick`/`tick_final` nas marcas |
+| 6 | 21–24 s | Resultado | último plano (você se afastando, ~28–30,7 s) com tudo | "MESMA CENA" pequeno e branco em cima e "QUAL MUDOU MAIS?" grande, no alto, entre o personagem e as folhas | `grande` suave |
 | 7 | 24–26 s | Fecho | | `FechoSimples` | `fraco` na saída |
 
 ## Decisões a aprovar
