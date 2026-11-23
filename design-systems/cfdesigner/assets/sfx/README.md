@@ -15,3 +15,9 @@ Sons do próprio dono, cortados do stem só de efeitos do C01 feito à mão (`C0
 | `suave.wav` | 0,4 s | abertura, bem baixo |
 
 Regras que se leem no C01: whoosh de cartão 0,1 s antes do elemento; clique em cada marca (o último, `tick_final`); `fraco` quando o cartão sai; `grande` no logo. Mixagem: `producoes/c02-broll/som/mixar.py`.
+
+## Contagem (sintetizados, sem IA)
+
+| Arquivo | Dura | Para que serve |
+| --- | --- | --- |
+| `tic.wav` / `tac.wav` | 0,09 s | par de tique de relógio, agudo e grave, **alternados** (tic-tac) quando um número conta (ex.: "15" em "Cinema em 15 segundos"). Gerados por código (ruído curto + dois senos com queda rápida), não são sons do dono. Use bem baixos. |
