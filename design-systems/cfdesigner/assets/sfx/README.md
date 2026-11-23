@@ -21,3 +21,8 @@ Regras que se leem no C01: whoosh de cartão 0,1 s antes do elemento; clique em 
 ## Nível nas peças
 
 Os arquivos estão no volume original do dono (picos entre −8 e −20 dBFS). Numa peça com música, **normalize cada som pelo pico** e coloque-o por volta de **−40 dBFS** (≈ 11 dB abaixo da média da música) quando o dono pedir efeitos "quase imperceptíveis"; veja `ganhoSfx` em `producoes/um-video-nasce-aqui/UmVideoNasceAqui.tsx`.
+
+
+## Pedido do dono (ep. 04)
+
+Os efeitos devem ficar **bem baixos** na mixagem (pico ~12 dB abaixo do da voz ou mais) e **sem cliques**: `tick` e `tick_final` são os mais altos do kit (picos −10,6 e −8 dBFS, médios 300–3 kHz) e foram considerados feios. Use no máximo um `tick` bem baixo; prefira `suave`, `fraco` e `timeline_in`.

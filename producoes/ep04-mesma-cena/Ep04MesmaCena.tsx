@@ -157,15 +157,7 @@ export const Ep04MesmaCena: React.FC = () => (
             ],
           },
           { nome: "Impacto", cor: "ambar", segmentos: [{ deMs: 2450, ateMs: 3250 }] },
-          {
-            nome: "Tique",
-            cor: "petroleo",
-            segmentos: [
-              { deMs: 700, ateMs: 820 },
-              { deMs: 1900, ateMs: 2020 },
-              { deMs: 3000, ateMs: 3120 },
-            ],
-          },
+          { nome: "Tique", cor: "petroleo", segmentos: [{ deMs: 3000, ateMs: 3120 }] },
         ]}
       />
     </Sequence>

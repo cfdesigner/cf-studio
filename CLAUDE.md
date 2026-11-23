@@ -22,6 +22,7 @@ Leia `PENDENCIAS.md` no começo da sessão e **lembre o dono das pendências abe
 - **Limpo e premium.** O elemento principal manda; texto de apoio é pequeno, suave e discreto. Nunca "textão" nem texto chamativo sobrando. Na dúvida: menos texto, menor, mais suave.
 - **Vídeo bruto: primeiro o plano de edição** (skill `plano-de-edicao`), mostrar ao dono e esperar aprovação, depois editar.
 - **Storyboard sempre, antes de montar qualquer vídeo** (pedido do dono): página visual com quadros reais do material, linha do tempo, o que entra por cima e o som de cada trecho. Mostrar e esperar aprovação antes de montar o vídeo.
+- **Efeitos sonoros sempre bem baixos** (pico dos efeitos pelo menos ~12 dB abaixo do pico da voz) e **sem cliques/ticks** (o dono achou feio e distrai). Preferir sons suaves (`suave`, `fraco`, `timeline_in`); se faltar som bom, pedir ao dono que mande efeitos. Dar ênfase só em pausas dramáticas (+4 dB).
 - **Light leak oficial (`@remotion/effects`) não usar:** instável sem GPU (testado).
 - **Motion blur: só `HtmlInCanvasMotionBlur`** (testado, estável). Não usar `Trail` (sem efeito) nem `CameraMotionBlur` (tinge o fundo).
 - **Frases de efeito e escolhas de estilo novas: mostrar e esperar a aprovação** antes de renderizar o vídeo final.

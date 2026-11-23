@@ -74,33 +74,37 @@ def main(video, saida):
     curva_db = curva([
         (0.0, -40), (0.7, 6), (8.9, 6),          # intro: o pad suave, levantado para ser ouvido
         (9.1, -1), (9.5, -3.5), (12.0, -4),      # kick no clarão, depois groove sob a voz ("depois, a cor")
-        (12.3, -11), (16.2, -11),                # etapa do som: música recua para os efeitos aparecerem
-        (16.5, -6.5), (18.2, -6.5),              # "Mesma cena, qual mudou mais?"
+        (12.3, -11), (13.4, -11),                # etapa do som: música recua enquanto a voz fala "o som"
+        (13.9, -6.5), (16.5, -6.5), (18.2, -6.5),  # pausa dramática: a música sobe ~4,5 dB para dar ênfase ao som; segue sob "Mesma cena, qual mudou mais?"
         (18.9, -2.5), (19.5, -2.5), (21.3, -40),  # sobe um pouco e some com o logo
     ], total)
     mus_mix = trecho * (10 ** (curva_db / 20))[:, None]
 
     # --- efeitos (tempo = início do som; sons do dono, nível original + MASTER)
-    MASTER = 2.0
+    MASTER = -8.0      # efeitos sempre bem baixos (pedido do dono); antes estava +2 dB
+    BONUS_PAUSA = 4.0  # dB a mais nos efeitos durante a pausa dramática depois de "o som" (13,4 a 16,3 s)
     ef = np.zeros((total, 2))
     EVENTOS = [
-        (0.00, "grande", -4), (0.00, "cartao", 0),              # gancho
+        (0.00, "grande", -4), (0.00, "cartao", -4),             # gancho
         (2.45, "fraco", 0),                                      # vai para o bruto
         (5.45, "fraco", 0), (5.55, "icone", -3),                # ritmo: etiqueta
         (6.65, "fraco", 0), (7.85, "fraco", 0),                 # cortes na batida
         (9.05, "grande", -2), (9.25, "icone", -3),              # cor: clarão e etiqueta
         (10.25, "fraco", -3), (11.45, "fraco", -3),
-        (12.00, "cartao", 0),                                    # caixinha de som entra
-        (12.90, "tick", 0), (14.10, "tick", 0), (15.20, "tick_final", 0),
+        (12.00, "timeline_in", 0),                               # caixinha de som entra (antes: cartao, mais agudo e alto)
+        (12.90, "suave", 3), (14.10, "suave", 3),               # no lugar dos cliques
+        (15.20, "tick", -6),                                     # um único clique, bem baixo
         (13.15, "fraco", 0), (14.35, "fraco", 0), (15.55, "fraco", 0),   # whooshes que acabam nos cortes
         (14.75, "grande", 0),                                    # braços no alto: impacto
-        (16.30, "cartao", -2),                                   # texto final
+        (16.30, "cartao", -6),                                   # texto final
         (19.35, "grande", -4), (20.90, "fraco", -3),            # fecho
     ]
     for t, nome, db in EVENTOS:
         s = carrega(os.path.join(SFX, nome + ".wav"))
-        pos(ef, t, s, db + MASTER)
+        bonus = BONUS_PAUSA if 13.4 <= t <= 16.3 else 0.0
+        pos(ef, t, s, db + MASTER + bonus)
 
+    print(f"pico dos efeitos: {20*np.log10(np.abs(ef).max()+1e-9):.1f} dBFS; pico da voz: {20*np.log10(np.abs(mix_voz).max()+1e-9):.1f} dBFS")
     final = mix_voz + mus_mix + ef
     pico = np.abs(final).max()
     if pico > 0.98:
