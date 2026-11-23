@@ -75,6 +75,12 @@
 - [ ] **[dono]** Trazer os nomes das próximas skills
 - [ ] **[Claude]** Para cada uma: achar, ver se é gratuita, ler antes de instalar, checar conflito com Remotion/design systems
 
+### Skill de auditoria de marca
+
+- [x] **[Claude]** Skill `auditoria-de-marca` criada (entrada do cliente, base de conhecimento, auditoria, produção do que ele pedir)
+- [ ] **[dono + Claude]** Testar com um cliente real (ou com o próprio CFDesigner) e ajustar. Ainda sem teste real
+- [ ] **[dono]** Dizer o formato preferido do relatório (Doc, página ou os dois)
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz

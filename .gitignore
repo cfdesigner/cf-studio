@@ -11,3 +11,6 @@ public/entrada
 
 # Python
 __pycache__
+
+# Material bruto de clientes (PDFs, prints, apresentações): não vai para o Git
+clientes/*/entrada/
