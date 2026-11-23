@@ -31,11 +31,10 @@ import cartao from "../../design-systems/cfdesigner/assets/sfx/cartao.wav";
 import icone from "../../design-systems/cfdesigner/assets/sfx/icone.wav";
 import tick from "../../design-systems/cfdesigner/assets/sfx/tick.wav";
 import tickFinal from "../../design-systems/cfdesigner/assets/sfx/tick_final.wav";
-import tic from "../../design-systems/cfdesigner/assets/sfx/tic.wav";
-import tac from "../../design-systems/cfdesigner/assets/sfx/tac.wav";
 import timelineIn from "../../design-systems/cfdesigner/assets/sfx/timeline_in.wav";
 import grande from "../../design-systems/cfdesigner/assets/sfx/grande.wav";
 import suave from "../../design-systems/cfdesigner/assets/sfx/suave.wav";
+import texto from "../../design-systems/cfdesigner/assets/sfx/texto.wav";
 import fraco from "../../design-systems/cfdesigner/assets/sfx/fraco.wav";
 
 const c = colors.cinema;
@@ -773,8 +772,24 @@ const Fecho: React.FC = () => {
 
 // ───────────── som ─────────────
 
-/** Efeitos sonoros 17 dB abaixo (pedido do dono): o som do C02 e a música mandam. */
-const SFX_GANHO = 0.14; // −17 dB: bem sutis (pedido do dono)
+/**
+ * Efeitos sonoros quase imperceptíveis (pedido do dono). Cada som é normalizado pelo seu PICO e colocado em ALVO dBFS,
+ * ~11 dB abaixo da música (que fica em ≈ −29 dBFS de média): sentem-se mais do que se ouvem.
+ */
+const ALVO_PICO_DB = -40;
+const PICO_DB = new Map<string, number>([
+  [cartao, -9.1],
+  [icone, -17.1],
+  [tick, -10.6],
+  [tickFinal, -8.0],
+  [timelineIn, -16.3],
+  [grande, -12.0],
+  [suave, -18.5],
+  [fraco, -17.0],
+  [texto, -10.8],
+]);
+const ganhoSfx = (src: string) =>
+  10 ** ((ALVO_PICO_DB - (PICO_DB.get(src) ?? -10)) / 20);
 
 const Sfx: React.FC<{ em: number; src: string; vol?: number }> = ({
   em,
@@ -782,7 +797,7 @@ const Sfx: React.FC<{ em: number; src: string; vol?: number }> = ({
   vol = 1,
 }) => (
   <Sequence from={Math.max(0, em)} durationInFrames={60} layout="none">
-    <Audio src={src} volume={vol * SFX_GANHO} />
+    <Audio src={src} volume={vol * ganhoSfx(src)} />
   </Sequence>
 );
 
@@ -812,12 +827,8 @@ const SOM: { em: number; src: string; vol?: number }[] = [
   { em: 216 + 36, src: icone, vol: 0.8 },
   // resultado
   { em: 288 - 2, src: timelineIn },
-  // frase: contagem em tic-tac (um tique a cada 4,5 quadros, alternando agudo/grave), do 0 ao 15
-  ...Array.from({ length: 9 }, (_, i) => ({
-    em: Math.round(360 + 6 + i * 4.5),
-    src: i % 2 === 0 ? tic : tac,
-    vol: i === 8 ? 1.3 : 0.9,
-  })),
+  // frase "Cinema em 15 segundos": o swell do dono sobe e atinge o pico quando o número chega ao 15 (quadro 42 da cena)
+  { em: 360 + 42 - 27, src: texto },
   // fecho
   { em: 414 + 2, src: grande },
   { em: 414 + 26, src: fraco, vol: 0.7 },

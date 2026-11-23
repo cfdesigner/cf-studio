@@ -8,6 +8,9 @@
 import { Config } from "@remotion/cli/config";
 
 Config.setRspack(true);
-Config.setVideoImageFormat("jpeg");
+// Melhor qualidade (pedido do dono): quadros em PNG (sem perda, em vez de JPEG 80), CRF 14 e preset "slow" no x264.
+Config.setVideoImageFormat("png");
+Config.setCrf(14);
+Config.setX264Preset("slow");
 Config.setOverwriteOutput(true);
 Config.setDefaultPremountInSeconds(2);
