@@ -7,6 +7,7 @@ import manifestoBanner from "./assets/imagery/manifesto-banner.png";
 
 export * from "./components";
 export * from "./tokens";
+export * from "./fundos";
 
 /** Fotos da marca. Veja assets/imagery/README.md para o uso de cada uma. */
 export const imagery = {

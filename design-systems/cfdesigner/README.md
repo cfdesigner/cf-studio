@@ -19,6 +19,7 @@ import {
 - **Imagens e logos:** `assets/`, importadas por `logos` e `imagery` em `index.ts`.
 - **Como produzir (movimento, transições, legendas, terceiro, números, fecho):** veja `DESIGN-SYSTEM.md`. Legendas: `components/Legendas.tsx`.
 - **Efeitos de movimento** (terceiro de nome, contador, câmera, clarão, cortina, fecho...): `efeitos/`, veja `docs/efeitos.md`.
+- **Telas de fundo** (`FundoCF`, 6 variantes em bronze para cenas sem foto): `fundos/`, veja `docs/fundos.md`.
 - **Props de cada componente:** `docs/props.d.ts` e `docs/components/*.md`.
 - **Vídeo sempre no tema Cinema** (escuro). Daylight é só para documentos.
 - **Sem barras de REC/timecode nos vídeos.** O `ReelFrame` traz barras letterbox (REC, timecode, @cfdesigner, fps), mas elas ficam desligadas por padrão (`bars={false}`). Só ligue se o dono pedir. Isso vale mais que as regras de letterbox do brand book abaixo.

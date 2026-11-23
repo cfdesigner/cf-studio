@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition, Still } from "remotion";
 import { CFDesignerShowcase } from "./Showcase";
+import { ExemploFundos } from "./exemplo/ExemploFundos";
 import { ExemploEfeitos } from "./exemplo/ExemploEfeitos";
 import { ExemploGraficos } from "./exemplo/ExemploGraficos";
 import { ExemploIcone } from "./exemplo/ExemploIcone";
@@ -27,6 +28,14 @@ export const CFDesignerComposicoes: React.FC = () => (
       id="CFDesigner-Efeitos-Exemplo"
       component={ExemploEfeitos}
       durationInFrames={210}
+      fps={30}
+      width={1080}
+      height={1920}
+    />
+    <Composition
+      id="CFDesigner-Fundos-Exemplo"
+      component={ExemploFundos}
+      durationInFrames={540}
       fps={30}
       width={1080}
       height={1920}

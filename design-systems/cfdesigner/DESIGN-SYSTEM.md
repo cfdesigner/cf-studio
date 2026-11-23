@@ -63,6 +63,10 @@ Vindos do vídeo de referência C01 e aprovados pelo dono. Todos em corte seco (
 
 Regra do dono: **nenhum gráfico fica na frente do rosto de ninguém**; ajuste `topo`/`esquerda`.
 
+## Fundos (`fundos/`)
+
+Telas de fundo animadas para cenas sem foto/vídeo (passo a passo, explicações, frases, fecho): `FundoCF` com 6 variantes (`grade`, `orbitas`, `visor`, `timeline`, `losangos`, `pontos`). Preto `void` com traços finos em **bronze** (`#8a6a2a`), 15–55% de opacidade, movimento lento. **Uma variante diferente a cada cena**, nunca a mesma em todas. Aprovadas pelo dono. Guia e receita em `docs/fundos.md`; exemplo `CFDesigner-Fundos-Exemplo`.
+
 ## Imagem e foto
 
 Fotos em luz baixa, 70% ou mais em sombra, vinheta preta até `void` onde há texto. Sem filtros coloridos. Retratos em `assets/imagery` (`imagery.*`).
@@ -73,4 +77,4 @@ Neon, gradientes coloridos (só vinheta preta), emoji em peças, barras de REC/t
 
 ## Exemplos que renderizam
 
-`CFDesigner-Componentes` (quadro com tudo), `CFDesigner-Legendas-Exemplo`, `CFDesigner-Efeitos-Exemplo`, `CFDesigner-Graficos-Exemplo` (os 5 gráficos, usa imagens de apoio de `public/entrada/`) e `CFDesigner-Icone-Inclinacao` (amostra da inclinação).
+`CFDesigner-Componentes` (quadro com tudo), `CFDesigner-Legendas-Exemplo`, `CFDesigner-Efeitos-Exemplo`, `CFDesigner-Graficos-Exemplo` (os 5 gráficos, usa imagens de apoio de `public/entrada/`), `CFDesigner-Fundos-Exemplo` (as 6 telas de fundo) e `CFDesigner-Icone-Inclinacao` (amostra da inclinação).

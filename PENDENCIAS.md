@@ -18,6 +18,8 @@
 - [x] Barras de REC/timecode desligadas por padrão
 - [x] 5 gráficos do vídeo C01 (checklist, ícone com rótulo inclinado 25°/25° virado para o centro, palavra riscada, tela + rosto, fecho simples), aprovados pelo dono. Regra: nunca na frente de rostos
 
+- [x] **Telas de fundo `FundoCF`** (6 variantes em bronze `#8a6a2a`: grade, órbitas e bokeh, visor, timeline, losangos, pontos), pedidas pelo dono para vídeos explicativos/passo a passo. Uma variante diferente por cena. Guia em `design-systems/cfdesigner/docs/fundos.md`, exemplo `CFDesigner-Fundos-Exemplo`
+
 ### Ferramentas e skills
 
 - [x] Whisper instalado (transcrição em português, só CPU) e script de transcrição
@@ -35,6 +37,12 @@
 - [x] Logos: vertical (colorido e negativo) fornecidos; horizontal negativo e símbolo derivados dos arquivos do dono
 
 ## Próximos passos
+
+### Stories "Um vídeo nasce aqui" (15 s, CFDesigner)
+
+- [ ] **[dono]** Aprovar o storyboard v3 (frases "UM VÍDEO NASCE AQUI", "ROTEIRO NA MÃO", "4 CENÁRIOS", "1 CELULAR", "1 TRIPÉ", "O RESULTADO", "CINEMA EM 15 SEGUNDOS"), o ícone de papel e a linha de chamada (novos no design system) e o trecho da música (24–39 s do `C02.mp3`)
+- [ ] **[Claude]** Depois da aprovação: montar no Remotion (fotos do dono + trecho do C02 dentro do celular + `FundoCF` por cena + `TextoAtras` com o recorte refinado), conferir cortes na batida (100 BPM) e entregar o MP4. Limpar o pedaço do corrimão no recorte da foto do roteiro
+- [ ] **[dono]** (opcional) fotos originais em alta resolução (a do roteiro tem só 508 px)
 
 ### CERTI: o que depende do dono
 
