@@ -13,11 +13,11 @@ Sons do próprio dono, cortados do stem só de efeitos do C01 feito à mão (`C0
 | `timeline_in.wav` / `timeline_out.wav` | 0,9 / 0,6 s | tela da timeline entrando e saindo |
 | `relogio.wav` | 1,1 s | 12 tiques do ícone de cronômetro |
 | `suave.wav` | 0,4 s | abertura, bem baixo |
+| `texto.wav` | 1,65 s | **swell de texto** do dono (recorte do `SFX - Texto 1`, 1ª de 5 variações): cresce e atinge o pico em ~0,9 s. Use em contagem/frase de efeito, com o pico no instante em que o número chega ao valor final. |
 
 Regras que se leem no C01: whoosh de cartão 0,1 s antes do elemento; clique em cada marca (o último, `tick_final`); `fraco` quando o cartão sai; `grande` no logo. Mixagem: `producoes/c02-broll/som/mixar.py`.
 
-## Contagem (sintetizados, sem IA)
 
-| Arquivo | Dura | Para que serve |
-| --- | --- | --- |
-| `tic.wav` / `tac.wav` | 0,09 s | par de tique de relógio, agudo e grave, **alternados** (tic-tac) quando um número conta (ex.: "15" em "Cinema em 15 segundos"). Gerados por código (ruído curto + dois senos com queda rápida), não são sons do dono. Use bem baixos. |
+## Nível nas peças
+
+Os arquivos estão no volume original do dono (picos entre −8 e −20 dBFS). Numa peça com música, **normalize cada som pelo pico** e coloque-o por volta de **−40 dBFS** (≈ 11 dB abaixo da média da música) quando o dono pedir efeitos "quase imperceptíveis"; veja `ganhoSfx` em `producoes/um-video-nasce-aqui/UmVideoNasceAqui.tsx`.
