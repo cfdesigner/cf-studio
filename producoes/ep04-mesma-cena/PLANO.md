@@ -90,3 +90,7 @@ Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (v
 | 16,4 | "QUAL MUDOU MAIS?" |
 | 19,4 | Fecho com o logo |
 | 21,4 | Fim |
+
+## Planos trocados (sem braços levantados, pedido do dono)
+
+O primeiro e os planos do meio não repetem mais o gesto de braços para cima. Agora (segundos da cena original): gancho 1,2 (vira de perfil para as costas); bruto 6,5 a 9,5 (parado); ritmo 4,6 (gira), 15,6 aproximação (olha para baixo), 13,2 (troca o peso); cor 17,6 (passo e giro), 25,4 aproximação (se vira), 16,8; som 2,2, 13,4 aproximação, 18,6, 10,8. O último plano (27,7 a 30,7 s, ele vindo para a câmera) foi mantido por ter sido aprovado. Arquivos: `cena-bruto-full.mp4` e `cena-ambar-full.mp4` (30,7 s, em `public/entrada/canajure/`).

@@ -29,31 +29,33 @@ export const EP04_FRAMES = f(21.4);
 const c = colors.cinema;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-/** Trechos da cena. `ini` = segundo dentro do arquivo (que começa em 18 s da cena original). Cortes sempre em batidas (0,6 s) de 100 BPM. */
+/** Trechos da cena. `ini` = segundo da cena original (arquivos cena-bruto-full.mp4 e cena-ambar-full.mp4, 30,7 s). Cortes sempre em batidas (0,6 s) de 100 BPM.
+ *  Sem braços levantados (pedido do dono): giros, olhar para baixo, passos. O último plano (ele vindo para a câmera) foi aprovado. */
 type Plano = { de: number; ate: number; arq: "bruto" | "ambar"; ini: number; zoom?: number };
-const A = 0.2; // aberto, braços abertos
-const B = 2.7; // aproximação, braços para cima
-const C = 6.3; // aberto, braços no alto
 const PLANOS: Plano[] = [
-  { de: 0, ate: 2.6, arq: "ambar", ini: 6.0 }, // gancho: o resultado final
-  { de: 2.6, ate: 5.6, arq: "bruto", ini: 2.0 }, // bruto: um plano só, sem cortes
-  { de: 5.6, ate: 6.8, arq: "bruto", ini: A },
-  { de: 6.8, ate: 8.0, arq: "bruto", ini: B, zoom: 1.35 },
-  { de: 8.0, ate: 9.2, arq: "bruto", ini: C },
-  { de: 9.2, ate: 10.4, arq: "ambar", ini: A },
-  { de: 10.4, ate: 11.6, arq: "ambar", ini: B, zoom: 1.35 },
-  { de: 11.6, ate: 12.2, arq: "ambar", ini: C },
-  { de: 12.2, ate: 13.4, arq: "ambar", ini: A },
-  { de: 13.4, ate: 14.6, arq: "ambar", ini: B, zoom: 1.35 },
-  { de: 14.6, ate: 15.8, arq: "ambar", ini: C },
-  { de: 15.8, ate: 16.4, arq: "ambar", ini: 7.6 },
-  { de: 16.4, ate: 19.4, arq: "ambar", ini: 9.7 }, // resultado: você se afastando
+  { de: 0, ate: 2.6, arq: "ambar", ini: 1.2 }, // gancho: ele vira de perfil para as costas, já com o look
+  { de: 2.6, ate: 5.6, arq: "bruto", ini: 6.5 }, // bruto: um plano só, parado, sem cortes ("sem vida")
+  // ritmo (visual bruto)
+  { de: 5.6, ate: 6.8, arq: "bruto", ini: 4.6 }, // gira de costas para perfil
+  { de: 6.8, ate: 8.0, arq: "bruto", ini: 15.6, zoom: 1.35 }, // olha para baixo
+  { de: 8.0, ate: 9.2, arq: "bruto", ini: 13.2 }, // troca o peso e se vira para a câmera
+  // cor (clarão em 9,2 s)
+  { de: 9.2, ate: 10.4, arq: "ambar", ini: 17.6 }, // passo e giro
+  { de: 10.4, ate: 11.6, arq: "ambar", ini: 25.4, zoom: 1.35 }, // se vira
+  { de: 11.6, ate: 12.2, arq: "ambar", ini: 16.8 },
+  // som
+  { de: 12.2, ate: 13.4, arq: "ambar", ini: 2.2 }, // de costas
+  { de: 13.4, ate: 14.6, arq: "ambar", ini: 13.4, zoom: 1.35 },
+  { de: 14.6, ate: 15.8, arq: "ambar", ini: 18.6 },
+  { de: 15.8, ate: 16.4, arq: "ambar", ini: 10.8 },
+  // resultado: ele vindo para a câmera (aprovado pelo dono)
+  { de: 16.4, ate: 19.4, arq: "ambar", ini: 27.7 },
 ];
 
 const Camada: React.FC<{ p: Plano }> = ({ p }) => (
   <AbsoluteFill style={{ overflow: "hidden", background: "#000" }}>
     <AbsoluteFill style={p.zoom ? { transform: `scale(${p.zoom})`, transformOrigin: "50% 72%" } : undefined}>
-      <OffthreadVideo src={staticFile(`entrada/canajure/cena-${p.arq}.mp4`)} startFrom={f(p.ini)} muted />
+      <OffthreadVideo src={staticFile(`entrada/canajure/cena-${p.arq}-full.mp4`)} startFrom={f(p.ini)} muted />
     </AbsoluteFill>
   </AbsoluteFill>
 );
@@ -92,7 +94,7 @@ const TextoAlto: React.FC<{
 
 /** Pontos da linha de chamada em cada plano: da etiqueta até o personagem (nunca sobre o rosto). */
 const ALVO_ABERTO = { anel: { x: 548, y: 1262, r: 46 }, pontos: [{ x: 330, y: 770 }, { x: 515, y: 1218 }] };
-const ALVO_PERTO = { anel: { x: 478, y: 1200, r: 52 }, pontos: [{ x: 330, y: 770 }, { x: 440, y: 1160 }] };
+const ALVO_PERTO = { anel: { x: 470, y: 1255, r: 52 }, pontos: [{ x: 330, y: 770 }, { x: 440, y: 1210 }] };
 
 const Etiqueta: React.FC<{ icone: "ritmo" | "cor"; rotulo: string; de: number; ate: number }> = ({ icone, rotulo, de, ate }) => (
   <>
