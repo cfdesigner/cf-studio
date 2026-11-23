@@ -791,17 +791,26 @@ const PICO_DB = new Map<string, number>([
 const ganhoSfx = (src: string) =>
   10 ** ((ALVO_PICO_DB - (PICO_DB.get(src) ?? -10)) / 20);
 
-const Sfx: React.FC<{ em: number; src: string; vol?: number }> = ({
-  em,
-  src,
-  vol = 1,
-}) => (
-  <Sequence from={Math.max(0, em)} durationInFrames={60} layout="none">
-    <Audio src={src} volume={vol * ganhoSfx(src)} />
+const Sfx: React.FC<{
+  em: number;
+  src: string;
+  vol?: number;
+  /** Duração em quadros: o som é cortado aí, com um fade curto no final (padrão: toca inteiro). */
+  dur?: number;
+}> = ({ em, src, vol = 1, dur }) => (
+  <Sequence from={Math.max(0, em)} durationInFrames={dur ?? 60} layout="none">
+    <Audio
+      src={src}
+      volume={(f) =>
+        vol *
+        ganhoSfx(src) *
+        (dur === undefined ? 1 : interpolate(f, [dur - 5, dur], [1, 0], clamp))
+      }
+    />
   </Sequence>
 );
 
-const SOM: { em: number; src: string; vol?: number }[] = [
+const SOM: { em: number; src: string; vol?: number; dur?: number }[] = [
   { em: 0, src: suave, vol: 0.7 },
   { em: 8, src: cartao },
   // roteiro
@@ -827,8 +836,9 @@ const SOM: { em: number; src: string; vol?: number }[] = [
   { em: 216 + 36, src: icone, vol: 0.8 },
   // resultado
   { em: 288 - 2, src: timelineIn },
-  // frase "Cinema em 15 segundos": o swell do dono sobe e atinge o pico quando o número chega ao 15 (quadro 42 da cena)
-  { em: 360 + 42 - 27, src: texto },
+  // frase "Cinema em 15 segundos": o swell do dono sobe junto com a contagem, atinge o pico quando o "15" aparece
+  // (~quadro 35 da cena) e é cortado logo antes de o número parar (29 quadros, fade nos 5 últimos)
+  { em: 360 + 5, src: texto, dur: 29 },
   // fecho
   { em: 414 + 2, src: grande },
   { em: 414 + 26, src: fraco, vol: 0.7 },

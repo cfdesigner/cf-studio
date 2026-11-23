@@ -45,6 +45,7 @@
 - [x] 2ª revisão aprovada pelo dono: efeitos sonoros −17 dB, contagem em tic-tac na frase "Cinema em 15 segundos", selo flutuante "Making off" em todas as cenas (`SeloFlutuante`, novo no design system)
 - [x] 3ª revisão: efeitos sonoros normalizados pelo pico em −40 dBFS (~11 dB abaixo da música, quase imperceptíveis); tic-tac trocado pelo swell de texto do dono (`texto.wav`) com o pico no instante em que o número chega ao 15
 - [x] Qualidade máxima por padrão em todos os vídeos (`remotion.config.ts`: PNG, CRF 14, x264 slow); o "Um vídeo nasce aqui" foi rerenderizado assim (`out/um-video-nasce-aqui-final-hq.mp4`), mesmo conteúdo
+- [x] Ajuste final: o swell do "15 segundos" agora é cortado (fade de 5 quadros) logo antes de o número parar; arquivo `out/um-video-nasce-aqui-final-hq2.mp4` (imagem idêntica à `-hq`, só o áudio trocado)
 - [x] **Vídeo FECHADO pelo dono** (v4, `out/um-video-nasce-aqui-final-v4.mp4`): não mexer mais (ritmo, tempo das cenas, trecho do C02, trecho da música 24–39 s)
 
 ### CERTI: o que depende do dono
