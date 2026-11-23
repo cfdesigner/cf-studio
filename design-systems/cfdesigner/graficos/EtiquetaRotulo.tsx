@@ -7,7 +7,7 @@ const c = colors.cinema;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 export type EtiquetaRotuloProps = {
-  icone: "celular" | "tripe" | "papel";
+  icone: "celular" | "tripe" | "papel" | "ritmo" | "cor";
   /** Palavra em Bebas Neue âmbar (ex.: "1 celular"). */
   rotulo: string;
   /** Posição do canto superior esquerdo, em px na base de 1080 de largura. */
@@ -48,6 +48,13 @@ const Icone: React.FC<{ nome: EtiquetaRotuloProps["icone"]; s: number }> = ({
     )}
     {nome === "tripe" && (
       <path d="M12 3v8M12 11l-6 10M12 11l6 10M12 11v10M9 3h6" />
+    )}
+    {nome === "ritmo" && <path d="M2 12h4l2.5-7 4 14 3-10 1.5 3H22" />}
+    {nome === "cor" && (
+      <>
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill={c.amber} />
+      </>
     )}
     {nome === "papel" && (
       <>

@@ -90,8 +90,9 @@
 
 ### Episódio 04 "Mesma cena" (CFDesigner)
 
-- [ ] **[dono]** Aprovar o storyboard (look de cor, texto do gancho, convite final, música, duração). Regra nova: **storyboard antes de todo vídeo**
-- [ ] **[Claude]** Depois da aprovação: montar no Remotion (`producoes/ep04-mesma-cena/`), mixar o som com os efeitos do design system e entregar o MP4
+- [x] Regra nova: **storyboard antes de todo vídeo**. Storyboard, narração (do dono) e música (Suno) feitos; vídeo montado (21,4 s)
+- [ ] **[dono]** Ver o vídeo do episódio 04 e pedir ajustes (cortes, volume da música, caixinha de som, início bruto/log). Se filmou em log de verdade, mandar o original para trocar o bruto simulado
+- [ ] **[Claude]** Depois da aprovação: salvar a versão final e, se pedir, versão sem legenda ou horizontal
 
 ### Limpezas pequenas
 

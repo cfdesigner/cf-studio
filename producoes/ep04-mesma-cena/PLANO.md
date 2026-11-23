@@ -1,6 +1,6 @@
 # Plano de edição: Episódio 04 "Mesma cena" (CFDesigner)
 
-Status: **aguardando aprovação do storyboard** (`storyboard.html`, publicado como Artifact). Não montar antes.
+Status: **versão montada para aprovação** (21,4 s, `Ep04MesmaCena`, mixagem em `mixar.py`). Storyboard: `storyboard.html` (os tempos do storyboard eram de 26 s; a narração do dono fechou em 21,4 s, veja a linha do tempo abaixo).
 **Design system:** CFDesigner · **Formato:** vertical 1080×1920, 30 fps · **Duração alvo:** 26 s · **Plataforma:** Reels
 **Terceiro de nome:** não. **Com narração em off** na voz do dono (ele grava; nenhuma voz de IA paga); eu corto em cima da voz e uso `Legendas` (sem ponto final). Etiquetas e checklist ficam **ao lado do personagem**, com `LinhaChamada` ligando, nunca sobre o rosto e sempre viradas para o centro.
 
@@ -47,3 +47,22 @@ Status: **aguardando aprovação do storyboard** (`storyboard.html`, publicado c
 - Aproximações limitadas a 1,35x (a fonte é 1080×1920).
 - Áudio original baixo (−31 LUFS): normalizar o ambiente e depois mixar o conjunto a −14 LUFS.
 - Rosto/gráficos: você é pequeno e fica no centro-baixo; etiquetas e checklist ficam no alto.
+
+
+## Versão montada (21,4 s)
+
+Tempos pela voz do dono (narração de 17,1 s, pausa depois de "o som" alargada em 1,4 s) e pela música (kick em 9,2 s, 100 BPM). Todos os cortes caem em batidas de 0,6 s.
+
+| Tempo | Etapa |
+| --- | --- |
+| 0 a 2,6 s | Gancho: "MESMA CENA" grande, "3 MUDANÇAS" pequeno e branco (Âmbar Cinema) |
+| 2,6 a 5,6 s | Bruto: um plano só, visual cinza (simulado) |
+| 5,6 a 9,2 s | + Ritmo: 3 cortes de 1,2 s (aberto, aproximação 1,35x, aberto); etiqueta RITMO com linha de chamada |
+| 9,2 a 12,2 s | + Cor: clarão no primeiro kick e virada para a imagem real com Âmbar Cinema; etiqueta COR |
+| 12,2 a 16,4 s | + Som: caixinha `LinhasDeSom` girando de +32° a −32°; música recua; efeitos nos cortes e impacto em 14,75 s |
+| 16,4 a 19,4 s | Resultado: "MESMA CENA" pequeno e "QUAL MUDOU MAIS?" grande, você se afastando |
+| 19,4 a 21,4 s | Fecho simples com o logo |
+
+Legendas (dia a dia) só no miolo da fala; o gancho e o convite já têm texto grande. Correção: o Whisper ouviu "saiba da câmera" e foi corrigido para "saiu da câmera".
+Áudio: voz −16 LUFS na mixagem, música abaixo (curva de volume), efeitos do design system; final −14,6 LUFS, pico −1,4 dBTP.
+Comando: `npx remotion render Ep04MesmaCena out/ep04-sem-audio.mp4 --browser-executable=/opt/pw-browsers/chromium && python3 producoes/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena.mp4`

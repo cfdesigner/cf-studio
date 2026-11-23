@@ -1,0 +1,247 @@
+[
+ {
+  "text": " assim",
+  "startMs": 2500,
+  "endMs": 2820,
+  "timestampMs": 2660,
+  "confidence": 0.95
+ },
+ {
+  "text": " ela",
+  "startMs": 2820,
+  "endMs": 2980,
+  "timestampMs": 2900,
+  "confidence": 0.971
+ },
+ {
+  "text": " saiu",
+  "startMs": 2980,
+  "endMs": 3260,
+  "timestampMs": 3120,
+  "confidence": 0.589
+ },
+ {
+  "text": " da",
+  "startMs": 3260,
+  "endMs": 3380,
+  "timestampMs": 3320,
+  "confidence": 0.969
+ },
+ {
+  "text": " câmera,",
+  "startMs": 3380,
+  "endMs": 3740,
+  "timestampMs": 3560,
+  "confidence": 0.967
+ },
+ {
+  "text": " bonita",
+  "startMs": 4080,
+  "endMs": 4440,
+  "timestampMs": 4260,
+  "confidence": 0.989
+ },
+ {
+  "text": " mas",
+  "startMs": 4440,
+  "endMs": 4620,
+  "timestampMs": 4530,
+  "confidence": 0.847
+ },
+ {
+  "text": " sem",
+  "startMs": 4620,
+  "endMs": 4820,
+  "timestampMs": 4720,
+  "confidence": 0.998
+ },
+ {
+  "text": " vida,",
+  "startMs": 4820,
+  "endMs": 5080,
+  "timestampMs": 4950,
+  "confidence": 0.991
+ },
+ {
+  "text": " primeiro",
+  "startMs": 5340,
+  "endMs": 5860,
+  "timestampMs": 5600,
+  "confidence": 0.985
+ },
+ {
+  "text": " o",
+  "startMs": 5860,
+  "endMs": 6000,
+  "timestampMs": 5930,
+  "confidence": 0.939
+ },
+ {
+  "text": " ritmo,",
+  "startMs": 6000,
+  "endMs": 6420,
+  "timestampMs": 6210,
+  "confidence": 0.987
+ },
+ {
+  "text": " cada",
+  "startMs": 6860,
+  "endMs": 7060,
+  "timestampMs": 6960,
+  "confidence": 0.986
+ },
+ {
+  "text": " corte",
+  "startMs": 7060,
+  "endMs": 7440,
+  "timestampMs": 7250,
+  "confidence": 0.991
+ },
+ {
+  "text": " na",
+  "startMs": 7440,
+  "endMs": 7520,
+  "timestampMs": 7480,
+  "confidence": 0.986
+ },
+ {
+  "text": " hora",
+  "startMs": 7520,
+  "endMs": 7620,
+  "timestampMs": 7570,
+  "confidence": 0.991
+ },
+ {
+  "text": " certa",
+  "startMs": 7620,
+  "endMs": 7920,
+  "timestampMs": 7770,
+  "confidence": 0.995
+ },
+ {
+  "text": " muda",
+  "startMs": 7920,
+  "endMs": 8300,
+  "timestampMs": 8110,
+  "confidence": 0.917
+ },
+ {
+  "text": " a",
+  "startMs": 8300,
+  "endMs": 8400,
+  "timestampMs": 8350,
+  "confidence": 0.874
+ },
+ {
+  "text": " energia,",
+  "startMs": 8400,
+  "endMs": 8720,
+  "timestampMs": 8560,
+  "confidence": 1.0
+ },
+ {
+  "text": " depois",
+  "startMs": 9400,
+  "endMs": 9620,
+  "timestampMs": 9510,
+  "confidence": 0.99
+ },
+ {
+  "text": " a",
+  "startMs": 9620,
+  "endMs": 9840,
+  "timestampMs": 9730,
+  "confidence": 0.988
+ },
+ {
+  "text": " cor,",
+  "startMs": 9840,
+  "endMs": 10140,
+  "timestampMs": 9990,
+  "confidence": 0.997
+ },
+ {
+  "text": " é",
+  "startMs": 10480,
+  "endMs": 10560,
+  "timestampMs": 10520,
+  "confidence": 0.537
+ },
+ {
+  "text": " ela",
+  "startMs": 10560,
+  "endMs": 10680,
+  "timestampMs": 10620,
+  "confidence": 0.969
+ },
+ {
+  "text": " que",
+  "startMs": 10680,
+  "endMs": 10820,
+  "timestampMs": 10750,
+  "confidence": 0.986
+ },
+ {
+  "text": " dá",
+  "startMs": 10820,
+  "endMs": 10940,
+  "timestampMs": 10880,
+  "confidence": 0.924
+ },
+ {
+  "text": " clima",
+  "startMs": 10940,
+  "endMs": 11220,
+  "timestampMs": 11080,
+  "confidence": 0.966
+ },
+ {
+  "text": " e",
+  "startMs": 11220,
+  "endMs": 11340,
+  "timestampMs": 11280,
+  "confidence": 0.955
+ },
+ {
+  "text": " identidade,",
+  "startMs": 11340,
+  "endMs": 11920,
+  "timestampMs": 11630,
+  "confidence": 0.993
+ },
+ {
+  "text": " e",
+  "startMs": 12640,
+  "endMs": 12700,
+  "timestampMs": 12670,
+  "confidence": 0.972
+ },
+ {
+  "text": " por",
+  "startMs": 12700,
+  "endMs": 12840,
+  "timestampMs": 12770,
+  "confidence": 0.968
+ },
+ {
+  "text": " fim",
+  "startMs": 12840,
+  "endMs": 13060,
+  "timestampMs": 12950,
+  "confidence": 0.996
+ },
+ {
+  "text": " o",
+  "startMs": 13060,
+  "endMs": 13200,
+  "timestampMs": 13130,
+  "confidence": 0.948
+ },
+ {
+  "text": " som",
+  "startMs": 13200,
+  "endMs": 13420,
+  "timestampMs": 13310,
+  "confidence": 0.996
+ }
+]
