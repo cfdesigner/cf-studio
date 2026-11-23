@@ -2,7 +2,18 @@
 
 Status: **aguardando aprovação do storyboard** (`storyboard.html`, publicado como Artifact). Não montar antes.
 **Design system:** CFDesigner · **Formato:** vertical 1080×1920, 30 fps · **Duração alvo:** 26 s · **Plataforma:** Reels
-**Terceiro de nome:** não. **Sem fala** (texto na tela e som).
+**Terceiro de nome:** não. **Com narração em off** na voz do dono (ele grava; nenhuma voz de IA paga); eu corto em cima da voz e uso `Legendas` (sem ponto final). Etiquetas e checklist ficam **ao lado do personagem**, com `LinhaChamada` ligando, nunca sobre o rosto e sempre viradas para o centro.
+
+## Narração (rascunho para o dono ajustar)
+
+| Etapa | Fala |
+| --- | --- |
+| Gancho | Mesma cena. Três mudanças |
+| Bruto | Assim ela saiu da câmera. Bonita, mas sem vida |
+| Ritmo | Primeiro, o ritmo. Cada corte na hora certa muda a energia |
+| Cor | Depois, a cor. É ela que dá clima e identidade |
+| Som | E por fim, o som (e silêncio, para ouvir os efeitos) |
+| Resultado | Mesma cena. Qual mudou mais? |
 
 ## Material
 
