@@ -40,8 +40,9 @@
 
 ### Stories "Um vídeo nasce aqui" (15 s, CFDesigner)
 
-- [ ] **[dono]** Aprovar o storyboard v3 (frases "UM VÍDEO NASCE AQUI", "ROTEIRO NA MÃO", "4 CENÁRIOS", "1 CELULAR", "1 TRIPÉ", "O RESULTADO", "CINEMA EM 15 SEGUNDOS"), o ícone de papel e a linha de chamada (novos no design system) e o trecho da música (24–39 s do `C02.mp3`)
-- [ ] **[Claude]** Depois da aprovação: montar no Remotion (fotos do dono + trecho do C02 dentro do celular + `FundoCF` por cena + `TextoAtras` com o recorte refinado), conferir cortes na batida (100 BPM) e entregar o MP4. Limpar o pedaço do corrimão no recorte da foto do roteiro
+- [x] **[Claude]** Vídeo montado e entregue (`producoes/um-video-nasce-aqui/`, composição `UmVideoNasceAqui`): 7 cenas com cortes na batida (100 BPM), transições de cortina/íris/clarão, `FundoCF` diferente por cena, fotos do dono, C02 dentro do celular, texto atrás dele com recorte refinado. Novos no design system: `EtiquetaRotulo`, `LinhaChamada`, `CantosVisor`, `FundoCF`
+- [x] Ajustes da 1ª revisão: efeitos sonoros 12 dB mais baixos; recorte da pessoa refinado (modelo `birefnet-portrait` + limpeza do verde na borda + corpo some antes do cotovelo)
+- [ ] **[dono]** Ver o vídeo e pedir ajustes (ritmo, tempo das cenas, trecho do C02, trecho da música 24–39 s)
 - [ ] **[dono]** (opcional) fotos originais em alta resolução (a do roteiro tem só 508 px)
 
 ### CERTI: o que depende do dono
