@@ -41,6 +41,7 @@
 ### Stories "Um vídeo nasce aqui" (15 s, CFDesigner)
 
 - [x] **[Claude]** Vídeo montado e entregue (`producoes/um-video-nasce-aqui/`, composição `UmVideoNasceAqui`): 7 cenas com cortes na batida (100 BPM), transições de cortina/íris/clarão, `FundoCF` diferente por cena, fotos do dono, C02 dentro do celular, texto atrás dele com recorte refinado. Novos no design system: `EtiquetaRotulo`, `LinhaChamada`, `CantosVisor`, `FundoCF`
+- [x] Ajustes da 1ª revisão: efeitos sonoros 12 dB mais baixos; recorte da pessoa refinado (modelo `birefnet-portrait` + limpeza do verde na borda + corpo some antes do cotovelo)
 - [ ] **[dono]** Ver o vídeo e pedir ajustes (ritmo, tempo das cenas, trecho do C02, trecho da música 24–39 s)
 - [ ] **[dono]** (opcional) fotos originais em alta resolução (a do roteiro tem só 508 px)
 

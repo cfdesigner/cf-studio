@@ -683,7 +683,7 @@ const Frase: React.FC = () => {
           position: "absolute",
           left: 0,
           right: 0,
-          top: 290,
+          top: 520,
           textAlign: "center",
           transform: `scale(${1 + f * 0.0008})`,
         }}
@@ -726,18 +726,13 @@ const Frase: React.FC = () => {
         </div>
       </div>
       <AbsoluteFill
-        style={{ transformOrigin: "50% 100%", transform: `scale(${zoom})` }}
+        style={{ transformOrigin: "50% 55%", transform: `scale(${zoom})` }}
       >
         <Img
           src={asset("pessoa/001.png")}
           style={{ width: "100%", height: "100%" }}
         />
       </AbsoluteFill>
-      <AbsoluteFill
-        style={{
-          background: `linear-gradient(0deg, ${c.void} 0%, rgba(11,12,14,0) 24%)`,
-        }}
-      />
     </AbsoluteFill>
   );
 };
@@ -772,13 +767,16 @@ const Fecho: React.FC = () => {
 
 // ───────────── som ─────────────
 
+/** Efeitos sonoros 12 dB abaixo (pedido do dono): o som do C02 e a música mandam. */
+const SFX_GANHO = 0.25;
+
 const Sfx: React.FC<{ em: number; src: string; vol?: number }> = ({
   em,
   src,
   vol = 1,
 }) => (
   <Sequence from={Math.max(0, em)} durationInFrames={60} layout="none">
-    <Audio src={src} volume={vol} />
+    <Audio src={src} volume={vol * SFX_GANHO} />
   </Sequence>
 );
 
