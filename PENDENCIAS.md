@@ -87,6 +87,11 @@
 - [ ] **[Claude]** Ajustar a skill `auditoria-de-marca` com o que o teste mostrou: Instagram e ChatGPT não abrem (pedir prints desde o início)
 - [x] Formato do relatório: **os dois**, documento editável + página visual (escolha do dono; já está na skill)
 
+### Episódio 04 "Mesma cena" (CFDesigner)
+
+- [ ] **[dono]** Aprovar o storyboard (look de cor, texto do gancho, convite final, música, duração). Regra nova: **storyboard antes de todo vídeo**
+- [ ] **[Claude]** Depois da aprovação: montar no Remotion (`producoes/ep04-mesma-cena/`), mixar o som com os efeitos do design system e entregar o MP4
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz

@@ -51,7 +51,10 @@ ffmpeg -i <original> -vf "scale=<L>:<A>:flags=lanczos,fps=30" -c:v libx264 -crf 
 
 (`<L>:<A>` = 1080:1920 para vertical, 1920:1080 para horizontal.) Nunca versionar o vídeo. Confira o resultado com `ffprobe` (largura, altura, fps).
 
-### 4. Montar o plano
+### 4. Montar o plano e o storyboard
+
+**Storyboard obrigatório (pedido do dono):** além do `PLANO.md`, publique uma página visual (Artifact) com quadros reais extraídos do material (`ffmpeg -ss <t> -i <video> -frames:v 1`), a linha do tempo proporcional, o que entra por cima em cada trecho, o som e o que falta aprovar. Só monte o vídeo depois da aprovação. Modelo: `producoes/ep04-mesma-cena/storyboard.html`.
+
 
 Copie `producoes/_modelo/PLANO.md` para `producoes/<nome>/PLANO.md` e preencha. Um bom plano tem:
 
