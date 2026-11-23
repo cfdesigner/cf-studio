@@ -24,12 +24,15 @@ import {
   LinhaChamada,
   Logo,
   PushIn,
+  SeloFlutuante,
 } from "../../design-systems/cfdesigner";
 import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
 import cartao from "../../design-systems/cfdesigner/assets/sfx/cartao.wav";
 import icone from "../../design-systems/cfdesigner/assets/sfx/icone.wav";
 import tick from "../../design-systems/cfdesigner/assets/sfx/tick.wav";
 import tickFinal from "../../design-systems/cfdesigner/assets/sfx/tick_final.wav";
+import tic from "../../design-systems/cfdesigner/assets/sfx/tic.wav";
+import tac from "../../design-systems/cfdesigner/assets/sfx/tac.wav";
 import timelineIn from "../../design-systems/cfdesigner/assets/sfx/timeline_in.wav";
 import grande from "../../design-systems/cfdesigner/assets/sfx/grande.wav";
 import suave from "../../design-systems/cfdesigner/assets/sfx/suave.wav";
@@ -669,9 +672,12 @@ const Frase: React.FC = () => {
       easing: outExpo,
     });
   const n = Math.round(
-    interpolate(f, [6, 28], [0, 15], { ...clamp, easing: outExpo }),
+    interpolate(f, [6, 42], [0, 15], {
+      ...clamp,
+      easing: Easing.out(Easing.quad),
+    }),
   );
-  const pulso = interpolate(f, [28, 33, 42], [1, 1.07, 1], clamp);
+  const pulso = interpolate(f, [42, 47, 56], [1, 1.07, 1], clamp);
   const l1 = sobe(0);
   const l2 = sobe(4);
   const zoom = 1 + f * 0.0016;
@@ -767,8 +773,8 @@ const Fecho: React.FC = () => {
 
 // ───────────── som ─────────────
 
-/** Efeitos sonoros 12 dB abaixo (pedido do dono): o som do C02 e a música mandam. */
-const SFX_GANHO = 0.25;
+/** Efeitos sonoros 17 dB abaixo (pedido do dono): o som do C02 e a música mandam. */
+const SFX_GANHO = 0.14; // −17 dB: bem sutis (pedido do dono)
 
 const Sfx: React.FC<{ em: number; src: string; vol?: number }> = ({
   em,
@@ -806,13 +812,12 @@ const SOM: { em: number; src: string; vol?: number }[] = [
   { em: 216 + 36, src: icone, vol: 0.8 },
   // resultado
   { em: 288 - 2, src: timelineIn },
-  // frase
-  { em: 360 - 2, src: cartao },
-  { em: 360 + 8, src: tick, vol: 0.6 },
-  { em: 360 + 13, src: tick, vol: 0.6 },
-  { em: 360 + 18, src: tick, vol: 0.6 },
-  { em: 360 + 23, src: tick, vol: 0.6 },
-  { em: 360 + 28, src: tickFinal },
+  // frase: contagem em tic-tac (um tique a cada 4,5 quadros, alternando agudo/grave), do 0 ao 15
+  ...Array.from({ length: 9 }, (_, i) => ({
+    em: Math.round(360 + 6 + i * 4.5),
+    src: i % 2 === 0 ? tic : tac,
+    vol: i === 8 ? 1.3 : 0.9,
+  })),
   // fecho
   { em: 414 + 2, src: grande },
   { em: 414 + 26, src: fraco, vol: 0.7 },
@@ -858,6 +863,7 @@ export const UmVideoNasceAqui: React.FC = () => {
       <Cena nome="fecho" entrada="fade">
         <Fecho />
       </Cena>
+      <SeloFlutuante texto="Making off" durationInFrames={NASCE_FRAMES} />
       <FilmGrain opacity={0.05} />
       <Audio src={asset("musica.mp3")} volume={0.62 * musica} />
       {SOM.map((s, i) => (
