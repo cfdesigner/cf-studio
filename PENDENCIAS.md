@@ -43,6 +43,7 @@
 - [x] **[Claude]** Vídeo montado e entregue (`producoes/um-video-nasce-aqui/`, composição `UmVideoNasceAqui`): 7 cenas com cortes na batida (100 BPM), transições de cortina/íris/clarão, `FundoCF` diferente por cena, fotos do dono, C02 dentro do celular, texto atrás dele com recorte refinado. Novos no design system: `EtiquetaRotulo`, `LinhaChamada`, `CantosVisor`, `FundoCF`
 - [x] Ajustes da 1ª revisão: efeitos sonoros 12 dB mais baixos; recorte da pessoa refinado (modelo `birefnet-portrait` + limpeza do verde na borda + corpo some antes do cotovelo)
 - [x] 2ª revisão aprovada pelo dono: efeitos sonoros −17 dB, contagem em tic-tac na frase "Cinema em 15 segundos", selo flutuante "Making off" em todas as cenas (`SeloFlutuante`, novo no design system)
+- [x] 3ª revisão: efeitos sonoros normalizados pelo pico em −40 dBFS (~11 dB abaixo da música, quase imperceptíveis); tic-tac trocado pelo swell de texto do dono (`texto.wav`) com o pico no instante em que o número chega ao 15
 - [ ] **[dono]** Ver o vídeo final e dizer se fecha (ritmo, tempo das cenas, trecho do C02, trecho da música 24–39 s)
 - [ ] **[dono]** (opcional) fotos originais em alta resolução (a do roteiro tem só 508 px)
 
