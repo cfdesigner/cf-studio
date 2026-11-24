@@ -1,0 +1,551 @@
+{
+ "video": "entrada/c02-pronto.mp4",
+ "duracaoSeg": 20.82,
+ "layout": "dividido",
+ "rostoY": 33,
+ "trechos": [
+  {
+   "de": 0,
+   "ate": 3.57,
+   "layout": "dividido",
+   "rostoY": 33
+  },
+  {
+   "de": 3.57,
+   "ate": 15.38,
+   "layout": "cheio"
+  },
+  {
+   "de": 15.38,
+   "ate": 20.82,
+   "layout": "dividido",
+   "rostoY": 45
+  }
+ ],
+ "captions": [
+  {
+   "text": " Sabe",
+   "startMs": 0,
+   "endMs": 480,
+   "timestampMs": 240,
+   "confidence": 0.901
+  },
+  {
+   "text": " quanto",
+   "startMs": 480,
+   "endMs": 660,
+   "timestampMs": 570,
+   "confidence": 0.876
+  },
+  {
+   "text": " olha",
+   "startMs": 660,
+   "endMs": 940,
+   "timestampMs": 800,
+   "confidence": 0.621
+  },
+  {
+   "text": " para",
+   "startMs": 940,
+   "endMs": 1080,
+   "timestampMs": 1010,
+   "confidence": 0.62
+  },
+  {
+   "text": " uma",
+   "startMs": 1080,
+   "endMs": 1140,
+   "timestampMs": 1110,
+   "confidence": 0.758
+  },
+  {
+   "text": " imagem",
+   "startMs": 1140,
+   "endMs": 1420,
+   "timestampMs": 1280,
+   "confidence": 0.992
+  },
+  {
+   "text": " e",
+   "startMs": 1420,
+   "endMs": 1540,
+   "timestampMs": 1480,
+   "confidence": 0.078
+  },
+  {
+   "text": " sente",
+   "startMs": 1540,
+   "endMs": 1620,
+   "timestampMs": 1580,
+   "confidence": 0.968
+  },
+  {
+   "text": " que",
+   "startMs": 1620,
+   "endMs": 1780,
+   "timestampMs": 1700,
+   "confidence": 0.971
+  },
+  {
+   "text": " ela",
+   "startMs": 1780,
+   "endMs": 1880,
+   "timestampMs": 1830,
+   "confidence": 0.938
+  },
+  {
+   "text": " poderia",
+   "startMs": 1880,
+   "endMs": 2180,
+   "timestampMs": 2030,
+   "confidence": 0.972
+  },
+  {
+   "text": " ser",
+   "startMs": 2180,
+   "endMs": 2360,
+   "timestampMs": 2270,
+   "confidence": 0.994
+  },
+  {
+   "text": " muito",
+   "startMs": 2360,
+   "endMs": 2580,
+   "timestampMs": 2470,
+   "confidence": 0.967
+  },
+  {
+   "text": " mais",
+   "startMs": 2580,
+   "endMs": 2780,
+   "timestampMs": 2680,
+   "confidence": 0.995
+  },
+  {
+   "text": " interessante?",
+   "startMs": 2780,
+   "endMs": 3280,
+   "timestampMs": 3030,
+   "confidence": 0.989
+  },
+  {
+   "text": " Às",
+   "startMs": 4860,
+   "endMs": 5340,
+   "timestampMs": 5100,
+   "confidence": 0.655
+  },
+  {
+   "text": " vezes,",
+   "startMs": 5340,
+   "endMs": 5580,
+   "timestampMs": 5460,
+   "confidence": 0.999
+  },
+  {
+   "text": " não",
+   "startMs": 5800,
+   "endMs": 5940,
+   "timestampMs": 5870,
+   "confidence": 0.973
+  },
+  {
+   "text": " precisa",
+   "startMs": 5940,
+   "endMs": 6140,
+   "timestampMs": 6040,
+   "confidence": 0.987
+  },
+  {
+   "text": " de",
+   "startMs": 6140,
+   "endMs": 6360,
+   "timestampMs": 6250,
+   "confidence": 0.99
+  },
+  {
+   "text": " uma",
+   "startMs": 6360,
+   "endMs": 6420,
+   "timestampMs": 6390,
+   "confidence": 0.925
+  },
+  {
+   "text": " câmera",
+   "startMs": 6420,
+   "endMs": 6720,
+   "timestampMs": 6570,
+   "confidence": 0.991
+  },
+  {
+   "text": " melhor,",
+   "startMs": 6720,
+   "endMs": 7020,
+   "timestampMs": 6870,
+   "confidence": 0.879
+  },
+  {
+   "text": " nem",
+   "startMs": 7200,
+   "endMs": 7320,
+   "timestampMs": 7260,
+   "confidence": 0.981
+  },
+  {
+   "text": " de",
+   "startMs": 7320,
+   "endMs": 7400,
+   "timestampMs": 7360,
+   "confidence": 0.976
+  },
+  {
+   "text": " uma",
+   "startMs": 7400,
+   "endMs": 7460,
+   "timestampMs": 7430,
+   "confidence": 0.963
+  },
+  {
+   "text": " produção",
+   "startMs": 7460,
+   "endMs": 7760,
+   "timestampMs": 7610,
+   "confidence": 0.996
+  },
+  {
+   "text": " gigantesca.",
+   "startMs": 7760,
+   "endMs": 8440,
+   "timestampMs": 8100,
+   "confidence": 0.921
+  },
+  {
+   "text": " Com",
+   "startMs": 8520,
+   "endMs": 8660,
+   "timestampMs": 8590,
+   "confidence": 0.984
+  },
+  {
+   "text": " algumas",
+   "startMs": 8660,
+   "endMs": 8860,
+   "timestampMs": 8760,
+   "confidence": 0.878
+  },
+  {
+   "text": " escolhas",
+   "startMs": 8860,
+   "endMs": 9360,
+   "timestampMs": 9110,
+   "confidence": 0.995
+  },
+  {
+   "text": " de",
+   "startMs": 9360,
+   "endMs": 9520,
+   "timestampMs": 9440,
+   "confidence": 0.987
+  },
+  {
+   "text": " direção,",
+   "startMs": 9520,
+   "endMs": 10040,
+   "timestampMs": 9780,
+   "confidence": 0.99
+  },
+  {
+   "text": " composição,",
+   "startMs": 10220,
+   "endMs": 10820,
+   "timestampMs": 10520,
+   "confidence": 0.99
+  },
+  {
+   "text": " cor,",
+   "startMs": 11080,
+   "endMs": 11180,
+   "timestampMs": 11130,
+   "confidence": 0.99
+  },
+  {
+   "text": " iluminação",
+   "startMs": 11420,
+   "endMs": 11840,
+   "timestampMs": 11630,
+   "confidence": 0.995
+  },
+  {
+   "text": " e",
+   "startMs": 11840,
+   "endMs": 12100,
+   "timestampMs": 11970,
+   "confidence": 0.978
+  },
+  {
+   "text": " som,",
+   "startMs": 12100,
+   "endMs": 12340,
+   "timestampMs": 12220,
+   "confidence": 0.996
+  },
+  {
+   "text": " você",
+   "startMs": 12500,
+   "endMs": 12680,
+   "timestampMs": 12590,
+   "confidence": 0.986
+  },
+  {
+   "text": " consegue",
+   "startMs": 12680,
+   "endMs": 13020,
+   "timestampMs": 12850,
+   "confidence": 0.995
+  },
+  {
+   "text": " transformar",
+   "startMs": 13020,
+   "endMs": 13540,
+   "timestampMs": 13280,
+   "confidence": 0.997
+  },
+  {
+   "text": " completamente",
+   "startMs": 13540,
+   "endMs": 13900,
+   "timestampMs": 13720,
+   "confidence": 0.995
+  },
+  {
+   "text": " a",
+   "startMs": 13900,
+   "endMs": 14240,
+   "timestampMs": 14070,
+   "confidence": 0.989
+  },
+  {
+   "text": " percepção",
+   "startMs": 14240,
+   "endMs": 14760,
+   "timestampMs": 14500,
+   "confidence": 0.995
+  },
+  {
+   "text": " daquela",
+   "startMs": 14760,
+   "endMs": 15060,
+   "timestampMs": 14910,
+   "confidence": 0.976
+  },
+  {
+   "text": " cena.",
+   "startMs": 15060,
+   "endMs": 15300,
+   "timestampMs": 15180,
+   "confidence": 0.776
+  },
+  {
+   "text": " E",
+   "startMs": 15360,
+   "endMs": 15420,
+   "timestampMs": 15390,
+   "confidence": 0.561
+  },
+  {
+   "text": " é",
+   "startMs": 15420,
+   "endMs": 15440,
+   "timestampMs": 15430,
+   "confidence": 0.992
+  },
+  {
+   "text": " justamente",
+   "startMs": 15440,
+   "endMs": 15660,
+   "timestampMs": 15550,
+   "confidence": 0.996
+  },
+  {
+   "text": " aí",
+   "startMs": 15660,
+   "endMs": 16160,
+   "timestampMs": 15910,
+   "confidence": 0.979
+  },
+  {
+   "text": " que",
+   "startMs": 16160,
+   "endMs": 16320,
+   "timestampMs": 16240,
+   "confidence": 0.985
+  },
+  {
+   "text": " está",
+   "startMs": 16320,
+   "endMs": 16500,
+   "timestampMs": 16410,
+   "confidence": 0.981
+  },
+  {
+   "text": " a",
+   "startMs": 16500,
+   "endMs": 16540,
+   "timestampMs": 16520,
+   "confidence": 0.961
+  },
+  {
+   "text": " diferença",
+   "startMs": 16540,
+   "endMs": 16880,
+   "timestampMs": 16710,
+   "confidence": 0.999
+  },
+  {
+   "text": " entre",
+   "startMs": 16880,
+   "endMs": 17140,
+   "timestampMs": 17010,
+   "confidence": 0.447
+  },
+  {
+   "text": " simplesmente",
+   "startMs": 17140,
+   "endMs": 17620,
+   "timestampMs": 17380,
+   "confidence": 0.977
+  },
+  {
+   "text": " editar",
+   "startMs": 17620,
+   "endMs": 17960,
+   "timestampMs": 17790,
+   "confidence": 0.925
+  },
+  {
+   "text": " um",
+   "startMs": 17960,
+   "endMs": 18120,
+   "timestampMs": 18040,
+   "confidence": 0.994
+  },
+  {
+   "text": " vídeo",
+   "startMs": 18120,
+   "endMs": 18400,
+   "timestampMs": 18260,
+   "confidence": 0.993
+  },
+  {
+   "text": " e",
+   "startMs": 18400,
+   "endMs": 18900,
+   "timestampMs": 18650,
+   "confidence": 0.928
+  },
+  {
+   "text": " construir",
+   "startMs": 18900,
+   "endMs": 19220,
+   "timestampMs": 19060,
+   "confidence": 0.988
+  },
+  {
+   "text": " uma",
+   "startMs": 19220,
+   "endMs": 19380,
+   "timestampMs": 19300,
+   "confidence": 0.992
+  },
+  {
+   "text": " experiência",
+   "startMs": 19380,
+   "endMs": 19780,
+   "timestampMs": 19580,
+   "confidence": 0.998
+  },
+  {
+   "text": " visual.",
+   "startMs": 19780,
+   "endMs": 20160,
+   "timestampMs": 19970,
+   "confidence": 0.992
+  }
+ ],
+ "destaques": [
+  "imagem",
+  "interessante",
+  "câmera",
+  "melhor",
+  "transformar",
+  "editar",
+  "experiência"
+ ],
+ "elementos": [
+  {
+   "tipo": "icone",
+   "imagem": "c02-tiago/lupa.png",
+   "titulo": "UMA *IMAGEM*",
+   "de": 1.0,
+   "ate": 3.0
+  },
+  {
+   "tipo": "icone",
+   "imagem": "c02-tiago/camera.png",
+   "titulo": "CÂMERA *MELHOR*",
+   "de": 6.3,
+   "ate": 8.3
+  },
+  {
+   "tipo": "lista",
+   "itens": [
+    "DIREÇÃO",
+    "COMPOSIÇÃO",
+    "COR",
+    "ILUMINAÇÃO",
+    "SOM"
+   ],
+   "de": 9.2,
+   "ate": 12.6
+  },
+  {
+   "tipo": "icone",
+   "imagem": "c02-tiago/estrela.png",
+   "titulo": "*TRANSFORMA* A CENA",
+   "de": 13.0,
+   "ate": 15.0
+  },
+  {
+   "tipo": "icone",
+   "imagem": "c02-tiago/timeline.png",
+   "titulo": "SÓ *EDITAR*",
+   "de": 17.1,
+   "ate": 18.8
+  },
+  {
+   "tipo": "icone",
+   "imagem": "c02-tiago/olho.png",
+   "titulo": "EXPERIÊNCIA *VISUAL*",
+   "de": 19.1,
+   "ate": 20.7
+  }
+ ],
+ "brolls": [
+  {
+   "de": 6.21,
+   "ate": 8.61,
+   "src": "entrada/gerados/n1.mp4"
+  },
+  {
+   "de": 8.61,
+   "ate": 12.81,
+   "src": "entrada/gerados/n2.mp4"
+  },
+  {
+   "de": 12.81,
+   "ate": 15.38,
+   "src": "entrada/gerados/n3.mp4",
+   "velocidade": 1.95
+  }
+ ]
+}

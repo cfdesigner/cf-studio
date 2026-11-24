@@ -7,6 +7,8 @@ import { C02_BROLL_FRAMES, C02Broll } from "./c02-broll/C02Broll";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
 import { NASCE_FRAMES, UmVideoNasceAqui } from "./um-video-nasce-aqui/UmVideoNasceAqui";
 import { CERTI_NEWS_FRAMES, CertiNews } from "./certi-news/CertiNews";
+import { VideoTiagoLemos, calculaMetadados, type Edicao } from "../design-systems/tiago-lemos-01";
+import c02TiagoEdicao from "./c02-tiago/edicao.json";
 import { EP04_FRAMES, Ep04MesmaCena } from "./ep04-mesma-cena/Ep04MesmaCena";
 import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTeste } from "./ep04-mesma-cena/Ep04SomTeste";
 
@@ -17,6 +19,16 @@ import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTes
  */
 export const Producoes: React.FC = () => (
   <>
+    <Composition
+      id="C02TiagoLemos"
+      component={VideoTiagoLemos}
+      durationInFrames={625}
+      fps={30}
+      width={1080}
+      height={1920}
+      defaultProps={c02TiagoEdicao as unknown as Edicao}
+      calculateMetadata={calculaMetadados}
+    />
     <Still
       id="CarrosselGeradores3"
       component={CarrosselGeradores3}
