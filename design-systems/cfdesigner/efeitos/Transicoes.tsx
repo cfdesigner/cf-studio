@@ -158,3 +158,40 @@ export const VarreduraAmbar: React.FC<VarreduraAmbarProps> = ({
     </AbsoluteFill>
   );
 };
+
+export type VeuDeLuzProps = {
+  /** Duração total, em quadros (padrão 28). */
+  durationInFrames?: number;
+  /** Quadro em que a tela fica mais clara: ponha o corte aqui (padrão 10). */
+  quadroPico?: number;
+  /** Opacidade máxima do véu, de 0 a 1 (padrão 0,65). */
+  pico?: number;
+};
+
+/**
+ * Véu de luz: a tela fica esbranquiçada (branco quente, mais forte no alto à direita) e a luz some em seguida.
+ * Mais elegante que o `LightLeak` âmbar; pedido do dono no episódio 04 (bruto → ritmo). Use em cortes, com o corte no `quadroPico`.
+ * Nunca atrás de texto (atrase o texto até o véu passar).
+ */
+export const VeuDeLuz: React.FC<VeuDeLuzProps> = ({
+  durationInFrames = 28,
+  quadroPico = 10,
+  pico = 0.65,
+}) => {
+  const f = useCurrentFrame();
+  const sobe = interpolate(f, [0, quadroPico], [0, pico], { ...clamp, easing: Easing.out(Easing.cubic) });
+  const desce = interpolate(f, [quadroPico, durationInFrames], [pico, 0], { ...clamp, easing: Easing.inOut(Easing.cubic) });
+  const o = f < quadroPico ? sobe : desce;
+  if (o <= 0) return null;
+  return (
+    <AbsoluteFill
+      style={{
+        mixBlendMode: "screen",
+        opacity: o,
+        pointerEvents: "none",
+        background:
+          "radial-gradient(ellipse at 62% 30%, rgba(255,251,242,1) 0%, rgba(255,246,230,.85) 45%, rgba(255,240,218,.6) 100%)",
+      }}
+    />
+  );
+};

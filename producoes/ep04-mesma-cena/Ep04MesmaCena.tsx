@@ -16,10 +16,10 @@ import {
   EtiquetaRotulo,
   FechoSimples,
   FundoCF,
-  LightLeak,
   LinhaChamada,
   LinhasDeSom,
   VarreduraAmbar,
+  VeuDeLuz,
   WipeReveal,
 } from "../../design-systems/cfdesigner";
 import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
@@ -206,9 +206,9 @@ export const Ep04MesmaCena: React.FC = () => (
 
     {/* Etapas: ritmo (bruto) e cor (virada com a varredura âmbar em 9,2 s, no primeiro kick da música) */}
     <Etiqueta icone="ritmo" rotulo="Ritmo" plano={PLANOS[2]} atraso={0.6} />
-    {/* Light leak âmbar cobrindo o corte do bruto para o ritmo (pico no corte, 5,6 s); a etiqueta só entra depois */}
-    <Sequence from={f(5.6) - 13} durationInFrames={36}>
-      <LightLeak durationInFrames={36} from="left" />
+    {/* Véu de luz esbranquiçado cobrindo o corte do bruto para o ritmo (pico no corte, 5,6 s); a etiqueta só entra depois */}
+    <Sequence from={f(5.6) - 10} durationInFrames={28}>
+      <VeuDeLuz durationInFrames={28} quadroPico={10} />
     </Sequence>
     <Etiqueta icone="cor" rotulo="Cor" plano={PLANOS[3]} />
 
@@ -252,10 +252,10 @@ export const Ep04MesmaCena: React.FC = () => (
       />
     </Sequence>
 
-    {/* Fecho: fusão com um fundo do design system (órbitas e bokeh: bolinhas e círculos, escolha do dono) */}
+    {/* Fecho: fusão com um fundo do design system (pontos: bolinhas com uma onda de luz saindo do centro, escolha do dono) */}
     <Sequence from={f(19.4) - FADE} durationInFrames={f(2.0) + FADE}>
       <FadeIn>
-        <FechoSimples durationInFrames={f(2.0) + FADE} fundo={<FundoCF variante="orbitas" duracao={f(2.0) + FADE} />} />
+        <FechoSimples durationInFrames={f(2.0) + FADE} fundo={<FundoCF variante="pontos" foco={{ x: 0.5, y: 0.5 }} duracao={f(2.0) + FADE} />} />
       </FadeIn>
     </Sequence>
   </AbsoluteFill>

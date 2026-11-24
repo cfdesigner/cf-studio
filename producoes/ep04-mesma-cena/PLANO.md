@@ -119,3 +119,8 @@ O primeiro e os planos do meio não repetem mais o gesto de braços para cima. A
 - **Bruto → ritmo (5,6 s):** corte seco coberto por `LightLeak` âmbar (pico no corte). A etiqueta RITMO entra 0,6 s depois (na palavra "ritmo"), fora do light leak, para não ficar atrás dele.
 - **Som:** o plano com zoom 1,35x agora vem de outra parte da cena (0,0 a 1,4 s, ele de perfil). Planos do som (s): 17,0 · 0,0 (zoom) · 18,6.
 - **Fecho:** `FundoCF` variante `orbitas` (órbitas e bokeh, "bolinhas e círculos") atrás do logo.
+
+## Light leak elegante e fecho com pontos (pedido do dono)
+
+- **Bruto → ritmo (5,6 s):** o `LightLeak` âmbar saiu. Entrou o `VeuDeLuz` (novo no design system): a tela fica esbranquiçada, com o pico no corte, e a luz some em ~0,9 s.
+- **Fecho:** `FundoCF` variante `pontos` (matriz de bolinhas com uma onda de luz que sai do centro), com `foco` no centro, no lugar do `orbitas`.

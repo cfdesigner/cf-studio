@@ -23,6 +23,7 @@ import {
 ## Transições
 
 - `FlashCut` (clarão branco-gelo, 12 frames) e `LightLeak` (vazamento âmbar, ~1 s) **em cortes**. Nunca atrás de texto.
+- `VeuDeLuz`: tela esbranquiçada que some (light leak elegante; escolha do dono no ep. 04).
 - `VarreduraAmbar`: linha âmbar na transversal que revela a cena nova (mudança de etapa; escolha do dono no ep. 04).
 - `WipeReveal` para revelar blocos; `BlurIn` para entradas suaves.
 - `TextoAtras`: texto entrando atrás da pessoa recortada (veja Legendas).
