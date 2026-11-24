@@ -27,7 +27,7 @@ Cada modelo tem um **nome** (escolhido pelo dono). Para pedir: "faça um carross
 - **Visual:** fundo **alternando âmbar e preto cinema**, Bebas Neue gigante em caixa alta, palavra de destaque em placa (preta com letra âmbar no fundo âmbar; letra âmbar direta no fundo preto), losangos tom sobre tom, sombra rígida fina na cor do fundo no título da capa. Artes em **papel rasgado, meio-tom, ouro líquido e pixels dourados**, só em preto e âmbar, **sem texto dentro da imagem**, PNG transparente.
 - **O que o dono manda:** o texto do assunto (só informação coerente; avisar o que foi deixado de fora). As artes são **geradas no Magnific, só com pedido explícito do dono e custo mostrado antes** (135 créditos cada, modelo `gpt-2-6`, 3:4, fundo transparente); o dono não quer o dono na capa nem nos slides, só no fecho.
 - **Exemplo:** "Melhor gerador de imagens com IA" (fonte llm-stats.com, nov/2026) · código `producoes/carrossel-video-ia/CarrosselImpacto.tsx` (composição `CarrosselImpacto`); artes em `producoes/carrossel-video-ia/assets/impacto/`.
-- **Nome:** "Impacto" é provisório (sugestão minha); o dono pode renomear.
+- **Nome:** "Impacto" (confirmado pelo dono).
 
 ## Próximos modelos
 
