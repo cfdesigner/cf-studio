@@ -7,18 +7,18 @@ description: Use SEMPRE que o dono subir um vídeo dele falando e pedir para edi
 
 Design system: `design-systems/tiago-lemos-01/` (leia a `DESIGN-SYSTEM.md`). Peça em português do Brasil. Regras do dono (`CLAUDE.md`) valem todas: **sem ponto final na legenda**, limpo e premium, **storyboard e aprovação antes de montar/renderizar**, efeitos sonoros bem baixos e sem clique, nada de IA paga, nunca versionar vídeos, salvar no `main`.
 
-## Fluxo (4 entregas: cortar pausas (opcional), legenda, elementos, sons)
+## Fluxo (4 entregas: cortar pausas (só se o dono quiser: sempre perguntar), legenda, elementos, sons)
 
 1. **Preparar.** O vídeo vai para `public/entrada/<nome>.<ext>` (ignorada pelo Git). Rode `python3 scripts/analisar-video.py <video>` e olhe `resumo.md` e a folha de contato (formato, fala, volume). Layout padrão: `dividido` (tela dividida da referência). Se o vídeo for horizontal ou o dono pedir tela cheia, use `cheio` e confira o rosto. Pergunte só o que faltar. Terceiro de nome só se ele pedir.
 
-2. **Cortar pausas e respiros.** **Pule este passo se o dono já editou o vídeo (o caso normal dos vídeos dele): por padrão NÃO corte nada**, só corte se ele pedir ("corta as pausas"). Sem corte, prepare assim (o vídeo fica intacto, só convertido):
+2. **Cortar pausas e respiros: SEMPRE PERGUNTE ao dono, a cada vídeo, se ele quer o corte ou não** (use AskUserQuestion; não decida sozinho, nem pelo vídeo parecer já editado). Cortar é uma das funções desta skill e continua disponível; só não é automático. Se ele disser que não (comum: ele já edita antes), nada é cortado. Sem corte, prepare assim (o vídeo fica intacto, só convertido):
    ```bash
    ffmpeg -i public/entrada/<nome>.mp4 -vf "scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30" -c:v libx264 -crf 16 -pix_fmt yuv420p -c:a aac -b:a 192k public/entrada/<nome>-pronto.mp4
    /opt/whisper-venv/bin/python scripts/transcrever.py public/entrada/<nome>-pronto.mp4 public/entrada/<nome>-pronto.captions.json --lingua pt
    ```
    (se o vídeo já for 1080×1920 a 30 fps, pode usar o original). O `captions.json` vale direto, sem remapear, e `duracaoSeg` vem do `ffprobe`. Confira nomes e termos técnicos com o dono (Whisper erra). Depois siga para o passo 3.
 
-   **Com corte (só se pedido)**, o script já transcreve sozinho:
+   **Com corte (se ele disser que sim)**, o script já transcreve sozinho:
    ```bash
    python3 scripts/cortar-pausas.py public/entrada/<nome>.mp4 public/entrada/<nome>-cortado.mp4 --tamanho 1080x1920
    ```
