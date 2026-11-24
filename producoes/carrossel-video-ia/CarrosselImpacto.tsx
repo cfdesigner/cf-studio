@@ -45,7 +45,7 @@ const Palco: React.FC = () => (
     {/* artes */}
     <Arte src={arteOlho} i={1} left={250} top={330} w={900} h={1200} />
     <Arte src={artePodio} i={2} left={380} top={690} w={700} h={700} />
-    <Arte src={arteCegas} i={3} left={-120} top={430} w={660} h={880} />
+    <Arte src={arteCegas} i={3} left={0} top={470} w={620} h={827} />
     <Arte src={arteGpt} i={4} left={0} top={520} w={600} h={800} />
     <Arte src={arteNano} i={5} left={470} top={520} w={640} h={853} />
     <Arte src={arteFlux} i={6} left={450} top={520} w={640} h={853} />
@@ -131,7 +131,7 @@ const Textos = (i: number): React.ReactNode => {
     <>
       <Etiqueta i={3} direita>Como é medido</Etiqueta>
       <Titulo i={3} direita size={200} linhas={[{ t: "Voto às" }, { t: "cegas", dest: true }]} />
-      <Pontos i={3} left={590} top={600} w={400} fonte={26} itens={["Cada pedido gera 4 imagens de modelos sorteados", "A pessoa escolhe a melhor e a pior, sem ver o nome", "A nota usa TrueSkill, de forma conservadora"]} />
+      <Pontos i={3} left={620} top={600} w={370} fonte={26} itens={["Cada pedido gera 4 imagens de modelos sorteados", "A pessoa escolhe a melhor e a pior, sem ver o nome", "A nota usa TrueSkill, de forma conservadora"]} />
     </>
   );
   if (i === 4) return (
