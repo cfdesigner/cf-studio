@@ -2,10 +2,15 @@ import React from "react";
 import { Img } from "remotion";
 import { Logo, fontFamilies } from "../../design-systems/cfdesigner";
 import { AM, INK, MUT, X, abs, Apoio, CarrosselShell, Etiq, Ghost, Marca, Titulo } from "./CarrosselClaudeCode";
+import logoFreebeat from "./assets/ferramentas/freebeat-logo.png";
 import printFreebeat from "./assets/ferramentas/freebeat-print.jpg";
+import logoViggle from "./assets/ferramentas/viggle-logo.png";
 import printViggle from "./assets/ferramentas/viggle-print.jpg";
+import logoKling from "./assets/ferramentas/kling-logo.png";
 import printKling from "./assets/ferramentas/kling-print.jpg";
+import logoSeedance from "./assets/ferramentas/seedance-logo.png";
 import printSeedance from "./assets/ferramentas/seedance-print.jpg";
+import logoCapcut from "./assets/ferramentas/capcut-logo.png";
 import printCapcut from "./assets/ferramentas/capcut-print.jpg";
 import fotoMesa from "./assets/foto-mesa.jpg";
 import bebeKarate from "./assets/bebe-karate.png";
@@ -25,11 +30,11 @@ type Estilo = "losango" | "pilula" | "numero" | "traco" | "quadrado";
 type Ferramenta = { chave: string; num: string; etiqueta: string; nome: string; tag: string; preco: string; pontos: string[]; estilo: Estilo; logo?: string; print?: string; pos?: string };
 
 const F: Ferramenta[] = [
-  { chave: "freebeat", num: "01", etiqueta: "01 · Melhor no geral", nome: "Freebeat", tag: "Videoclipe completo a partir do áudio", preco: "US$ 4,99 por semana", pontos: ["Análise de áudio de 7 sinais", "Vídeo de até 6 minutos", "Resultado depende do áudio"], estilo: "losango", print: printFreebeat, pos: "50% 0%" },
-  { chave: "viggle", num: "02", etiqueta: "02 · Transferência de movimento", nome: "Viggle", tag: "Anima personagens com vídeo de referência", preco: "Pro: US$ 7,99 por mês", pontos: ["Grátis: até 5 vídeos por dia", "Precisa de vídeo de referência", "Bom para dança e personagens"], estilo: "pilula", print: printViggle, pos: "55% 30%" },
-  { chave: "kling", num: "03", etiqueta: "03 · Realismo cinematográfico", nome: "Kling AI", tag: "Cenas a partir de texto, imagem ou vídeo", preco: "US$ 6,99 no 1º mês", pontos: ["Depois, US$ 8,80 por mês", "Plano grátis com limites", "Projeto longo pede vários trechos"], estilo: "numero", print: printKling, pos: "50% 20%" },
-  { chave: "seedance", num: "04", etiqueta: "04 · Geração de movimento", nome: "Seedance", tag: "Modelos via integrações e API", preco: "A partir de US$ 32", pontos: ["Seedance 2.5, via BytePlus", "Recursos variam por modelo", "Para criadores avançados e devs"], estilo: "traco", print: printSeedance, pos: "50% 0%" },
-  { chave: "capcut", num: "05", etiqueta: "05 · Edição para redes sociais", nome: "CapCut", tag: "IA e edição em linha do tempo", preco: "Pro: US$ 19,99 por mês", pontos: ["Plano básico gratuito", "Sincroniza áudio, efeitos e transições", "Videoclipe detalhado pede edição manual"], estilo: "quadrado", print: printCapcut, pos: "50% 0%" },
+  { chave: "freebeat", num: "01", etiqueta: "01 · Melhor no geral", nome: "Freebeat", tag: "Videoclipe completo a partir do áudio", preco: "US$ 4,99 por semana", pontos: ["Análise de áudio de 7 sinais", "Vídeo de até 6 minutos", "Resultado depende do áudio"], estilo: "losango", print: printFreebeat, logo: logoFreebeat, pos: "50% 0%" },
+  { chave: "viggle", num: "02", etiqueta: "02 · Transferência de movimento", nome: "Viggle", tag: "Anima personagens com vídeo de referência", preco: "Pro: US$ 7,99 por mês", pontos: ["Grátis: até 5 vídeos por dia", "Precisa de vídeo de referência", "Bom para dança e personagens"], estilo: "pilula", print: printViggle, logo: logoViggle, pos: "55% 30%" },
+  { chave: "kling", num: "03", etiqueta: "03 · Realismo cinematográfico", nome: "Kling AI", tag: "Cenas a partir de texto, imagem ou vídeo", preco: "US$ 6,99 no 1º mês", pontos: ["Depois, US$ 8,80 por mês", "Plano grátis com limites", "Projeto longo pede vários trechos"], estilo: "numero", print: printKling, logo: logoKling, pos: "50% 20%" },
+  { chave: "seedance", num: "04", etiqueta: "04 · Geração de movimento", nome: "Seedance", tag: "Modelos via integrações e API", preco: "A partir de US$ 32", pontos: ["Seedance 2.5, via BytePlus", "Recursos variam por modelo", "Para criadores avançados e devs"], estilo: "traco", print: printSeedance, logo: logoSeedance, pos: "50% 0%" },
+  { chave: "capcut", num: "05", etiqueta: "05 · Edição para redes sociais", nome: "CapCut", tag: "IA e edição em linha do tempo", preco: "Pro: US$ 19,99 por mês", pontos: ["Plano básico gratuito", "Sincroniza áudio, efeitos e transições", "Videoclipe detalhado pede edição manual"], estilo: "quadrado", print: printCapcut, logo: logoCapcut, pos: "50% 0%" },
 ];
 const ESCOLHA = ["Música → Freebeat", "Dança e personagem → Viggle", "Cena realista → Kling AI", "Criador avançado → Seedance", "Edição para redes → CapCut"];
 
@@ -48,7 +53,7 @@ const Print: React.FC<{ f: Ferramenta; escuro?: boolean }> = ({ f, escuro = true
 const LogoRedondo: React.FC<{ f: Ferramenta; cx: number; cy: number; d?: number }> = ({ f, cx, cy, d = 150 }) => (
   <div style={abs({ left: cx - d / 2, top: cy - d / 2, width: d, height: d, borderRadius: d / 2, background: "#fff", boxShadow: "0 16px 36px rgba(11,12,14,0.22)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", border: `3px solid ${AM}` })}>
     {f.logo ? (
-      <Img src={f.logo} style={{ width: "66%", height: "66%", objectFit: "contain" }} />
+      <Img src={f.logo} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
     ) : (
       <div style={{ fontFamily: fontFamilies.display, fontSize: d * 0.4, color: INK, letterSpacing: "0.04em" }}>{f.nome.slice(0, 2).toUpperCase()}</div>
     )}
@@ -91,7 +96,7 @@ const Palco: React.FC = () => (
     {/* 1 · capa: o bebê faixa preta sobre um círculo âmbar que passa para o slide 2 */}
     <Ghost t="5" size={1000} style={{ left: 40, top: 330 }} />
     <div style={abs({ left: 780 - 380, top: 930 - 380, width: 760, height: 760, borderRadius: 380, background: AM })} />
-    <Img src={bebeKarate} style={abs({ left: 520 - 0.495 * 880 / 2, bottom: -30, height: 880, width: 880 * 0.495 })} />
+    <Img src={bebeKarate} style={abs({ left: 540 - 0.495 * 1010 / 2, bottom: -175, height: 1010, width: 1010 * 0.495 })} />
 
     {/* 2 · Freebeat: print dentro de um losango, com losango âmbar que passa para o slide 3 */}
     <Ghost t="01" size={700} style={{ left: X(2) - 40, top: 790 }} />
@@ -144,9 +149,7 @@ const Palco: React.FC = () => (
     <div style={abs({ left: X(8) + AL_, top: AT_, width: AW_, height: AH_, clipPath: `inset(-300px 0px ${AH_ - 120}px 0px)`, pointerEvents: "none" })}>
       <Img src={fotoMesaRecorte} style={abs({ left: MX_, top: MY_, width: 768 * MK_, height: 1344 * MK_ })} />
     </div>
-    <div style={abs({ left: X(8) + 88, top: 960, width: 170, height: 170, borderRadius: 85, background: INK, display: "flex", alignItems: "center", justifyContent: "center" })}>
-      <Logo layout="symbol" finish="metal" height={100} />
-    </div>
+    <Logo layout="symbol" finish="metal" height={170} style={{ position: "absolute", left: X(8) + 88, top: 930 }} />
   </>
 );
 
@@ -236,7 +239,7 @@ const Textos = (i: number): React.ReactNode => {
         <Etiq>Fecho</Etiq>
         <Titulo linhas={["Escolha pelo", <Marca key="m">projeto</Marca>]} size={100} />
       </div>
-      <div style={abs({ left: L + 88, top: 590, background: AM, color: INK, fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: 32, padding: "26px 54px", borderRadius: 999 })}>Chame no direct  →</div>
+      <div style={abs({ left: L + 88, top: 590, background: AM, color: INK, fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: 32, padding: "26px 54px", borderRadius: 999 })}>Gostou do conteúdo?</div>
       <Apoio style={{ left: L + 88, top: 710, width: 330, fontSize: 24 }}>Compare tempo, custo, licença e qualidade antes de assinar.</Apoio>
       <Apoio style={{ left: L + 88, top: 800, width: 230, fontSize: 18 }}>Fonte: comparativo de geradores de videoclipes com IA, 2026. Preços podem variar.</Apoio>
     </>
