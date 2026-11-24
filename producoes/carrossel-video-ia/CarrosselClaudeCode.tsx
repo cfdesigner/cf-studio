@@ -15,40 +15,40 @@ import fotoNotebook from "./assets/foto-notebook.jpg";
  */
 export const CARROSSEL_W = 1080;
 export const CARROSSEL_H = 1350;
-const W = CARROSSEL_W;
-const H = CARROSSEL_H;
-const N = 8;
-const AM = "#d9a441";
-const INK = "#0b0c0e";
-const MUT = "#545c66";
-const LINE = "#e3e5e8";
-const GHOST = "rgba(217,164,65,0.16)";
-const X = (i: number) => (i - 1) * W;
-const abs = (s: React.CSSProperties): React.CSSProperties => ({ position: "absolute", ...s });
+export const W = CARROSSEL_W;
+export const H = CARROSSEL_H;
+export const N = 8;
+export const AM = "#d9a441";
+export const INK = "#0b0c0e";
+export const MUT = "#545c66";
+export const LINE = "#e3e5e8";
+export const GHOST = "rgba(217,164,65,0.16)";
+export const X = (i: number) => (i - 1) * W;
+export const abs = (s: React.CSSProperties): React.CSSProperties => ({ position: "absolute", ...s });
 
-const Marca: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+export const Marca: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <span style={{ background: AM, color: INK, padding: "0 16px 4px", borderRadius: 16, display: "inline-block", lineHeight: 1.08 }}>{children}</span>
 );
-const Titulo: React.FC<{ linhas: React.ReactNode[]; size: number }> = ({ linhas, size }) => (
+export const Titulo: React.FC<{ linhas: React.ReactNode[]; size: number }> = ({ linhas, size }) => (
   <div style={{ fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: size, lineHeight: 1.12, letterSpacing: "-0.02em", color: INK }}>
     {linhas.map((l, i) => <div key={i}>{l}</div>)}
   </div>
 );
-const Etiq: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+export const Etiq: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div style={{ fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: 18, letterSpacing: "0.32em", textTransform: "uppercase", color: MUT, marginBottom: 26 }}>{children}</div>
 );
-const Ghost: React.FC<{ t: string; size: number; style: React.CSSProperties }> = ({ t, size, style }) => (
+export const Ghost: React.FC<{ t: string; size: number; style: React.CSSProperties }> = ({ t, size, style }) => (
   <div style={abs({ fontFamily: fontFamilies.display, fontSize: size, lineHeight: 0.8, letterSpacing: "0.02em", color: GHOST, whiteSpace: "nowrap", textTransform: "uppercase", ...style })}>{t}</div>
 );
-const Apoio: React.FC<{ children: React.ReactNode; style: React.CSSProperties }> = ({ children, style }) => (
+export const Apoio: React.FC<{ children: React.ReactNode; style: React.CSSProperties }> = ({ children, style }) => (
   <div style={abs({ fontFamily: fontFamilies.body, fontSize: 28, lineHeight: 1.4, color: MUT, ...style })}>{children}</div>
 );
-const Card: React.FC<{ src: string; pos?: string; cx: number; cy: number; w: number; h: number; rot: number; persp?: number }> = ({ src, pos = "50% 50%", cx, cy, w, h, rot, persp = -12 }) => (
+export const Card: React.FC<{ src: string; pos?: string; cx: number; cy: number; w: number; h: number; rot: number; persp?: number }> = ({ src, pos = "50% 50%", cx, cy, w, h, rot, persp = -12 }) => (
   <div style={abs({ left: cx - w / 2, top: cy - h / 2, width: w, height: h, borderRadius: 22, overflow: "hidden", boxShadow: "0 40px 70px rgba(11,12,14,0.28)", transform: `perspective(1600px) rotateY(${persp}deg) rotate(${rot}deg)` })}>
     <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: pos }} />
   </div>
 );
-const Fita: React.FC<{ cx: number; cy: number; w: number; rot: number; texto: string }> = ({ cx, cy, w, rot, texto }) => (
+export const Fita: React.FC<{ cx: number; cy: number; w: number; rot: number; texto: string }> = ({ cx, cy, w, rot, texto }) => (
   <div style={abs({ left: cx - w / 2, top: cy - 35, width: w, height: 70, background: AM, color: INK, display: "flex", alignItems: "center", overflow: "hidden", whiteSpace: "nowrap", fontFamily: fontFamilies.display, fontSize: 42, letterSpacing: "0.12em", transform: `rotate(${rot}deg)` })}>
     {Array.from({ length: 6 }).map((_, i) => <span key={i} style={{ marginRight: 30 }}>{texto}</span>)}
   </div>
@@ -73,7 +73,7 @@ const Quadros: React.FC = () => {
   );
 };
 
-const Lista: React.FC<{ itens: string[]; left: number; top: number; gap: number; fonte: number; largura: number; numerada?: boolean }> = ({ itens, left, top, gap, fonte, largura, numerada }) => (
+export const Lista: React.FC<{ itens: string[]; left: number; top: number; gap: number; fonte: number; largura: number; numerada?: boolean }> = ({ itens, left, top, gap, fonte, largura, numerada }) => (
   <div style={abs({ left, top, width: largura })}>
     {itens.map((p, i) => (
       <div key={p} style={{ display: "flex", alignItems: "center", gap: 22, minHeight: gap }}>
@@ -186,6 +186,27 @@ export const CarrosselClaudeCode: React.FC<{ n: number }> = ({ n }) => {
       <div style={abs({ left: -X(i), top: 0, width: W * N, height: H })}>
         <Palco />
         <Textos i={i} />
+      </div>
+      <div style={abs({ top: 56, left: 88, right: 88, display: "flex", justifyContent: "space-between", alignItems: "center" })}>
+        <div style={{ background: INK, borderRadius: 10, padding: "10px 16px" }}><Logo layout="horizontal" height={28} /></div>
+        <span style={{ fontFamily: fontFamilies.mono, fontSize: 18, letterSpacing: "0.16em", color: MUT }}>{String(i).padStart(2, "0")} / {String(N).padStart(2, "0")}</span>
+      </div>
+      <div style={abs({ left: 88, right: 88, bottom: 56, borderTop: `1px solid ${LINE}`, paddingTop: 22, display: "flex", justifyContent: "space-between", fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: 17, letterSpacing: "0.22em", color: MUT })}>
+        <span style={{ background: "rgba(255,255,255,0.92)", padding: "8px 18px", borderRadius: 999 }}>@CFDESIGNER.OFICIAL</span>
+        {i < N && <span style={{ background: "rgba(255,255,255,0.92)", padding: "8px 18px", borderRadius: 999 }}>ARRASTE →</span>}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/** Janela de 1080 px sobre a tela contínua, com topo e rodapé fixos. Reutilizado pelos carrosséis novos. */
+export const CarrosselShell: React.FC<{ n: number; palco: React.ReactNode; textos: (i: number) => React.ReactNode }> = ({ n, palco, textos }) => {
+  const i = Math.min(Math.max(n, 1), N);
+  return (
+    <AbsoluteFill style={{ background: "#ffffff", overflow: "hidden" }}>
+      <div style={abs({ left: -X(i), top: 0, width: W * N, height: H })}>
+        {palco}
+        {textos(i)}
       </div>
       <div style={abs({ top: 56, left: 88, right: 88, display: "flex", justifyContent: "space-between", alignItems: "center" })}>
         <div style={{ background: INK, borderRadius: 10, padding: "10px 16px" }}><Logo layout="horizontal" height={28} /></div>
