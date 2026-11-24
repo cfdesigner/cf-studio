@@ -91,8 +91,13 @@
 ### Episódio 04 "Mesma cena" (CFDesigner)
 
 - [x] Regra nova: **storyboard antes de todo vídeo**. Storyboard, narração (do dono) e música (Suno) feitos; vídeo montado (21,4 s)
-- [ ] **[dono]** Ver o vídeo do episódio 04 e pedir ajustes (cortes, volume da música, caixinha de som, início bruto/log). Se filmou em log de verdade, mandar o original para trocar o bruto simulado
-- [ ] **[Claude]** Depois da aprovação: salvar a versão final e, se pedir, versão sem legenda ou horizontal
+- [x] **Episódio 04 aprovado pelo dono em 24/11/2026** (versão só com a narração; ele faz música e efeitos). Calendário e recapitulação em `producoes/CALENDARIO.md`
+- [ ] **[dono]** Mandar o áudio final (música e efeitos) do episódio 04 se quiser que eu aplique no vídeo; se filmou em log de verdade, mandar o original para trocar o bruto simulado (opcional)
+
+### Episódio 05 (CFDesigner)
+
+- [ ] **[dono]** Escolher o tema do 05 (opções A "um corte errado" ou B "IA vs. tradicional: mesma cena" em `producoes/CALENDARIO.md`) e mandar a cena/material
+- [ ] **[Claude]** Estruturar o 05: roteiro, storyboard (regra: storyboard antes de montar) e prompt da música, depois da escolha
 
 ### Limpezas pequenas
 
