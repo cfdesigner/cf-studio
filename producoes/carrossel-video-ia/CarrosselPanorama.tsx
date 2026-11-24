@@ -6,6 +6,11 @@ import euFrente from "./assets/eu-frente.png";
 import euBaixo from "./assets/eu-baixo.png";
 import euPerfilDir from "./assets/eu-perfil-dir.png";
 import euPerfilEsq from "./assets/eu-perfil-esq.png";
+import euCapa from "./assets/eu-capa.png";
+import euFala from "./assets/eu-fala.png";
+import fotoEscritorio from "./assets/foto-escritorio.jpg";
+import fotoLivro from "./assets/foto-livro.jpg";
+import fotoNotebook from "./assets/foto-notebook.jpg";
 
 /**
  * Carrossel PANORAMA: fundo branco, âmbar no lugar do petróleo, e elementos que atravessam de um slide para o outro.
@@ -164,6 +169,28 @@ const PalcoSol: React.FC = () => (
   </>
 );
 
+/** Versão 4: estrutura do Sol com as fotos reais do dono. */
+const PalcoFotos: React.FC = () => (
+  <>
+    <Ghost t="5" size={1000} style={{ left: X(3) + 700, top: 330 }} />
+    <div style={abs({ left: 1010 - 500, top: 930 - 500, width: 1000, height: 1000, borderRadius: 500, background: AM })} />
+    <Img src={euCapa} style={abs({ left: 250, bottom: 0, height: 940, width: 940 * (1086 / 1702) })} />
+    <Card src={fotoNotebook} pos="50% 62%" cx={2160} cy={960} w={780} h={450} rot={-4} />
+    <Fita cx={3240} cy={1170} w={1900} rot={-5} />
+    <Card src={fotoLivro} pos="50% 33%" cx={4320} cy={940} w={800} h={460} rot={3} persp={-10} />
+    <div style={abs({ left: 5400 - 300 + 38, top: 980 - 300 + 30, width: 600, height: 600, borderRadius: 300, border: `3px solid ${AM}` })} />
+    <div style={abs({ left: 5400 - 300, top: 980 - 300, width: 600, height: 600, borderRadius: 300, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
+      <Img src={fotoEscritorio} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.9)", transformOrigin: "72% 36%" }} />
+    </div>
+    <Onda x0={6140} yc={960} />
+    <div style={abs({ left: X(8) + 700 - 450, top: 1130 - 450, width: 900, height: 900, borderRadius: 450, background: INK })} />
+    <Img src={euFala} style={abs({ left: X(8) + 1110 - 900 * (768 / 1102) , bottom: 0, height: 900, width: 900 * (768 / 1102) })} />
+    <div style={abs({ left: X(8) + 88, top: 900, width: 190, height: 190, borderRadius: 95, background: INK, display: "flex", alignItems: "center", justifyContent: "center" })}>
+      <Logo layout="symbol" finish="metal" height={110} />
+    </div>
+  </>
+);
+
 const caminho = () => {
   const pts: string[] = [];
   for (let x = -100; x <= W * N + 100; x += 40) {
@@ -267,16 +294,17 @@ const ExtraTempo: React.FC<{ i: number }> = ({ i }) => {
 
 export const CarrosselPanorama: React.FC<{ n: number; v: number }> = ({ n, v }) => {
   const i = Math.min(Math.max(n, 1), N);
-  const Palco = v === 1 ? PalcoSol : v === 2 ? PalcoFita : PalcoTempo;
+  const Palco = v === 1 ? PalcoSol : v === 2 ? PalcoFita : v === 4 ? PalcoFotos : PalcoTempo;
+  const vt = v === 4 ? 1 : v;
   return (
     <AbsoluteFill style={{ background: "#ffffff", overflow: "hidden" }}>
       <div style={abs({ left: -X(i), top: 0, width: W * N, height: H })}>
-        {v === 1 && <Ghost t="Frase" size={470} style={{ left: X(4) - 10, top: 1000 }} />}
-        {v === 2 && <Ghost t="Método" size={420} style={{ left: X(2) - 10, top: 1000 }} />}
+        {vt === 1 && <Ghost t="Frase" size={470} style={{ left: X(4) - 10, top: 1000 }} />}
+        {vt === 2 && <Ghost t="Método" size={420} style={{ left: X(2) - 10, top: 1000 }} />}
         <Palco />
         {Array.from({ length: N }, (_, k) => k + 1).filter((k) => k === i).map((k) => (
           <React.Fragment key={k}>
-            <Textos i={k} v={v} />
+            <Textos i={k} v={vt} />
             {v === 3 && <ExtraTempo i={k} />}
           </React.Fragment>
         ))}
