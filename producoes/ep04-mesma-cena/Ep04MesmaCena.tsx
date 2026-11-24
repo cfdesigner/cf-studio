@@ -16,6 +16,7 @@ import {
   EtiquetaRotulo,
   FechoSimples,
   FundoCF,
+  LightLeak,
   LinhaChamada,
   LinhasDeSom,
   VarreduraAmbar,
@@ -48,10 +49,10 @@ type Plano = {
 const PLANOS: Plano[] = [
   { de: 0, ate: 2.6, arq: "ambar", ini: 1.2 }, // gancho: ele vira de perfil para as costas, já com o look
   { de: 2.6, ate: 5.6, arq: "bruto", ini: 9.0, entra: "fade" }, // bruto: parado, sem cortes ("sem vida")
-  { de: 5.6, ate: 9.2, arq: "bruto", ini: 13.2, entra: "fade", vaiVem: { pico: 1.3, tPico: 1.8 } }, // ritmo: plano contínuo
+  { de: 5.6, ate: 9.2, arq: "bruto", ini: 13.2, vaiVem: { pico: 1.3, tPico: 1.8 } }, // ritmo: plano contínuo (entra com light leak)
   { de: 9.2, ate: 12.2, arq: "ambar", ini: 4.4, entra: "varredura" }, // cor: outro momento (ele gira), sem zoom
   { de: 12.2, ate: 13.6, arq: "ambar", ini: 17.0, entra: "fade" }, // som: fusão suave de entrada, depois 2 cortes secos, planos iguais
-  { de: 13.6, ate: 15.0, arq: "ambar", ini: 25.6, zoom: 1.35 },
+  { de: 13.6, ate: 15.0, arq: "ambar", ini: 0.0, zoom: 1.35 },
   { de: 15.0, ate: 16.4, arq: "ambar", ini: 18.6 },
   { de: 16.4, ate: 19.4, arq: "ambar", ini: 27.7, entra: "wipe-cima" }, // resultado: ele vindo para a câmera (aprovado)
 ];
@@ -152,10 +153,15 @@ const TextoAlto: React.FC<{
   );
 };
 
-/** Linha de chamada que acompanha o zoom: aponta para a cintura dele (nunca para o rosto). */
-const LinhaSeguindo: React.FC<{ durationInFrames: number; vaiVem?: { pico: number; tPico: number } }> = ({ durationInFrames, vaiVem }) => {
+/** Linha de chamada que acompanha o zoom: aponta para a cintura dele (nunca para o rosto). `offset` = quadros já passados do plano. */
+const LinhaSeguindo: React.FC<{
+  durationInFrames: number;
+  vaiVem?: { pico: number; tPico: number };
+  offset?: number;
+  total?: number;
+}> = ({ durationInFrames, vaiVem, offset = 0, total }) => {
   const fr = useCurrentFrame();
-  const s = vaiVem ? escalaVaiVem(fr, durationInFrames, vaiVem) : 1;
+  const s = vaiVem ? escalaVaiVem(fr + offset, total ?? durationInFrames, vaiVem) : 1;
   const alvo = (x: number, y: number) => ({ x: ORIGEM.x + s * (x - ORIGEM.x), y: ORIGEM.y + s * (y - ORIGEM.y) });
   const centro = alvo(548, 1310);
   const ponto = alvo(520, 1262);
@@ -170,12 +176,14 @@ const LinhaSeguindo: React.FC<{ durationInFrames: number; vaiVem?: { pico: numbe
   );
 };
 
-const Etiqueta: React.FC<{ icone: "ritmo" | "cor"; rotulo: string; plano: Plano }> = ({ icone, rotulo, plano }) => {
-  const dur = f(plano.ate - plano.de);
+/** `atraso` (s): a etiqueta entra depois do começo do plano (ex.: na palavra falada, e fora do light leak). */
+const Etiqueta: React.FC<{ icone: "ritmo" | "cor"; rotulo: string; plano: Plano; atraso?: number }> = ({ icone, rotulo, plano, atraso = 0 }) => {
+  const total = f(plano.ate - plano.de);
+  const dur = total - f(atraso);
   return (
-    <Sequence from={f(plano.de)} durationInFrames={dur}>
+    <Sequence from={f(plano.de) + f(atraso)} durationInFrames={dur}>
       <EtiquetaRotulo icone={icone} rotulo={rotulo} esquerda={96} topo={650} escala={1.25} sai={dur - 5} />
-      <LinhaSeguindo durationInFrames={dur} vaiVem={plano.vaiVem} />
+      <LinhaSeguindo durationInFrames={dur} vaiVem={plano.vaiVem} offset={f(atraso)} total={total} />
     </Sequence>
   );
 };
@@ -197,7 +205,11 @@ export const Ep04MesmaCena: React.FC = () => (
     </Sequence>
 
     {/* Etapas: ritmo (bruto) e cor (virada com a varredura âmbar em 9,2 s, no primeiro kick da música) */}
-    <Etiqueta icone="ritmo" rotulo="Ritmo" plano={PLANOS[2]} />
+    <Etiqueta icone="ritmo" rotulo="Ritmo" plano={PLANOS[2]} atraso={0.6} />
+    {/* Light leak âmbar cobrindo o corte do bruto para o ritmo (pico no corte, 5,6 s); a etiqueta só entra depois */}
+    <Sequence from={f(5.6) - 13} durationInFrames={36}>
+      <LightLeak durationInFrames={36} from="left" />
+    </Sequence>
     <Etiqueta icone="cor" rotulo="Cor" plano={PLANOS[3]} />
 
     {/* Som: a caixinha gira de um lado ao outro durante toda a etapa */}
@@ -240,10 +252,10 @@ export const Ep04MesmaCena: React.FC = () => (
       />
     </Sequence>
 
-    {/* Fecho: fusão com um fundo do design system (losangos, combinam com o losango do logo) */}
+    {/* Fecho: fusão com um fundo do design system (órbitas e bokeh: bolinhas e círculos, escolha do dono) */}
     <Sequence from={f(19.4) - FADE} durationInFrames={f(2.0) + FADE}>
       <FadeIn>
-        <FechoSimples durationInFrames={f(2.0) + FADE} fundo={<FundoCF variante="losangos" duracao={f(2.0) + FADE} />} />
+        <FechoSimples durationInFrames={f(2.0) + FADE} fundo={<FundoCF variante="orbitas" duracao={f(2.0) + FADE} />} />
       </FadeIn>
     </Sequence>
   </AbsoluteFill>

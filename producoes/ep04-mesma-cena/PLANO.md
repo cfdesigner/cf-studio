@@ -113,3 +113,9 @@ O primeiro e os planos do meio não repetem mais o gesto de braços para cima. A
 - Texto do gancho ("MESMA CENA / 3 MUDANÇAS") e do convite final ("MESMA CENA / QUAL MUDOU MAIS?") **100 px mais baixos e na mesma altura** (topo 500 px na base de 1080).
 - **Legendas removidas** (ficavam em cima da pessoa). A narração segue sem legenda; o `legendas.json` ficou no repositório caso volte.
 - **Transição cor → som:** a cortina para a direita foi trocada por fusão suave de 0,3 s (o dono não gostou da cortina). Cortina para cima (som → resultado) e varredura âmbar (ritmo → cor) seguem.
+
+## Fechando (pedido do dono)
+
+- **Bruto → ritmo (5,6 s):** corte seco coberto por `LightLeak` âmbar (pico no corte). A etiqueta RITMO entra 0,6 s depois (na palavra "ritmo"), fora do light leak, para não ficar atrás dele.
+- **Som:** o plano com zoom 1,35x agora vem de outra parte da cena (0,0 a 1,4 s, ele de perfil). Planos do som (s): 17,0 · 0,0 (zoom) · 18,6.
+- **Fecho:** `FundoCF` variante `orbitas` (órbitas e bokeh, "bolinhas e círculos") atrás do logo.
