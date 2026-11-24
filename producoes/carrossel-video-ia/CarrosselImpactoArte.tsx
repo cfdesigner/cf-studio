@@ -2,32 +2,23 @@ import React from "react";
 import { Img } from "remotion";
 import { fontFamilies } from "../../design-systems/cfdesigner";
 import { AM, INK, X, abs, CarrosselShell } from "./CarrosselClaudeCode";
-import { Etiqueta, Fundos, Pilula, Titulo, VOID } from "./CarrosselImpacto";
-import euFala from "./assets/eu-fala.png";
-import heroiCapa from "./assets/impacto/heroi-capa.png";
+import { Etiqueta, Fundos, Titulo, VOID } from "./CarrosselImpacto";
+import heroiOlho from "./assets/impacto/heroi-capa-olho.png";
 import heroiRanking from "./assets/impacto/heroi-ranking.png";
 
 /**
  * Modelo "Impacto" com arte gerada (Magnific, a pedido do dono): capa e página do ranking.
  * Heróis em PNG transparente: mãos (robô e humana) segurando um quadro dourado com o dono dentro; pódio com troféu em losango.
  */
-const Palco: React.FC = () => {
-  // capa: heroi 1200x1600; janela do quadro em frações do heroi
-  const H = 940, Wd = H * 0.75, L = 330, T = 520;
-  const jx = L + 0.235 * Wd, jy = T + 0.15 * H, jw = 0.53 * Wd, jh = 0.385 * H;
-  return (
-    <>
-      <Fundos />
-      {/* capa: dono dentro do quadro, atrás da arte */}
-      <div style={abs({ left: X(1) + jx - 6, top: jy - 6, width: jw + 12, height: jh + 12, background: VOID, overflow: "hidden" })}>
-        <Img src={euFala} style={abs({ left: (jw + 12) / 2 - (jh * 1.25 * 0.693) / 2, top: 20, height: jh * 1.25, width: jh * 1.25 * 0.693 })} />
-      </div>
-      <Img src={heroiCapa} style={abs({ left: X(1) + L, top: T, width: Wd, height: H })} />
-      {/* ranking: pódio */}
-      <Img src={heroiRanking} style={abs({ left: X(2) + 380, top: 690, width: 700, height: 700 })} />
-    </>
-  );
-};
+const Palco: React.FC = () => (
+  <>
+    <Fundos />
+    {/* capa: olho desconstruído (arte gerada) ocupando o quadro, vazando por trás do título */}
+    <Img src={heroiOlho} style={abs({ left: X(1) + 250, top: 330, width: 900, height: 1200 })} />
+    {/* ranking: pódio */}
+    <Img src={heroiRanking} style={abs({ left: X(2) + 380, top: 690, width: 700, height: 700 })} />
+  </>
+);
 
 const Linha: React.FC<{ pos: number; nome: string; nota: string; top: number }> = ({ pos, nome, nota, top }) => (
   <div style={abs({ left: X(2) + 88, top, width: 470, display: "flex", alignItems: "baseline", gap: 18, borderBottom: "2px solid #2e3238", paddingBottom: 12 })}>
@@ -41,8 +32,7 @@ const Textos = (i: number): React.ReactNode => {
   if (i === 1) return (
     <>
       <Etiqueta i={1}>Novembro de 2026</Etiqueta>
-      <Titulo i={1} size={165} linhas={[{ t: "Melhor gerador" }, { t: "de imagens", dest: true }, { t: "com IA" }]} />
-      <Pilula i={1} left={88} top={1130}>Arraste →</Pilula>
+      <Titulo i={1} size={200} linhas={[{ t: "Melhor" }, { t: "gerador" }, { t: "de imagens", dest: true }, { t: "com IA" }]} />
     </>
   );
   return (
