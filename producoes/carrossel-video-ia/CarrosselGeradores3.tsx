@@ -88,17 +88,16 @@ const Palco: React.FC = () => (
     <Ghost t="5" size={1000} style={{ left: 40, top: 330 }} />
     <div style={abs({ left: 780 - 380, top: 930 - 380, width: 760, height: 760, borderRadius: 380, background: AM })} />
     <Img src={bebeKarate} style={abs({ left: 520 - 0.495 * 880 / 2, bottom: -30, height: 880, width: 880 * 0.495 })} />
-    <Losango cx={140} cy={1130} lado={150} cor={INK} />
 
     {/* 2 · Freebeat: print dentro de um losango, com losango âmbar que passa para o slide 3 */}
     <Ghost t="01" size={700} style={{ left: X(2) - 40, top: 790 }} />
-    <Losango cx={X(2) + 840} cy={1030} lado={440} />
-    <div style={abs({ left: X(2) + 790 - 220, top: 1000 - 220, width: 440, height: 440, transform: "rotate(45deg)", overflow: "hidden", boxShadow: "0 36px 66px rgba(11,12,14,0.3)", border: "6px solid #fff" })}>
+    <Losango cx={X(2) + 860} cy={1090} lado={580} />
+    <div style={abs({ left: X(2) + 810 - 290, top: 1060 - 290, width: 580, height: 580, transform: "rotate(45deg)", overflow: "hidden", boxShadow: "0 36px 66px rgba(11,12,14,0.3)", border: "6px solid #fff" })}>
       <div style={{ width: "141%", height: "141%", marginLeft: "-20.5%", marginTop: "-20.5%", transform: "rotate(-45deg)" }}>
         <Print f={F[0]} />
       </div>
     </div>
-    <LogoRedondo f={F[0]} cx={X(2) + 790} cy={670} />
+    <LogoRedondo f={F[0]} cx={X(2) + 810} cy={640} />
 
     {/* 3 · Viggle: celular inclinado */}
     <Ghost t="02" size={760} style={{ left: X(3) + 600, top: 330 }} />
