@@ -177,10 +177,10 @@ const PalcoFotos: React.FC = () => (
     <Img src={euCapa} style={abs({ left: 250, bottom: 0, height: 940, width: 940 * (1086 / 1702) })} />
     <Card src={fotoNotebook} pos="50% 62%" cx={2160} cy={960} w={780} h={450} rot={-4} />
     <Fita cx={3240} cy={1170} w={1900} rot={-5} />
-    <Card src={fotoLivro} pos="50% 33%" cx={4320} cy={940} w={800} h={460} rot={3} persp={-10} />
-    <div style={abs({ left: 5400 - 300 + 38, top: 980 - 300 + 30, width: 600, height: 600, borderRadius: 300, border: `3px solid ${AM}` })} />
-    <div style={abs({ left: 5400 - 300, top: 980 - 300, width: 600, height: 600, borderRadius: 300, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
-      <Img src={fotoEscritorio} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.9)", transformOrigin: "72% 36%" }} />
+    <Card src={fotoLivro} pos="50% 33%" cx={4500} cy={940} w={800} h={460} rot={3} persp={-10} />
+    <div style={abs({ left: 5400 - 300 + 38, top: 920 - 300 + 30, width: 600, height: 600, borderRadius: 300, border: `3px solid ${AM}` })} />
+    <div style={abs({ left: 5400 - 300, top: 920 - 300, width: 600, height: 600, borderRadius: 300, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
+      <Img src={fotoEscritorio} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(2.3)", transformOrigin: "70% 37%" }} />
     </div>
     <Onda x0={6140} yc={960} />
     <div style={abs({ left: X(8) + 700 - 450, top: 1130 - 450, width: 900, height: 900, borderRadius: 450, background: INK })} />

@@ -74,6 +74,10 @@ Regra do dono: **nenhum gráfico fica na frente do rosto de ninguém**; ajuste `
 
 Telas de fundo animadas para cenas sem foto/vídeo (passo a passo, explicações, frases, fecho): `FundoCF` com 6 variantes (`grade`, `orbitas`, `visor`, `timeline`, `losangos`, `pontos`). Preto `void` com traços finos em **bronze** (`#8a6a2a`), 15–55% de opacidade, movimento lento. **Uma variante diferente a cada cena**, nunca a mesma em todas. Aprovadas pelo dono. Guia e receita em `docs/fundos.md`; exemplo `CFDesigner-Fundos-Exemplo`.
 
+## Carrossel (Instagram 4:5)
+
+Aprovado pelo dono para carrosséis: **fundo branco** (`#ffffff`), **âmbar no lugar do petróleo** (blocos, círculos, fitas, marca-texto da palavra-chave, texto preto sobre o âmbar; nunca texto âmbar sobre branco), Montserrat 600 em frase normal para o título, Lato para apoio, Bebas só em palavras fantasma e fitas. Elementos (círculos, cartões inclinados, fitas, onda de som) **atravessam de um slide para o outro**: cada slide é uma janela de 1080 px sobre uma tela contínua de 8640 px. Logo em plaquinha preta sobre fundo claro. Fotos do dono recortadas com `rembg` (ver `producoes/carrossel-video-ia/`). Este uso de fundo claro vale só para carrossel.
+
 ## Imagem e foto
 
 Fotos em luz baixa, 70% ou mais em sombra, vinheta preta até `void` onde há texto. Sem filtros coloridos. Retratos em `assets/imagery` (`imagery.*`).

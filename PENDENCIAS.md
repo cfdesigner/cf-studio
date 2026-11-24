@@ -102,6 +102,12 @@
 - [ ] **[dono]** Gravar a narração do 05 e fazer música e efeitos (como no 04)
 - [ ] **[Claude]** Depois que chegarem o clipe e a narração: montar o 05 no Remotion e entregar o MP4
 
+### Carrossel "Vídeo com IA" (CFDesigner, Instagram 4:5)
+
+- [x] **[Claude]** Carrossel de 8 slides (1080×1350) montado em `producoes/carrossel-video-ia/` (composição `CarrosselPanorama`, `v=4`): fundo branco, âmbar no lugar do petróleo, elementos que atravessam de um slide para o outro, fotos reais do dono recortadas. PNGs finais em `out/carrossel/final/` (fora do git)
+- [ ] **[dono]** Aprovar o carrossel (ou pedir ajustes de texto, enquadramento e fotos) e dizer se vai querer mais algum carrossel nesse estilo
+- [ ] **[dono]** (opcional) Decidir se entra imagem gerada no Magnific (custa ~65 créditos por imagem, só com autorização) ou se ficamos só com as fotos reais
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz
