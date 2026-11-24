@@ -6,6 +6,7 @@ Cada design system é **independente e completo**: tem o seu jeito de fazer core
 | ------------- | ---------------------------------------------------------------------------- | ----------------------------- |
 | `cfdesigner/` | CFDesigner: cinema escuro com ponto de luz dourada                           | `cfdesigner/DESIGN-SYSTEM.md` |
 | `certi/`      | CERTI: institucional, claro e tecnológico (completo: etapas 1 a 4 aprovadas) | `certi/DESIGN-SYSTEM.md`      |
+| `tiago-lemos-01/` | Fala direta em tela dividida, escuro e dourado, legenda palavra por palavra, elementos animados e sons leves (skill `video-tiago-lemos`) | `tiago-lemos-01/DESIGN-SYSTEM.md` |
 
 ## O que cada pasta tem
 
