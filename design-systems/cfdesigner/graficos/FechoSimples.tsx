@@ -16,6 +16,8 @@ export type FechoSimplesProps = {
   logoHeight?: number;
   /** Desfoque inicial do logo em px (0 = só fade). Com 18, o logo sai do desfoque ao entrar. */
   desfoque?: number;
+  /** Fundo animado por baixo do logo (ex.: `<FundoCF variante="losangos" />`). Sem ele, o fecho é preto puro. */
+  fundo?: React.ReactNode;
 };
 
 /**
@@ -27,6 +29,7 @@ export const FechoSimples: React.FC<FechoSimplesProps> = ({
   durationInFrames,
   logoHeight = 96,
   desfoque = 0,
+  fundo,
 }) => {
   const f = useCurrentFrame();
   const { fps, width } = useVideoConfig();
@@ -41,11 +44,12 @@ export const FechoSimples: React.FC<FechoSimplesProps> = ({
   return (
     <AbsoluteFill
       style={{
-        background: "#000",
+        background: fundo ? undefined : "#000",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
+      {fundo}
       <div style={{ opacity: o, filter: `blur(${p * desfoque}px)` }}>
         <Logo layout="horizontal" finish="white" height={logoHeight * k} />
       </div>

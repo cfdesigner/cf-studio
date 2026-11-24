@@ -1,9 +1,10 @@
 // PRODUÇÃO: Episódio 04 "Mesma cena" (Reels 21,4 s, CFDesigner, look Âmbar Cinema). 100 BPM: o primeiro kick da música cai em 9,2 s.
-// Arquivos de entrada (ignorados pelo Git) em public/entrada/canajure/: cena-bruto.mp4 (visual cinza, 18–30 s da cena) e cena-ambar.mp4 (com o look).
-// O vídeo sai sem áudio; a narração, a música e os efeitos são mixados por producoes/ep04-mesma-cena/mixar.py.
+// Arquivos de entrada (ignorados pelo Git) em public/entrada/canajure/: cena-bruto-full.mp4 (visual cinza) e cena-ambar-full.mp4 (com o look), 30,7 s cada.
+// O vídeo sai sem áudio; a narração (e, se pedido, música e efeitos) é mixada por producoes/ep04-mesma-cena/mixar.py.
 import React from "react";
 import {
   AbsoluteFill,
+  Easing,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -15,9 +16,11 @@ import {
   EtiquetaRotulo,
   FechoSimples,
   FlashCut,
+  FundoCF,
+  Legendas,
   LinhaChamada,
   LinhasDeSom,
-  Legendas,
+  WipeReveal,
 } from "../../design-systems/cfdesigner";
 import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
 import legendas from "./legendas.json";
@@ -28,37 +31,87 @@ export const EP04_FRAMES = f(21.4);
 
 const c = colors.cinema;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+const ORIGEM = { x: 540, y: 0.72 * 1920 }; // ponto fixo do zoom (perto do personagem)
 
-/** Trechos da cena. `ini` = segundo da cena original (arquivos cena-bruto-full.mp4 e cena-ambar-full.mp4, 30,7 s). Cortes sempre em batidas (0,6 s) de 100 BPM.
- *  Sem braços levantados (pedido do dono): giros, olhar para baixo, passos. O último plano (ele vindo para a câmera) foi aprovado. */
-type Plano = { de: number; ate: number; arq: "bruto" | "ambar"; ini: number; zoom?: number };
+type Entrada = "corte" | "fade" | "wipe-direita" | "wipe-cima";
+/** Trecho da cena. `ini` = segundo da cena original. `zoom`: aproximação até `pico` em `tPico` s e afastamento até o fim (plano contínuo). */
+type Plano = {
+  de: number;
+  ate: number;
+  arq: "bruto" | "ambar";
+  ini: number;
+  zoom?: number; // zoom fixo
+  vaiVem?: { pico: number; tPico: number };
+  entra?: Entrada;
+};
+
+// Sem braços levantados (pedido do dono). Ritmo e cor: o MESMO trecho do começo ao fim, com um zoom que vai e volta.
+// Som: cortes secos (aprovado). Transições entre as etapas.
 const PLANOS: Plano[] = [
   { de: 0, ate: 2.6, arq: "ambar", ini: 1.2 }, // gancho: ele vira de perfil para as costas, já com o look
-  { de: 2.6, ate: 5.6, arq: "bruto", ini: 6.5 }, // bruto: um plano só, parado, sem cortes ("sem vida")
-  // ritmo (visual bruto)
-  { de: 5.6, ate: 6.8, arq: "bruto", ini: 4.6 }, // gira de costas para perfil
-  { de: 6.8, ate: 8.0, arq: "bruto", ini: 15.6, zoom: 1.35 }, // olha para baixo
-  { de: 8.0, ate: 9.2, arq: "bruto", ini: 13.2 }, // troca o peso e se vira para a câmera
-  // cor (clarão em 9,2 s)
-  { de: 9.2, ate: 10.4, arq: "ambar", ini: 17.6 }, // passo e giro
-  { de: 10.4, ate: 11.6, arq: "ambar", ini: 25.4, zoom: 1.35 }, // se vira
-  { de: 11.6, ate: 12.2, arq: "ambar", ini: 16.8 },
-  // som
-  { de: 12.2, ate: 13.4, arq: "ambar", ini: 2.2 }, // de costas
+  { de: 2.6, ate: 5.6, arq: "bruto", ini: 6.5, entra: "fade" }, // bruto: parado, sem cortes ("sem vida")
+  { de: 5.6, ate: 9.2, arq: "bruto", ini: 13.2, entra: "fade", vaiVem: { pico: 1.3, tPico: 1.8 } }, // ritmo: plano contínuo
+  { de: 9.2, ate: 12.2, arq: "ambar", ini: 13.2, vaiVem: { pico: 1.3, tPico: 1.2 } }, // cor: o mesmo trecho, agora com o look (clarão no corte)
+  { de: 12.2, ate: 13.4, arq: "ambar", ini: 2.2, entra: "wipe-direita" }, // som: cortes secos
   { de: 13.4, ate: 14.6, arq: "ambar", ini: 13.4, zoom: 1.35 },
   { de: 14.6, ate: 15.8, arq: "ambar", ini: 18.6 },
   { de: 15.8, ate: 16.4, arq: "ambar", ini: 10.8 },
-  // resultado: ele vindo para a câmera (aprovado pelo dono)
-  { de: 16.4, ate: 19.4, arq: "ambar", ini: 27.7 },
+  { de: 16.4, ate: 19.4, arq: "ambar", ini: 27.7, entra: "wipe-cima" }, // resultado: ele vindo para a câmera (aprovado)
 ];
 
-const Camada: React.FC<{ p: Plano }> = ({ p }) => (
-  <AbsoluteFill style={{ overflow: "hidden", background: "#000" }}>
-    <AbsoluteFill style={p.zoom ? { transform: `scale(${p.zoom})`, transformOrigin: "50% 72%" } : undefined}>
-      <OffthreadVideo src={staticFile(`entrada/canajure/cena-${p.arq}-full.mp4`)} startFrom={f(p.ini)} muted />
+const FADE = 9; // quadros de cada fusão (0,3 s)
+
+/** Escala do zoom em um plano contínuo: sobe até o pico e volta a 1 (suave). */
+const escalaVaiVem = (fr: number, dur: number, v: { pico: number; tPico: number }) =>
+  interpolate(fr, [0, f(v.tPico), dur], [1, v.pico, 1], { ...clamp, easing: Easing.inOut(Easing.cubic) });
+
+const Camada: React.FC<{ p: Plano; dur: number; extra?: number }> = ({ p, dur, extra = 0 }) => {
+  const fr = useCurrentFrame();
+  const s = p.vaiVem ? escalaVaiVem(fr - extra, dur, p.vaiVem) : (p.zoom ?? 1);
+  return (
+    <AbsoluteFill style={{ overflow: "hidden", background: "#000" }}>
+      <AbsoluteFill style={s !== 1 ? { transform: `scale(${s})`, transformOrigin: "50% 72%" } : undefined}>
+        <OffthreadVideo src={staticFile(`entrada/canajure/cena-${p.arq}-full.mp4`)} startFrom={Math.max(0, f(p.ini) - extra)} muted />
+      </AbsoluteFill>
     </AbsoluteFill>
-  </AbsoluteFill>
-);
+  );
+};
+
+const WIPE = 14; // quadros da cortina
+
+const PlanoComEntrada: React.FC<{ p: Plano; prolonga?: boolean }> = ({ p, prolonga }) => {
+  const dur = f(p.ate - p.de);
+  if (p.entra === "fade") {
+    // a fusão começa um pouco antes do corte, por cima do plano anterior
+    return (
+      <Sequence from={f(p.de) - FADE} durationInFrames={dur + FADE}>
+        <FadeIn>
+          <Camada p={p} dur={dur} extra={FADE} />
+        </FadeIn>
+      </Sequence>
+    );
+  }
+  if (p.entra === "wipe-direita" || p.entra === "wipe-cima") {
+    return (
+      <Sequence from={f(p.de)} durationInFrames={dur}>
+        <WipeReveal direction={p.entra === "wipe-direita" ? "right" : "up"} durationInFrames={WIPE}>
+          <Camada p={p} dur={dur} />
+        </WipeReveal>
+      </Sequence>
+    );
+  }
+  // se o próximo plano entra por cortina, este continua por baixo até ela terminar
+  return (
+    <Sequence from={f(p.de)} durationInFrames={dur + (prolonga ? WIPE : 0)}>
+      <Camada p={p} dur={dur} />
+    </Sequence>
+  );
+};
+
+const FadeIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const fr = useCurrentFrame();
+  return <AbsoluteFill style={{ opacity: interpolate(fr, [0, FADE], [0, 1], clamp) }}>{children}</AbsoluteFill>;
+};
 
 /** Texto no alto, entre o personagem e as folhas: uma linha grande e uma pequena e branca. */
 const TextoAlto: React.FC<{
@@ -92,29 +145,38 @@ const TextoAlto: React.FC<{
   );
 };
 
-/** Pontos da linha de chamada em cada plano: da etiqueta até o personagem (nunca sobre o rosto). */
-const ALVO_ABERTO = { anel: { x: 548, y: 1262, r: 46 }, pontos: [{ x: 330, y: 770 }, { x: 515, y: 1218 }] };
-const ALVO_PERTO = { anel: { x: 470, y: 1255, r: 52 }, pontos: [{ x: 330, y: 770 }, { x: 440, y: 1210 }] };
+/** Linha de chamada que acompanha o zoom: aponta para a cintura dele (nunca para o rosto). */
+const LinhaSeguindo: React.FC<{ durationInFrames: number; vaiVem: { pico: number; tPico: number } }> = ({ durationInFrames, vaiVem }) => {
+  const fr = useCurrentFrame();
+  const s = escalaVaiVem(fr, durationInFrames, vaiVem);
+  const alvo = (x: number, y: number) => ({ x: ORIGEM.x + s * (x - ORIGEM.x), y: ORIGEM.y + s * (y - ORIGEM.y) });
+  const centro = alvo(548, 1310);
+  const ponto = alvo(520, 1262);
+  return (
+    <LinhaChamada
+      anel={{ x: centro.x, y: centro.y, r: 46 * s }}
+      pontos={[{ x: 330, y: 770 }, ponto]}
+      entra={4}
+      duracao={12}
+      sai={durationInFrames - 5}
+    />
+  );
+};
 
-const Etiqueta: React.FC<{ icone: "ritmo" | "cor"; rotulo: string; de: number; ate: number }> = ({ icone, rotulo, de, ate }) => (
-  <>
-    <Sequence from={f(de)} durationInFrames={f(ate - de)}>
-      <EtiquetaRotulo icone={icone} rotulo={rotulo} esquerda={96} topo={650} escala={1.25} sai={f(ate - de) - 5} />
+const Etiqueta: React.FC<{ icone: "ritmo" | "cor"; rotulo: string; plano: Plano }> = ({ icone, rotulo, plano }) => {
+  const dur = f(plano.ate - plano.de);
+  return (
+    <Sequence from={f(plano.de)} durationInFrames={dur}>
+      <EtiquetaRotulo icone={icone} rotulo={rotulo} esquerda={96} topo={650} escala={1.25} sai={dur - 5} />
+      {plano.vaiVem && <LinhaSeguindo durationInFrames={dur} vaiVem={plano.vaiVem} />}
     </Sequence>
-    {PLANOS.filter((p) => p.de >= de && p.ate <= ate).map((p) => (
-      <Sequence key={p.de} from={f(p.de)} durationInFrames={f(p.ate - p.de)}>
-        <LinhaChamada {...(p.zoom ? ALVO_PERTO : ALVO_ABERTO)} entra={4} duracao={12} sai={f(p.ate - p.de) - 5} />
-      </Sequence>
-    ))}
-  </>
-);
+  );
+};
 
 export const Ep04MesmaCena: React.FC = () => (
   <AbsoluteFill style={{ background: "#000" }}>
-    {PLANOS.map((p) => (
-      <Sequence key={p.de} from={f(p.de)} durationInFrames={f(p.ate - p.de)}>
-        <Camada p={p} />
-      </Sequence>
+    {PLANOS.map((p, i) => (
+      <PlanoComEntrada key={p.de} p={p} prolonga={PLANOS[i + 1]?.entra?.startsWith("wipe")} />
     ))}
 
     {/* Gancho */}
@@ -128,8 +190,8 @@ export const Ep04MesmaCena: React.FC = () => (
     </Sequence>
 
     {/* Etapas: ritmo (bruto) e cor (virada com clarão em 9,2 s, no primeiro kick da música) */}
-    <Etiqueta icone="ritmo" rotulo="Ritmo" de={5.6} ate={9.2} />
-    <Etiqueta icone="cor" rotulo="Cor" de={9.2} ate={12.2} />
+    <Etiqueta icone="ritmo" rotulo="Ritmo" plano={PLANOS[2]} />
+    <Etiqueta icone="cor" rotulo="Cor" plano={PLANOS[3]} />
     <Sequence from={f(9.2) - 2} durationInFrames={20}>
       <FlashCut at={2} durationInFrames={12} />
     </Sequence>
@@ -178,9 +240,11 @@ export const Ep04MesmaCena: React.FC = () => (
       />
     </Sequence>
 
-    {/* Fecho */}
-    <Sequence from={f(19.4)} durationInFrames={f(2.0)}>
-      <FechoSimples durationInFrames={f(2.0)} />
+    {/* Fecho: fusão com um fundo do design system (losangos, combinam com o losango do logo) */}
+    <Sequence from={f(19.4) - FADE} durationInFrames={f(2.0) + FADE}>
+      <FadeIn>
+        <FechoSimples durationInFrames={f(2.0) + FADE} fundo={<FundoCF variante="losangos" duracao={f(2.0) + FADE} />} />
+      </FadeIn>
     </Sequence>
   </AbsoluteFill>
 );

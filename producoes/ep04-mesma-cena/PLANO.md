@@ -94,3 +94,10 @@ Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (v
 ## Planos trocados (sem braços levantados, pedido do dono)
 
 O primeiro e os planos do meio não repetem mais o gesto de braços para cima. Agora (segundos da cena original): gancho 1,2 (vira de perfil para as costas); bruto 6,5 a 9,5 (parado); ritmo 4,6 (gira), 15,6 aproximação (olha para baixo), 13,2 (troca o peso); cor 17,6 (passo e giro), 25,4 aproximação (se vira), 16,8; som 2,2, 13,4 aproximação, 18,6, 10,8. O último plano (27,7 a 30,7 s, ele vindo para a câmera) foi mantido por ter sido aprovado. Arquivos: `cena-bruto-full.mp4` e `cena-ambar-full.mp4` (30,7 s, em `public/entrada/canajure/`).
+
+## Ritmo e cor em plano contínuo, transições e fecho com fundo (pedido do dono)
+
+- **Ritmo (5,6 a 9,2 s) e cor (9,2 a 12,2 s):** o MESMO trecho da cena (13,2 s em diante) do começo ao fim de cada etapa, sem cortes, só com uma aproximação (até 1,3x) e um afastamento. A linha de chamada da etiqueta acompanha o zoom e aponta para a cintura, nunca para o rosto. **Som:** continua com cortes secos (aprovado).
+- **Transições:** fusão de 0,3 s no gancho→bruto e bruto→ritmo; clarão (FlashCut) no ritmo→cor; cortina para a direita no cor→som; cortina para cima no som→resultado; fusão de 0,3 s do resultado para o fecho. O plano anterior continua por baixo da cortina.
+- **Fecho:** `FechoSimples` ganhou a opção `fundo`; usa o fundo `FundoCF` variante `losangos` (combina com o losango do logo).
+- Entrega: só o vídeo com a narração (`out/ep04-mesma-cena.mp4`).
