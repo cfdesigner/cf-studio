@@ -200,10 +200,10 @@ export const CarrosselClaudeCode: React.FC<{ n: number }> = ({ n }) => {
 };
 
 /** Janela de 1080 px sobre a tela contínua, com topo e rodapé fixos. Reutilizado pelos carrosséis novos. */
-export const CarrosselShell: React.FC<{ n: number; palco: React.ReactNode; textos: (i: number) => React.ReactNode }> = ({ n, palco, textos }) => {
+export const CarrosselShell: React.FC<{ n: number; palco: React.ReactNode; textos: (i: number) => React.ReactNode; fundo?: string }> = ({ n, palco, textos, fundo = "#ffffff" }) => {
   const i = Math.min(Math.max(n, 1), N);
   return (
-    <AbsoluteFill style={{ background: "#ffffff", overflow: "hidden" }}>
+    <AbsoluteFill style={{ background: fundo, overflow: "hidden" }}>
       <div style={abs({ left: -X(i), top: 0, width: W * N, height: H })}>
         {palco}
         {textos(i)}

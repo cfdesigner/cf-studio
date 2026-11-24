@@ -1,5 +1,6 @@
 import React from "react";
 import { Composition, Still } from "remotion";
+import { CarrosselGeradores2 } from "./carrossel-video-ia/CarrosselGeradores2";
 import { CarrosselGeradores } from "./carrossel-video-ia/CarrosselGeradores";
 import { CarrosselClaudeCode, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/CarrosselClaudeCode";
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
@@ -17,6 +18,13 @@ import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTes
  */
 export const Producoes: React.FC = () => (
   <>
+    <Still
+      id="CarrosselGeradores2"
+      component={CarrosselGeradores2}
+      width={CARROSSEL_W}
+      height={CARROSSEL_H}
+      defaultProps={{ n: 1 }}
+    />
     <Still
       id="CarrosselGeradores"
       component={CarrosselGeradores}
