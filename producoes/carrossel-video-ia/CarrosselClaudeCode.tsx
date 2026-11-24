@@ -56,7 +56,7 @@ const Fita: React.FC<{ cx: number; cy: number; w: number; rot: number; texto: st
 const Quadros: React.FC = () => {
   const itens: { x: number; y: number; w: number; h: number; rot: number; nome: string; fmt: string; cheio?: boolean }[] = [
     { x: X(6) + 800, y: 930, w: 420, h: 236, rot: -3, nome: "YouTube", fmt: "16:9", cheio: true },
-    { x: X(7) + 70, y: 860, w: 200, h: 356, rot: 2, nome: "Reels · TikTok", fmt: "9:16" },
+    { x: X(7) + 70, y: 860, w: 200, h: 356, rot: 2, nome: "Reels", fmt: "9:16" },
     { x: X(7) + 340, y: 905, w: 300, h: 300, rot: -2, nome: "LinkedIn", fmt: "1:1" },
   ];
   return (
