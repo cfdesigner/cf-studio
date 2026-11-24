@@ -1,5 +1,6 @@
 import React from "react";
-import { Composition } from "remotion";
+import { Composition, Still } from "remotion";
+import { CarrosselSlide, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/Carrossel";
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
 import { C02_BROLL_FRAMES, C02Broll } from "./c02-broll/C02Broll";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
@@ -15,6 +16,13 @@ import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTes
  */
 export const Producoes: React.FC = () => (
   <>
+    <Still
+      id="CarrosselVideoIA"
+      component={CarrosselSlide}
+      width={CARROSSEL_W}
+      height={CARROSSEL_H}
+      defaultProps={{ n: 1 }}
+    />
     <Composition
       id="CertiNews"
       component={CertiNews}
