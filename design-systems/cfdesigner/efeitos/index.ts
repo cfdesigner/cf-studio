@@ -10,6 +10,8 @@ export {
   FlashCut,
   LightLeak,
   WipeReveal,
+  VarreduraAmbar,
+  type VarreduraAmbarProps,
   type FlashCutProps,
   type LightLeakProps,
   type WipeRevealProps,

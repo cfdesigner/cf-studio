@@ -80,7 +80,7 @@ Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (v
 | 0,0 | Gancho: texto "MESMA CENA / 3 MUDANÇAS" |
 | 2,6 | Corte para o bruto |
 | 5,6 | Etiqueta RITMO |
-| 6,8 · 8,0 | Cortes na batida (100 BPM) |
+| (sem cortes) | Ritmo agora é um plano contínuo com zoom que vai e volta |
 | 9,2 | Clarão e virada para a cor (no projeto, o primeiro kick da música) |
 | 10,4 · 11,6 | Cortes |
 | 12,2 | Entra a caixinha de som |
@@ -101,3 +101,9 @@ O primeiro e os planos do meio não repetem mais o gesto de braços para cima. A
 - **Transições:** fusão de 0,3 s no gancho→bruto e bruto→ritmo; clarão (FlashCut) no ritmo→cor; cortina para a direita no cor→som; cortina para cima no som→resultado; fusão de 0,3 s do resultado para o fecho. O plano anterior continua por baixo da cortina.
 - **Fecho:** `FechoSimples` ganhou a opção `fundo`; usa o fundo `FundoCF` variante `losangos` (combina com o losango do logo).
 - Entrega: só o vídeo com a narração (`out/ep04-mesma-cena.mp4`).
+
+## Cor sem zoom, varredura âmbar e som com 3 planos iguais (pedido do dono)
+
+- **Cor (9,2 a 12,2 s):** outro momento da cena (4,4 s em diante, ele gira), plano contínuo e **sem zoom**; só o ritmo tem aproximação e afastamento. Trechos usados (cena original, s): gancho 1,2; bruto 9,0; ritmo 13,2; cor 4,4; som 17,0 · 25,6 (aproximação 1,35x) · 18,6; resultado 27,7.
+- **Transição ritmo → cor:** `VarreduraAmbar` (novo no design system): uma linha fina âmbar cruza o quadro na transversal e revela a cena colorida (0,53 s, de 9,2 a 9,7 s). Substitui o clarão.
+- **Som:** 3 planos iguais de 1,4 s (cortes secos em 13,6 e 15,0 s; um corte a menos). A caixinha mostra 3 whooshes (em 12,2, 13,6 e 15,0 s) e o impacto logo depois do segundo corte (15,1 s).

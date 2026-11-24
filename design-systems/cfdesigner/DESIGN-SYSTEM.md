@@ -23,6 +23,7 @@ import {
 ## Transições
 
 - `FlashCut` (clarão branco-gelo, 12 frames) e `LightLeak` (vazamento âmbar, ~1 s) **em cortes**. Nunca atrás de texto.
+- `VarreduraAmbar`: linha âmbar na transversal que revela a cena nova (mudança de etapa; escolha do dono no ep. 04).
 - `WipeReveal` para revelar blocos; `BlurIn` para entradas suaves.
 - `TextoAtras`: texto entrando atrás da pessoa recortada (veja Legendas).
 - `TextoNoPlano`: texto preso a um plano rastreado do vídeo (parapeito, parede), entrando por trás de um objeto (árvore, pessoa). Aprovado pelo dono; guia em `docs/efeitos.md`.
