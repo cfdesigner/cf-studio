@@ -96,8 +96,8 @@ const Palco: React.FC = () => (
     <Card src={fotoNotebook} pos="50% 62%" cx={2160} cy={960} w={780} h={450} rot={-4} />
     <Fita cx={3240} cy={1170} w={1900} rot={-5} texto="DESCREVA · RENDERIZE · REPITA ·" />
     <Card src={fotoLivro} pos="50% 33%" cx={4500} cy={940} w={800} h={460} rot={3} persp={-10} />
-    <div style={abs({ left: 5400 - 300 + 38, top: 920 - 300 + 30, width: 600, height: 600, borderRadius: 300, border: `3px solid ${AM}` })} />
-    <div style={abs({ left: 5400 - 300, top: 920 - 300, width: 600, height: 600, borderRadius: 300, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
+    <div style={abs({ left: 5520 - 380 + 40, top: 900 - 380 + 32, width: 760, height: 760, borderRadius: 380, border: `3px solid ${AM}` })} />
+    <div style={abs({ left: 5520 - 380, top: 900 - 380, width: 760, height: 760, borderRadius: 380, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
       <Img src={fotoEscritorio} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(2.3)", transformOrigin: "70% 37%" }} />
     </div>
     <Quadros />
@@ -157,7 +157,7 @@ const Textos: React.FC<{ i: number }> = ({ i }) => {
   if (i === 6) return (
     <>
       {tit("Legendas", ["Legendas de", <><Marca key="m">3 jeitos</Marca></>], 104)}
-      <Lista itens={["SRT que você já tem", "Gerada do áudio", "Estilo por plataforma"]} left={L + 340} top={540} gap={76} fonte={32} largura={700} numerada />
+      <Lista itens={["SRT que você já tem", "Gerada do áudio", "Estilo por plataforma"]} left={L + 480} top={540} gap={76} fonte={32} largura={560} numerada />
     </>
   );
   if (i === 7) return (
