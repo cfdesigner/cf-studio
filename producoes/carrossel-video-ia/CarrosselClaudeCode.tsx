@@ -13,8 +13,10 @@ import fotoNotebook from "./assets/foto-notebook.jpg";
  * Mesma identidade do carrossel "Vídeo com IA": fundo branco, âmbar, elementos que atravessam os slides.
  * Cada slide é uma janela de 1080 px sobre uma tela contínua de 8640 px.
  */
-const W = 1080;
-const H = 1350;
+export const CARROSSEL_W = 1080;
+export const CARROSSEL_H = 1350;
+const W = CARROSSEL_W;
+const H = CARROSSEL_H;
 const N = 8;
 const AM = "#d9a441";
 const INK = "#0b0c0e";

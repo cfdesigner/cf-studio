@@ -1,10 +1,6 @@
 import React from "react";
 import { Composition, Still } from "remotion";
-import { CarrosselClaudeCode } from "./carrossel-video-ia/CarrosselClaudeCode";
-import { CarrosselPanorama } from "./carrossel-video-ia/CarrosselPanorama";
-import { CarrosselCriativo } from "./carrossel-video-ia/CarrosselCriativo";
-import { CarrosselRefinado } from "./carrossel-video-ia/CarrosselRefinado";
-import { CarrosselSlide, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/Carrossel";
+import { CarrosselClaudeCode, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/CarrosselClaudeCode";
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
 import { C02_BROLL_FRAMES, C02Broll } from "./c02-broll/C02Broll";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
@@ -23,34 +19,6 @@ export const Producoes: React.FC = () => (
     <Still
       id="CarrosselClaudeCode"
       component={CarrosselClaudeCode}
-      width={CARROSSEL_W}
-      height={CARROSSEL_H}
-      defaultProps={{ n: 1 }}
-    />
-    <Still
-      id="CarrosselPanorama"
-      component={CarrosselPanorama}
-      width={CARROSSEL_W}
-      height={CARROSSEL_H}
-      defaultProps={{ n: 1, v: 1 }}
-    />
-    <Still
-      id="CarrosselCriativo"
-      component={CarrosselCriativo}
-      width={CARROSSEL_W}
-      height={CARROSSEL_H}
-      defaultProps={{ n: 1, p: 1 }}
-    />
-    <Still
-      id="CarrosselRefinado"
-      component={CarrosselRefinado}
-      width={CARROSSEL_W}
-      height={CARROSSEL_H}
-      defaultProps={{ n: 1, v: 1 }}
-    />
-    <Still
-      id="CarrosselVideoIA"
-      component={CarrosselSlide}
       width={CARROSSEL_W}
       height={CARROSSEL_H}
       defaultProps={{ n: 1 }}

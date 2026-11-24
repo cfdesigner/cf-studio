@@ -83,7 +83,7 @@
 
 - [x] **[Claude]** Skill `auditoria-de-marca` criada (entrada do cliente, base de conhecimento, auditoria, produção do que ele pedir)
 - [x] **[Claude]** Primeira auditoria (CFDesigner) feita: Doc + página visual, base em `clientes/cfdesigner/` (provisória: só print da grade e Notion)
-- [ ] **[dono]** Mandar para completar a auditoria: print legível da bio e métricas, prints dos melhores e piores posts, 2 min de fala, texto do ChatGPT (o link não abre aqui), objetivo da autoridade
+- [ ] **[dono]** Mandar para completar a auditoria (o relatório está em `clientes/cfdesigner/AUDITORIA.md`, `BASE.md` e `auditoria.html`): print legível da bio e métricas, prints dos melhores e piores posts, 2 min de fala, texto do ChatGPT (o link não abre aqui), objetivo da autoridade
 - [ ] **[dono]** Aprovar promessa ("Produção completa de vídeo com IA, do roteiro ao fecho"), nome único e os 4 pilares
 - [ ] **[Claude]** Ajustar a skill `auditoria-de-marca` com o que o teste mostrou: Instagram e ChatGPT não abrem (pedir prints desde o início)
 - [x] Formato do relatório: **os dois**, documento editável + página visual (escolha do dono; já está na skill)
@@ -92,7 +92,7 @@
 
 - [x] Regra nova: **storyboard antes de todo vídeo**. Storyboard, narração (do dono) e música (Suno) feitos; vídeo montado (21,4 s)
 - [x] **Episódio 04 aprovado pelo dono em 24/11/2026** (versão só com a narração; ele faz música e efeitos). Calendário e recapitulação em `producoes/CALENDARIO.md`
-- [ ] **[dono]** Mandar o áudio final (música e efeitos) do episódio 04 se quiser que eu aplique no vídeo; se filmou em log de verdade, mandar o original para trocar o bruto simulado (opcional)
+- [x] **Episódio 04 finalizado pelo dono por conta própria** (música e efeitos feitos por ele): nada mais a fazer
 
 ### Episódio 05 (CFDesigner)
 
@@ -102,12 +102,11 @@
 - [ ] **[dono]** Gravar a narração do 05 e fazer música e efeitos (como no 04)
 - [ ] **[Claude]** Depois que chegarem o clipe e a narração: montar o 05 no Remotion e entregar o MP4
 
-### Carrossel "Vídeo com IA" (CFDesigner, Instagram 4:5)
+### Carrosséis do CFDesigner (Instagram 4:5)
 
-- [x] **[Claude]** Carrossel de 8 slides (1080×1350) montado em `producoes/carrossel-video-ia/` (composição `CarrosselPanorama`, `v=4`): fundo branco, âmbar no lugar do petróleo, elementos que atravessam de um slide para o outro, fotos reais do dono recortadas. PNGs finais em `out/carrossel/final/` (fora do git)
-- [x] **[Claude]** Carrossel "Claude Code para edição de vídeo" (8 slides, base: artigo do MindStudio de 20/04/2026) **fechado pelo dono**: composição `CarrosselClaudeCode`, PNGs finais 2160×2700 em `out/carrossel/claude-code/final/` (fora do git)
-- [ ] **[dono]** Aprovar o carrossel "Vídeo com IA" (ou pedir ajustes de texto, enquadramento e fotos) e dizer se vai querer mais algum carrossel nesse estilo
-- [ ] **[dono]** (opcional) Decidir se entra imagem gerada no Magnific (custa ~65 créditos por imagem, só com autorização) ou se ficamos só com as fotos reais
+- [x] **[Claude]** Carrossel "Claude Code para edição de vídeo" (8 slides, base: artigo do MindStudio de 20/04/2026) **fechado pelo dono**: composição `CarrosselClaudeCode`, PNGs finais 2160×2700 em `out/carrossel/claude-code/final/` (fora do git). É a **base de identidade** dos próximos: receita em `producoes/carrossel-video-ia/README.md`
+- [x] Carrossel "Vídeo com IA" **descartado pelo dono** (prefere carrosséis com informação real); código removido
+- [ ] **[dono]** Mandar os próximos assuntos (texto, link ou artigo colado); eu gero na mesma identidade com as fotos dele. Imagem gerada no Magnific só com autorização (custa ~65 créditos por imagem)
 
 ### Limpezas pequenas
 
