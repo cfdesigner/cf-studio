@@ -4,12 +4,14 @@ import {
   Audio,
   OffthreadVideo,
   Sequence,
+  interpolate,
   staticFile,
+  useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 import type { Caption } from "../../../tecnicas/legendas/texto";
 import { colors, fonts, layout, sfx } from "../tokens";
-import { SAIDA } from "../movimento";
+import { SAIDA, clamp, outExpo } from "../movimento";
 import { Fundo } from "./Fundo";
 import { Legenda } from "./Legenda";
 import { ElementoPainel, type Elemento } from "./Elementos";
@@ -44,7 +46,15 @@ export type Edicao = {
   semSom?: boolean;
   /** Legenda: "acumula" (padrão) ou "uma" palavra por vez. */
   modoLegenda?: "acumula" | "uma";
+  /**
+   * Layout por trecho (segundos no vídeo cortado), para MESCLAR: ex. "dividido" quando ele fala para a
+   * câmera e "cheio" nos b-rolls. Fora dos trechos vale `layout`. A troca é uma transição suave (10 quadros).
+   * `rostoY` por trecho enquadra o rosto de cada cena. Cada elemento deve caber inteiro num trecho.
+   */
+  trechos?: { de: number; ate: number; layout: "dividido" | "cheio"; rostoY?: number }[];
 };
+
+const TRANSICAO = 10;
 
 /**
  * Vídeo no estilo tiago-lemos-01: cortes de pausa já feitos (vídeo de entrada), legenda palavra por
@@ -61,10 +71,38 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
   ganhoSfx = sfx.ganho,
   semSom = false,
   modoLegenda = "acumula",
+  trechos = [],
 }) => {
+  const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const k = width / 1080;
-  const dividido = modo === "dividido";
+
+  // Layout de cada trecho em quadros; fora deles vale o padrão.
+  const lista = trechos
+    .map((t) => ({
+      ini: Math.round(t.de * fps),
+      fim: Math.round(t.ate * fps),
+      v: t.layout === "dividido" ? 1 : 0,
+      y: t.rostoY ?? rostoY,
+    }))
+    .sort((a, b) => a.ini - b.ini);
+  const padrao = modo === "dividido" ? 1 : 0;
+  const em = (f: number) => lista.find((t) => f >= t.ini && f < t.fim);
+  const valorEm = (f: number) => em(f)?.v ?? padrao;
+  const yEm = (f: number) => em(f)?.y ?? rostoY;
+  // p = 1 dividido, 0 cheio. Em cada fronteira, desliza do valor antigo para o novo.
+  let p = valorEm(frame);
+  let yRosto = yEm(frame);
+  const ptos = Array.from(new Set(lista.flatMap((t) => [t.ini, t.fim]))).sort((a, b) => a - b);
+  for (const b of ptos) {
+    if (frame >= b && frame < b + TRANSICAO) {
+      const q = outExpo(interpolate(frame, [b, b + TRANSICAO], [0, 1], clamp));
+      p = interpolate(q, [0, 1], [valorEm(b - 1), valorEm(b)]);
+      yRosto = interpolate(q, [0, 1], [yEm(b - 1), yEm(b)]);
+    }
+  }
+  const mix = (cheio: number, div: number) => cheio + (div - cheio) * p;
+  const layoutDoElemento = (de: number) => (valorEm(Math.round(de * fps)) ? "dividido" : "cheio");
 
   const fonte = video ? (
     <OffthreadVideo
@@ -73,7 +111,7 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        objectPosition: `50% ${rostoY}%`,
+        objectPosition: `50% ${yRosto}%`,
       }}
     />
   ) : (
@@ -97,60 +135,57 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
 
   return (
     <AbsoluteFill style={{ background: colors.fundo }}>
-      {dividido ? (
-        <>
-          <Fundo />
-          <div
-            style={{
-              position: "absolute",
-              left: layout.quadroX * k,
-              top: layout.quadroY * k,
-              width: layout.quadroW * k,
-              height: layout.quadroH * k,
-              borderRadius: layout.quadroRaio * k,
-              overflow: "hidden",
-              border: `${2 * k}px solid ${colors.fio}`,
-              boxShadow: "0 20px 70px rgba(0,0,0,0.55)",
-            }}
-          >
-            {fonte}
-          </div>
-        </>
-      ) : (
-        <>
-          <AbsoluteFill>{fonte}</AbsoluteFill>
-          <AbsoluteFill
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(8,6,4,0.78) 0%, rgba(8,6,4,0.35) 28%, rgba(8,6,4,0) 45%)",
-            }}
-          />
-        </>
-      )}
-
+      <div style={{ opacity: p }}>
+        <Fundo />
+      </div>
       <div
         style={{
           position: "absolute",
-          left: 0,
-          right: 0,
-          top: (dividido ? layout.painelTopo : 110) * k,
-          height: (dividido ? layout.painelBase - layout.painelTopo : 520) * k,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          left: mix(0, layout.quadroX * k),
+          top: mix(0, layout.quadroY * k),
+          width: mix(width, layout.quadroW * k),
+          height: mix(height, layout.quadroH * k),
+          borderRadius: mix(0, layout.quadroRaio * k),
+          overflow: "hidden",
+          border: `${2 * k}px solid rgba(216,171,73,${0.45 * p})`,
+          boxShadow: `0 20px 70px rgba(0,0,0,${0.55 * p})`,
         }}
       >
-        {elementos.map((el, i) => (
-          <div key={i} style={{ position: "absolute" }}>
-            <ElementoPainel el={el} escala={dividido ? 1 : 0.72} />
-          </div>
-        ))}
+        {fonte}
       </div>
+      <AbsoluteFill
+        style={{
+          opacity: 1 - p,
+          background:
+            "linear-gradient(180deg, rgba(8,6,4,0.78) 0%, rgba(8,6,4,0.35) 28%, rgba(8,6,4,0) 45%)",
+        }}
+      />
+
+      {elementos.map((el, i) => {
+        const div = layoutDoElemento(el.de) === "dividido";
+        return (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: (div ? layout.painelTopo : 110) * k,
+              height: (div ? layout.painelBase - layout.painelTopo : 520) * k,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ElementoPainel el={el} escala={div ? 1 : 0.72} />
+          </div>
+        );
+      })}
 
       <Legenda
         captions={captions}
         destaques={destaques}
-        base={dividido ? layout.legendaBase : height / k * 0.78}
+        base={mix((height / k) * 0.78, layout.legendaBase)}
         modo={modoLegenda}
       />
 

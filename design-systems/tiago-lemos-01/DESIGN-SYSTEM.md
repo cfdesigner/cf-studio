@@ -22,6 +22,10 @@ Corte seco. Não há transição entre trechos (o vídeo cortado já corre emend
 
 Palavra por palavra (`Legenda`): grupos de até 3 palavras (≤ 24 letras, nunca terminam em artigo/preposição); cada palavra aparece no instante em que é falada (pop de 5 quadros) e o grupo some quando acaba. Poppins 700 branca, palavra-chave em **ouro**. Posição: colada logo acima do quadro do rosto (`layout.legendaBase`); no layout `cheio`, a 78% da altura. Modo `uma`: só a palavra falada. **Nunca termina com ponto final nem reticências** (`tiraPontoFinal`). Palavras-chave (`destaques`) são aprovadas pelo dono: nomes, números, termos de oferta/resultado.
 
+## Layout por trecho (mesclar)
+
+`trechos: [{de, ate, layout, rostoY?}]` no `edicao.json` alterna `dividido` (ele fala para a câmera) e `cheio` (b-roll) no mesmo vídeo. A troca desliza em 10 quadros e deve cair num corte de cena. Cada elemento precisa caber inteiro num trecho. Primeiro uso: `producoes/c02-tiago/`.
+
 ## Terceiro de nome
 
 Não usar, a menos que o dono peça no comando (regra do `CLAUDE.md`).
