@@ -51,6 +51,12 @@ export type Edicao = {
    * câmera e "cheio" nos b-rolls. Fora dos trechos vale `layout`. A troca é uma transição suave (10 quadros).
    * `rostoY` por trecho enquadra o rosto de cada cena. Cada elemento deve caber inteiro num trecho.
    */
+  /**
+   * B-rolls gerados (ex.: Kling) que SUBSTITUEM a imagem do vídeo no intervalo (corte seco, como uma troca de cena).
+   * `src` em public/. A fala do vídeo original continua tocando (o b-roll é mudo). `velocidade` acelera/desacelera o clipe
+   * para caber na janela (ex.: um clipe de 5 s numa janela de 2,5 s: 2). `de`/`ate` em segundos no vídeo cortado.
+   */
+  brolls?: { de: number; ate: number; src: string; velocidade?: number }[];
   trechos?: { de: number; ate: number; layout: "dividido" | "cheio"; rostoY?: number }[];
 };
 
@@ -72,6 +78,7 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
   semSom = false,
   modoLegenda = "acumula",
   trechos = [],
+  brolls = [],
 }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
@@ -152,6 +159,26 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
         }}
       >
         {fonte}
+        {brolls.map((b, i) => {
+          const ini = Math.round(b.de * fps);
+          return (
+            <Sequence
+              key={i}
+              from={ini}
+              durationInFrames={Math.max(1, Math.round(b.ate * fps) - ini)}
+              layout="none"
+            >
+              <AbsoluteFill>
+                <OffthreadVideo
+                  src={staticFile(b.src)}
+                  muted
+                  playbackRate={b.velocidade ?? 1}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </AbsoluteFill>
+            </Sequence>
+          );
+        })}
       </div>
       <AbsoluteFill
         style={{

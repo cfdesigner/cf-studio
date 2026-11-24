@@ -1,5 +1,5 @@
 import React from "react";
-import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { colors, fonts, ouroGradiente } from "../tokens";
 import { ENTRADA, SAIDA, clamp, inCubic, outExpo } from "../movimento";
 import { ICONES } from "./icones";
@@ -15,7 +15,14 @@ type Base = {
 };
 export type ElementoIcone = Base & {
   tipo: "icone";
-  icone: string;
+  /** Nome do ícone de traço (components/icones.ts). Ignorado se houver `imagem`. */
+  icone?: string;
+  /**
+   * Ilustração dentro de public/, PNG COM FUNDO TRANSPARENTE. Se a imagem veio em ouro sobre PRETO PURO
+   * (ex.: Nano Banana), converta antes: alpha = canal mais claro (veja producoes/c02-tiago/README.md).
+   * Entra no lugar do ícone de traço.
+   */
+  imagem?: string;
   /** Até 3 palavras; *palavra* fica em ouro. */
   titulo?: string;
 };
@@ -120,6 +127,28 @@ const IconeAnimado: React.FC<{ nome: string; tam: number; local: number }> = ({
   );
 };
 
+/** Ilustração PNG com fundo transparente (o preto puro foi convertido em transparência). */
+const ImagemElemento: React.FC<{ src: string; tam: number; local: number }> = ({
+  src,
+  tam,
+  local,
+}) => {
+  const p = outExpo(interpolate(local, [0, 22], [0, 1], clamp));
+  return (
+    <Img
+      src={staticFile(src)}
+      style={{
+        width: tam,
+        height: tam,
+        objectFit: "contain",
+        opacity: p,
+        transform: `scale(${0.82 + 0.18 * p}) rotate(${(1 - p) * -6}deg)`,
+        filter: "drop-shadow(0 0 30px rgba(216,171,73,0.28))",
+      }}
+    />
+  );
+};
+
 type CorpoProps<T> = { el: T; local: number; k: number; p: number };
 
 const CorpoIcone: React.FC<CorpoProps<ElementoIcone>> = ({ el, local, k, p }) => {
@@ -130,7 +159,11 @@ const CorpoIcone: React.FC<CorpoProps<ElementoIcone>> = ({ el, local, k, p }) =>
     <>
       <Kicker texto={el.kicker} k={k} p={p} />
       <div style={{ transform: `translateY(${boia}px)` }}>
-        <IconeAnimado nome={el.icone} tam={(el.titulo ? 380 : 470) * k} local={local} />
+        {el.imagem ? (
+          <ImagemElemento src={el.imagem} tam={(el.titulo ? 430 : 520) * k} local={local} />
+        ) : (
+          <IconeAnimado nome={el.icone ?? "estrela"} tam={(el.titulo ? 380 : 470) * k} local={local} />
+        )}
       </div>
       {el.titulo ? (
         <div
@@ -282,7 +315,7 @@ export const ElementoPainel: React.FC<{ el: Elemento; escala?: number }> = ({
         justifyContent: "center",
         opacity: p * (1 - q),
         transform: `translateY(${(1 - p) * 70 * k - q * 40 * k}px) scale(${0.94 + 0.06 * p})`,
-        filter: q > 0 ? `blur(${q * 7}px)` : undefined,
+        filter: `drop-shadow(0 3px 14px rgba(0,0,0,0.55))${q > 0 ? ` blur(${q * 7}px)` : ""}`,
       }}
     >
       {el.tipo === "icone" && <CorpoIcone el={el} {...props} />}

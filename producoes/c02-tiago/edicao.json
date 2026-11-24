@@ -484,14 +484,14 @@
  "elementos": [
   {
    "tipo": "icone",
-   "icone": "lupa",
+   "imagem": "c02-tiago/lupa.png",
    "titulo": "UMA *IMAGEM*",
    "de": 1.0,
    "ate": 3.0
   },
   {
    "tipo": "icone",
-   "icone": "camera",
+   "imagem": "c02-tiago/camera.png",
    "titulo": "CÂMERA *MELHOR*",
    "de": 6.3,
    "ate": 8.3
@@ -510,28 +510,42 @@
   },
   {
    "tipo": "icone",
-   "icone": "magia",
+   "imagem": "c02-tiago/estrela.png",
    "titulo": "*TRANSFORMA* A CENA",
    "de": 13.0,
    "ate": 15.0
   },
   {
-   "tipo": "titulo",
-   "linhas": [
-    "SÓ EDITAR",
-    "UM *VÍDEO*"
-   ],
+   "tipo": "icone",
+   "imagem": "c02-tiago/timeline.png",
+   "titulo": "SÓ *EDITAR*",
    "de": 17.1,
    "ate": 18.8
   },
   {
-   "tipo": "titulo",
-   "linhas": [
-    "EXPERIÊNCIA",
-    "*VISUAL*"
-   ],
+   "tipo": "icone",
+   "imagem": "c02-tiago/olho.png",
+   "titulo": "EXPERIÊNCIA *VISUAL*",
    "de": 19.1,
    "ate": 20.7
+  }
+ ],
+ "brolls": [
+  {
+   "de": 6.21,
+   "ate": 8.61,
+   "src": "entrada/gerados/n1.mp4"
+  },
+  {
+   "de": 8.61,
+   "ate": 12.81,
+   "src": "entrada/gerados/n2.mp4"
+  },
+  {
+   "de": 12.81,
+   "ate": 15.38,
+   "src": "entrada/gerados/n3.mp4",
+   "velocidade": 1.95
   }
  ]
 }
