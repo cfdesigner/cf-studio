@@ -140,7 +140,7 @@ const Textos = (i: number): React.ReactNode => {
     <>
       <Etiqueta i={4}>01 · Texto na imagem</Etiqueta>
       <Titulo i={4} size={190} linhas={[{ t: "GPT" }, { t: "Image 2", dest: true }]} />
-      <Pontos i={4} left={730} top={600} w={270} fonte={24} itens={["Renderiza texto na imagem com mais confiança", "Segue bem o pedido em cenas complexas"]} aviso="estilo reconhecível e preço premium" />
+      <Pontos i={4} left={690} top={600} w={300} fonte={25} itens={["Renderiza texto na imagem com mais confiança", "Segue bem o pedido em cenas complexas"]} aviso="estilo reconhecível e preço premium" />
     </>
   );
   if (i === 5) return (
