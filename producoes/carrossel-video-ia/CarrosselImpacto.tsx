@@ -46,7 +46,7 @@ const Palco: React.FC = () => (
     <Arte src={arteOlho} i={1} left={250} top={330} w={900} h={1200} />
     <Arte src={artePodio} i={2} left={380} top={690} w={700} h={700} />
     <Arte src={arteCegas} i={3} left={0} top={400} w={720} h={960} />
-    <Arte src={arteGpt} i={4} left={0} top={520} w={600} h={800} />
+    <Arte src={arteGpt} i={4} left={0} top={480} w={680} h={907} />
     <Arte src={arteNano} i={5} left={360} top={450} w={720} h={960} />
     <Arte src={arteFlux} i={6} left={380} top={400} w={780} h={1040} />
   </>
@@ -140,7 +140,7 @@ const Textos = (i: number): React.ReactNode => {
     <>
       <Etiqueta i={4}>01 · Texto na imagem</Etiqueta>
       <Titulo i={4} size={190} linhas={[{ t: "GPT" }, { t: "Image 2", dest: true }]} />
-      <Pontos i={4} left={560} top={620} w={430} fonte={27} itens={["Renderiza texto na imagem com mais confiança", "Segue bem o pedido em cenas complexas"]} aviso="estilo reconhecível e preço premium" />
+      <Pontos i={4} left={710} top={600} w={290} fonte={25} itens={["Renderiza texto na imagem com mais confiança", "Segue bem o pedido em cenas complexas"]} aviso="estilo reconhecível e preço premium" />
     </>
   );
   if (i === 5) return (
