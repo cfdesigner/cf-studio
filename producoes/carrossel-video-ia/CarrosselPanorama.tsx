@@ -56,8 +56,14 @@ const Card: React.FC<{ src: string; pos?: string; cx: number; cy: number; w: num
   </div>
 );
 
+const RAZAO = new Map<string, number>([
+  [euFrente, 1056 / 1228],
+  [euBaixo, 1056 / 1159],
+  [euPerfilDir, 1056 / 1256],
+  [euPerfilEsq, 1056 / 1210],
+]);
 const Eu: React.FC<{ src: string; left: number; h: number; bottom?: number; flip?: boolean }> = ({ src, left, h, bottom = 0, flip }) => (
-  <Img src={src} style={abs({ left, bottom, height: h, width: h * 0.8, transform: flip ? "scaleX(-1)" : undefined })} />
+  <Img src={src} style={abs({ left, bottom, height: h, width: h * (RAZAO.get(src) ?? 0.8), transform: flip ? "scaleX(-1)" : undefined })} />
 );
 
 const Fita: React.FC<{ cx: number; cy: number; w: number; rot: number }> = ({ cx, cy, w, rot }) => (
@@ -174,7 +180,7 @@ const PalcoFotos: React.FC = () => (
   <>
     <Ghost t="5" size={1000} style={{ left: X(3) + 700, top: 330 }} />
     <div style={abs({ left: 1010 - 500, top: 930 - 500, width: 1000, height: 1000, borderRadius: 500, background: AM })} />
-    <Img src={euCapa} style={abs({ left: 250, bottom: 0, height: 940, width: 940 * (1086 / 1702) })} />
+    <Img src={euCapa} style={abs({ left: 250, bottom: 0, height: 940, width: 940 * (862 / 1378) })} />
     <Card src={fotoNotebook} pos="50% 62%" cx={2160} cy={960} w={780} h={450} rot={-4} />
     <Fita cx={3240} cy={1170} w={1900} rot={-5} />
     <Card src={fotoLivro} pos="50% 33%" cx={4500} cy={940} w={800} h={460} rot={3} persp={-10} />
@@ -184,7 +190,7 @@ const PalcoFotos: React.FC = () => (
     </div>
     <Onda x0={6140} yc={960} />
     <div style={abs({ left: X(8) + 700 - 450, top: 1130 - 450, width: 900, height: 900, borderRadius: 450, background: INK })} />
-    <Img src={euFala} style={abs({ left: X(8) + 1110 - 900 * (768 / 1102) , bottom: 0, height: 900, width: 900 * (768 / 1102) })} />
+    <Img src={euFala} style={abs({ left: X(8) + 1110 - 900 * (768 / 1108), bottom: 0, height: 900, width: 900 * (768 / 1108) })} />
     <div style={abs({ left: X(8) + 88, top: 900, width: 190, height: 190, borderRadius: 95, background: INK, display: "flex", alignItems: "center", justifyContent: "center" })}>
       <Logo layout="symbol" finish="metal" height={110} />
     </div>
@@ -321,8 +327,8 @@ export const CarrosselPanorama: React.FC<{ n: number; v: number }> = ({ n, v }) 
         <span style={{ fontFamily: fontFamilies.mono, fontSize: 18, letterSpacing: "0.16em", color: MUT }}>{String(i).padStart(2, "0")} / {String(N).padStart(2, "0")}</span>
       </div>
       <div style={abs({ left: 88, right: 88, bottom: 56, borderTop: `1px solid ${LINE}`, paddingTop: 22, display: "flex", justifyContent: "space-between", fontFamily: fontFamilies.heading, fontWeight: 600, fontSize: 17, letterSpacing: "0.22em", color: MUT })}>
-        <span style={{ background: "rgba(255,255,255,0.85)", padding: "0 6px" }}>@CFDESIGNER.OFICIAL</span>
-        {i < N && <span style={{ background: "rgba(255,255,255,0.85)", padding: "0 6px" }}>ARRASTE →</span>}
+        <span style={{ background: "rgba(255,255,255,0.92)", padding: "8px 18px", borderRadius: 999 }}>@CFDESIGNER.OFICIAL</span>
+        {i < N && <span style={{ background: "rgba(255,255,255,0.92)", padding: "8px 18px", borderRadius: 999 }}>ARRASTE →</span>}
       </div>
     </AbsoluteFill>
   );

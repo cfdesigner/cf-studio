@@ -28,3 +28,14 @@ Técnica **sem marca**: separa a pessoa do fundo, para qualquer design system co
 - Se alguma borda piscar no quadro, olhar o recorte com um fundo de cor (ex.: magenta) antes de montar.
 - Cada quadro é um PNG grande: recorte só o trecho necessário (1 a 4 s).
 - Outro fundo muito parecido com a pele ou a roupa pode confundir o modelo: confira 2 a 3 quadros.
+
+
+## Recorte de FOTO com borda fina (`scripts/recortar-foto.py`)
+
+Para peças estáticas (carrossel, capa, post) o recorte do vídeo não basta: o contorno fica "amador" nos cachos. A receita para foto usa o modelo **BiRefNet (retrato)** para a máscara, um trimap com faixa larga no contorno, **matting de forma fechada (PyMatting)** só nessa faixa e estimativa da cor do primeiro plano (tira o halo do fundo antigo). Opção `--fundo-claro` para fotos com parede branca/cinza (remove o miolo claro entre os cachos).
+
+```bash
+/opt/recorte-venv/bin/python scripts/recortar-foto.py <foto> <saida.png> --altura 1500 [--fundo-claro]
+```
+
+Leva ~25 s por foto, só CPU. Os modelos (~1 GB) baixam na primeira execução. Foi usado no carrossel "Vídeo com IA" (`producoes/carrossel-video-ia/assets/eu-*.png`).
