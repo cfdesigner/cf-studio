@@ -88,6 +88,12 @@
 - [ ] **[Claude]** Ajustar a skill `auditoria-de-marca` com o que o teste mostrou: Instagram e ChatGPT não abrem (pedir prints desde o início)
 - [x] Formato do relatório: **os dois**, documento editável + página visual (escolha do dono; já está na skill)
 
+### Design system tiago-lemos-01 e skill `video-tiago-lemos`
+
+- [x] **[Claude]** Design system criado a partir do vídeo de referência (tela dividida, ouro e preto, Bebas Neue/Poppins/Space Mono), com legenda palavra por palavra, 4 tipos de elemento animado (ícone, título, número, lista; 32 ícones) e 6 sons suaves sintetizados. Skill `video-tiago-lemos` + `scripts/cortar-pausas.py`
+- [ ] **[dono]** Mandar o 1º vídeo real para testar a skill (vertical, falando). Conferir: cortes, destaques, elementos e volume dos sons
+- [ ] **[dono]** (opcional) Mandar fontes, cores e logo oficiais, e sons dele: hoje as cores/fontes são estimadas da referência e os sons são sintetizados
+
 ### Episódio 04 "Mesma cena" (CFDesigner)
 
 - [x] Regra nova: **storyboard antes de todo vídeo**. Storyboard, narração (do dono) e música (Suno) feitos; vídeo montado (21,4 s)
