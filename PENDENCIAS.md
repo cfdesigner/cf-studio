@@ -105,7 +105,8 @@
 ### Carrossel "Vídeo com IA" (CFDesigner, Instagram 4:5)
 
 - [x] **[Claude]** Carrossel de 8 slides (1080×1350) montado em `producoes/carrossel-video-ia/` (composição `CarrosselPanorama`, `v=4`): fundo branco, âmbar no lugar do petróleo, elementos que atravessam de um slide para o outro, fotos reais do dono recortadas. PNGs finais em `out/carrossel/final/` (fora do git)
-- [ ] **[dono]** Aprovar o carrossel (ou pedir ajustes de texto, enquadramento e fotos) e dizer se vai querer mais algum carrossel nesse estilo
+- [x] **[Claude]** Carrossel "Claude Code para edição de vídeo" (8 slides, base: artigo do MindStudio de 20/04/2026) **fechado pelo dono**: composição `CarrosselClaudeCode`, PNGs finais 2160×2700 em `out/carrossel/claude-code/final/` (fora do git)
+- [ ] **[dono]** Aprovar o carrossel "Vídeo com IA" (ou pedir ajustes de texto, enquadramento e fotos) e dizer se vai querer mais algum carrossel nesse estilo
 - [ ] **[dono]** (opcional) Decidir se entra imagem gerada no Magnific (custa ~65 créditos por imagem, só com autorização) ou se ficamos só com as fotos reais
 
 ### Limpezas pequenas
