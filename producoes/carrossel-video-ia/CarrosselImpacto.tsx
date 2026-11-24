@@ -45,8 +45,8 @@ const Palco: React.FC = () => (
     {/* artes */}
     <Arte src={arteOlho} i={1} left={250} top={330} w={900} h={1200} />
     <Arte src={artePodio} i={2} left={380} top={690} w={700} h={700} />
-    <Arte src={arteCegas} i={3} left={-170} top={380} w={800} h={1067} />
-    <Arte src={arteGpt} i={4} left={-170} top={520} w={760} h={1013} />
+    <Arte src={arteCegas} i={3} left={0} top={400} w={760} h={1013} />
+    <Arte src={arteGpt} i={4} left={-70} top={470} w={760} h={1013} />
     <Arte src={arteNano} i={5} left={500} top={400} w={720} h={960} />
     <Arte src={arteFlux} i={6} left={380} top={400} w={780} h={1040} />
   </>
@@ -133,7 +133,7 @@ const Textos = (i: number): React.ReactNode => {
       <div style={abs({ left: X(3) + 88, width: 904, top: 190, textAlign: "right", fontFamily: fontFamilies.display, fontSize: 178, lineHeight: 0.95, letterSpacing: "0.01em", textTransform: "uppercase", color: INK, whiteSpace: "nowrap" })}>
         Voto às <span style={{ background: INK, color: AM, padding: "0 16px", display: "inline-block", lineHeight: 1 }}>cegas</span>
       </div>
-      <Pontos i={3} left={680} top={560} w={310} fonte={25} itens={["Cada pedido gera 4 imagens de modelos sorteados", "A pessoa escolhe a melhor e a pior, sem ver o nome", "A nota usa TrueSkill, de forma conservadora"]} />
+      <Pontos i={3} left={720} top={560} w={270} fonte={24} itens={["Cada pedido gera 4 imagens de modelos sorteados", "A pessoa escolhe a melhor e a pior, sem ver o nome", "A nota usa TrueSkill, de forma conservadora"]} />
     </>
   );
   if (i === 4) return (
