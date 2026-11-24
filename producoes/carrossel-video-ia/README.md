@@ -1,6 +1,6 @@
 # Carrossel do CFDesigner (Instagram 4:5, 1080×1350)
 
-Base de identidade dos carrosséis do dono: `CarrosselClaudeCode.tsx` (tema: "Claude Code para edição de vídeo", fechado pelo dono). Regras de identidade em `design-systems/cfdesigner/DESIGN-SYSTEM.md` (seção "Carrossel").
+Base de identidade dos carrosséis do dono: `CarrosselClaudeCode.tsx` (e `CarrosselGeradores3.tsx`, com uma composição diferente por slide, prints e logos reais dos apps) (tema: "Claude Code para edição de vídeo", fechado pelo dono). Regras de identidade em `design-systems/cfdesigner/DESIGN-SYSTEM.md` (seção "Carrossel").
 
 ## Como fazer um carrossel novo (outro assunto)
 
