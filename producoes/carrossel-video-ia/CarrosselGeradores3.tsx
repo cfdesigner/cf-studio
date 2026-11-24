@@ -8,6 +8,7 @@ import printKling from "./assets/ferramentas/kling-print.jpg";
 import printSeedance from "./assets/ferramentas/seedance-print.jpg";
 import printCapcut from "./assets/ferramentas/capcut-print.jpg";
 import fotoMesa from "./assets/foto-mesa.jpg";
+import bebeKarate from "./assets/bebe-karate.png";
 
 /**
  * Carrossel "5 geradores de vídeo com IA", versão com composição DIFERENTE em cada slide:
@@ -20,7 +21,7 @@ type Estilo = "losango" | "pilula" | "numero" | "traco" | "quadrado";
 type Ferramenta = { chave: string; num: string; etiqueta: string; nome: string; tag: string; preco: string; pontos: string[]; estilo: Estilo; logo?: string; print?: string; pos?: string };
 
 const F: Ferramenta[] = [
-  { chave: "freebeat", num: "01", etiqueta: "01 · Melhor no geral", nome: "Freebeat", tag: "Videoclipe completo a partir do áudio", preco: "US$ 4,99 por semana", pontos: ["Análise de áudio de 7 sinais", "Vídeo de até 6 minutos", "Resultado depende do áudio"], estilo: "losango", print: printFreebeat, pos: "50% 50%" },
+  { chave: "freebeat", num: "01", etiqueta: "01 · Melhor no geral", nome: "Freebeat", tag: "Videoclipe completo a partir do áudio", preco: "US$ 4,99 por semana", pontos: ["Análise de áudio de 7 sinais", "Vídeo de até 6 minutos", "Resultado depende do áudio"], estilo: "losango", print: printFreebeat, pos: "50% 0%" },
   { chave: "viggle", num: "02", etiqueta: "02 · Transferência de movimento", nome: "Viggle", tag: "Anima personagens com vídeo de referência", preco: "Pro: US$ 7,99 por mês", pontos: ["Grátis: até 5 vídeos por dia", "Precisa de vídeo de referência", "Bom para dança e personagens"], estilo: "pilula", print: printViggle, pos: "55% 30%" },
   { chave: "kling", num: "03", etiqueta: "03 · Realismo cinematográfico", nome: "Kling AI", tag: "Cenas a partir de texto, imagem ou vídeo", preco: "US$ 6,99 no 1º mês", pontos: ["Depois, US$ 8,80 por mês", "Plano grátis com limites", "Projeto longo pede vários trechos"], estilo: "numero", print: printKling, pos: "50% 20%" },
   { chave: "seedance", num: "04", etiqueta: "04 · Geração de movimento", nome: "Seedance", tag: "Modelos via integrações e API", preco: "A partir de US$ 32", pontos: ["Seedance 2.5, via BytePlus", "Recursos variam por modelo", "Para criadores avançados e devs"], estilo: "traco", print: printSeedance, pos: "50% 0%" },
@@ -83,15 +84,11 @@ const Notebook: React.FC<{ f: Ferramenta; cx: number; cy: number; w: number; h: 
 
 const Palco: React.FC = () => (
   <>
-    {/* 1 · capa: mosaico com os prints dos 5 aplicativos, em formas diferentes */}
-    <div style={abs({ left: 800 - 360, top: 930 - 360, width: 720, height: 720, borderRadius: 360, background: AM })} />
-    <div style={abs({ left: 960 - 100, top: 690 - 150, width: 200, height: 300, borderRadius: "100px 100px 22px 22px", overflow: "hidden", boxShadow: "0 30px 56px rgba(11,12,14,0.3)", transform: "rotate(4deg)", border: "5px solid #fff" })}><Print f={F[3]} /></div>
-    <Janela f={F[2]} cx={340} cy={860} w={560} h={330} rot={-6} />
-    <Celular f={F[1]} cx={760} cy={920} w={250} h={500} rot={6} />
-    <div style={abs({ left: 260 - 140, top: 1090 - 140, width: 280, height: 280, borderRadius: 140, overflow: "hidden", boxShadow: "0 30px 56px rgba(11,12,14,0.3)", border: "5px solid #fff" })}><Print f={F[4]} /></div>
-    <div style={abs({ left: 500 - 115, top: 1120 - 115, width: 230, height: 230, transform: "rotate(45deg)", overflow: "hidden", boxShadow: "0 30px 56px rgba(11,12,14,0.3)", border: "5px solid #fff" })}>
-      <div style={{ width: "141%", height: "141%", marginLeft: "-20.5%", marginTop: "-20.5%", transform: "rotate(-45deg)" }}><Print f={F[0]} /></div>
-    </div>
+    {/* 1 · capa: o bebê faixa preta sobre um círculo âmbar que passa para o slide 2 */}
+    <Ghost t="5" size={1000} style={{ left: 40, top: 330 }} />
+    <div style={abs({ left: 780 - 380, top: 930 - 380, width: 760, height: 760, borderRadius: 380, background: AM })} />
+    <Img src={bebeKarate} style={abs({ left: 520 - 0.495 * 880 / 2, bottom: -30, height: 880, width: 880 * 0.495 })} />
+    <Losango cx={140} cy={1130} lado={150} cor={INK} />
 
     {/* 2 · Freebeat: print dentro de um losango, com losango âmbar que passa para o slide 3 */}
     <Ghost t="01" size={700} style={{ left: X(2) - 40, top: 790 }} />
