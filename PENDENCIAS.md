@@ -96,8 +96,11 @@
 
 ### Episódio 05 (CFDesigner)
 
-- [ ] **[dono]** Escolher o tema do 05 (opções A "um corte errado" ou B "IA vs. tradicional: mesma cena" em `producoes/CALENDARIO.md`) e mandar a cena/material
-- [ ] **[Claude]** Estruturar o 05: roteiro, storyboard (regra: storyboard antes de montar) e prompt da música, depois da escolha
+- [x] Tema escolhido pelo dono: **B, "Mesma cena: real ou IA?"**. Plano, narração (rascunho), storyboard e prompt do clipe de IA feitos em `producoes/ep05-ia-vs-tradicional/`
+- [ ] **[dono]** Aprovar o storyboard do 05 (real ou IA primeiro, gancho, tese, duração) e ajustar as falas
+- [ ] **[dono]** Gerar o clipe de IA (6 a 8 s, 9:16) com `PROMPT-IA.md` e a foto de referência, e mandar o MP4 (2 a 3 versões, se der)
+- [ ] **[dono]** Gravar a narração do 05 e fazer música e efeitos (como no 04)
+- [ ] **[Claude]** Depois que chegarem o clipe e a narração: montar o 05 no Remotion e entregar o MP4
 
 ### Limpezas pequenas
 

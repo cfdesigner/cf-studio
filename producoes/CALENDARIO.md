@@ -22,8 +22,8 @@ O episódio 03 do calendário de referência ("De onde vêm as boas ideias?") **
 
 | # | Tema | Função | Estado |
 | --- | --- | --- | --- |
-| 05 | a definir (ver opções abaixo) | | em estruturação |
-| 06 | a definir | | |
+| 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | em estruturação; storyboard pronto, falta o clipe de IA e as falas (`producoes/ep05-ia-vs-tradicional`) |
+| 06 | "Um corte errado pode acabar com uma boa cena" (opção A) | Técnica de montagem; gera comentário | a estruturar |
 
 Opções para o 05:
 - **A. "Um corte errado pode acabar com uma boa cena"** (calendário): a mesma cena em duas edições, uma cortada no momento ruim e outra na ação. Gancho "este corte está errado, qual?", resposta no episódio seguinte. Usa material que ele já tem.
