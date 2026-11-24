@@ -107,3 +107,9 @@ O primeiro e os planos do meio não repetem mais o gesto de braços para cima. A
 - **Cor (9,2 a 12,2 s):** outro momento da cena (4,4 s em diante, ele gira), plano contínuo e **sem zoom**; só o ritmo tem aproximação e afastamento. Trechos usados (cena original, s): gancho 1,2; bruto 9,0; ritmo 13,2; cor 4,4; som 17,0 · 25,6 (aproximação 1,35x) · 18,6; resultado 27,7.
 - **Transição ritmo → cor:** `VarreduraAmbar` (novo no design system): uma linha fina âmbar cruza o quadro na transversal e revela a cena colorida (0,53 s, de 9,2 a 9,7 s). Substitui o clarão.
 - **Som:** 3 planos iguais de 1,4 s (cortes secos em 13,6 e 15,0 s; um corte a menos). A caixinha mostra 3 whooshes (em 12,2, 13,6 e 15,0 s) e o impacto logo depois do segundo corte (15,1 s).
+
+## Ajustes finais de acabamento (pedido do dono)
+
+- Texto do gancho ("MESMA CENA / 3 MUDANÇAS") e do convite final ("MESMA CENA / QUAL MUDOU MAIS?") **100 px mais baixos e na mesma altura** (topo 500 px na base de 1080).
+- **Legendas removidas** (ficavam em cima da pessoa). A narração segue sem legenda; o `legendas.json` ficou no repositório caso volte.
+- **Transição cor → som:** a cortina para a direita foi trocada por fusão suave de 0,3 s (o dono não gostou da cortina). Cortina para cima (som → resultado) e varredura âmbar (ritmo → cor) seguem.

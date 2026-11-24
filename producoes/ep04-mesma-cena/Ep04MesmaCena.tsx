@@ -16,14 +16,12 @@ import {
   EtiquetaRotulo,
   FechoSimples,
   FundoCF,
-  Legendas,
   LinhaChamada,
   LinhasDeSom,
   VarreduraAmbar,
   WipeReveal,
 } from "../../design-systems/cfdesigner";
 import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
-import legendas from "./legendas.json";
 
 const FPS = 30;
 const f = (s: number) => Math.round(s * FPS);
@@ -52,7 +50,7 @@ const PLANOS: Plano[] = [
   { de: 2.6, ate: 5.6, arq: "bruto", ini: 9.0, entra: "fade" }, // bruto: parado, sem cortes ("sem vida")
   { de: 5.6, ate: 9.2, arq: "bruto", ini: 13.2, entra: "fade", vaiVem: { pico: 1.3, tPico: 1.8 } }, // ritmo: plano contínuo
   { de: 9.2, ate: 12.2, arq: "ambar", ini: 4.4, entra: "varredura" }, // cor: outro momento (ele gira), sem zoom
-  { de: 12.2, ate: 13.6, arq: "ambar", ini: 17.0, entra: "wipe-direita" }, // som: 2 cortes secos, planos iguais
+  { de: 12.2, ate: 13.6, arq: "ambar", ini: 17.0, entra: "fade" }, // som: fusão suave de entrada, depois 2 cortes secos, planos iguais
   { de: 13.6, ate: 15.0, arq: "ambar", ini: 25.6, zoom: 1.35 },
   { de: 15.0, ate: 16.4, arq: "ambar", ini: 18.6 },
   { de: 16.4, ate: 19.4, arq: "ambar", ini: 27.7, entra: "wipe-cima" }, // resultado: ele vindo para a câmera (aprovado)
@@ -145,7 +143,7 @@ const TextoAlto: React.FC<{
     </div>
   );
   return (
-    <AbsoluteFill style={{ opacity, alignItems: "center", top: 400, height: 340, justifyContent: "center" }}>
+    <AbsoluteFill style={{ opacity, alignItems: "center", top: 500, height: 340, justifyContent: "center" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, textAlign: "center" }}>
         {pequenaEmCima ? pq : g}
         {pequenaEmCima ? g : pq}
@@ -230,9 +228,6 @@ export const Ep04MesmaCena: React.FC = () => (
         ]}
       />
     </Sequence>
-
-    {/* Legendas do miolo da fala (o gancho e o convite já têm texto grande na tela) */}
-    <Legendas captions={legendas as never} />
 
     {/* Resultado */}
     <Sequence from={f(16.4)} durationInFrames={f(3.0)}>
