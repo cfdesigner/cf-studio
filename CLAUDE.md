@@ -31,7 +31,7 @@ Leia `PENDENCIAS.md` no começo da sessão e **lembre o dono das pendências abe
 - **Nunca gerar imagem ou vídeo pela Magnific (nem por nenhuma ferramenta de IA paga).** Quando uma peça precisar de b-roll ou imagem gerada, escrever o **prompt** (com formato, duração, enquadramento, o que evitar e onde entra na edição) e entregar ao dono, que gera na ferramenta e com o custo que preferir. Esperar ele mandar o arquivo para montar. Não gastar créditos.
 - **Terceiro de nome (lower third): NÃO colocar, a menos que o dono peça no comando.** É raro nos vídeos dele. Se pedir, perguntar nome e cargo; nunca inventar.
 - **Salvar no `main`** (autorizado pelo dono, sem perguntar). Sessões novas podem começar numa branch própria (ex.: `claude/...`): ao concluir o trabalho, mesclar no `main` e dar push, senão ele fica fora do `main` e pode se perder. Ao mesclar, buscar antes o histórico (`git fetch --depth=10 origin main`).
-- **Carrossel e imagens estáticas: sempre a melhor qualidade, em PNG** (`--scale=3 --image-format=png`, 3240×4050 para o 4:5; nunca JPG nem escala menor). Fotos recortadas pelo `scripts/recortar-foto.py`.
+- **Carrossel e imagens estáticas: sempre a melhor qualidade, em PNG** (`--scale=2.5 --image-format=png`, 2700×3375 para o 4:5 (escala 3 ou maior dá timeout neste ambiente); nunca JPG nem escala menor). Fotos recortadas pelo `scripts/recortar-foto.py`.
 - **Nunca versionar vídeos** (`out/`, `public/entrada/` são ignorados). Entregar o MP4 na conversa.
 - **Nunca misturar elementos de design systems diferentes** numa peça, a menos que ele peça.
 

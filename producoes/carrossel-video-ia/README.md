@@ -11,7 +11,7 @@ Base de identidade dos carrosséis do dono: `CarrosselClaudeCode.tsx` (e `Carros
    - `Quadros` (hoje: 16:9, 9:16 e 1:1) só se fizer sentido para o tema.
 3. Registrar um `<Still>` em `producoes/index.tsx` (`CARROSSEL_W` × `CARROSSEL_H`, `defaultProps={{ n: 1 }}`).
 4. Mostrar o **rascunho** (grade dos 8 slides) com os textos e esperar a aprovação do dono; depois exportar.
-5. Exportar: `npx remotion still <Id> out/<pasta>/slide-0N.png --props='{"n":N}' --scale=3 --image-format=png --browser-executable=/opt/pw-browsers/chromium` (N de 1 a 8). PNGs ficam em `out/` (fora do git).
+5. Exportar: `npx remotion still <Id> out/<pasta>/slide-0N.png --props='{"n":N}' --scale=2.5 --image-format=png --browser-executable=/opt/pw-browsers/chromium` (N de 1 a 8). PNGs ficam em `out/` (fora do git).
 
 ## Receita visual
 
