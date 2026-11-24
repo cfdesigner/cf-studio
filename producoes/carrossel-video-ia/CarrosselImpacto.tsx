@@ -14,12 +14,12 @@ import euPerfilEsq from "./assets/eu-perfil-esq.png";
  * CFDesigner: preto cinema `void` alternando com âmbar, Bebas Neue gigante, palavra em destaque,
  * pílula de chamada e o dono recortado por cima/ao lado do título. Tema: melhores geradores de imagem (llm-stats.com, nov/2026).
  */
-const VOID = "#0b0c0e";
-const CLARO = "#eef2f5";
+export const VOID = "#0b0c0e";
+export const CLARO = "#eef2f5";
 const FUNDOS = ["amber", "void", "amber", "void", "amber", "void", "amber", "void"] as const;
 const amb = (i: number) => FUNDOS[i - 1] === "amber";
 
-const Fundos: React.FC = () => (
+export const Fundos: React.FC = () => (
   <>
     {FUNDOS.map((f, k) => (
       <div key={k} style={abs({ left: X(k + 1), top: 0, width: 1080, height: 1350, background: f === "amber" ? AM : VOID })} />
@@ -27,7 +27,7 @@ const Fundos: React.FC = () => (
   </>
 );
 
-const Pessoa: React.FC<{ src: string; razao: number; left: number; h: number; bottom?: number }> = ({ src, razao, left, h, bottom = 0 }) => (
+export const Pessoa: React.FC<{ src: string; razao: number; left: number; h: number; bottom?: number }> = ({ src, razao, left, h, bottom = 0 }) => (
   <Img src={src} style={abs({ left, bottom, height: h, width: h * razao })} />
 );
 
@@ -52,7 +52,7 @@ const Palco: React.FC = () => (
 
 type Linha = { t: string; dest?: boolean };
 
-const Titulo: React.FC<{ i: number; linhas: Linha[]; size: number; top?: number; left?: number }> = ({ i, linhas, size, top = 170, left = 88 }) => {
+export const Titulo: React.FC<{ i: number; linhas: Linha[]; size: number; top?: number; left?: number }> = ({ i, linhas, size, top = 170, left = 88 }) => {
   const a = amb(i);
   return (
     <div style={abs({ left: X(i) + left, top, fontFamily: fontFamilies.display, fontSize: size, lineHeight: 0.9, letterSpacing: "0.01em", textTransform: "uppercase", color: a ? INK : CLARO })}>
@@ -69,11 +69,11 @@ const Titulo: React.FC<{ i: number; linhas: Linha[]; size: number; top?: number;
   );
 };
 
-const Etiqueta: React.FC<{ i: number; children: React.ReactNode; top?: number }> = ({ i, children, top = 124 }) => (
+export const Etiqueta: React.FC<{ i: number; children: React.ReactNode; top?: number }> = ({ i, children, top = 124 }) => (
   <div style={abs({ left: X(i) + 88, top, fontFamily: fontFamilies.heading, fontWeight: 700, fontSize: 18, letterSpacing: "0.32em", textTransform: "uppercase", color: amb(i) ? INK : AM })}>{children}</div>
 );
 
-const Pilula: React.FC<{ i: number; left: number; top: number; children: React.ReactNode }> = ({ i, left, top, children }) => (
+export const Pilula: React.FC<{ i: number; left: number; top: number; children: React.ReactNode }> = ({ i, left, top, children }) => (
   <div style={abs({ left: X(i) + left, top, borderRadius: 999, padding: "16px 34px", fontFamily: fontFamilies.heading, fontWeight: 700, fontSize: 24, letterSpacing: "0.1em", background: amb(i) ? INK : AM, color: amb(i) ? AM : INK })}>{children}</div>
 );
 
@@ -97,7 +97,7 @@ const Pontos: React.FC<{ i: number; itens: string[]; left: number; top: number; 
   );
 };
 
-const Placar: React.FC<{ i: number; pos: number; nome: string; nota: string; top: number }> = ({ i, pos, nome, nota, top }) => (
+export const Placar: React.FC<{ i: number; pos: number; nome: string; nota: string; top: number }> = ({ i, pos, nome, nota, top }) => (
   <div style={abs({ left: X(i) + 88, top, width: 900, display: "flex", alignItems: "baseline", gap: 28, borderBottom: `2px solid ${amb(i) ? INK : "#2e3238"}`, paddingBottom: 14 })}>
     <div style={{ fontFamily: fontFamilies.display, fontSize: pos === 1 ? 200 : 130, lineHeight: 0.85, color: AM, width: pos === 1 ? 110 : 80 }}>{pos}</div>
     <div style={{ flex: 1, fontFamily: fontFamilies.heading, fontWeight: 700, fontSize: pos === 1 ? 44 : 34, color: CLARO, lineHeight: 1.1 }}>{nome}</div>

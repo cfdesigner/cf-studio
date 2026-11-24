@@ -1,5 +1,6 @@
 import React from "react";
 import { Composition, Still } from "remotion";
+import { CarrosselImpactoArte } from "./carrossel-video-ia/CarrosselImpactoArte";
 import { CarrosselImpacto } from "./carrossel-video-ia/CarrosselImpacto";
 import { CarrosselGeradores3 } from "./carrossel-video-ia/CarrosselGeradores3";
 import { CarrosselClaudeCode, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/CarrosselClaudeCode";
@@ -29,6 +30,13 @@ export const Producoes: React.FC = () => (
       height={1920}
       defaultProps={c02TiagoEdicao as unknown as Edicao}
       calculateMetadata={calculaMetadados}
+    />
+    <Still
+      id="CarrosselImpactoArte"
+      component={CarrosselImpactoArte}
+      width={CARROSSEL_W}
+      height={CARROSSEL_H}
+      defaultProps={{ n: 1 }}
     />
     <Still
       id="CarrosselImpacto"
