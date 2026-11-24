@@ -93,9 +93,9 @@ const Palco: React.FC = () => (
     {/* círculo âmbar atrás da capa, atravessando para o slide 2 */}
     <div style={abs({ left: 510, top: 930 - 500, width: 1000, height: 1000, borderRadius: 500, background: AM })} />
     <Img src={euCapa} style={abs({ left: 270, bottom: 0, height: 860, width: 860 * (862 / 1378) })} />
-    <Card src={fotoNotebook} pos="50% 62%" cx={1880} cy={930} w={1000} h={580} rot={-4} />
+    <Card src={fotoNotebook} pos="50% 62%" cx={2010} cy={930} w={1000} h={580} rot={-4} />
     <Fita cx={3240} cy={1170} w={1900} rot={-5} texto="DESCREVA · RENDERIZE · REPITA ·" />
-    <Card src={fotoLivro} pos="50% 33%" cx={4500} cy={940} w={800} h={460} rot={3} persp={-10} />
+    <Card src={fotoLivro} pos="50% 33%" cx={4390} cy={940} w={800} h={460} rot={3} persp={-10} />
     <div style={abs({ left: 5520 - 380 + 40, top: 900 - 380 + 32, width: 760, height: 760, borderRadius: 380, border: `3px solid ${AM}` })} />
     <div style={abs({ left: 5520 - 380, top: 900 - 380, width: 760, height: 760, borderRadius: 380, overflow: "hidden", boxShadow: "0 30px 60px rgba(11,12,14,0.25)" })}>
       <Img src={fotoEscritorio} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(2.3)", transformOrigin: "70% 37%" }} />
