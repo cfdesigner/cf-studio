@@ -172,7 +172,7 @@ const Textos = (i: number): React.ReactNode => {
       <Etiqueta i={8}>Fecho</Etiqueta>
       <Titulo i={8} size={190} linhas={[{ t: "Gostou" }, { t: "do conteúdo?", dest: true }]} />
       {/* o dono, só no último slide, com a cabeça passando por cima do título */}
-      <Img src={euFala} style={abs({ left: X(8) + 470, bottom: 0, height: 1010, width: 1010 * (768 / 1108) })} />
+      <Img src={euFala} style={abs({ left: X(8) + 480, bottom: 0, height: 920, width: 920 * (768 / 1108) })} />
       <div style={abs({ left: X(8) + 88, top: 720, borderRadius: 999, padding: "16px 34px", fontFamily: fontFamilies.heading, fontWeight: 700, fontSize: 24, letterSpacing: "0.1em", background: AM, color: INK })}>Salve e envie</div>
       <div style={abs({ left: X(8) + 88, top: 840, width: 330, fontFamily: fontFamilies.body, fontSize: 19, lineHeight: 1.35, color: CINZA })}>Fonte: llm-stats.com, Arena de Imagens, novembro de 2026</div>
       <Logo layout="symbol" finish="metal" height={150} style={{ position: "absolute", left: X(8) + 88, top: 1000 }} />
