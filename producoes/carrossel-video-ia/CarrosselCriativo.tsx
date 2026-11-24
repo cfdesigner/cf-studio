@@ -1,14 +1,12 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Logo, colors, fontFamilies, imagery } from "../../design-systems/cfdesigner";
+import { AbsoluteFill, Img } from "remotion";
+import { Logo, fontFamilies, imagery } from "../../design-systems/cfdesigner";
 import "../../design-systems/cfdesigner/fonts";
 import recorte from "./assets/retrato-recorte.png";
 
 /** Carrossel criativo (base: versão 2 "Editorial"), com fundos coloridos da paleta da marca.
  *  p=1 Petróleo e claro · p=2 Âmbar e grafite · p=3 Claro com petróleo. */
-const k = colors.cinema;
 const TOTAL = 8;
-void staticFile;
 
 type Tema = {
   bg: string; ink: string; muted: string; acc: string; solid: string; onSolid: string;
