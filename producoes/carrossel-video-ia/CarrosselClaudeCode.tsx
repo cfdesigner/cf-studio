@@ -90,6 +90,7 @@ const Palco: React.FC = () => (
   <>
     <Ghost t="Prompt" size={470} style={{ left: X(5) - 10, top: 1010 }} />
     <Ghost t="3" size={1000} style={{ left: X(3) + 740, top: 330 }} />
+    <Ghost t="7" size={1000} style={{ left: X(7) + 740, top: 330 }} />
     {/* círculo âmbar atrás da capa, atravessando para o slide 2 */}
     <div style={abs({ left: 510, top: 930 - 500, width: 1000, height: 1000, borderRadius: 500, background: AM })} />
     <Img src={euCapa} style={abs({ left: 270, bottom: 0, height: 860, width: 860 * (862 / 1378) })} />
