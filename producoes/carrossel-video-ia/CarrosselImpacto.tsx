@@ -47,7 +47,7 @@ const Palco: React.FC = () => (
     <Arte src={artePodio} i={2} left={380} top={690} w={700} h={700} />
     <Arte src={arteCegas} i={3} left={0} top={400} w={720} h={960} />
     <Arte src={arteGpt} i={4} left={0} top={480} w={680} h={907} />
-    <Arte src={arteNano} i={5} left={360} top={450} w={720} h={960} />
+    <Arte src={arteNano} i={5} left={500} top={520} w={720} h={960} />
     <Arte src={arteFlux} i={6} left={380} top={400} w={780} h={1040} />
   </>
 );
