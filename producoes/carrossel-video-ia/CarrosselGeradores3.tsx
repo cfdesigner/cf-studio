@@ -9,6 +9,7 @@ import printSeedance from "./assets/ferramentas/seedance-print.jpg";
 import printCapcut from "./assets/ferramentas/capcut-print.jpg";
 import fotoMesa from "./assets/foto-mesa.jpg";
 import bebeKarate from "./assets/bebe-karate.png";
+import fotoMesaRecorte from "./assets/foto-mesa-recorte.png";
 
 /**
  * Carrossel "5 geradores de vídeo com IA", versão com composição DIFERENTE em cada slide:
@@ -17,6 +18,9 @@ import bebeKarate from "./assets/bebe-karate.png";
  * system CFDesigner (losango, âmbar, fita, fundo claro, Bebas e Montserrat).
  */
 const GRAFITE = "#706b68";
+/** Arco do fecho: caixa (AW_×AH_ em AL_,AT_) e enquadramento da foto (escala MK_; cabeça no ponto HX_,HY_ da caixa). */
+const AW_ = 490, AH_ = 800, AL_ = 548, AT_ = 450, MK_ = 1.28, HX_ = 290, HY_ = 24;
+const MX_ = HX_ - 522 * MK_, MY_ = HY_ - 500 * MK_;
 type Estilo = "losango" | "pilula" | "numero" | "traco" | "quadrado";
 type Ferramenta = { chave: string; num: string; etiqueta: string; nome: string; tag: string; preco: string; pontos: string[]; estilo: Estilo; logo?: string; print?: string; pos?: string };
 
@@ -131,14 +135,16 @@ const Palco: React.FC = () => (
     <Ghost t="5" size={1000} style={{ left: X(7) + 740, top: 330 }} />
     <div style={abs({ left: X(7) + 940 - 180, top: 1130 - 180, width: 360, height: 360, borderRadius: 180, background: AM })} />
 
-    {/* 8 · fecho: o dono em arco grande, com arco âmbar deslocado e losango */}
-    <Ghost t="IA" size={620} style={{ left: X(8) + 380, top: 120 }} />
-    <div style={abs({ left: X(8) + 566, top: 520, width: 500, height: 800, borderRadius: "250px 250px 28px 28px", border: `4px solid ${AM}` })} />
-    <div style={abs({ left: X(8) + 540, top: 490, width: 500, height: 800, borderRadius: "250px 250px 28px 28px", overflow: "hidden", boxShadow: "0 40px 70px rgba(11,12,14,0.3)" })}>
-      <Img src={fotoMesa} style={{ width: "100%", height: "100%", objectFit: "cover", transform: "scale(1.3)", transformOrigin: "68% 38%" }} />
+    {/* 8 · fecho: o dono num arco grande, com a cabeça saindo pela borda de cima (recorte) */}
+    <Ghost t="IA" size={620} style={{ left: X(8) + 330, top: 120 }} />
+    <div style={abs({ left: X(8) + AL_ + 28, top: AT_ + 32, width: AW_, height: AH_, borderRadius: `${AW_ / 2}px ${AW_ / 2}px 30px 30px`, border: `4px solid ${AM}` })} />
+    <div style={abs({ left: X(8) + AL_, top: AT_, width: AW_, height: AH_, borderRadius: `${AW_ / 2}px ${AW_ / 2}px 30px 30px`, overflow: "hidden", boxShadow: "0 40px 70px rgba(11,12,14,0.3)", background: "#16181c" })}>
+      <Img src={fotoMesa} style={abs({ left: MX_, top: MY_, width: 768 * MK_, height: 1344 * MK_ })} />
     </div>
-    <Losango cx={X(8) + 560} cy={1180} lado={190} />
-    <div style={abs({ left: X(8) + 88, top: 940, width: 170, height: 170, borderRadius: 85, background: INK, display: "flex", alignItems: "center", justifyContent: "center" })}>
+    <div style={abs({ left: X(8) + AL_, top: AT_, width: AW_, height: AH_, clipPath: `inset(-300px 0px ${AH_ - 120}px 0px)`, pointerEvents: "none" })}>
+      <Img src={fotoMesaRecorte} style={abs({ left: MX_, top: MY_, width: 768 * MK_, height: 1344 * MK_ })} />
+    </div>
+    <div style={abs({ left: X(8) + 88, top: 960, width: 170, height: 170, borderRadius: 85, background: INK, display: "flex", alignItems: "center", justifyContent: "center" })}>
       <Logo layout="symbol" finish="metal" height={100} />
     </div>
   </>

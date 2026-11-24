@@ -26,6 +26,7 @@ def main():
     ap.add_argument("--altura", type=int, default=1500, help="altura de trabalho em px (maior = mais fino e mais lento)")
     ap.add_argument("--faixa", type=int, default=28, help="largura da faixa incerta no contorno (px na altura de trabalho)")
     ap.add_argument("--modelo", default="birefnet-portrait")
+    ap.add_argument("--manter-tela", action="store_true", help="não corta rente à pessoa: o PNG sai com o mesmo enquadramento da foto (para sobrepor alinhado)")
     ap.add_argument("--fundo-claro", action="store_true", help="fundo branco/cinza claro: tira também o miolo claro entre os cachos")
     a = ap.parse_args()
 
@@ -72,7 +73,8 @@ def main():
     out = np.dstack([np.clip(frente, 0, 1), alfa])
     out = (out * 255).astype(np.uint8)
     img = Image.fromarray(out, "RGBA")
-    img = img.crop(img.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())
+    if not a.manter_tela:
+        img = img.crop(img.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())
     img.save(a.saida)
     print(a.saida, img.size)
 
