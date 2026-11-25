@@ -80,7 +80,9 @@ export const Producoes: React.FC = () => (
     <Composition id="Ep04Gancho" component={Ep04Gancho} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Ep04Convite" component={Ep04Convite} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Ep04SomTeste" component={Ep04SomTeste} durationInFrames={EP04_SOM_FRAMES} fps={30} width={1080} height={1920} />
-    <Composition id="HyperRealist" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} />
+    <Composition id="HyperRealistCalma" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "calma" as const }} />
+    <Composition id="HyperRealistInteressante" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "interessante" as const }} />
+    <Composition id="HyperRealistAgressiva" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "agressiva" as const }} />
     <Composition id="C02Broll" component={C02Broll} durationInFrames={C02_BROLL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition
       id="UmVideoNasceAqui"
