@@ -24,7 +24,7 @@ Palavra por palavra (`Legenda`): grupos de até 3 palavras (≤ 24 letras, nunca
 
 ## Layout por trecho (mesclar)
 
-`trechos: [{de, ate, layout, rostoY?}]` no `edicao.json` alterna `dividido` (ele fala para a câmera) e `cheio` (b-roll) no mesmo vídeo. A troca desliza em 10 quadros e deve cair num corte de cena. Cada elemento precisa caber inteiro num trecho. Primeiro uso: `producoes/c02-tiago/`.
+`trechos: [{de, ate, layout, rostoY?}]` no `edicao.json` alterna `dividido` (ele fala para a câmera) e `cheio` (b-roll) no mesmo vídeo. A troca desliza em 10 quadros e deve cair num corte de cena. Cada elemento precisa caber inteiro num trecho. Primeiro uso: `producoes/c02-tiago/`. Um trecho dividido pode ter `imagemTopo` (foto em `public/`, escurecida e esmaecida para baixo, atrás dos elementos) e `imagemTopoY` (recorte vertical, 0–100). `brolls` (vídeos mudos em `public/`) substituem a imagem do vídeo numa janela de tempo; `velocidade` ajusta o clipe à janela.
 
 ## Terceiro de nome
 

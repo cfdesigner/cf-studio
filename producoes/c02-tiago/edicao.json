@@ -8,7 +8,9 @@
    "de": 0,
    "ate": 3.57,
    "layout": "dividido",
-   "rostoY": 33
+   "rostoY": 33,
+   "imagemTopo": "c02-tiago/fundo-topo.jpg",
+   "imagemTopoY": 60
   },
   {
    "de": 3.57,

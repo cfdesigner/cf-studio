@@ -2,6 +2,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
+  Img,
   OffthreadVideo,
   Sequence,
   interpolate,
@@ -57,7 +58,18 @@ export type Edicao = {
    * para caber na janela (ex.: um clipe de 5 s numa janela de 2,5 s: 2). `de`/`ate` em segundos no vídeo cortado.
    */
   brolls?: { de: number; ate: number; src: string; velocidade?: number }[];
-  trechos?: { de: number; ate: number; layout: "dividido" | "cheio"; rostoY?: number }[];
+  trechos?: {
+    de: number;
+    ate: number;
+    layout: "dividido" | "cheio";
+    rostoY?: number;
+    /**
+     * Foto (em public/) como fundo da parte de CIMA do trecho, atrás dos elementos, escurecida e esmaecida para
+     * baixo. Só no layout dividido. `imagemTopoY` = posição vertical do recorte, 0 a 100 (padrão 50).
+     */
+    imagemTopo?: string;
+    imagemTopoY?: number;
+  }[];
 };
 
 const TRANSICAO = 10;
@@ -145,6 +157,52 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
       <div style={{ opacity: p }}>
         <Fundo />
       </div>
+      {trechos
+        .filter((t) => t.imagemTopo && t.layout === "dividido")
+        .map((t, i) => {
+          const ini = Math.round(t.de * fps);
+          const fim = Math.round(t.ate * fps);
+          const vis =
+            interpolate(frame, [ini, ini + 8], [0, 1], clamp) *
+            interpolate(frame, [fim - 4, fim + 6], [1, 0], clamp);
+          if (vis <= 0) return null;
+          const alt = layout.quadroY * k;
+          const fade = "linear-gradient(180deg, #000 0%, #000 55%, transparent 100%)";
+          return (
+            <div
+              key={`it${i}`}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width,
+                height: alt,
+                opacity: vis,
+                WebkitMaskImage: fade,
+                maskImage: fade,
+              }}
+            >
+              <Img
+                src={staticFile(t.imagemTopo as string)}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: `50% ${t.imagemTopoY ?? 50}%`,
+                  transform: `scale(${1 + 0.05 * ((frame - ini) / Math.max(1, fim - ini))})`,
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(180deg, rgba(10,8,6,0.62) 0%, rgba(10,8,6,0.55) 60%, rgba(10,8,6,0.8) 100%)",
+                }}
+              />
+            </div>
+          );
+        })}
       <div
         style={{
           position: "absolute",
