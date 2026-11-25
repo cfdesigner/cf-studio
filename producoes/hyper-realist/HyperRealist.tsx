@@ -66,16 +66,16 @@ const Calma: React.FC<{ f: number }> = ({ f }) => {
 
 /** 2. Interessante: cada letra sobe de uma máscara em cascata; o fio se desenha com um brilho que o atravessa. */
 const Interessante: React.FC<{ f: number }> = ({ f }) => {
-  const l = p(f, 32, 58);
-  const brilho = p(f, 46, 70, Easing.inOut(Easing.quad));
+  const l = p(f, 18, 34);
+  const brilho = p(f, 28, 44, Easing.inOut(Easing.quad));
   return (
     <div style={bloco}>
-      <Mascara texto="WORKFLOW:" f={f} inicio={2} passo={0.9} dur={14} estilo={{ ...kicker, letterSpacing: "0.2em", opacity: 0.85 }} />
-      <Mascara texto="HYPER-REALISTIC-SKILL" f={f} inicio={8} passo={1.15} dur={20} estilo={{ ...titulo, letterSpacing: "0.03em" }} />
+      <Mascara texto="WORKFLOW:" f={f} inicio={1} passo={0.6} dur={10} estilo={{ ...kicker, letterSpacing: "0.2em", opacity: 0.85 }} />
+      <Mascara texto="HYPER-REALISTIC-SKILL" f={f} inicio={4} passo={0.7} dur={14} estilo={{ ...titulo, letterSpacing: "0.03em" }} />
       <div style={{ ...fio(), transform: `scaleX(${l})`, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, bottom: 0, width: 70, left: -70 + brilho * 230, background: "linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent)" }} />
       </div>
-      <Mascara texto="SEEDANCE 2.5" f={f} inicio={44} passo={1.3} dur={16} estilo={apoio} />
+      <Mascara texto="SEEDANCE 2.5" f={f} inicio={24} passo={0.8} dur={12} estilo={apoio} />
     </div>
   );
 };
