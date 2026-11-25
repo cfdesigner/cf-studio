@@ -6,6 +6,7 @@ import { CarrosselClaudeCode, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
 import { C02_BROLL_FRAMES, C02Broll } from "./c02-broll/C02Broll";
 import { C02Cena1Teste } from "./c02-broll/TextoAtras";
+import { HYPER_FRAMES, HyperRealist } from "./hyper-realist/HyperRealist";
 import { NASCE_FRAMES, UmVideoNasceAqui } from "./um-video-nasce-aqui/UmVideoNasceAqui";
 import { CERTI_NEWS_FRAMES, CertiNews } from "./certi-news/CertiNews";
 import { VideoTiagoLemos, calculaMetadados, type Edicao } from "../design-systems/tiago-lemos-01";
@@ -79,6 +80,7 @@ export const Producoes: React.FC = () => (
     <Composition id="Ep04Gancho" component={Ep04Gancho} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Ep04Convite" component={Ep04Convite} durationInFrames={EP04_TEXTO_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="Ep04SomTeste" component={Ep04SomTeste} durationInFrames={EP04_SOM_FRAMES} fps={30} width={1080} height={1920} />
+    <Composition id="HyperRealist" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} />
     <Composition id="C02Broll" component={C02Broll} durationInFrames={C02_BROLL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition
       id="UmVideoNasceAqui"
