@@ -19,10 +19,18 @@
   },
   {
    "de": 15.38,
-   "ate": 20.82,
+   "ate": 18.95,
    "layout": "dividido",
    "rostoY": 45,
    "imagemTopo": "c02-tiago/fundo-topo2.jpg",
+   "imagemTopoY": 0
+  },
+  {
+   "de": 18.95,
+   "ate": 20.82,
+   "layout": "dividido",
+   "rostoY": 45,
+   "imagemTopo": "c02-tiago/fundo-topo3.jpg",
    "imagemTopoY": 0
   }
  ],
