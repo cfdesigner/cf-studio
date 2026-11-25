@@ -91,7 +91,8 @@
 ### Design system tiago-lemos-01 e skill `video-tiago-lemos`
 
 - [x] **[Claude]** Design system criado a partir do vídeo de referência (tela dividida, ouro e preto, Bebas Neue/Poppins/Space Mono), com legenda palavra por palavra, 4 tipos de elemento animado (ícone, título, número, lista; 32 ícones) e 6 sons suaves sintetizados. Skill `video-tiago-lemos` + `scripts/cortar-pausas.py`
-- [ ] **[dono]** Mandar o 1º vídeo real para testar a skill (vertical, falando). Conferir: cortes, destaques, elementos e volume dos sons
+- [x] **1º vídeo real feito e aprovado pelo dono (C02, `producoes/c02-tiago/`)**: layout mesclado, ilustrações dos elementos, b-rolls que ilustram a fala (Kling 2.5), fotos no topo, linhas de antes e depois, lista sincronizada com a fala, enquadramento mais alto. Design system `tiago-lemos-01` e skill `video-tiago-lemos` fechados
+- [ ] **[dono]** Próximo teste: um vídeo dele **com corte de pausas** (o C02 foi sem corte) e/ou **horizontal**, para provar essas partes da skill
 - [ ] **[dono]** (opcional) Mandar fontes, cores e logo oficiais, e sons dele: hoje as cores/fontes são estimadas da referência e os sons são sintetizados
 
 ### Episódio 04 "Mesma cena" (CFDesigner)

@@ -38,12 +38,21 @@ Elemento `numero`: valor em ouro degradê gigante (Bebas), contagem animada, ró
 
 | `tipo` | Quando usar | Campos |
 | --- | --- | --- |
-| `icone` | uma ideia concreta ("foguete", "calendário", "chat") | `icone`, `titulo?` (≤ 3 palavras, `*ouro*`), `kicker?` |
+| `icone` | uma ideia concreta ("foguete", "calendário", "chat") | `imagem?` (ilustração PNG transparente em `public/`) **ou** `icone?` (traço, 32 em `components/icones.ts`); `titulo?` (≤ 3 palavras, `*ouro*`), `kicker?` |
 | `titulo` | frase de impacto ou conceito | `linhas[]` (`*ouro*`), `kicker?` |
 | `numero` | número que a pessoa fala | `valor`, `prefixo?`, `sufixo?`, `rotulo?` |
-| `lista` | enumeração (2 a 4 itens) | `itens[]` |
+| `lista` | enumeração (2 a 5 itens) | `itens[]`: texto simples (entra em sequência) ou `{texto, em}` (entra no segundo `em`, **sincronizado com a fala**) |
 
-Rótulo (`kicker`) é opcional e discreto. Menos texto, menor, mais suave.
+- **Ilustração (`imagem`)**: ouro sobre fundo preto puro (gerada, por ex., no Nano Banana) convertida com `scripts/preto-para-alpha.py`. Entra em escala com leve giro, sombra suave. Cada elemento tem sombra suave para ler sobre vídeo.
+- **Lista sincronizada**: cada item entra no instante `em` com escala e bounce (mola); o check dá 2 pulinhos que diminuem. Linhas de altura fixa (a lista não se mexe quando entra item novo).
+- Rótulo (`kicker`) é opcional e discreto. Menos texto, menor, mais suave.
+
+## Fundos, b-rolls e transições dentro do vídeo
+
+- **Foto no topo (`imagemTopo`, em `trechos`)**: foto em `public/` como fundo da parte de CIMA de um trecho dividido, atrás dos elementos, escurecida e esmaecida para baixo, com leve zoom. Trechos seguidos podem ter fotos diferentes (troca com fusão).
+- **B-roll (`brolls`)**: vídeo mudo (ex.: gerado no Kling) que **substitui a imagem do vídeo** numa janela, em corte seco; a voz continua. `velocidade` ajusta o clipe à janela. Cada b-roll deve **ilustrar o que é dito naquela janela**.
+- **Antes e depois (`brolls[].linhas`)**: duas linhas douradas varrem a tela na diagonal (esquerda → direita, ~1,2 s) e, por onde passam, o b-roll vira do visual apagado (cinza, parcialmente dessaturado) para o dourado.
+- **Enquadramento (`rostoY` por trecho)**: 0 a 100; maior sobe a pessoa no quadro. Padrão usado: 42 (sentado) e 54 (em pé no parapeito).
 
 ## Som
 
@@ -63,4 +72,4 @@ Ponto final na legenda; barras de REC/timecode; mais de um elemento ao mesmo tem
 
 ## Exemplos que renderizam
 
-`TiagoLemos01-Exemplo` (dividido) e `TiagoLemos01-Exemplo-Cheio`. Dados em `exemplo/exemplo.ts`.
+`TiagoLemos01-Exemplo` (dividido) e `TiagoLemos01-Exemplo-Cheio` (dados em `exemplo/exemplo.ts`, sem vídeo: mostra o marcador "SEU VÍDEO AQUI"). Produção real de referência: `C02TiagoLemos` (`producoes/c02-tiago/`), aprovada pelo dono com layout mesclado, ilustrações, b-rolls, fotos no topo, linhas de antes e depois e lista sincronizada.
