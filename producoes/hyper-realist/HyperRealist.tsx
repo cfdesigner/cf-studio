@@ -65,17 +65,17 @@ const Calma: React.FC<{ f: number }> = ({ f }) => {
 };
 
 /** 2. Interessante: cada letra sobe de uma máscara em cascata; o fio se desenha com um brilho que o atravessa. */
-const Interessante: React.FC<{ f: number }> = ({ f }) => {
+const Interessante: React.FC<{ f: number; titulo: string; apoio: string }> = ({ f, titulo: tit, apoio: apo }) => {
   const l = p(f, 18, 34);
   const brilho = p(f, 28, 44, Easing.inOut(Easing.quad));
   return (
     <div style={bloco}>
       <Mascara texto="WORKFLOW:" f={f} inicio={1} passo={0.6} dur={10} estilo={{ ...kicker, letterSpacing: "0.2em", opacity: 0.85 }} />
-      <Mascara texto="HYPER-REALISTIC-SKILL" f={f} inicio={4} passo={0.7} dur={14} estilo={{ ...titulo, letterSpacing: "0.03em" }} />
+      <Mascara texto={tit.toUpperCase()} f={f} inicio={4} passo={0.7} dur={14} estilo={{ ...titulo, letterSpacing: "0.03em" }} />
       <div style={{ ...fio(), transform: `scaleX(${l})`, position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: 0, bottom: 0, width: 70, left: -70 + brilho * 230, background: "linear-gradient(90deg, transparent, rgba(255,255,255,.95), transparent)" }} />
       </div>
-      <Mascara texto="SEEDANCE 2.5" f={f} inicio={24} passo={0.8} dur={12} estilo={apoio} />
+      <Mascara texto={apo.toUpperCase()} f={f} inicio={24} passo={0.8} dur={12} estilo={apoio} />
     </div>
   );
 };
@@ -111,14 +111,16 @@ const Agressiva: React.FC<{ f: number }> = ({ f }) => {
 };
 
 /** Personagem intacto; só muda a aparição do texto (CFDesigner). Canto inferior esquerdo. */
-export const HyperRealist: React.FC<{ versao: Versao }> = ({ versao }) => {
+export const HyperRealist: React.FC<{ versao: Versao; titulo?: string; apoio?: string; fonte?: string }> = ({
+  versao, titulo = "hyper-realistic-skill", apoio = "Seedance 2.5", fonte = "entrada/hyper-realist.mov",
+}) => {
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{ backgroundColor: c.void }}>
-      <OffthreadVideo src={staticFile("entrada/hyper-realist.mov")} />
+      <OffthreadVideo src={staticFile(fonte)} />
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(11,12,14,.55) 0%, rgba(11,12,14,0) 28%)" }} />
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 72px 150px" }}>
-        {versao === "calma" ? <Calma f={f} /> : versao === "interessante" ? <Interessante f={f} /> : <Agressiva f={f} />}
+        {versao === "calma" ? <Calma f={f} /> : versao === "interessante" ? <Interessante f={f} titulo={titulo} apoio={apoio} /> : <Agressiva f={f} />}
       </AbsoluteFill>
     </AbsoluteFill>
   );
