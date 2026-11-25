@@ -1,5 +1,6 @@
 import React from "react";
 import { Composition, Still } from "remotion";
+import { CarrosselImpacto } from "./carrossel-video-ia/CarrosselImpacto";
 import { CarrosselGeradores3 } from "./carrossel-video-ia/CarrosselGeradores3";
 import { CarrosselClaudeCode, CARROSSEL_H, CARROSSEL_W } from "./carrossel-video-ia/CarrosselClaudeCode";
 import { C02_FRAMES, C02Legendas } from "./c02-legendas/C02Legendas";
@@ -28,6 +29,13 @@ export const Producoes: React.FC = () => (
       height={1920}
       defaultProps={c02TiagoEdicao as unknown as Edicao}
       calculateMetadata={calculaMetadados}
+    />
+    <Still
+      id="CarrosselImpacto"
+      component={CarrosselImpacto}
+      width={CARROSSEL_W}
+      height={CARROSSEL_H}
+      defaultProps={{ n: 1 }}
     />
     <Still
       id="CarrosselGeradores3"

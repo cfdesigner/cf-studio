@@ -112,6 +112,9 @@
 
 - [x] **[Claude]** Carrossel "Claude Code para edição de vídeo" (8 slides, base: artigo do MindStudio de 20/04/2026) **fechado pelo dono**: composição `CarrosselClaudeCode`, PNGs finais 2160×2700 em `out/carrossel/claude-code/final/` (fora do git). É a **base de identidade** dos próximos: receita em `producoes/carrossel-video-ia/README.md`
 - [x] **[Claude]** Carrossel "5 geradores de vídeo com IA" (8 slides, base: comparativo de 11 geradores de videoclipes, 2026) **fechado pelo dono**: composição `CarrosselGeradores3`, prints e logos reais dos apps em `producoes/carrossel-video-ia/assets/ferramentas/`, PNGs finais 2160×2700 em `out/carrossel/geradores/final/` (fora do git)
+- [x] **[Claude]** Carrossel "Melhor gerador de imagens com IA" (8 slides, modelo **Impacto**, fonte llm-stats.com, nov/2026) **fechado pelo dono**: composição `CarrosselImpacto`, 7 artes geradas no Magnific (945 créditos), PNGs finais 2700×3375 em `out/carrossel/impacto/final/` (fora do git). Modelo registrado em `design-systems/cfdesigner/docs/carrosseis.md`
+- [x] Nome do modelo confirmado pelo dono: **Impacto**
+- [x] Regra do Magnific definida pelo dono: **só gerar quando ele pedir**, com custo mostrado antes (já no `CLAUDE.md`)
 - [x] Carrossel "Vídeo com IA" **descartado pelo dono** (prefere carrosséis com informação real); código removido
 - [ ] **[dono]** Mandar os próximos assuntos (texto, link ou artigo colado); eu gero na mesma identidade com as fotos dele. Imagem gerada no Magnific só com autorização (custa ~65 créditos por imagem)
 
