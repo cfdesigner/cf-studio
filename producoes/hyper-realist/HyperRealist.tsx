@@ -18,6 +18,11 @@ export const HyperRealist: React.FC = () => {
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(11,12,14,.55) 0%, rgba(11,12,14,0) 28%)" }} />
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 72px 150px" }}>
         <div style={{ display: "grid", gap: 14, justifyItems: "start" }}>
+          <BlurIn from={2} durationInFrames={20} blur={10} y={10}>
+            <div style={{ fontFamily: fontFamilies.heading, fontWeight: 300, fontSize: 28, letterSpacing: "0.2em", textTransform: "uppercase", color: c.inkMuted, opacity: 0.85, textShadow: "0 2px 14px rgba(0,0,0,.7)", marginBottom: -2 }}>
+              Workflow:
+            </div>
+          </BlurIn>
           <BlurIn from={8} durationInFrames={20}>
             <div style={{ fontFamily: fontFamilies.display, fontSize: 104, lineHeight: 0.95, letterSpacing: "0.03em", textTransform: "uppercase", color: c.ink, textShadow: "0 4px 28px rgba(0,0,0,.65)" }}>
               Hyper realist skill
