@@ -2,6 +2,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
+  Easing,
   Img,
   OffthreadVideo,
   Sequence,
@@ -57,7 +58,17 @@ export type Edicao = {
    * `src` em public/. A fala do vídeo original continua tocando (o b-roll é mudo). `velocidade` acelera/desacelera o clipe
    * para caber na janela (ex.: um clipe de 5 s numa janela de 2,5 s: 2). `de`/`ate` em segundos no vídeo cortado.
    */
-  brolls?: { de: number; ate: number; src: string; velocidade?: number }[];
+  brolls?: {
+    de: number;
+    ate: number;
+    src: string;
+    velocidade?: number;
+    /**
+     * Antes e depois: duas linhas douradas passam na diagonal (esquerda para direita) entre `de` e `ate`
+     * (segundos no vídeo cortado) e, por onde passam, o b-roll vira do visual apagado para o dourado.
+     */
+    linhas?: { de: number; ate: number };
+  }[];
   trechos?: {
     de: number;
     ate: number;
@@ -73,6 +84,94 @@ export type Edicao = {
 };
 
 const TRANSICAO = 10;
+const ANTES = "grayscale(0.7) brightness(0.9) contrast(0.94)";
+const DEPOIS = "saturate(1.3) sepia(0.25) contrast(1.08) brightness(1.04)";
+const INCLINA = Math.tan((14 * Math.PI) / 180);
+
+/** B-roll com duas linhas douradas que varrem a tela na diagonal e viram a cena do "antes" para o "depois". */
+const BrollClip: React.FC<{
+  src: string;
+  velocidade: number;
+  inicio: number;
+  linhas?: { de: number; ate: number };
+}> = ({ src, velocidade, inicio, linhas }) => {
+  const local = useCurrentFrame();
+  const { fps, width, height } = useVideoConfig();
+  const k = width / 1080;
+  const estilo: React.CSSProperties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  };
+  if (!linhas) {
+    return <OffthreadVideo src={staticFile(src)} muted playbackRate={velocidade} style={estilo} />;
+  }
+  const f = local + inicio;
+  const a = Math.round(linhas.de * fps);
+  const b = Math.round(linhas.ate * fps);
+  const t = interpolate(f, [a, b], [0, 1], clamp);
+  const e = Easing.inOut(Easing.cubic)(t);
+  const folga = height * INCLINA + 140 * k;
+  const c = interpolate(e, [0, 1], [-folga, width + folga]); // x da linha na altura do meio
+  const x = (cx: number, y: number) => cx + (y - height / 2) * INCLINA;
+  const poligono = (cx: number) =>
+    `polygon(0px 0px, ${x(cx, 0)}px 0px, ${x(cx, height)}px ${height}px, 0px ${height}px)`;
+  const fim = f >= b;
+  const comeco = f < a;
+  const gap = 120 * k;
+  const linha = (cx: number, op: number, w: number) => (
+    <line
+      x1={x(cx, -20)}
+      y1={-20}
+      x2={x(cx, height + 20)}
+      y2={height + 20}
+      stroke="url(#linhaOuro)"
+      strokeWidth={w * k}
+      strokeLinecap="round"
+      opacity={op}
+    />
+  );
+  return (
+    <>
+      <div style={{ position: "absolute", inset: 0, filter: ANTES, display: fim ? "none" : undefined }}>
+        <OffthreadVideo src={staticFile(src)} muted playbackRate={velocidade} style={estilo} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          filter: DEPOIS,
+          clipPath: fim ? undefined : comeco ? "polygon(0 0, 0 0, 0 0)" : poligono(c),
+          WebkitClipPath: fim ? undefined : comeco ? "polygon(0 0, 0 0, 0 0)" : poligono(c),
+        }}
+      >
+        <OffthreadVideo src={staticFile(src)} muted playbackRate={velocidade} style={estilo} />
+      </div>
+      {!comeco && !fim ? (
+        <svg
+          width={width}
+          height={height}
+          style={{
+            position: "absolute",
+            inset: 0,
+            filter: "drop-shadow(0 0 14px rgba(243,213,138,0.75))",
+          }}
+        >
+          <defs>
+            <linearGradient id="linhaOuro" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor={colors.ouroClaro} />
+              <stop offset="0.5" stopColor={colors.ouro} />
+              <stop offset="1" stopColor={colors.ouroClaro} />
+            </linearGradient>
+          </defs>
+          {linha(c, 1, 6)}
+          {linha(c - gap, 0.85, 4)}
+        </svg>
+      ) : null}
+    </>
+  );
+};
+
 
 /**
  * Vídeo no estilo tiago-lemos-01: cortes de pausa já feitos (vídeo de entrada), legenda palavra por
@@ -227,12 +326,7 @@ export const VideoTiagoLemos: React.FC<Edicao> = ({
               layout="none"
             >
               <AbsoluteFill>
-                <OffthreadVideo
-                  src={staticFile(b.src)}
-                  muted
-                  playbackRate={b.velocidade ?? 1}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
+                <BrollClip src={b.src} velocidade={b.velocidade ?? 1} inicio={ini} linhas={b.linhas} />
               </AbsoluteFill>
             </Sequence>
           );

@@ -557,7 +557,11 @@
    "de": 12.81,
    "ate": 15.38,
    "src": "entrada/gerados/n3.mp4",
-   "velocidade": 1.95
+   "velocidade": 1.95,
+   "linhas": {
+    "de": 13.3,
+    "ate": 14.5
+   }
   }
  ]
 }
