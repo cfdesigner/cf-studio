@@ -25,7 +25,7 @@ export const HyperRealist: React.FC = () => {
           </BlurIn>
           <BlurIn from={8} durationInFrames={20}>
             <div style={{ fontFamily: fontFamilies.display, fontSize: 104, lineHeight: 0.95, letterSpacing: "0.03em", textTransform: "uppercase", color: c.ink, textShadow: "0 4px 28px rgba(0,0,0,.65)" }}>
-              Hyper realist skill
+              hyper-realistic-skill
             </div>
           </BlurIn>
           <div style={{ height: 4, width: 150, background: c.amber, transformOrigin: "0 50%", transform: `scaleX(${fio})` }} />
