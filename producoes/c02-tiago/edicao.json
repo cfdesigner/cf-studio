@@ -21,7 +21,9 @@
    "de": 15.38,
    "ate": 20.82,
    "layout": "dividido",
-   "rostoY": 45
+   "rostoY": 45,
+   "imagemTopo": "c02-tiago/fundo-topo2.jpg",
+   "imagemTopoY": 0
   }
  ],
  "captions": [
