@@ -1,5 +1,5 @@
 import React from "react";
-import { Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { colors, fonts, ouroGradiente } from "../tokens";
 import { ENTRADA, SAIDA, clamp, inCubic, outExpo } from "../movimento";
 import { ICONES } from "./icones";
@@ -34,7 +34,14 @@ export type ElementoNumero = Base & {
   sufixo?: string;
   rotulo?: string;
 };
-export type ElementoLista = Base & { tipo: "lista"; itens: string[] };
+export type ElementoLista = Base & {
+  tipo: "lista";
+  /**
+   * Itens. Texto simples entra em sequência (a cada ~0,3 s). `{ texto, em }` entra no instante `em`
+   * (segundos no vídeo cortado), para acompanhar a fala palavra por palavra.
+   */
+  itens: (string | { texto: string; em: number })[];
+};
 export type Elemento =
   | ElementoIcone
   | ElementoTitulo
@@ -250,43 +257,65 @@ const CorpoNumero: React.FC<CorpoProps<ElementoNumero>> = ({ el, local, k, p }) 
   );
 };
 
-const CorpoLista: React.FC<CorpoProps<ElementoLista>> = ({ el, local, k, p }) => (
-  <>
-    <Kicker texto={el.kicker} k={k} p={p} />
-    <div style={{ display: "flex", flexDirection: "column", gap: 22 * k }}>
-      {el.itens.map((it, i) => {
-        const q = outExpo(interpolate(local, [4 + i * 9, 18 + i * 9], [0, 1], clamp));
-        return (
-          <div
-            key={i}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 26 * k,
-              opacity: q,
-              transform: `translateY(${(1 - q) * 30 * k}px)`,
-            }}
-          >
-            <div style={{ width: 70 * k, height: 70 * k }}>
-              <IconeAnimado nome="check" tam={70 * k} local={local - i * 9 + 6} />
-            </div>
+const CorpoLista: React.FC<CorpoProps<ElementoLista>> = ({ el, local, k, p }) => {
+  const { fps } = useVideoConfig();
+  return (
+    <>
+      <Kicker texto={el.kicker} k={k} p={p} />
+      <div style={{ display: "flex", flexDirection: "column", gap: 22 * k }}>
+        {el.itens.map((it, i) => {
+          const texto = typeof it === "string" ? it : it.texto;
+          const ini = typeof it === "string" ? 4 + i * 9 : Math.round((it.em - el.de) * fps);
+          const t = local - ini; // quadros desde que o item entrou
+          if (t < 0) return <div key={i} style={{ height: 120 * k }} />;
+          // entra em escala, passa um pouco do tamanho e assenta (bounce)
+          const esc = spring({ frame: t, fps, config: { damping: 8, stiffness: 190, mass: 0.6 } });
+          const op = interpolate(t, [0, 4], [0, 1], clamp);
+          // o check dá pulinhos que vão diminuindo (2 pulos)
+          const u = interpolate(t, [3, 27], [0, 1], clamp);
+          const pulo = -Math.abs(Math.sin(u * Math.PI * 2)) * 26 * k * (1 - u);
+          const escCheck = spring({ frame: Math.max(0, t - 3), fps, config: { damping: 7, stiffness: 220, mass: 0.5 } });
+          return (
             <div
+              key={i}
               style={{
-                fontFamily: fonts.titulo,
-                fontSize: 112 * k,
-                color: colors.branco,
-                letterSpacing: 2 * k,
-                whiteSpace: "nowrap",
+                display: "flex",
+                alignItems: "center",
+                gap: 26 * k,
+                height: 120 * k,
+                opacity: op,
+                transform: `scale(${0.35 + 0.65 * esc})`,
+                transformOrigin: "left center",
               }}
             >
-              <Rico texto={it} />
+              <div
+                style={{
+                  width: 70 * k,
+                  height: 70 * k,
+                  transform: `translateY(${pulo}px) scale(${0.3 + 0.7 * escCheck})`,
+                }}
+              >
+                <IconeAnimado nome="check" tam={70 * k} local={t + 6} />
+              </div>
+              <div
+                style={{
+                  fontFamily: fonts.titulo,
+                  fontSize: 112 * k,
+                  lineHeight: `${120 * k}px`,
+                  color: colors.branco,
+                  letterSpacing: 2 * k,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <Rico texto={texto} />
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
-  </>
-);
+          );
+        })}
+      </div>
+    </>
+  );
+};
 
 /**
  * Um elemento animado no painel de cima. Entra rápido (expo), fica, sai curto (sobe e some com leve desfoque).

@@ -8,7 +8,7 @@
    "de": 0,
    "ate": 3.57,
    "layout": "dividido",
-   "rostoY": 33,
+   "rostoY": 42,
    "imagemTopo": "c02-tiago/fundo-topo.jpg",
    "imagemTopoY": 60
   },
@@ -21,7 +21,7 @@
    "de": 15.38,
    "ate": 18.95,
    "layout": "dividido",
-   "rostoY": 45,
+   "rostoY": 54,
    "imagemTopo": "c02-tiago/fundo-topo2.jpg",
    "imagemTopoY": 0
   },
@@ -29,7 +29,7 @@
    "de": 18.95,
    "ate": 20.82,
    "layout": "dividido",
-   "rostoY": 45,
+   "rostoY": 54,
    "imagemTopo": "c02-tiago/fundo-topo3.jpg",
    "imagemTopoY": 0
   }
@@ -511,14 +511,29 @@
   {
    "tipo": "lista",
    "itens": [
-    "DIREÇÃO",
-    "COMPOSIÇÃO",
-    "COR",
-    "ILUMINAÇÃO",
-    "SOM"
+    {
+     "texto": "DIREÇÃO",
+     "em": 9.5
+    },
+    {
+     "texto": "COMPOSIÇÃO",
+     "em": 10.2
+    },
+    {
+     "texto": "COR",
+     "em": 11.06
+    },
+    {
+     "texto": "ILUMINAÇÃO",
+     "em": 11.4
+    },
+    {
+     "texto": "SOM",
+     "em": 12.08
+    }
    ],
-   "de": 9.2,
-   "ate": 12.6
+   "de": 9.3,
+   "ate": 12.9
   },
   {
    "tipo": "icone",
