@@ -6,6 +6,7 @@ import { ExemploEfeitos } from "./exemplo/ExemploEfeitos";
 import { ExemploGraficos } from "./exemplo/ExemploGraficos";
 import { ExemploIcone } from "./exemplo/ExemploIcone";
 import { ExemploLegendas } from "./exemplo/ExemploLegendas";
+import { ExemploTituloScript } from "./exemplo/ExemploTituloScript";
 
 /** Composições de referência do CFDesigner. Entram no Root.tsx; pode apagar quando quiser. */
 export const CFDesignerComposicoes: React.FC = () => (
@@ -47,6 +48,13 @@ export const CFDesignerComposicoes: React.FC = () => (
       fps={30}
       width={1080}
       height={1920}
+    />
+    <Still
+      id="CFDesigner-TituloScript"
+      component={ExemploTituloScript}
+      width={1080}
+      height={1350}
+      defaultProps={{ variante: "a" as const }}
     />
     <Composition
       id="CFDesigner-Icone-Inclinacao"

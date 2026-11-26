@@ -78,6 +78,22 @@ Telas de fundo animadas para cenas sem foto/vídeo (passo a passo, explicações
 
 Aprovado pelo dono para carrosséis: **fundo branco** (`#ffffff`), **âmbar no lugar do petróleo** (blocos, círculos, fitas, marca-texto da palavra-chave, texto preto sobre o âmbar; nunca texto âmbar sobre branco), Montserrat 600 em frase normal para o título, Lato para apoio, Bebas só em palavras fantasma e fitas. Elementos (círculos, cartões inclinados, fitas, onda de som) **atravessam de um slide para o outro**: cada slide é uma janela de 1080 px sobre uma tela contínua de 8640 px. Logo em plaquinha preta sobre fundo claro. Fotos do dono recortadas com `rembg` (ver `producoes/carrossel-video-ia/`). Este uso de fundo claro vale só para carrossel.
 
+## Título com letra de pincel (`TituloScript`)
+
+Pedido pelo dono em 26/11/2026, a partir de uma referência de landing page: **mistura de letra quadrada (Montserrat 800) com uma palavra em letra de pincel**, bem junta e **sobrepondo a linha de cima**. A opção **A (Kaushan Script, âmbar sobre preto, com traço fino embaixo) é a preferida**; as outras duas valem como variações.
+
+| Opção | Fonte | Fundo | Cor da palavra |
+| --- | --- | --- | --- |
+| **A (principal)** | Kaushan Script (`fontFamilies.script`) | preto cinema | âmbar, com traço fino |
+| B | Yellowtail (`scriptFluida`) | âmbar | branca com sombra rígida preta (entrelinha mais fechada) |
+| C | Damion (`scriptRedonda`) | branco | preta sobre faixa âmbar (marca-texto) |
+
+```tsx
+<TituloScript linha1="Quem dirige" prefixo="é" palavra="você." fonte="kaushan" fundo="preto" />
+```
+
+Regra de cor: âmbar só sobre preto; sobre âmbar ou branco a palavra é preta ou branca (o componente escolhe sozinho pelo `fundo`). Uma palavra de pincel por título; frase curta. Exemplo: `CFDesigner-TituloScript` (variantes `a`, `b`, `c`).
+
 ## Imagem e foto
 
 Fotos em luz baixa, 70% ou mais em sombra, vinheta preta até `void` onde há texto. Sem filtros coloridos. Retratos em `assets/imagery` (`imagery.*`).

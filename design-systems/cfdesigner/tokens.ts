@@ -58,6 +58,11 @@ export const fontFamilies = {
   heading: '"Montserrat", "Segoe UI", system-ui, sans-serif',
   body: '"Lato", "Open Sans", system-ui, sans-serif',
   mono: '"IBM Plex Mono", ui-monospace, Menlo, monospace',
+  /** Palavra de destaque em letra de pincel (principal, escolha do dono em 26/11/2026). */
+  script: '"Kaushan Script", "Brush Script MT", cursive',
+  /** Alternativas de pincel: mais fluida e mais redonda. */
+  scriptFluida: '"Yellowtail", "Brush Script MT", cursive',
+  scriptRedonda: '"Damion", "Brush Script MT", cursive',
 } as const;
 
 export const textStyles = {

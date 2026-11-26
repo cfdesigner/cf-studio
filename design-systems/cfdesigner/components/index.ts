@@ -13,3 +13,4 @@ export { Testimonial, type TestimonialProps } from "./Testimonial";
 export { Manifesto, type ManifestoProps } from "./Manifesto";
 export { Grain } from "./shared";
 export { Legendas, type LegendasProps } from "./Legendas";
+export { TituloScript, type TituloScriptProps, type FonteScript, type FundoTitulo } from "./TituloScript";

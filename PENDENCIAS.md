@@ -136,6 +136,11 @@
 - [x] Carrossel "Vídeo com IA" **descartado pelo dono** (prefere carrosséis com informação real); código removido
 - [ ] **[dono]** Mandar os próximos assuntos (texto, link ou artigo colado); eu gero na mesma identidade com as fotos dele. Imagem gerada no Magnific só com autorização (custa ~65 créditos por imagem)
 
+### Título com letra de pincel (CFDesigner)
+
+- [x] **[Claude]** Componente `TituloScript` e fontes de pincel (Kaushan, Yellowtail, Damion) no design system, a partir da referência do dono. **Opção A (Kaushan, âmbar sobre preto) é a preferida**. Exemplo `CFDesigner-TituloScript`; guia em `DESIGN-SYSTEM.md`
+- [ ] **[dono + Claude]** Usar a opção A nas capas e nos próximos carrosséis; melhorar com o tempo
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz
