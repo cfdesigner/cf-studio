@@ -1,29 +1,33 @@
-# Gera storyboard.html do ep. 05 (CFDesigner). Uso: python3 producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/gerar_storyboard.py
-import html, pathlib
+# Gera storyboard.html do ep. 05 (CFDesigner), no visual dos carrosséis (fundo branco, âmbar, preto cinema). Uso: python3 producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/gerar_storyboard.py
+import html, pathlib, base64, io
+from PIL import Image
 AQUI=pathlib.Path(__file__).parent
+RAIZ=AQUI.parent.parent.parent
+_im=Image.open(RAIZ/"design-systems/cfdesigner/assets/logos/cfdesigner-horizontal-white.png"); _im.thumbnail((320,320)); _b=io.BytesIO(); _im.save(_b,"PNG",optimize=True)
+LOGO="data:image/png;base64,"+base64.b64encode(_b.getvalue()).decode()
 W,H=270,480
-AMB="#d9a441"; PET="#0f4c5c"; BRZ="#8a6a2a"
+AMB="#d9a441"
 def esc(t): return html.escape(t)
 FONT="Montserrat,sans-serif"
 
 DEFS='''<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
-<linearGradient id="gStudio" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f6677"/><stop offset=".62" stop-color="#143c47"/><stop offset="1" stop-color="#0c2229"/></linearGradient>
-<linearGradient id="gFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2a33"/><stop offset="1" stop-color="#071519"/></linearGradient>
-<radialGradient id="gKey" cx=".85" cy=".12" r=".7"><stop offset="0" stop-color="#ffd98a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient>
-<radialGradient id="gVig" cx=".5" cy=".45" r=".75"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
-<linearGradient id="gClip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7e1d6"/><stop offset="1" stop-color="#bdb5a7"/></linearGradient>
-<linearGradient id="gClipFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a927f"/><stop offset="1" stop-color="#776f5d"/></linearGradient>
-<linearGradient id="gVoid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14181d"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient>
-<linearGradient id="gShirt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46505d"/><stop offset="1" stop-color="#262c35"/></linearGradient>
-<linearGradient id="gShirtClip" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#36424f"/><stop offset="1" stop-color="#1c232c"/></linearGradient>
-<linearGradient id="gSkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2b998"/><stop offset="1" stop-color="#bf8f6c"/></linearGradient>
-<linearGradient id="gHolo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd98a" stop-opacity=".34"/><stop offset="1" stop-color="#d9a441" stop-opacity=".06"/></linearGradient>
-<linearGradient id="gAlien" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9be3a8"/><stop offset="1" stop-color="#4d9a62"/></linearGradient>
-<linearGradient id="gRobot" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7dde3"/><stop offset="1" stop-color="#7c8793"/></linearGradient>
-<linearGradient id="gAmberLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9a441" stop-opacity="0"/><stop offset=".5" stop-color="#ffd98a"/><stop offset="1" stop-color="#d9a441" stop-opacity="0"/></linearGradient>
+<linearGradient id="gStudio"><stop offset="0" stop-color="#0b0c0e"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient>
+<linearGradient id="gFloor"><stop offset="0" stop-color="#16181c"/><stop offset="1" stop-color="#16181c"/></linearGradient>
+<radialGradient id="gKey"><stop offset="0" stop-color="#d9a441" stop-opacity="0"/><stop offset="1" stop-color="#d9a441" stop-opacity="0"/></radialGradient>
+<radialGradient id="gVig"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+<linearGradient id="gClip"><stop offset="0" stop-color="#efe9dc"/><stop offset="1" stop-color="#efe9dc"/></linearGradient>
+<linearGradient id="gClipFloor"><stop offset="0" stop-color="#d9cfb8"/><stop offset="1" stop-color="#d9cfb8"/></linearGradient>
+<linearGradient id="gVoid"><stop offset="0" stop-color="#0b0c0e"/><stop offset="1" stop-color="#0b0c0e"/></linearGradient>
+<linearGradient id="gShirt"><stop offset="0" stop-color="#f2eee6"/><stop offset="1" stop-color="#f2eee6"/></linearGradient>
+<linearGradient id="gShirtClip"><stop offset="0" stop-color="#1f2329"/><stop offset="1" stop-color="#1f2329"/></linearGradient>
+<linearGradient id="gSkin"><stop offset="0" stop-color="#e2b998"/><stop offset="1" stop-color="#e2b998"/></linearGradient>
+<linearGradient id="gHolo"><stop offset="0" stop-color="#d9a441" stop-opacity=".22"/><stop offset="1" stop-color="#d9a441" stop-opacity=".22"/></linearGradient>
+<linearGradient id="gAlien"><stop offset="0" stop-color="#8fd49c"/><stop offset="1" stop-color="#8fd49c"/></linearGradient>
+<linearGradient id="gRobot"><stop offset="0" stop-color="#cfd5db"/><stop offset="1" stop-color="#cfd5db"/></linearGradient>
+<linearGradient id="gAmberLine"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#d9a441"/></linearGradient>
 <filter id="fBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
 <filter id="fSoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
-<pattern id="pScan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#ffd98a" opacity=".16"/></pattern>
+<pattern id="pScan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#d9a441" opacity=".18"/></pattern>
 </defs></svg>'''
 
 def txt(t,x,y,size=11,fill="#fff",w=600,anchor="middle",ls=1.2,font=FONT,op=1):
@@ -33,11 +37,10 @@ def stage(kind="studio"):
     if kind=="void":
         return f'<rect width="{W}" height="{H}" fill="url(#gVoid)"/>'
     if kind=="clip":
-        return (f'<rect width="{W}" height="{H}" fill="url(#gClip)"/><rect y="{H-92}" width="{W}" height="92" fill="url(#gClipFloor)"/>'
+        return (f'<rect width="{W}" height="{H}" fill="#efe9dc"/><rect y="{H-92}" width="{W}" height="92" fill="url(#gClipFloor)"/>'
                 f'<ellipse cx="135" cy="{H-90}" rx="120" ry="8" fill="#000" opacity=".12" filter="url(#fSoft)"/>')
-    s=f'<rect width="{W}" height="{H}" fill="url(#gStudio)"/><rect width="{W}" height="{H}" fill="url(#gKey)"/>'
-    s+=f'<rect y="{H-84}" width="{W}" height="84" fill="url(#gFloor)"/>'
-    s+=''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="#ffd98a" opacity="{o}" filter="url(#fSoft)"/>' for x,y,r,o in [(40,120,9,.12),(70,90,5,.10),(225,70,11,.14),(200,150,6,.10),(18,200,7,.08)])
+    s=f'<rect width="{W}" height="{H}" fill="#0b0c0e"/><rect y="{H-84}" width="{W}" height="84" fill="#16181c"/>'
+    s+=''.join(f'<rect x="{x-d}" y="{y-d}" width="{2*d}" height="{2*d}" fill="#14171b" transform="rotate(45 {x} {y})"/>' for x,y,d in [(28,120,34),(240,92,44),(214,232,22),(20,300,26)])
     return s
 
 def vignette(): return f'<rect width="{W}" height="{H}" fill="url(#gVig)"/>'
@@ -48,7 +51,7 @@ def person(pose="open",scale=1.0,cx=135,top=170,head="human",smile=False,clip=Fa
     sh="url(#gShirtClip)" if clip else "url(#gShirt)"
     o=[]
     o.append(f'<path d="M{X(55)} {Y(480)} L{X(62)} {Y(300)} Q{X(70)} {Y(250)} {X(135)} {Y(244)} Q{X(200)} {Y(250)} {X(208)} {Y(300)} L{X(215)} {Y(480)} Z" fill="{sh}"/>')
-    o.append(f'<path d="M{X(62)} {Y(300)} Q{X(70)} {Y(250)} {X(135)} {Y(244)}" stroke="#ffd98a" stroke-opacity=".5" stroke-width="{1.6*s}" fill="none"/>')
+    o.append(f'<path d="M{X(62)} {Y(300)} Q{X(70)} {Y(250)} {X(135)} {Y(244)}" stroke="#d9a441" stroke-opacity=".5" stroke-width="{1.6*s}" fill="none"/>')
     o.append(f'<path d="M{X(112)} {Y(246)} Q{X(135)} {Y(268)} {X(158)} {Y(246)}" stroke="#0b0c0e" stroke-opacity=".35" stroke-width="{2.4*s}" fill="none"/>')
     arms={"open":((70,290,46,350),(200,290,224,350),(44,356),(226,356)),
           "closed":((70,290,88,372),(200,290,182,372),(90,380),(180,380)),
@@ -89,7 +92,7 @@ def holo(x,y,w,h,label,tint=AMB,glow=1.0,alpha=1.0):
     g.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="3" fill="url(#pScan)"/>')
     g.append(f'<circle cx="{icx}" cy="{y+h*0.4}" r="{w*0.11}" fill="url(#gSkin)"/><path d="M{icx-w*0.24} {y+h} L{icx-w*0.18} {y+h*0.62} Q{icx} {y+h*0.53} {icx+w*0.18} {y+h*0.62} L{icx+w*0.24} {y+h} Z" fill="#46505d"/>')
     for (a,b,dx,dy) in [(x,y,1,1),(x+w,y,-1,1),(x,y+h,1,-1),(x+w,y+h,-1,-1)]:
-        g.append(f'<path d="M{a} {b+dy*9} L{a} {b} L{a+dx*9} {b}" stroke="#fff3cf" stroke-width="2.2" fill="none" stroke-linecap="round"/>')
+        g.append(f'<path d="M{a} {b+dy*9} L{a} {b} L{a+dx*9} {b}" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>')
     g.append(f'<rect x="{x}" y="{y-14}" width="17" height="14" rx="3" fill="{tint}"/><text x="{x+8.5}" y="{y-3.6}" font-size="9.5" font-weight="700" fill="#0b0c0e" text-anchor="middle" font-family="{FONT}">{esc(label)}</text>')
     g.append('</g>')
     return "".join(g)
@@ -103,7 +106,7 @@ def add(**k): scenes.append(k)
 
 # 1
 i=stage()+person("open")+holo(*HL,"1",glow=1.7)+holo(*HR,"2",glow=1.7)+vignette()
-i+=''.join(f'<line x1="{a}" y1="{b}" x2="{c}" y2="{d}" stroke="#ffd98a" stroke-opacity=".8" stroke-width="1.3" stroke-linecap="round"/>' for a,b,c,d in [(48,256,38,236),(62,254,64,232),(222,256,232,236),(208,254,206,232)])
+i+=''.join(f'<line x1="{a}" y1="{b}" x2="{c}" y2="{d}" stroke="#d9a441" stroke-opacity=".8" stroke-width="1.3" stroke-linecap="round"/>' for a,b,c,d in [(48,256,38,236),(62,254,64,232),(222,256,232,236),(208,254,206,232)])
 i+=topt("UM DESSES SOU EU")
 add(n=1,fase="alc",t="0 a 3 s",ini=0,dur=3,nome="Gancho",botao="Alcance",svg=svg(i),
  fala="Um desses dois sou eu. O outro é IA.",texto="UM DESSES SOU EU",
@@ -145,8 +148,8 @@ add(n=4,fase="ret",t="9 a 12 s",ini=9,dur=3,nome="Imagem 2 em tela cheia",botao=
  atencao="Se o clipe de IA ficar óbvio demais, o gancho muda para “olha o que a IA faz comigo” e a graça passa para a transformação.")
 # 5
 i=stage()+person("open")+holo(*HL,"1",glow=1.1)+holo(*HR,"2",glow=1.1)+vignette()+topt("ONDE ESTÁ O ERRO?",y=46,size=13)
-i+=f'<circle cx="222" cy="328" r="23" fill="none" stroke="#ffd98a" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="48" cy="310" r="21" fill="none" stroke="#ffd98a" stroke-width="1.5" stroke-dasharray="3 3"/>'
-i+=txt("MÃOS",222,368,size=8,fill="#ffd98a",w=700)+txt("SOMBRA",48,350,size=8,fill="#ffd98a",w=700)
+i+=f'<circle cx="222" cy="328" r="23" fill="none" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="48" cy="310" r="21" fill="none" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="3 3"/>'
+i+=txt("MÃOS",222,368,size=8,fill="#d9a441",w=700)+txt("SOMBRA",48,350,size=8,fill="#d9a441",w=700)
 add(n=5,fase="ret",t="12 a 16 s",ini=12,dur=4,nome="Pistas e pedido",botao="Retenção",svg=svg(i),
  fala="Olha as mãos, olha a sombra. Comenta aí: 1 ou 2?",texto="ONDE ESTÁ O ERRO?",
  imagem="De volta a você, com os dois hologramas nas mãos. Zoom suave dentro de cada holograma, em detalhes (mãos, sombra, borda do corpo), com um círculo âmbar tracejado marcando onde olhar. Você olha de uma imagem para a outra.",
@@ -157,7 +160,7 @@ add(n=5,fase="ret",t="12 a 16 s",ini=12,dur=4,nome="Pistas e pedido",botao="Rete
  atencao="Aqui está o pedido único do vídeo (comentar 1 ou 2). Se preferir “manda para um amigo”, troco a fala.")
 # 6
 i=stage()+person("open",smile=True)+holo(*HL,"1",glow=.6,alpha=.65)+holo(*HR,"2",glow=.6,alpha=.65)+vignette()
-i+=f'<path d="M-10 478 L290 140" stroke="url(#gAmberLine)" stroke-width="2.4"/><path d="M-10 478 L290 140" stroke="#ffd98a" stroke-width=".8" opacity=".9"/>'
+i+=f'<path d="M-10 478 L290 140" stroke="url(#gAmberLine)" stroke-width="2.4"/><path d="M-10 478 L290 140" stroke="#d9a441" stroke-width=".8" opacity=".9"/>'
 i+=txt("1 OU 2?",W/2,62,size=34,fill="#fff",w=400,ls=3,font="Bebas Neue")
 add(n=6,fase="ret",t="16 a 18 s",ini=16,dur=2,nome="Pausa dramática",botao="Retenção para revelação",svg=svg(i),
  fala="Silêncio. Dois segundos sem fala.",texto="1 OU 2?",
@@ -181,12 +184,12 @@ add(n=7,fase="mar",t="18 a 20 s",ini=18,dur=2,nome="Revelação",botao="Maratona
  atencao="Transparência: a revelação diz claramente qual é IA. Nada fica escondido.")
 # 8
 def glitchfig(dx,col): return f'<g transform="translate({dx},0)" opacity=".55" style="mix-blend-mode:screen"><g fill="{col}">{person("wide",1.25,135,150,head="alien")}</g></g>'
-i=stage("void")+f'<g transform="translate(-5,0)" opacity=".7">{person("wide",1.25,135,150,head="alien")}</g>'.replace('url(#gShirt)','#ff2d78').replace('url(#gSkin)','#ff2d78').replace('url(#gAlien)','#ff2d78')
-i+=f'<g transform="translate(5,0)" opacity=".7">{person("wide",1.25,135,150,head="alien")}</g>'.replace('url(#gShirt)','#18e0ff').replace('url(#gSkin)','#18e0ff').replace('url(#gAlien)','#18e0ff')
+i=stage("void")+f'<g transform="translate(-5,0)" opacity=".7">{person("wide",1.25,135,150,head="alien")}</g>'.replace('url(#gShirt)','#d9a441').replace('url(#gSkin)','#d9a441').replace('url(#gAlien)','#d9a441')
+i+=f'<g transform="translate(5,0)" opacity=".7">{person("wide",1.25,135,150,head="alien")}</g>'.replace('url(#gShirt)','#eef2f5').replace('url(#gSkin)','#eef2f5').replace('url(#gAlien)','#eef2f5')
 i+=f'<g>{person("wide",1.25,135,150,head="alien")}</g>'
 for yy,hh in ((214,5),(262,9),(318,4),(372,7)): i+=f'<rect x="0" y="{yy}" width="{W}" height="{hh}" fill="#0b0c0e" opacity=".8"/>'
-i+=f'<rect x="0" y="288" width="{W}" height="14" fill="url(#pScan)"/><g transform="translate(12,0)"><rect x="40" y="246" width="150" height="10" fill="#18e0ff" opacity=".35"/></g>'
-i+=txt("MESMO MOVIMENTO",W/2,46,size=9.5,fill="#ffd98a",w=700,ls=3)+vignette()
+i+=f'<rect x="0" y="288" width="{W}" height="14" fill="url(#pScan)"/><g transform="translate(12,0)"><rect x="40" y="246" width="150" height="10" fill="#d9a441" opacity=".5"/></g>'
+i+=txt("MESMO MOVIMENTO",W/2,46,size=9.5,fill="#d9a441",w=700,ls=3)+vignette()
 strip=[]
 for lab,hd in [("Você (IA)","human"),("Alienígena","alien"),("Robô","robot"),("Alienígena","alien"),("Robô","robot")]:
     strip.append((lab,svg(stage("void")+person("wide",1.25,135,150,head=hd)+vignette())))
@@ -200,7 +203,7 @@ add(n=8,fase="mar",t="20 a 23,5 s",ini=20,dur=3.5,nome="Transformação",botao="
  atencao="É a parte mais arriscada: o motion control pode errar mão, rosto ou pé. Geramos 2 a 3 versões de cada e escolhemos.")
 # 9
 i=stage()+person("open",smile=True)+vignette()+txt("QUEM DIRIGE É VOCÊ",W/2,56,size=27,fill="#fff",w=400,ls=2.4,font="Bebas Neue")
-i+=txt("PRÓXIMO: DA ARGILA AO 4K",W/2,338,size=7.6,fill="#ffd98a",w=700,ls=2.2)
+i+=txt("PRÓXIMO: DA ARGILA AO 4K",W/2,338,size=7.6,fill="#d9a441",w=700,ls=2.2)
 add(n=9,fase="mar",t="23,5 a 26 s",ini=23.5,dur=2.5,nome="Tese e gancho para o próximo",botao="Maratona de perfil",svg=svg(i),
  fala="A IA gera. Quem dirige é você. No próximo, da argila ao 4K.",texto="QUEM DIRIGE É VOCÊ",
  imagem="Você de volta, mãos abertas e vazias. Sorri e diz a tese olhando para a câmera. Embaixo, bem pequeno, o anúncio do próximo episódio, acima da zona do rodapé do Instagram.",
@@ -223,9 +226,13 @@ add(n=10,fase="mar",t="26 a 27,5 s",ini=26,dur=1.5,nome="Fecho",botao="Assinatur
  atencao="O logo desenhado aqui é só uma indicação: no vídeo entra o logo real do design system.")
 
 TOTAL=27.5
-FASE={"alc":("Alcance","var(--alc)"),"ret":("Retenção","var(--ret)"),"mar":("Maratona","var(--mar)")}
+FASE={"alc":("Alcance",""),"ret":("Retenção",""),"mar":("Maratona","")}
+import base64 as _b
+def hl(nome):
+    p=nome.rsplit(" ",1)
+    return (esc(p[0])+" " if len(p)>1 else "")+f'<mark>{esc(p[-1])}</mark>'
 def card(s):
-    fn,fc=FASE[s["fase"]]
+    fn,_=FASE[s["fase"]]
     left=s["ini"]/TOTAL*100; wd=s["dur"]/TOTAL*100
     strip=""
     if s.get("strip"):
@@ -234,22 +241,26 @@ def card(s):
             if k>0: strip+='<li class="gl" aria-hidden="true">glitch</li>'
             strip+=f'<li><div class="mini">{sv}</div><span>{esc(lab)}</span></li>'
         strip+='</ol></div>'
-    mini="".join(f'<div class="m"><dt>{a}</dt><dd>{esc(s[k])}</dd></div>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
+    bl="".join(f'<li><b>{a}</b> {esc(s[k])}</li>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
     return f'''<article class="card {s["fase"]}" id="c{s["n"]}">
-<header class="ch"><span class="num">{s["n"]:02d}</span><div class="ct"><h3>{esc(s["nome"])}</h3><p class="meta"><b class="ph">{fn}</b><span>{esc(s["t"])}</span></p></div>
-<div class="pos" role="img" aria-label="Posição no vídeo: {esc(s["t"])}"><i style="left:{left:.2f}%;width:{wd:.2f}%"></i></div></header>
-<div class="body"><figure class="frame"><div class="bez">{s["svg"]}</div><figcaption>Ilustração do quadro, 9:16. A imagem real vem da sua gravação.</figcaption></figure>
+<div class="ghost" aria-hidden="true">{s["n"]:02d}</div>
+<div class="top"><span class="plate"><img src="%%LOGO%%" alt="CFDesigner"></span><span class="cnt">{s["n"]:02d} / 10</span></div>
+<p class="kick"><span class="ph">{fn}</span><span class="tm">{esc(s["t"])}</span></p>
+<h3>{hl(s["nome"])}</h3>
+<div class="pos" role="img" aria-label="Posição no vídeo: {esc(s["t"])}"><i style="left:{left:.2f}%;width:{wd:.2f}%"></i></div>
+<div class="body"><figure class="frame"><div class="disc"></div><div class="bez">{s["svg"]}</div><figcaption>Ilustração do quadro, 9:16. A imagem real vem da sua gravação.</figcaption></figure>
 <div class="info">
 <div class="say"><span class="lab">Fala</span><p>“{esc(s["fala"])}”</p></div>
-<div class="scr"><span class="lab">Na tela</span><b>{esc(s["texto"])}</b></div>
+<div class="scr"><span class="lab">Na tela</span><b class="placa">{esc(s["texto"])}</b></div>
 <div class="what"><span class="lab">Imagem</span><p>{esc(s["imagem"])}</p></div>
-<dl class="grid">{mini}</dl>
+<ul class="dia">{bl}</ul>
 <div class="att"><span class="lab">Atenção</span><p>{esc(s["atencao"])}</p></div>
 </div></div>{strip}
 <div class="chg"><label class="chk"><input type="checkbox" id="m{s["n"]}" data-n="{s["n"]}"> Quero mudar esta cena</label><label for="t{s["n"]}" class="vh">O que mudar na cena {s["n"]}</label><textarea id="t{s["n"]}" rows="2" placeholder="O que você quer diferente aqui?"></textarea></div>
+<footer class="ft"><span>@CFDESIGNER.OFICIAL</span><span class="pill">CENA {s["n"]:02d}</span></footer>
 </article>'''
 
 tl="".join(f'<a class="{s["fase"]}" href="#c{s["n"]}" style="flex:{s["dur"]}" title="{esc(s["nome"])} · {esc(s["t"])}"><b>{s["n"]:02d}</b><i>{esc(s["nome"])}</i></a>' for s in scenes)
 cards="\n".join(card(s) for s in scenes)
-page=(AQUI/"storyboard-modelo.html").read_text().replace("%%DEFS%%",DEFS).replace("%%TL%%",tl).replace("%%CARDS%%",cards)
+page=(AQUI/"storyboard-modelo.html").read_text().replace("%%TL%%",tl).replace("%%CARDS%%",cards).replace("%%DEFS%%",DEFS).replace("%%LOGO%%",LOGO)
 (AQUI/"storyboard.html").write_text(page); print(len(page))
