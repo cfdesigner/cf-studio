@@ -86,6 +86,11 @@ table.t td:first-child b{color:var(--amber);font:400 22px var(--display);letter-
 .code{padding-right:110px}
 .meta2{font-size:13.5px;color:var(--muted);margin:10px 0 0}
 .meta2 b{color:var(--txt)}
+.hphoto.gph{min-height:0;aspect-ratio:5/6;width:100%;max-width:560px;justify-self:end}
+.gph .disc{right:3%;top:8%;width:76%}
+.gph .ring{right:-8%;top:2%;width:96%}
+.gph .gimg{position:absolute;z-index:5;left:auto;right:13%;bottom:0;width:54%;aspect-ratio:9/16;border-radius:22px;border:1px solid rgba(217,164,65,.6);box-shadow:0 24px 50px -20px rgba(0,0,0,.8)}
+.selos span{white-space:nowrap;flex:none}
 .warn{margin-top:18px;border-radius:16px;padding:14px 18px;font-size:14px}
 .warn .lab{color:#f1d9a3}
 @media (max-width:820px){.two2{grid-template-columns:1fr}.gcard{padding:20px 16px}.code{padding-right:18px;padding-top:50px}}
@@ -141,8 +146,8 @@ page=f"""<title>Guia de produção Qual sou eu</title>
 <h1 style="font-size:clamp(44px,6.6vw,92px);white-space:nowrap;line-height:1.1">Como <span class="sc">gravar<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 25 2, 70 2, 98 10" stroke="#d9a441" stroke-width="4" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></h1>
 <p class="lead">Tudo o que você precisa para gravar os dois takes, a gravação principal e os clipes de IA: o que fazer, em que ordem, e os prompts prontos para colar.</p>
 <div class="selos" style="flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none"><span class="glass">6 arquivos</span><span class="glass">Takes de 8 s</span><span class="glass">Google Flow · Veo 3 Omni</span><span class="glass">Órbita esquerda e direita</span></div></div>
-<div class="hphoto" style="min-height:500px" aria-hidden="true"><span class="disc"></span><span class="ring"></span><div style="position:absolute;right:4%;bottom:-6px;width:60%;aspect-ratio:9/16;border-radius:22px;background:url({FOTO}) center/cover;border:1px solid rgba(217,164,65,.6);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);z-index:5"></div></div>
-</div></div></header>
+<div class="hphoto gph" aria-hidden="true"><span class="disc"></span><span class="ring"></span><div class="gimg" style="background:url({FOTO}) center/cover"></div></div>
+</div></header>
 <div class="wrap"><main>{''.join(secs)}</main><footer class="ft"><span class="plate"><img src="{LOGO}" alt="CFDesigner"></span><span>@CFDESIGNER.OFICIAL</span></footer></div>
 <script>
 (function(){{
