@@ -6,7 +6,8 @@ Arquivos em WebP com transparência (qualidade 95). Os originais PNG ficam no Ma
 
 | Arquivo | O que é | Onde entra | Observação |
 | --- | --- | --- | --- |
-| `01-rastro-luz.webp` | rastros de luz âmbar em espiral (16:9) | capa, atravessando a foto | **veio com fundo preto, sem transparência**: usar sobre preto com `mix-blend-mode: screen` |
+| `01-rastro-luz.webp` | rastros de luz âmbar em espiral (16:9) | capa, atravessando a foto | original, **com fundo preto**: usar só sobre preto |
+| `01-rastro-luz-transparente.webp` | o mesmo, com fundo transparente | qualquer fundo (preto ou creme) | feito de graça com `scripts/preto-para-alpha.py` (o preto vira transparente) |
 | `02-anel-3d.webp` | anel 3D preto brilhante com luz âmbar | "Próximos passos" | |
 | `03-esfera-3d.webp` | esfera 3D preta com reflexo âmbar | cartão das fases | |
 | `04-ouro-liquido.webp` | onda de ouro líquido (4:3) | fundo do cartão "Sobre" | |
@@ -16,3 +17,5 @@ Arquivos em WebP com transparência (qualidade 95). Os originais PNG ficam no Ma
 | `08-papel-rasgado.webp` | tira de papel rasgado preta com meio-tom âmbar (21:9) | divisor entre seções | |
 
 Regras: usar só na linguagem A (fundo preto), nunca misturar com outro design system; novos pedidos de imagem só com o custo mostrado e o "pode" do dono.
+
+Aprovadas pelo dono em 26/11/2026. Regra dele: se funcionar sobre fundo preto, usar assim; só recortar a que for usada em outro fundo. As outras 7 já vieram com transparência.
