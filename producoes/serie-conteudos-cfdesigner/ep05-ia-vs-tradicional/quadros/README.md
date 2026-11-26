@@ -10,3 +10,7 @@ Gerados no Magnific em 26/11/2026 com o **Seedream 5.5, 9:16, 1k**, no estilo A 
 ## Troca das cenas 3 e 4 (26/11/2026)
 
 A pedido do dono, as cenas 3 e 4 usam a **mesma imagem**: ele sentado na escada, no estilo de pose de uma foto de modelo (referências: a folha de personagem e a foto da pose). 45 créditos (uma imagem com 2 referências). A versão anterior (em pé, de braços abertos) ficou como `cena-04-em-pe.webp`, usada só na sequência da transformação, onde o alienígena e o robô ainda estão em pé. Falta, se o dono quiser, refazer o glitch, o alienígena e o robô na pose sentada (3 imagens, 135 créditos).
+
+## Cena 8 sentada (26/11/2026)
+
+Glitch, alienígena e robô refeitos na pose sentada da escada (cenas 3 e 4), com a folha de personagem e a imagem sentada como referências. 3 imagens × 45 = **135 créditos**. A faixa da transformação usa a `cena-04` como "Você". `cena-04-em-pe.webp` ficou sem uso.
