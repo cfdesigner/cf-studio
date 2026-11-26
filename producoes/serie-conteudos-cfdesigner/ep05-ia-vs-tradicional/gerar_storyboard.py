@@ -249,7 +249,7 @@ def ficha(s):
         strip+='</ol></div>'
     bl="".join(f'<li><b>{a}</b> {esc(s[k])}</li>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
     return f'''<article class="ficha {s["fase"]}" id="c{s["n"]}">
-<div class="flw"><div class="fl glass"><div class="phone"><div class="bez">{s["svg"]}</div></div></div></div>
+<div class="flw"><div class="fl glass dark"><div class="phone"><div class="bez">{s["svg"]}</div></div></div></div>
 <div class="fr">
 <p class="eyebrow"><span class="ph">{FASE[s["fase"]]}</span> Cena {s["n"]:02d} de 10 <i></i> {esc(s["t"])}</p>
 <h3>{hl(s["nome"])}</h3>
