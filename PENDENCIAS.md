@@ -146,6 +146,12 @@
 - [x] **[Claude]** 8 imagens de layout geradas no Magnific (Seedream 5.5, 1k, 200 créditos, autorizado pelo dono em 26/11/2026), em `design-systems/cfdesigner/assets/layout-storyboard/`
 - [ ] **[dono]** Aprovar as imagens; depois gerar as caixinhas dos quadros do storyboard e aplicar o layout novo (etapa seguinte, só com custo mostrado antes)
 
+### Quadros desenhados do storyboard (ep. 05)
+
+- [x] **[Claude]** Etapa 1: cena 1 (gancho) em 3 estilos de desenho com a foto do dono como referência (Seedream 5.5, 1k; **105 créditos**, pois a referência soma 10 por imagem). Em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/quadros/opcoes-gancho/`
+- [ ] **[dono]** Escolher o estilo (A lápis com aquarela, B carvão cinematográfico, C nanquim e âmbar) e confirmar a referência (a folha de personagem nova com rosto, perfil e corpo)
+- [ ] **[Claude]** Etapa 2: as outras 9 cenas + 2 quadros da transformação, só com o custo mostrado antes
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz
