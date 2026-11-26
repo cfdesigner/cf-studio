@@ -89,7 +89,10 @@ section{padding-block:72px 0}
 .fc p{margin:0;font-size:13px;line-height:1.5;opacity:.88}
 .fc small{margin-top:auto;padding-top:16px;padding-right:44px;font:600 9px var(--head);letter-spacing:.12em;text-transform:uppercase}
 .fc .go{position:absolute;right:16px;bottom:16px;width:28px;height:28px;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font-size:12px}
-.tearw{position:relative;width:min(820px,100%);margin:56px auto 0}.tearw img{display:block;width:100%;height:auto}.tearw span{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(20px,3.6vw,38px)/1 var(--display);letter-spacing:.22em;color:var(--amber);text-align:center;white-space:nowrap}
+.divg{position:relative;overflow:hidden;width:min(620px,100%);margin:56px auto 0;border-radius:22px;background:var(--ink);isolation:isolate}
+.divg img{position:absolute;left:-8%;top:50%;transform:translateY(-52%);width:116%;max-width:none;z-index:0;opacity:.9}
+.divg .glass{position:relative;z-index:1;margin:14px;border-radius:16px;padding:14px 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font:600 10.5px var(--head);letter-spacing:.22em;text-transform:uppercase}
+.divg .glass span{display:flex;align-items:center;gap:10px}.divg .glass span::before{content:"";width:6px;height:6px;background:var(--amber);transform:rotate(45deg)}
 .cenashead{position:relative}.cenashead img.lens{position:absolute;right:0;top:-30px;width:230px;pointer-events:none}
 /* mini cartões das cenas */
 .mgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:30px}
@@ -216,7 +219,7 @@ footer.ft nav{display:flex;gap:22px;flex-wrap:wrap}footer.ft a{color:var(--ink);
 </div>
 </section>
 
-<div class="tearw"><img src="%%IMG08%%" alt=""><span>10 cenas · 27,5 s</span></div>
+<div class="divg" aria-hidden="true"><img src="%%IMG04%%" alt=""><div class="glass"><span>10 cenas</span><span>27,5 s</span><span>3 fases</span></div></div>
 
 <section class="sec" id="cenas" aria-labelledby="h-cenas">
 <div class="cenashead"><img class="lens" src="%%IMG06%%" alt=""><p class="eyebrow">Todas as cenas <i></i></p>
