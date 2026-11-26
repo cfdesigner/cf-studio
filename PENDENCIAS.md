@@ -48,6 +48,12 @@
 - [x] Ajuste final: o swell do "15 segundos" agora é cortado (fade de 5 quadros) logo antes de o número parar; arquivo `out/um-video-nasce-aqui-final-hq2.mp4` (imagem idêntica à `-hq`, só o áudio trocado)
 - [x] **Vídeo FECHADO pelo dono** (v4, `out/um-video-nasce-aqui-final-v4.mp4`): não mexer mais (ritmo, tempo das cenas, trecho do C02, trecho da música 24–39 s)
 
+### Eletroposto CELESC: vídeo de encerramento (16:9, 3 min, CERTI)
+
+- [x] **[Claude]** Storyboard visual feito (`producoes/eletroposto-celesc/storyboard.html`, gerado por `gerar_storyboard.py`): 46 quadros ilustrados, linha do tempo, locução, texto na tela, som, janela de Libras, depoimentos e captação por diária
+- [ ] **[dono]** Aprovar o storyboard e confirmar: números da rede (36/31 x 48/38), onde entram os depoimentos, plano final (BR-101 ou Ponte Anita Garibaldi), logo da CELESC, imagens de arquivo
+- [ ] **[Claude]** Depois da gravação: trocar as ilustrações pelos quadros reais
+
 ### CERTI: o que depende do dono
 
 - [ ] **[dono]** (opcional) fotos, manual da marca e, se existirem, os arquivos oficiais do horizontal negativo e do símbolo (hoje derivados por mim)
