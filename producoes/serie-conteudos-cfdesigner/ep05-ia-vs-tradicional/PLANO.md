@@ -22,7 +22,7 @@ O dono aparece falando para a câmera, com **uma imagem flutuando sobre cada pal
 - **Gancho visual:** ele abre as mãos e as duas "telas" holográficas surgem, em movimento, e o contraste de dois "eus" (rosto dele de verdade + dois clipes dele). Sem cartão de título.
 - **Laço aberto:** qual é a IA (resolve em ~17 s) e "no fim eu mostro o que a câmera nunca fez" (a transformação).
 - **Pedido único:** comentar "1 ou 2".
-- **Maratona:** gancho para o episódio 06 ("o corte que entrega o amador").
+- **Maratona:** gancho para o episódio 06 ("do básico ao 4K").
 - **Medir depois:** retenção aos 3 s, tempo médio, envios, comentários "1" vs "2".
 
 ## Linha do tempo
@@ -37,7 +37,7 @@ O dono aparece falando para a câmera, com **uma imagem flutuando sobre cada pal
 | 16 a 18 | 2→3 | Pausa | Ele cala e sorri, olhando para a câmera | "1 OU 2?" | silêncio (ênfase só aqui, +4 dB) |
 | 18 a 20 | 3 | **Revelação** | Etiqueta "REAL" no holograma 1 e "IA" no 2 | "REAL" / "IA" | "O primeiro sou eu. O segundo é IA" |
 | 20 a 23,5 | 3 | **Transformação** | A imagem 2 (IA) abre em tela cheia e, no mesmo movimento, vira **alienígena → robô → alienígena → robô**, ~0,8 s cada, com um **glitch curto** em cada troca | pequeno: "MESMO MOVIMENTO" | "Mesmo movimento. Posso virar qualquer coisa" |
-| 23,5 a 26 | 3 Maratona | Tese + próximo | Volta a ele, mãos abertas | "QUEM DIRIGE É VOCÊ" e, pequeno, "PRÓXIMO: O CORTE QUE ENTREGA O AMADOR" | "A IA gera. Quem dirige é você. No próximo, o corte que entrega o amador" |
+| 23,5 a 26 | 3 Maratona | Tese + próximo | Volta a ele, mãos abertas | "QUEM DIRIGE É VOCÊ" e, pequeno, "PRÓXIMO: DO BÁSICO AO 4K" | "A IA gera. Quem dirige é você. No próximo, do básico ao 4K" |
 | 26 a 27,5 | | Fecho | `FundoCF` variante `visor` + logo | | |
 
 ~70 palavras em ~25 s (2,8 palavras/s, ritmo de fala natural; se ficar apertado, corto a fala de pistas). Sem legenda de fala (regra da série); só os textos pequenos. Se quiser mais curto (~22 s), tirar a imagem 2 em tela cheia (6 a 12 vira 6 a 10).
@@ -79,13 +79,13 @@ Gravação do clipe base: **câmera parada** (tripé), mesmo fundo, luz difusa, 
 - [ ] **[dono]** Gerar os clipes de IA e a narração/som.
 - [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado.
 
-## Episódio 06 (decidir agora?)
+## Episódio 06
 
-Recomendo **definir o tema agora** (só o tema, o resto fica para depois), porque a fala final do ep. 05 já anuncia o próximo e a narração é gravada antes. Proposta: **"Um corte errado pode acabar com uma boa cena"** (opção A do calendário): a mesma cena em duas edições, uma cortada no momento ruim e outra na ação; gancho "este corte está errado, qual?". Fecha a trilha da série: ep. 04 ritmo/cor/som, ep. 05 IA, ep. 06 montagem. Se o dono preferir outro tema, só troca a última frase da fala.
+Definido pelo dono em 26/11/2026: **"Do básico ao 4K"** (IA, lobo-urso guerreiro, Seedance e Topaz). Plano em `../ep06-do-basico-ao-4k/PLANO.md`. O tema "Um corte errado pode acabar com uma boa cena" vira o ep. 07.
 
 ## Decisões que faltam
 
 1. **Confirmar a cena do clipe base:** A (ele mesmo, de frente, gira de perfil e abre os braços) ou outra.
-2. **Ep. 06:** pode ser "Um corte errado pode acabar com uma boa cena"?
+2. ~~Ep. 06~~ definido: "Do básico ao 4K".
 3. **Falas** (inclusive o gancho final) e **duração** (~26 s).
 4. **Estilo novo** do holograma e do glitch: aprovar pelos quadros de teste antes do render final.
