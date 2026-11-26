@@ -259,7 +259,7 @@ def ficha(s):
 <div class="what"><span class="lab">Imagem</span><p>{esc(s["imagem"])}</p></div>
 <ul class="dia">{bl}</ul>
 <div class="att glass dark"><span class="lab">Atenção</span><p>{esc(s["atencao"])}</p></div>
-<div class="chg"><label class="chk"><input type="checkbox" id="m{s["n"]}" data-n="{s["n"]}"> Quero mudar esta cena</label><label for="t{s["n"]}" class="vh">O que mudar na cena {s["n"]}</label><textarea id="t{s["n"]}" rows="2" placeholder="O que você quer diferente aqui?"></textarea></div>
+
 </div>
 {('<div class="fx">'+strip+'</div>') if strip else ''}
 </article>'''
