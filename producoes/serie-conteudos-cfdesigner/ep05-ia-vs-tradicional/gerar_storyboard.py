@@ -130,7 +130,7 @@ add(n=2,fase="alc",t="3 a 6 s",ini=3,dur=3,nome="Promessa e laço aberto",botao=
 i=stage("clip")+person("wide",1.25,135,150,clip=True)+txt("1",24,44,size=28,fill=AMB,w=400,anchor="start",font="Bebas Neue",ls=1)+txt("CLIPE GRAVADO",24,58,size=7.5,fill="#5b564a",w=700,anchor="start",ls=1.8)
 add(n=3,fase="ret",t="6 a 9 s",ini=6,dur=3,nome="Imagem 1 em tela cheia",botao="Retenção",svg=svg(i),
  fala="Olha o primeiro.",texto="1",
- imagem="Você aponta com o olhar e o corpo para a mão esquerda. O holograma 1 cresce e abre em tela cheia (o clipe base: você de frente, girando de perfil e abrindo os braços, fundo liso). No fim, volta para a mão.",
+ imagem="Você aponta com o olhar e o corpo para a mão esquerda. O holograma 1 cresce e abre em tela cheia (o clipe base: você sentado na escada, de frente, na pose do modelo de referência, e uma ação curta de 6 s). No fim, volta para a mão.",
  camera="O clipe base tem câmera parada. A saída do holograma até a tela cheia é um movimento do Remotion (escala e posição) a partir da mão rastreada.",
  tecnica="Crescimento do holograma até o quadro e EtiquetaRotulo (número).",
  transicao="Cresce a partir da mão (~0,4 s) e volta ao fim (~0,3 s).",
@@ -265,11 +265,11 @@ def ficha(s):
 </article>'''
 def mini(s):
     return f'''<a class="mc" href="#c{s["n"]}"><div class="mb"><div class="bz"><div class="q q{s["n"]}"></div></div></div><div class="mt"><b>{s["n"]:02d}</b><span>{esc(s["nome"])}</span><em>{esc(s["t"])}</em></div><span class="ar" aria-hidden="true">↗</span></a>'''
-QMAP={"q1":"cena-01","q2":"cena-02","q3":"cena-03","q4":"cena-04","q5":"cena-05","q6":"cena-06","q7":"cena-07","q8":"cena-08-glitch","q8a":"cena-08-alien","q8r":"cena-08-robo","q9":"cena-09","q10":"cena-10"}
+QMAP={"q1":"cena-01","q2":"cena-02","q3":"cena-03","q4":"cena-04","q4p":"cena-04-em-pe","q5":"cena-05","q6":"cena-06","q7":"cena-07","q8":"cena-08-glitch","q8a":"cena-08-alien","q8r":"cena-08-robo","q9":"cena-09","q10":"cena-10"}
 def _q(nome):
     return "data:image/webp;base64,"+_b64.b64encode((AQUI/"quadros/desenhos"/(nome+".webp")).read_bytes()).decode()
 QCSS="<style>"+"".join(f".{c}{{background-image:url({_q(n)})}}" for c,n in QMAP.items())+"</style>"
-scenes[7]["strip"]=[("Você (IA)","q4"),("Alienígena","q8a"),("Robô","q8r"),("Alienígena","q8a"),("Robô","q8r")]
+scenes[7]["strip"]=[("Você (IA)","q4p"),("Alienígena","q8a"),("Robô","q8r"),("Alienígena","q8a"),("Robô","q8r")]
 fichas="\n".join(ficha(s) for s in scenes)
 minis="\n".join(mini(s) for s in scenes)
 card1=scenes[0]["svg"]

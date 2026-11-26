@@ -6,3 +6,7 @@ Gerados no Magnific em 26/11/2026 com o **Seedream 5.5, 9:16, 1k**, no estilo A 
 - `opcoes-gancho/`: as 3 opções de estilo testadas na cena 1 (A lápis, B carvão, C nanquim); a A foi a escolhida.
 - Custo: etapa 1 = 105 créditos (3 imagens com referência a 35); etapa 2 = 375 créditos (10 imagens com referência a 35 e a cena 10, sem referência, a 25). Total das duas etapas: 480 créditos. O storyboard usa a `cena-04` também como "Você (IA)" da sequência.
 - Os prompts seguem o mesmo molde: estilo + o homem da folha de referência + a pose da cena + "no text, no logos".
+
+## Troca das cenas 3 e 4 (26/11/2026)
+
+A pedido do dono, as cenas 3 e 4 usam a **mesma imagem**: ele sentado na escada, no estilo de pose de uma foto de modelo (referências: a folha de personagem e a foto da pose). 45 créditos (uma imagem com 2 referências). A versão anterior (em pé, de braços abertos) ficou como `cena-04-em-pe.webp`, usada só na sequência da transformação, onde o alienígena e o robô ainda estão em pé. Falta, se o dono quiser, refazer o glitch, o alienígena e o robô na pose sentada (3 imagens, 135 créditos).
