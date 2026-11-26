@@ -7,7 +7,7 @@
 --head:"Montserrat","Segoe UI",system-ui,sans-serif;--body:"Lato","Open Sans",system-ui,sans-serif;--script:"Kaushan Script","Brush Script MT",cursive;--display:"Bebas Neue",Impact,sans-serif;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--paper);color:var(--txt);font:16px/1.6 var(--body);padding-block:0 90px}
+body{margin:0;background:var(--paper);color:var(--txt);font:16px/1.6 var(--body);padding-block:0 40px}
 .wrap{box-sizing:content-box;max-width:1180px;margin:0 auto;padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(28px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--head);margin:0;text-wrap:balance}
 mark{background:var(--amber);color:var(--ink);padding:.02em .26em;border-radius:.22em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -23,7 +23,8 @@ mark{background:var(--amber);color:var(--ink);padding:.02em .26em;border-radius:
 .hero>.wrap{position:relative}
 .hero .dm{position:absolute;background:#12151a;transform:rotate(45deg)}
 .topbar{position:fixed;z-index:40;left:0;right:0;top:calc(18px + env(safe-area-inset-top,0px));padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px));pointer-events:none}
-.nav{max-width:1156px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav{max-width:1156px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+.nav .plate{justify-self:start}
 .nav>*{pointer-events:auto}
 .nav .pillnav{display:flex;gap:4px;background:linear-gradient(135deg,rgba(11,12,14,.72),rgba(217,164,65,.2));-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(217,164,65,.5);border-radius:99px;padding:2px;box-shadow:0 8px 22px -12px rgba(0,0,0,.7);overflow-x:auto;max-width:100%;scrollbar-width:none}
 .nav .pillnav::-webkit-scrollbar{display:none}
@@ -171,14 +172,14 @@ footer.ft nav{display:flex;gap:22px;flex-wrap:wrap}footer.ft a{color:var(--txt);
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;background:linear-gradient(135deg,rgba(11,12,14,.78),rgba(217,164,65,.22));-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-top:1px solid rgba(217,164,65,.6);color:#fff;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;gap:12px;align-items:center;justify-content:space-between}
 .bar span{font:500 12px var(--head);min-width:0}
 .bar .pill{padding:10px 20px;font-size:11px}
-@media (max-width:900px){.nav .plate,.nav .ghostbtn{display:none}.nav{justify-content:center}.hero{padding-top:76px}.wrap{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}.topbar{padding-left:12px;padding-right:12px}.selos{flex-wrap:wrap;overflow:visible}.fasebox{padding:34px 20px}.fasebox .orb2{display:none}.sobre .cardbig{min-height:0;max-width:360px;margin-inline:auto;width:100%}.cenashead img.lens{width:120px;top:-10px}.cta img.trail2,.cta img.gem{display:none}.hphoto img.trailimg{left:-10%;width:120%}.hgrid,.sobre,.fases,.proc{grid-template-columns:minmax(0,1fr)}.hphoto{min-height:440px}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha{grid-template-columns:minmax(0,1fr);padding:20px}.ficha .fl{max-width:320px;margin-inline:auto}.nav .fcards{grid-template-columns:1fr}.fc:nth-child(n){transform:none}.spark{display:none}.hero{padding:76px 0 36px}section{padding-block:52px 0}}
+@media (max-width:900px){.nav .plate{display:none}.nav{display:flex;justify-content:center}.hero{padding-top:76px}.wrap{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}.topbar{padding-left:12px;padding-right:12px}.selos{flex-wrap:wrap;overflow:visible}.fasebox{padding:34px 20px}.fasebox .orb2{display:none}.sobre .cardbig{min-height:0;max-width:360px;margin-inline:auto;width:100%}.cenashead img.lens{width:120px;top:-10px}.cta img.trail2,.cta img.gem{display:none}.hphoto img.trailimg{left:-10%;width:120%}.hgrid,.sobre,.fases,.proc{grid-template-columns:minmax(0,1fr)}.hphoto{min-height:440px}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.ficha{grid-template-columns:minmax(0,1fr);padding:20px}.ficha .fl{max-width:320px;margin-inline:auto}.nav .fcards{grid-template-columns:1fr}.fc:nth-child(n){transform:none}.spark{display:none}.hero{padding:76px 0 36px}section{padding-block:52px 0}}
 textarea::placeholder{color:#6d747d}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 %%DEFS%%
 <div class="topbar"><div class="nav"><span class="plate"><img src="%%LOGO%%" alt="CFDesigner"></span>
 <nav class="pillnav" aria-label="Seções"><a class="l on" href="#topo">Início</a><a class="l" href="#fases">Fases</a><a class="l" href="#cenas">Cenas</a><a class="l" href="#fichas">Fichas</a><a class="l" href="#passos">Próximos passos</a></nav>
-<a class="ghostbtn glass" href="#fim">Pedir mudanças</a></div></div>
+</div></div>
 <header class="hero">
 <span class="dm" style="width:300px;height:300px;right:-80px;top:130px"></span><span class="dm" style="width:160px;height:160px;left:-70px;bottom:120px"></span>
 
@@ -272,34 +273,10 @@ textarea::placeholder{color:#6d747d}
 </main>
 </div>
 
-<div class="bar"><span id="sum">Nenhuma cena marcada para mudar</span><button class="pill" type="button" id="cp">COPIAR PEDIDOS</button></div>
+
 
 <script>
 (function(){
-  var sum=document.getElementById('sum'),b1=document.getElementById('cp');
-  function items(){
-    var out=[];
-    document.querySelectorAll('.chg').forEach(function(box){
-      var cb=box.querySelector('input[type=checkbox]'),ta=box.querySelector('textarea');
-      var n=cb.getAttribute('data-n'),t=(ta.value||'').trim();
-      if(cb.checked||t){out.push('Cena '+n+': '+(t||'(mudar, sem detalhe)'));}
-    });
-    return out;
-  }
-  function refresh(){var it=items();sum.textContent=it.length?(it.length+' cena(s) com pedido de mudança'):'Nenhuma cena marcada para mudar';}
-  document.addEventListener('input',refresh);document.addEventListener('change',refresh);
-  function fallback(text,btn){
-    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
-    try{document.execCommand('copy')}catch(e){}
-    document.body.removeChild(ta);sum.textContent=text.replace(/\n/g,' · ');
-  }
-  function copy(btn){
-    var it=items();
-    var text=it.length?('Pedidos de mudança no storyboard do ep. 05:\n'+it.join('\n')):'Sem mudanças pedidas.';
-    var old=btn.innerHTML;
-    var done=function(){btn.textContent='COPIADO';setTimeout(function(){btn.innerHTML=old},1600)};
-    try{navigator.clipboard.writeText(text).then(done,function(){fallback(text,btn)})}catch(e){fallback(text,btn)}
-  }
   var links=document.querySelectorAll('.pillnav a.l'),map={};
   links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
   function spy(){
@@ -308,6 +285,5 @@ textarea::placeholder{color:#6d747d}
     links.forEach(function(a){a.classList.remove('on')});if(map[cur]){map[cur].classList.add('on');var p=map[cur].parentNode;if(p.scrollWidth>p.clientWidth)p.scrollLeft=map[cur].offsetLeft-20}
   }
   window.addEventListener('scroll',spy,{passive:true});spy();
-  b1.addEventListener('click',function(){copy(b1)});
 })();
 </script>
