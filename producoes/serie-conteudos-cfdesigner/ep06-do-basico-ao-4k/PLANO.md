@@ -5,15 +5,27 @@ Status: **tema escolhido pelo dono em 26/11/2026** (IA, com o lobo-urso guerreir
 **Função:** mostrar processo e qualidade: a mesma criatura em 3 níveis de IA, até a finalização no Topaz. Autoridade em IA para vídeo.
 O tema antigo ("Um corte errado pode acabar com uma boa cena") vira o **ep. 07**.
 
-## Material que já existe (achei no Magnific do dono, projeto `bdbc3c28…`)
+## Material recebido (26/11/2026)
 
-- 3 vídeos do **"bear-wolf hybrid warlord"** (guerreiro lobo-urso, `@warlord`) no templo em ruínas (`@temple`): rugido em close (`8aRfPQCIrU`, `KLds9Hxkqp`) e a investida até o close (`5jeLR7rKxe`), 9:16, câmera na mão, ~5 s, com prompts completos.
-- As imagens-base do personagem e do cenário (`@warlord`, `@temple`) estão no mesmo projeto.
-- **Não sei qual versão é a "básica", qual é a "top" e qual passou no Topaz.** O dono precisa apontar (veja "O que preciso").
+O personagem se chama **Grumvald** (guerreiro lobo-urso). Chegaram:
+- `referencias/grumvald-argila.webp`: o **busto de argila** (base, nível "zero").
+- `referencias/grumvald-foto.webp`: o personagem **hiper-realista** (foto chata, fundo cinza).
+- `Redes-Grumvald-01.mp4`: versão para redes, 1080×1920, 24 fps, **5,04 s**, H.264 ~30 Mbps, com o título "WORKFLOW: HYPER-REALISTIC-SKILL / SEEDANCE 2.5". Vem do vídeo que o dono já fez em outra sessão.
+- `Render-Grumvald-01_1_prob4.mov`: o **master limpo**, ProRes 422 10 bits, 1080×1920, 24 fps, 5,04 s, 166 MB (sem texto). Está no container desta sessão (`/mnt/user-data/uploads/…`); **não vai para o git** (regra: vídeos não são versionados).
+- Os clipes e prompts do Magnific (`bear-wolf hybrid warlord`, projeto `bdbc3c28…`).
+
+**Resolução real hoje: 1080×1920.** O 4K ainda não existe: o clipe do Topaz precisa ser gerado.
+
+Cena do clipe: o Grumvald em close, olhando para a esquerda, **abre a boca e ruge** (dentes, presas e saliva) e depois fecha com um rosnado; cenário de templo em ruínas com montanha e nuvens ao fundo.
+
+## Faltam (para o dono apontar ou gerar)
+
+1. **Nível básico:** existe uma versão com imagem e animação simples? (se não, dá para o "básico" ser o próprio caminho argila → foto)
+2. **Nível Topaz 4K:** o `Render-Grumvald-01…mov` passado pelo Topaz (no computador dele, ou no Magnific com custo mostrado antes).
 
 ## A ideia
 
-A mesma cena do rugido em **três níveis**, lado a lado e em sequência, mostrando que o que muda não é a ideia, é o processo:
+A mesma cena do rugido em **três níveis** (e a imagem da argila e da foto mostram de onde ele veio), lado a lado e em sequência, mostrando que o que muda não é a ideia, é o processo:
 1. **Básico:** imagem simples + animação simples.
 2. **Top:** o prompt completo, com referências (`@warlord`, `@temple`), no modelo mais forte (Seedance).
 3. **Finalização:** o mesmo clipe passado pelo **Topaz**, em 4K.
