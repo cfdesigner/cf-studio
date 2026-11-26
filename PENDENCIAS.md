@@ -141,6 +141,11 @@
 - [x] **[Claude]** Componente `TituloScript` e fontes de pincel (Kaushan, Yellowtail, Damion) no design system, a partir da referência do dono. **Opção A (Kaushan, âmbar sobre preto) é a preferida**. Exemplo `CFDesigner-TituloScript`; guia em `DESIGN-SYSTEM.md`
 - [ ] **[dono + Claude]** Usar a opção A nas capas e nos próximos carrosséis; melhorar com o tempo
 
+### Visual do storyboard (linguagem A)
+
+- [x] **[Claude]** 8 imagens de layout geradas no Magnific (Seedream 5.5, 1k, 200 créditos, autorizado pelo dono em 26/11/2026), em `design-systems/cfdesigner/assets/layout-storyboard/`
+- [ ] **[dono]** Aprovar as imagens; depois gerar as caixinhas dos quadros do storyboard e aplicar o layout novo (etapa seguinte, só com custo mostrado antes)
+
 ### Limpezas pequenas
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz
