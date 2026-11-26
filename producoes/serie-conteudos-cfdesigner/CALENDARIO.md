@@ -22,7 +22,7 @@ O episódio 03 do calendário de referência ("De onde vêm as boas ideias?") **
 
 | # | Tema | Função | Estado |
 | --- | --- | --- | --- |
-| 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | em estruturação; storyboard pronto, falta o clipe de IA e as falas (`producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional`) |
+| 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | roteiro v2 (momentum) aguardando aprovação; storyboard v1 a atualizar depois; falta o clipe de IA e as falas (`producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional`) |
 | 06 | "Um corte errado pode acabar com uma boa cena" (opção A) | Técnica de montagem; gera comentário | a estruturar |
 
 Opções para o 05:

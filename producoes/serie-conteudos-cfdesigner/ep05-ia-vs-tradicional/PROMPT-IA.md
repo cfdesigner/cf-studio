@@ -16,6 +16,8 @@ Regra do repositório: **eu não gero imagem nem vídeo** (nenhuma ferramenta pa
 
 O ideal é gerar **2 a 3 versões** e escolher a mais convincente.
 
+> **v2 do roteiro:** a virada do homem tem que acontecer **por volta dos 2 s**, igual à cena real, para a tela dividida ficar sincronizada. Se a ferramenta errar o tempo, eu ajusto o início do clipe na edição (sem esticar).
+
 ## Modo A: com a imagem de referência (recomendado)
 
 Cole na ferramenta de vídeo (o formato abaixo é o da Seedance 2.0; em outras ferramentas, use `image-to-video` com a mesma foto e o texto da SHOT 1):
