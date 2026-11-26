@@ -145,7 +145,7 @@ page=f"""<title>Guia de produção Qual sou eu</title>
 <div><p class="eyebrow" style="color:var(--amber)">Guia de produção · Episódio 05 <i></i></p>
 <h1 style="font-size:clamp(44px,6.6vw,92px);white-space:nowrap;line-height:1.1">Como <span class="sc">gravar<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 25 2, 70 2, 98 10" stroke="#d9a441" stroke-width="4" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></h1>
 <p class="lead">Tudo o que você precisa para gravar os dois takes, a gravação principal e os clipes de IA: o que fazer, em que ordem, e os prompts prontos para colar.</p>
-<div class="selos" style="flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none"><span class="glass">6 arquivos</span><span class="glass">Takes de 8 s</span><span class="glass">Google Flow · Veo 3 Omni</span><span class="glass">Órbita esquerda e direita</span></div></div>
+<div class="selos" style="flex-wrap:wrap;gap:8px;overflow:visible;position:relative;z-index:6"><span class="glass">6 arquivos</span><span class="glass">Takes de 8 s</span><span class="glass">Google Flow · Veo 3 Omni</span><span class="glass">Órbita esquerda e direita</span></div></div>
 <div class="hphoto gph" aria-hidden="true"><span class="disc"></span><span class="ring"></span><div class="gimg" style="background:url({FOTO}) center/cover"></div></div>
 </div></header>
 <div class="wrap"><main>{''.join(secs)}</main><footer class="ft"><span class="plate"><img src="{LOGO}" alt="CFDesigner"></span><span>@CFDESIGNER.OFICIAL</span></footer></div>
