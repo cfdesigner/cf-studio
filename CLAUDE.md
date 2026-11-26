@@ -13,7 +13,7 @@ Leia `PENDENCIAS.md` no começo da sessão e **lembre o dono das pendências abe
 - `scripts/`: ferramentas gerais (transcrição com Whisper, sugestão de frases de efeito, **análise de vídeo bruto** `analisar-video.py`, **corte de pausas e respiros** `cortar-pausas.py`, **ilustração preto→transparente** `preto-para-alpha.py`, **recorte da pessoa** `recortar-pessoa.py` para texto atrás dela, **rastreio de plano** `rastrear-plano.py` e `mascara-arvore.py` para texto preso à cena).
 - `producoes/<nome>/`: os vídeos de verdade, cada um usando UM design system. Registrados em `producoes/index.tsx`.
 - `src/Root.tsx`: registra as composições (exemplos de cada design system + produções).
-- `.claude/skills/`: `plano-de-edicao` (**com vídeo bruto, antes de editar**), `producao-de-video` (fluxo geral), `design-systems` (índice), `criar-design-system` (a partir de referências), `legendas`, `whisper`, **`video-tiago-lemos`** (vídeo de fala no estilo `tiago-lemos-01`: corta pausas, legenda palavra por palavra, elementos animados e sons leves), e as skills do Remotion.
+- `.claude/skills/`: `plano-de-edicao` (**com vídeo bruto, antes de editar**), `producao-de-video` (fluxo geral), `design-systems` (índice), `criar-design-system` (a partir de referências), `legendas`, `whisper`, **`conteudo-viral`** (estrutura "momentum" para alcance, retenção e maratona de perfil: ganchos visuais e de fala, antes do storyboard), **`video-tiago-lemos`** (vídeo de fala no estilo `tiago-lemos-01`: corta pausas, legenda palavra por palavra, elementos animados e sons leves), e as skills do Remotion.
 
 ## Regras do dono (valem para TODOS os design systems)
 

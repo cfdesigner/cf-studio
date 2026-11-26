@@ -132,6 +132,12 @@
 
 - [ ] **[dono]** (opcional) Apagar a branch `previews-legenda` no GitHub: não está no `main`, guarda só os rascunhos das opções de legenda do CFDesigner (as escolhas já foram implementadas). Apagar ou manter, tanto faz
 
+### Conteúdo viral (estrutura "momentum")
+
+- [x] **[Claude]** Skill `conteudo-viral` criada a partir da análise do anúncio da Yotto (VDA) e de pesquisa: 3 botões, linha do tempo, ganchos visuais e de fala, série, mapa de momentum
+- [ ] **[dono]** Escolher o primeiro assunto para aplicar a estrutura (preencher o mapa de momentum, storyboard e aprovação antes de montar)
+- [ ] **[dono + Claude]** Depois de postar, anotar retenção aos 3 s, tempo médio e envios para calibrar a skill
+
 ## Regras que valem para tudo
 
 Estão no `CLAUDE.md`: sem ponto final nas legendas, sem barras de REC, visual limpo e premium, aprovar escolhas de estilo antes de renderizar, nunca versionar vídeos.
