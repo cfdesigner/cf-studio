@@ -92,6 +92,8 @@ Pedido pelo dono em 26/11/2026, a partir de uma referência de landing page: **m
 <TituloScript linha1="Quem dirige" prefixo="é" palavra="você." fonte="kaushan" fundo="preto" />
 ```
 
+**Linguagem A (decisão do dono em 26/11/2026) é o padrão para capas, apresentações e storyboards novos:** fundo preto cinema, título `TituloScript` (branco + palavra de pincel em âmbar), losangos tom sobre tom, foto sobre círculo âmbar com anel fino de luz, botão em pílula âmbar, selos pequenos com losango e rodapé `@CFDESIGNER.OFICIAL`. Os padrões do componente (`fonte="kaushan"`, `fundo="preto"`) já são os da A.
+
 Regra de cor: âmbar só sobre preto; sobre âmbar ou branco a palavra é preta ou branca (o componente escolhe sozinho pelo `fundo`). Uma palavra de pincel por título; frase curta. Exemplo: `CFDesigner-TituloScript` (variantes `a`, `b`, `c`).
 
 ## Imagem e foto
