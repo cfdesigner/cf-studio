@@ -53,6 +53,7 @@
 - [x] **[Claude]** Storyboard visual feito (`producoes/eletroposto-celesc/storyboard.html`, gerado por `gerar_storyboard.py`): 46 quadros ilustrados, linha do tempo, locução, texto na tela, som, janela de Libras, depoimentos e captação por diária
 - [x] **[Claude]** Storyboard atualizado com 19 quadros reais dos vídeos das etapas 1 e 2 (`referencias/`) e seção de continuidade (números de cada etapa)
 - [x] **[Claude]** Quadros trocados por 25 ilustrações do Seedream 5.5 no Magnific (lápis com toque de cor, 625 créditos, autorizado pelo dono), em `ilustracoes/`; quadros reais das etapas ficam como miniatura de referência de plano
+- [x] **[Claude]** Versão enxuta para a equipe de captação externa (`captacao.html`, gerada por `gerar_captacao.py`): só planos por diária, orientações de câmera, sequência e entrevistas; sem locução, números nem pontos internos
 - [ ] **[dono]** Aprovar o storyboard e confirmar: números da rede (36/31 x 48/38), onde entram os depoimentos, plano final (BR-101 ou Ponte Anita Garibaldi), logos do fecho (ANEEL P&D?), identidade dos textos (verde da série ou CERTI), carro adesivado
 - [ ] **[Claude]** Depois da gravação: trocar as ilustrações pelos quadros reais
 
