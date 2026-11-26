@@ -205,7 +205,7 @@ add(n=8,fase="mar",t="20 a 23,5 s",ini=20,dur=3.5,nome="Transformação",botao="
 i=stage()+person("open",smile=True)+vignette()+txt("QUEM DIRIGE É VOCÊ",W/2,56,size=27,fill="#fff",w=400,ls=2.4,font="Bebas Neue")
 i+=txt("PRÓXIMO: DA ARGILA AO 4K",W/2,338,size=7.6,fill="#d9a441",w=700,ls=2.2)
 add(n=9,fase="mar",t="23,5 a 26 s",ini=23.5,dur=2.5,nome="Tese e gancho para o próximo",botao="Maratona de perfil",svg=svg(i),
- fala="A IA gera, quem dirige é você. E no próximo eu te mostro um personagem que nasceu de um pedaço de argila, e que você não vai acreditar que não é real.",texto="QUEM DIRIGE É VOCÊ",
+ fala="A IA gera, quem dirige é você. No próximo, um pedaço de argila vira um personagem digno de cinema de Hollywood, e eu te mostro como.",texto="QUEM DIRIGE É VOCÊ",
  imagem="Você de volta, mãos abertas e vazias. Sorri e diz a tese olhando para a câmera. O gancho do próximo episódio é só falado, sem texto extra na tela.",
  camera="Parada, plano um pouco mais fechado (PushIn leve).",
  tecnica="Texto em Bebas com BlurIn e EtiquetaRotulo simples para o “próximo”.",
