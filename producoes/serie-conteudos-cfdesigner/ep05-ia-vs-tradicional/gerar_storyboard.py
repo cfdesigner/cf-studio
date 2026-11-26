@@ -245,11 +245,11 @@ def ficha(s):
         strip='<div class="strip"><p class="sl">Sequência da transformação, ~0,8 s cada, com glitch entre uma e outra</p><ol>'
         for k,(lab,sv) in enumerate(s["strip"]):
             if k>0: strip+='<li class="gl" aria-hidden="true">glitch</li>'
-            strip+=f'<li><div class="mini">{sv}</div><span>{esc(lab)}</span></li>'
+            strip+=f'<li><div class="mini"><div class="q {sv}"></div></div><span>{esc(lab)}</span></li>'
         strip+='</ol></div>'
     bl="".join(f'<li><b>{a}</b> {esc(s[k])}</li>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
     return f'''<article class="ficha {s["fase"]}" id="c{s["n"]}">
-<div class="flw"><div class="fl glass dark"><div class="phone"><div class="bez">{s["svg"]}</div></div></div></div>
+<div class="flw"><div class="fl glass dark"><div class="phone"><div class="bez"><div class="q q{s["n"]}"><span class="qt glass">{esc(s["texto"])}</span></div></div></div></div></div>
 <div class="fr">
 <p class="eyebrow"><span class="ph">{FASE[s["fase"]]}</span> Cena {s["n"]:02d} de 10 <i></i> {esc(s["t"])}</p>
 <h3>{hl(s["nome"])}</h3>
@@ -264,11 +264,16 @@ def ficha(s):
 {('<div class="fx">'+strip+'</div>') if strip else ''}
 </article>'''
 def mini(s):
-    return f'''<a class="mc" href="#c{s["n"]}"><div class="mb"><div class="bz">{s["svg"]}</div></div><div class="mt"><b>{s["n"]:02d}</b><span>{esc(s["nome"])}</span><em>{esc(s["t"])}</em></div><span class="ar" aria-hidden="true">↗</span></a>'''
+    return f'''<a class="mc" href="#c{s["n"]}"><div class="mb"><div class="bz"><div class="q q{s["n"]}"></div></div></div><div class="mt"><b>{s["n"]:02d}</b><span>{esc(s["nome"])}</span><em>{esc(s["t"])}</em></div><span class="ar" aria-hidden="true">↗</span></a>'''
+QMAP={"q1":"cena-01","q2":"cena-02","q3":"cena-03","q4":"cena-04","q5":"cena-05","q6":"cena-06","q7":"cena-07","q8":"cena-08-glitch","q8a":"cena-08-alien","q8r":"cena-08-robo","q9":"cena-09","q10":"cena-10"}
+def _q(nome):
+    return "data:image/webp;base64,"+_b64.b64encode((AQUI/"quadros/desenhos"/(nome+".webp")).read_bytes()).decode()
+QCSS="<style>"+"".join(f".{c}{{background-image:url({_q(n)})}}" for c,n in QMAP.items())+"</style>"
+scenes[7]["strip"]=[("Você (IA)","q4"),("Alienígena","q8a"),("Robô","q8r"),("Alienígena","q8a"),("Robô","q8r")]
 fichas="\n".join(ficha(s) for s in scenes)
 minis="\n".join(mini(s) for s in scenes)
 card1=scenes[0]["svg"]
 page=(AQUI/"storyboard-modelo.html").read_text()
-for k,v in {**{k:_webp(n) for k,n in IMGS.items()},"%%FICHAS%%":fichas,"%%MINIS%%":minis,"%%CARD1%%":card1,"%%DEFS%%":DEFS,"%%LOGO%%":LOGO,"%%FOTO%%":FOTO}.items():
+for k,v in {**{k:_webp(n) for k,n in IMGS.items()},"%%FICHAS%%":fichas,"%%MINIS%%":minis,"%%CARD1%%":card1,"%%DEFS%%":DEFS+QCSS,"%%LOGO%%":LOGO,"%%FOTO%%":FOTO}.items():
     page=page.replace(k,v)
 (AQUI/"storyboard.html").write_text(page); print(len(page))

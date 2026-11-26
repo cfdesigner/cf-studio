@@ -149,8 +149,9 @@
 ### Quadros desenhados do storyboard (ep. 05)
 
 - [x] **[Claude]** Etapa 1: cena 1 (gancho) em 3 estilos de desenho com a foto do dono como referência (Seedream 5.5, 1k; **105 créditos**, pois a referência soma 10 por imagem). Em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/quadros/opcoes-gancho/`
-- [ ] **[dono]** Escolher o estilo (A lápis com aquarela, B carvão cinematográfico, C nanquim e âmbar) e confirmar a referência (a folha de personagem nova com rosto, perfil e corpo)
-- [ ] **[Claude]** Etapa 2: as outras 9 cenas + 2 quadros da transformação, só com o custo mostrado antes
+- [x] **[dono]** Estilo escolhido: **A, lápis com aquarela**, e a folha de personagem como referência
+- [x] **[Claude]** Etapa 2: as outras 9 cenas + 2 quadros da transformação (11 imagens, 375 créditos), já aplicadas no storyboard publicado
+- [ ] **[dono]** Aprovar os desenhos e dizer o que trocar (posso gerar de novo só as cenas que você não curtir)
 
 ### Limpezas pequenas
 
