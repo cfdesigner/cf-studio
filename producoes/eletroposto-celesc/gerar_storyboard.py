@@ -361,10 +361,41 @@ def img(ref):
     b = base64.b64encode((REF / f"{ref}.jpg").read_bytes()).decode()
     return f'<image href="data:image/jpeg;base64,{b}" width="{W}" height="{H}" preserveAspectRatio="xMidYMid slice"/>'
 
+ILU = AQUI / "ilustracoes"
+ILU_NOMES = {p.stem[:2]: p.stem for p in ILU.glob("*.jpg")}
+
+def ilu(n, w=W, h=H, x=0, y=0):
+    # cada ilustração entra uma vez na página (ILU_DEFS) e os quadros a reutilizam
+    return f'<use href="#ilu{n}" transform="translate({x},{y}) scale({w/W:.3f})"/>'
+
+def ilu_defs():
+    out = ""
+    for n, nome in sorted(ILU_NOMES.items()):
+        b = base64.b64encode((ILU / f"{nome}.jpg").read_bytes()).decode()
+        out += f'<image id="ilu{n}" href="data:image/jpeg;base64,{b}" width="{W}" height="{H}" preserveAspectRatio="xMidYMid slice"/>'
+    return f'<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>{out}</defs></svg>'
+
+def grade(ns):
+    return "".join(ilu(n, W/2, H/2, (i % 2) * W/2, (i // 2) * H/2) for i, n in enumerate(ns)) + f'<path d="M{W/2} 0V{H}M0 {H/2}H{W}" stroke="#fff" stroke-width="2"/>'
+
+# ilustração (Seedream 5.5 no Magnific) de cada quadro, pelo timecode
+IA = {"0:02": "01", "0:05": "02", "0:07": "03", "0:09": "04", "0:11": "05", "0:13": "06", "0:15": "07", "0:17": "08",
+      "0:20": "09", "0:25": "10", "0:33": "11", "0:37": "12",
+      "0:55": "13", "1:00": "11", "1:03": "02", "1:06": "14", "1:09": "15", "1:12": "08", "1:16": "04", "1:21": "05",
+      "1:25": "02", "1:29": "12", "1:33": "16", "1:50": "09",
+      "1:55": "06", "2:00": "18", "2:04": "17", "2:08": "18", "2:12": "19", "2:17": "20", "2:21": "11",
+      "2:25": "04", "2:29": "05", "2:33": "21", "2:37": "22", "2:50": "23", "2:54": "12"}
+GRADE = {"1:45": ["11", "17", "12", "18"], "2:41": ["03", "05", "06", "19"], "2:46": ["12", "18", "11", "17"]}
+
 def S(scene, tc, plano, diaria, desc, ov="", libras=True, ref=None):
-    if ref:
-        scene = img(ref)
-    return dict(scene=scene, tc=tc, plano=plano, diaria=diaria, desc=desc, ov=ov, libras=libras, ref=ref)
+    fonte = "svg"
+    if tc in IA:
+        scene, fonte = ilu(IA[tc]), "ia"
+    elif tc in GRADE:
+        scene, fonte = grade(GRADE[tc]), "ia"
+    elif ref:
+        scene, fonte = img(ref), "arquivo"
+    return dict(scene=scene, tc=tc, plano=plano, diaria=diaria, desc=desc, ov=ov, libras=libras, ref=ref, fonte=fonte)
 
 SECOES = [
     dict(id="abertura", no="00", titulo="Abertura", t0=0, t1=20, cor="#00578d",
@@ -497,6 +528,16 @@ DIARIAS = {
 def fmt(t): return f"{t//60}:{t%60:02d}"
 e = html.escape
 
+def ref_html(sh):
+    if not sh["ref"]:
+        return '<span class="rf il">Plano novo (sem referência nas etapas anteriores)</span>' if sh["fonte"] == "ia" else ""
+    r = sh["ref"]; t = int(r[3:])
+    quando = f'{ETAPA[r[:2]]} · {t//60}:{t%60:02d}'
+    if sh["fonte"] == "arquivo":
+        return f'<span class="rf">Material de arquivo · {quando}</span>'
+    b = base64.b64encode((REF / f"{r}.jpg").read_bytes()).decode()
+    return f'<span class="rf"><img src="data:image/jpeg;base64,{b}" alt="">Referência de plano · {quando}</span>'
+
 def card(s):
     shots = ""
     for sh in s["shots"]:
@@ -504,7 +545,7 @@ def card(s):
         tag = f'D{d} · {D[d]}' if d else "Pós-produção"
         shots += (f'<figure class="shot"><div class="fr">{frame(sh["scene"], sh["ov"], sh["libras"])}</div>'
                   f'<figcaption><span class="tc">{sh["tc"]}</span><span class="pl">{e(sh["plano"])}</span><span class="dd d{d}">{tag}</span>'
-                  + (f'<span class="rf">Referência real · {ETAPA[sh["ref"][:2]]} · {int(sh["ref"][3:])//60}:{int(sh["ref"][3:])%60:02d}</span>' if sh["ref"] else '<span class="rf il">Ilustração (plano novo)</span>')
+                  + ref_html(sh)
                   + f'<span class="ds">{e(sh["desc"])}</span></figcaption></figure>')
     loc = "".join(f"<p>{e(l)}</p>" for l in s["loc"])
     return f'''
@@ -541,7 +582,7 @@ def diarias():
 def entrevistas():
     out = ""
     for org, c, qs in ENTREVISTAS:
-        out += (f'<article class="iv"><div class="fr">{frame(sc_facade(org, c))}</div><div class="fr">{frame(sc_interview(c))}</div>'
+        out += (f'<article class="iv"><div class="fr">{frame(sc_facade(org, c))}</div><div class="fr">{frame(ilu("24"))}</div>'
                 f'<div><h3>{org}</h3><ol>{"".join(f"<li>{e(q)}</li>" for q in qs)}</ol></div></article>')
     return out
 
@@ -585,7 +626,7 @@ figcaption{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;margin-top
 .dd{font-weight:700;padding:1px 6px;border-radius:3px;font-size:11px;border:1px solid var(--line2);color:var(--muted)}
 .dd.d1{border-color:#00adee;color:#007fb0}.dd.d2{border-color:#8bc53f;color:#4d7a17}.dd.d3{border-color:#e5287b;color:#b3125b}.dd.d4{border-color:#f08522;color:#b05a0c}
 .ds{flex-basis:100%;color:var(--muted)}
-.rf{flex-basis:100%;font-size:11px;font-weight:700;color:#4d7a17}.rf.il{color:var(--muted);font-weight:600}
+.rf{flex-basis:100%;display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;color:#4d7a17}.rf img{width:64px;aspect-ratio:16/9;object-fit:cover;border-radius:3px;border:1px solid var(--line)}.rf.il{color:var(--muted);font-weight:600}
 .cont{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:16px}.cont figure{margin:0}.cont figcaption{display:block;font-size:13px;color:var(--muted)}
 .hist{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;margin-top:16px;font-size:14px}.hist th,.hist td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.hist th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .info{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
@@ -623,6 +664,7 @@ def page():
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap">
 <style>{CSS}</style></head>
 <body>
+{ilu_defs()}
 <div class="hero"><div class="wrap">
   <div class="eb">Storyboard · vídeo de encerramento</div>
   <h1>O que começou como pesquisa <b>virou caminho.</b></h1>
@@ -630,7 +672,7 @@ def page():
   <div class="chips"><span class="chip">16:9 · 1920×1080</span><span class="chip">{fmt(total)} · institucional</span><span class="chip">Voz em off</span><span class="chip">{n_shots} quadros</span><span class="chip">4 diárias</span><span class="chip">Janela de Libras</span><span class="chip">CELESC + Fundação CERTI</span></div>
 </div></div>
 <div class="bar"><div class="wrap" style="padding-bottom:0">{timeline()}
-  <div class="tog"><label><input type="checkbox" id="lb" checked> Mostrar janela de Libras nos quadros</label><span>Quadros reais vêm dos vídeos das etapas 1 e 2 e servem de referência de enquadramento. Os ilustrados são planos novos. Tudo será trocado pelos quadros da nova gravação.</span></div>
+  <div class="tog"><label><input type="checkbox" id="lb" checked> Mostrar janela de Libras nos quadros</label><span>Ilustrações geradas no Seedream 5.5 (lápis com toque de cor). A miniatura abaixo de cada quadro é a referência de plano tirada dos vídeos das etapas 1 e 2. Mapa, fluxograma e fecho são gráficos de pós-produção.</span></div>
 </div></div>
 <div class="wrap">
 {"".join(card(s) for s in SECOES)}
