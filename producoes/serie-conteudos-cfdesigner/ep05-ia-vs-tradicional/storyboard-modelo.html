@@ -106,8 +106,10 @@ section{padding-block:72px 0}
 /* fichas */
 .ficha{--c:var(--amber);position:relative;display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:40px;align-items:start;margin-top:30px;background:var(--white);border:1px solid var(--line);border-radius:28px;padding:30px;box-shadow:0 22px 44px -30px rgba(11,12,14,.4)}
 .ficha.ret{--c:var(--ink)}.ficha.mar{--c:var(--bronze)}
-.ficha .fl{position:relative;background:var(--ink);border-radius:24px;padding:18px;overflow:hidden}
-.ficha .fl::before{content:"";position:absolute;width:140%;aspect-ratio:1;border-radius:50%;background:var(--amber);left:-34%;bottom:-62%}
+.ficha .flw{position:relative;background:var(--ink);border-radius:26px;padding:14px;overflow:hidden;isolation:isolate}
+.ficha .flw::before{content:"";position:absolute;z-index:0;width:150%;aspect-ratio:1;border-radius:50%;background:var(--amber);left:-34%;bottom:-62%}
+.ficha .flw::after{content:"";position:absolute;z-index:0;width:46%;aspect-ratio:1;border-radius:50%;background:var(--amber);right:-14%;top:-8%;opacity:.8}
+.ficha .fl{position:relative;z-index:1;border-radius:20px;padding:14px}
 .phone{position:relative}
 .bez{padding:8px;border-radius:30px;background:#000;box-shadow:0 18px 34px -16px rgba(0,0,0,.7)}
 .bez svg{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:23px}
@@ -128,8 +130,9 @@ section{padding-block:72px 0}
 .dia li{position:relative;padding-left:24px;font-size:14px}
 .dia li::before{content:"";position:absolute;left:3px;top:.52em;width:9px;height:9px;background:var(--amber);transform:rotate(45deg)}
 .dia b{font:600 9.5px var(--head);letter-spacing:.16em;text-transform:uppercase;margin-right:6px}
-.att{background:var(--amber);border-radius:16px;padding:13px 18px}
-.att .lab{color:var(--ink);opacity:.7}.att p{margin:0;font:600 13px/1.5 var(--head)}
+.glass.dark{background:linear-gradient(135deg,rgba(11,12,14,.94),rgba(11,12,14,.8) 50%,rgba(133,93,18,.92))}
+.att{border-radius:16px;padding:13px 18px}
+.att .lab{color:#f1d9a3}.att p{margin:0;font:500 13px/1.5 var(--head);color:#fff}
 .fx{grid-column:1 / -1;min-width:0}
 .strip{padding:18px;background:var(--paper);border:2px dashed var(--amber);border-radius:18px;overflow-x:auto}
 .sl{margin:0 0 14px;font:600 9.5px var(--head);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}

@@ -249,7 +249,7 @@ def ficha(s):
         strip+='</ol></div>'
     bl="".join(f'<li><b>{a}</b> {esc(s[k])}</li>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
     return f'''<article class="ficha {s["fase"]}" id="c{s["n"]}">
-<div class="fl"><div class="phone"><div class="bez">{s["svg"]}</div></div></div>
+<div class="flw"><div class="fl glass"><div class="phone"><div class="bez">{s["svg"]}</div></div></div></div>
 <div class="fr">
 <p class="eyebrow"><span class="ph">{FASE[s["fase"]]}</span> Cena {s["n"]:02d} de 10 <i></i> {esc(s["t"])}</p>
 <h3>{hl(s["nome"])}</h3>
@@ -258,7 +258,7 @@ def ficha(s):
 <div class="scr"><span class="lab">Na tela</span><b class="placa">{esc(s["texto"])}</b></div>
 <div class="what"><span class="lab">Imagem</span><p>{esc(s["imagem"])}</p></div>
 <ul class="dia">{bl}</ul>
-<div class="att"><span class="lab">Atenção</span><p>{esc(s["atencao"])}</p></div>
+<div class="att glass dark"><span class="lab">Atenção</span><p>{esc(s["atencao"])}</p></div>
 <div class="chg"><label class="chk"><input type="checkbox" id="m{s["n"]}" data-n="{s["n"]}"> Quero mudar esta cena</label><label for="t{s["n"]}" class="vh">O que mudar na cena {s["n"]}</label><textarea id="t{s["n"]}" rows="2" placeholder="O que você quer diferente aqui?"></textarea></div>
 </div>
 {('<div class="fx">'+strip+'</div>') if strip else ''}
