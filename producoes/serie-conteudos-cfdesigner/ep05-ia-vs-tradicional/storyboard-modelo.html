@@ -61,10 +61,11 @@ section{padding-block:72px 0}
 .sec h2{font-size:clamp(28px,4.2vw,48px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-top:16px}
 .sec .sub{color:var(--muted);max-width:52ch;margin:12px 0 0;font-size:15px}
 /* sobre */
-.sobre{display:grid;grid-template-columns:minmax(0,350px) minmax(0,1fr);gap:56px;align-items:start}
+.sobre{max-width:900px}
 .sobre .cardbig{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;place-items:center;overflow:hidden}
 .sobre .cardbig{min-height:0;align-content:start;padding:18px}
-.sobre>div:last-child{padding-top:24px}
+.sobre h2{font-size:clamp(30px,4.6vw,54px)}
+.sobre .stats{max-width:560px}
 .sobre .cardbig img.gold{position:absolute;left:-12%;bottom:-6%;width:124%;max-width:none;z-index:0;opacity:.95}
 .sobre .cardbig .gq{position:absolute;left:14px;right:14px;bottom:14px;z-index:3;border-radius:16px;padding:10px 14px}
 .gq .lab{color:#f1d9a3;font-size:9.5px;margin-bottom:3px;letter-spacing:.22em}.gq p{margin:0;font:500 12.5px/1.4 var(--head);letter-spacing:.005em}
@@ -203,10 +204,10 @@ textarea::placeholder{color:#6d747d}
 <main>
 <section class="sec" id="sobre" aria-labelledby="h-sobre">
 <div class="sobre">
-<div class="cardbig"><img class="gold" src="%%IMG04%%" alt=""><span class="chipcard glass">CENA 01 · GANCHO</span><div class="bez">%%CARD1%%</div><div class="gq glass"><span class="lab">Fala</span><p>“Um desses dois sou eu. O outro é IA.”</p></div></div>
+
 <div>
 <p class="eyebrow">Sobre o episódio <i></i></p>
-<h2 id="h-sobre">Um desses dois sou eu. O outro é <mark>IA.</mark></h2>
+<h2 id="h-sobre">Um desses dois sou eu.<br>O outro é <mark>IA.</mark></h2>
 <p class="sub">Roteiro v3.1: você aparece falando, com uma imagem holográfica em cada mão. Duas cenas iguais, uma gravada e outra gerada. Depois a IA se transforma em alienígena e robô, sem o movimento mudar.</p>
 <div class="stats"><div><b>10</b><span>cenas</span></div><div><b>27,5 s</b><span>com o fecho</span></div><div><b>3</b><span>fases</span></div></div>
 </div>
