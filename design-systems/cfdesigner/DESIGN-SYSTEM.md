@@ -96,6 +96,18 @@ Pedido pelo dono em 26/11/2026, a partir de uma referência de landing page: **m
 
 Regra de cor: âmbar só sobre preto; sobre âmbar ou branco a palavra é preta ou branca (o componente escolhe sozinho pelo `fundo`). Uma palavra de pincel por título; frase curta. Exemplo: `CFDesigner-TituloScript` (variantes `a`, `b`, `c`).
 
+## Vidro esfumaçado (cartões e chips)
+
+Pedido do dono em 26/11/2026, **a partir de agora para algumas caixinhas** (chips, cartões de destaque, botões secundários, barra fixa): efeito de vidro embaçado com **preto misturado com âmbar** em degradê translúcido e uma **linha mínima de âmbar** no contorno.
+
+```css
+.glass{background:linear-gradient(135deg,rgba(11,12,14,.62),rgba(217,164,65,.26));
+ backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(217,164,65,.6);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 18px 40px -22px rgba(0,0,0,.7);color:#fff}
+```
+
+Variações: `amber` (âmbar mais forte, 135deg de âmbar .55 para preto .4) e `light` (branco .16 com âmbar .28). Só funciona onde há algo atrás para desfocar (foto, círculo âmbar, imagem de layout, conteúdo rolando). **Exceção à regra de "sem gradientes coloridos"**, decidida pelo dono: vale só para o vidro. Exemplo: `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/storyboard.html`.
+
 ## Imagem e foto
 
 Fotos em luz baixa, 70% ou mais em sombra, vinheta preta até `void` onde há texto. Sem filtros coloridos. Retratos em `assets/imagery` (`imagery.*`).

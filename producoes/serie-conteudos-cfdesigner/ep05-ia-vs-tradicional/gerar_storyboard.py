@@ -232,6 +232,9 @@ def _img(path,h):
     return "data:image/png;base64,"+_b64.b64encode(b.getvalue()).decode()
 FOTO=_img(RAIZ/"producoes/carrossel-video-ia/assets/eu-capa.png",1000)
 FASE={"alc":"Alcance","ret":"Retenção","mar":"Maratona"}
+def _webp(nome):
+    return "data:image/webp;base64,"+_b64.b64encode((RAIZ/"design-systems/cfdesigner/assets/layout-storyboard"/nome).read_bytes()).decode()
+IMGS={"%%IMG01T%%":"01-rastro-luz-transparente.webp","%%IMG02%%":"02-anel-3d.webp","%%IMG03%%":"03-esfera-3d.webp","%%IMG04%%":"04-ouro-liquido.webp","%%IMG05%%":"05-brilho-4-pontas.webp","%%IMG06%%":"06-lente-camera.webp","%%IMG07%%":"07-losango-3d.webp","%%IMG08%%":"08-papel-rasgado.webp"}
 def hl(nome):
     p=nome.rsplit(" ",1)
     return (esc(p[0])+" " if len(p)>1 else "")+f'<mark>{esc(p[-1])}</mark>'
@@ -266,6 +269,6 @@ fichas="\n".join(ficha(s) for s in scenes)
 minis="\n".join(mini(s) for s in scenes)
 card1=scenes[0]["svg"]
 page=(AQUI/"storyboard-modelo.html").read_text()
-for k,v in {"%%FICHAS%%":fichas,"%%MINIS%%":minis,"%%CARD1%%":card1,"%%DEFS%%":DEFS,"%%LOGO%%":LOGO,"%%FOTO%%":FOTO}.items():
+for k,v in {**{k:_webp(n) for k,n in IMGS.items()},"%%FICHAS%%":fichas,"%%MINIS%%":minis,"%%CARD1%%":card1,"%%DEFS%%":DEFS,"%%LOGO%%":LOGO,"%%FOTO%%":FOTO}.items():
     page=page.replace(k,v)
 (AQUI/"storyboard.html").write_text(page); print(len(page))
