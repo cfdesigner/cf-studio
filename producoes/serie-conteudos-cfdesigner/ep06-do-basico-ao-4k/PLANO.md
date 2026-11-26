@@ -1,8 +1,8 @@
-# Episódio 06: "Do básico ao 4K" (CFDesigner) — rascunho de roteiro (momentum)
+# Episódio 06: "Da argila ao 4K" (CFDesigner) — rascunho de roteiro v2 (momentum)
 
 Status: **tema escolhido pelo dono em 26/11/2026** (IA, com o lobo-urso guerreiro). Falta material e aprovação. Nada montado.
 **Design system:** CFDesigner · 1080×1920 (entrega em 4K, veja abaixo) · 30 fps · ~25 s · Reels
-**Função:** mostrar processo e qualidade: a mesma criatura em 3 níveis de IA, até a finalização no Topaz. Autoridade em IA para vídeo.
+**Função:** mostrar o processo de construção do personagem (skill de personagem hiper-realista) e o ganho do upscale. Autoridade em IA para vídeo.
 O tema antigo ("Um corte errado pode acabar com uma boa cena") vira o **ep. 07**.
 
 ## Material recebido (26/11/2026)
@@ -18,41 +18,44 @@ O personagem se chama **Grumvald** (guerreiro lobo-urso). Chegaram:
 
 Cena do clipe: o Grumvald em close, olhando para a esquerda, **abre a boca e ruge** (dentes, presas e saliva) e depois fecha com um rosnado; cenário de templo em ruínas com montanha e nuvens ao fundo.
 
-## Faltam (para o dono apontar ou gerar)
+## Faltam (para o dono apontar ou gerar; posso buscar no Magnific dele, só leitura)
 
-1. **Nível básico:** existe uma versão com imagem e animação simples? (se não, dá para o "básico" ser o próprio caminho argila → foto)
-2. **Nível Topaz 4K:** o `Render-Grumvald-01…mov` passado pelo Topaz (no computador dele, ou no Magnific com custo mostrado antes).
+1. **Texturas reais** usadas no Grumvald (as fotos do mapa de texturas) e o **cenário do templo** (`@temple`) com ele no lugar.
+2. **Upscale Topaz 4K** do `Render-Grumvald-01…mov` (no computador dele, ou no Magnific com custo mostrado antes).
 
-## A ideia
+## A ideia (v2, pedido do dono em 26/11/2026)
 
-A mesma cena do rugido em **três níveis** (e a imagem da argila e da foto mostram de onde ele veio), lado a lado e em sequência, mostrando que o que muda não é a ideia, é o processo:
-1. **Básico:** imagem simples + animação simples.
-2. **Top:** o prompt completo, com referências (`@warlord`, `@temple`), no modelo mais forte (Seedance).
-3. **Finalização:** o mesmo clipe passado pelo **Topaz**, em 4K.
+Em vez de comparar níveis, o episódio conta **de forma bem superficial** o processo de construir o Grumvald com a skill de personagem hiper-realista, e termina no **antes e depois do upscale** (Topaz 4K):
+
+**argila → texturas → personagem hiper-realista → cenário → vídeo (Seedance 2.5) → upscale 4K**
+
+A mensagem: "dá para construir um personagem do zero, texturizar, colocar numa cena, animar, e **ainda ficar muito melhor com o upscale**". Sem tutorial passo a passo, sem prompts na tela: só mostrar o caminho.
 
 ## Mapa de momentum
 
-- **Promessa:** "Mesma criatura. Três níveis de IA. O último muda tudo"
-- **Gancho visual:** close do rugido (dentes, saliva, olho) com **cortina que alterna básico e final no mesmo quadro**. O pico de impacto já nos 3 primeiros segundos.
-- **Laço aberto:** "o terceiro nível eu só mostro no fim" (o antes e depois em zoom 100%).
-- **Quebras de padrão:** zoom em detalhes (dente, saliva, pelo), contador de resolução (720 → 1080 → 4K) discreto, troca de nível com a varredura âmbar.
-- **Pedido único:** "qual nível você acha que é o do meio?" (comentário) ou "salva para quando for gerar".
-- **Maratona:** gancho para o ep. 07 ("um corte errado pode acabar com uma boa cena").
-- **Medir depois:** retenção aos 3 s, tempo médio, salvamentos e envios.
+- **Promessa:** "Isso aqui começou como uma bola de argila"
+- **Gancho visual (resultado primeiro):** o rugido do Grumvald em close, já finalizado, nos 3 primeiros segundos. Corta para a argila.
+- **Laço aberto:** "e o último passo muda tudo" (o upscale só aparece no fim).
+- **Quebras de padrão:** cada etapa entra por varredura âmbar, ~2 s cada, com um número discreto (1 a 6); zoom em detalhe no fim.
+- **Pedido único (escolher):** "comenta GRUMVALD" para receber a explicação do processo, ou "salva para quando for criar o seu". O dono decide.
+- **Maratona:** gancho para o ep. 07 (o corte errado).
+- **Medir depois:** retenção aos 3 s, tempo médio, salvamentos, comentários.
 
-## Linha do tempo (rascunho)
+## Linha do tempo (rascunho, ~25 s)
 
 | Tempo (s) | Botão | Etapa | Imagem | Por cima (pequeno, sem ponto final) | Fala |
 | --- | --- | --- | --- | --- | --- |
-| 0 a 3 | 1 | **Gancho** | Rugido em close, metade esquerda básica e metade direita final, linha âmbar dividindo | "MESMA CRIATURA" no alto | "Mesma criatura. Três níveis de IA. O último muda tudo" |
-| 3 a 7 | 2 | Nível 1 | Clipe básico em tela cheia | "NÍVEL 1 · BÁSICO" | "Primeiro, o básico: uma imagem simples e uma animação simples" |
-| 7 a 12 | 2 | Nível 2 | Clipe com prompt completo e referências | "NÍVEL 2 · SEEDANCE" | "Segundo, prompt completo, referência do personagem e do cenário" |
-| 12 a 16 | 2 | **Pistas** | Zooms em dente, saliva, pelo no nível 2; ele fala | "OLHA OS DENTES" | "Olha a saliva, o pelo. Já é outro nível. Mas ainda não acabou" |
-| 16 a 22 | 3 | **Nível 3** | Cortina sobre o mesmo quadro: sem Topaz e com Topaz em 4K, zoom 100% no olho e nos dentes | "NÍVEL 3 · TOPAZ 4K" | "Terceiro, finalização no Topaz. Mesmo clipe. Olha o detalhe" |
-| 22 a 25 | 3 | Tese + próximo | Volta ao rugido final | "A IA GERA. VOCÊ FINALIZA" e, pequeno, "PRÓXIMO: O CORTE QUE ESTRAGA A CENA" | "A IA gera, você finaliza. No próximo, o corte que estraga uma boa cena" |
+| 0 a 3 | 1 | **Gancho** | O rugido do Grumvald em close (clipe final) | | "Isso aqui começou como uma bola de argila" |
+| 3 a 5 | 2 | 1 · Argila | Busto de argila (`grumvald-argila.webp`), com leve `PushIn` | "1 · ARGILA" | "Primeiro, a base em argila" |
+| 5 a 7 | 2 | 2 · Texturas | Detalhe de pelo, pano e miçangas (das texturas reais que ele usou) | "2 · TEXTURAS" | "Depois, texturas reais" |
+| 7 a 9,5 | 2 | 3 · Personagem | A foto hiper-realista (`grumvald-foto.webp`) | "3 · PERSONAGEM" | "Aí ele ganha vida" |
+| 9,5 a 12 | 2 | 4 · Cenário | O templo em ruínas com ele no lugar | "4 · CENÁRIO" | "Coloco ele numa cena" |
+| 12 a 16 | 2 | 5 · Vídeo | O rugido sem upscale (master 1080p), com zoom em dentes e saliva | "5 · VÍDEO · SEEDANCE 2.5" | "E animo. Já está bom, mas dá para ir além" |
+| 16 a 22 | 3 | **6 · Upscale** | Cortina sobre o mesmo quadro: sem upscale e com Topaz 4K, zoom 100% no olho e nos dentes | "6 · UPSCALE · TOPAZ 4K" | "O último passo: upscale. Olha a diferença" |
+| 22 a 25 | 3 | Tese + próximo | Volta ao rugido final | "CONSTRUA. TEXTURIZE. FINALIZE" e, pequeno, "PRÓXIMO: O CORTE QUE ESTRAGA A CENA" | "Dá para construir do zero e ainda finalizar em 4K. No próximo, o corte que estraga uma boa cena" |
 | 25 a 26,5 | | Fecho | `FundoCF` + logo | | |
 
-O dono pode aparecer no começo ou no fim (como no ep. 05), se quiser; isso ainda não está decidido.
+O dono pode aparecer no começo ou no fim, se quiser (ainda não decidido). Ritmo: ~50 palavras em ~25 s.
 
 ## Sobre o 4K (resposta ao dono)
 
@@ -62,10 +65,10 @@ O dono pode aparecer no começo ou no fim (como no ep. 05), se quiser; isso aind
 
 ## O que preciso do dono
 
-1. **Qual clipe é o básico, qual é o Seedance e qual passou no Topaz?** (IDs ou os arquivos). Se não existir o básico ou o Topaz, aviso o que falta gerar.
-2. O clipe do **Topaz em 4K** (arquivo original, sem recompressão).
-3. Aprovar o tema, a ordem dos níveis e as falas.
-4. Se quer aparecer no vídeo.
+1. Aprovar o fluxo (argila, texturas, personagem, cenário, vídeo, upscale) e as falas.
+2. Escolher o pedido final: "comenta GRUMVALD" ou "salva para criar o seu".
+3. Mandar (ou autorizar buscar no Magnific) as texturas e o cenário; gerar o upscale.
+4. Dizer se quer aparecer no vídeo.
 
 ## Regras que valem
 

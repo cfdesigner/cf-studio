@@ -23,7 +23,7 @@ O episódio 03 do calendário de referência ("De onde vêm as boas ideias?") **
 | # | Tema | Função | Estado |
 | --- | --- | --- | --- |
 | 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | roteiro v3.1 ("Qual sou eu?": hologramas na mão e transformação alienígena/robô) com escolhas do dono, aguardando aprovação final; storyboard e prompt antigos a atualizar; falta o clipe de IA e as falas (`producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional`) |
-| 06 | **Do básico ao 4K** (lobo-urso guerreiro: básico, Seedance, Topaz) | Autoridade em IA e qualidade; antes e depois | rascunho de roteiro (`ep06-do-basico-ao-4k`); falta apontar os clipes de cada nível |
+| 06 | **Da argila ao 4K** (Grumvald: argila, texturas, cenário, Seedance 2.5, upscale Topaz) | Autoridade em IA; processo e qualidade | rascunho v2 (`ep06-do-basico-ao-4k`); faltam texturas, cenário e o upscale 4K |
 | 07 | "Um corte errado pode acabar com uma boa cena" (opção A) | Técnica de montagem; gera comentário | a estruturar |
 
 Opções para o 05:
