@@ -299,9 +299,12 @@ def sc_endcard():
             '<text x="160" y="70" font-size="17" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif" font-weight="900" letter-spacing="1.5">ELETROPOSTO CELESC</text>'
             '<text x="160" y="86" font-size="9" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif" font-weight="300" letter-spacing="1.2">INOVAÇÃO QUE VIROU CAMINHO</text>'
             '<line x1="140" y1="94" x2="180" y2="94" stroke="#fff" stroke-width=".6"/>'
-            '<rect x="88" y="112" width="62" height="24" rx="3" fill="none" stroke="#fff" stroke-dasharray="3 2" stroke-opacity=".7"/>'
-            '<text x="119" y="127" font-size="6.5" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif" font-weight="700">LOGO CELESC</text>'
-            f'<image href="data:image/png;base64,{LOGO_CERTI}" x="170" y="112" width="60" height="24" preserveAspectRatio="xMidYMid meet"/>')
+            '<rect x="40" y="112" width="56" height="24" rx="3" fill="none" stroke="#fff" stroke-dasharray="3 2" stroke-opacity=".7"/>'
+            '<text x="68" y="127" font-size="6" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif" font-weight="700">LOGO CELESC</text>'
+            f'<image href="data:image/png;base64,{LOGO_CERTI}" x="104" y="112" width="56" height="24" preserveAspectRatio="xMidYMid meet"/>'
+            '<rect x="168" y="112" width="56" height="24" rx="3" fill="none" stroke="#fff" stroke-dasharray="3 2" stroke-opacity=".7"/>'
+            '<text x="196" y="122" font-size="5.5" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif" font-weight="700">ANEEL P&amp;D</text>'
+            '<text x="196" y="130" font-size="4.5" text-anchor="middle" fill="#fff" font-family="Nunito Sans, Nunito, sans-serif">a confirmar</text>')
 
 def sc_facade(name, c):
     return (sky("day") + '<rect x="40" y="40" width="240" height="100" fill="#eef1f3"/>'
@@ -351,8 +354,17 @@ def frame(scene, overlay="", libras=True):
 # ---------------------------------------------------------------- conteúdo
 D = {1: "Florianópolis", 2: "Urubici", 3: "Joinville", 4: "Laguna"}
 
-def S(scene, tc, plano, diaria, desc, ov="", libras=True):
-    return dict(scene=scene, tc=tc, plano=plano, diaria=diaria, desc=desc, ov=ov, libras=libras)
+REF = AQUI / "referencias"
+ETAPA = {"e1": "Vídeo etapa 1", "e2": "Vídeo etapa 2"}
+
+def img(ref):
+    b = base64.b64encode((REF / f"{ref}.jpg").read_bytes()).decode()
+    return f'<image href="data:image/jpeg;base64,{b}" width="{W}" height="{H}" preserveAspectRatio="xMidYMid slice"/>'
+
+def S(scene, tc, plano, diaria, desc, ov="", libras=True, ref=None):
+    if ref:
+        scene = img(ref)
+    return dict(scene=scene, tc=tc, plano=plano, diaria=diaria, desc=desc, ov=ov, libras=libras, ref=ref)
 
 SECOES = [
     dict(id="abertura", no="00", titulo="Abertura", t0=0, t1=20, cor="#00578d",
@@ -363,14 +375,14 @@ SECOES = [
          tela="2015 · Início do Projeto Eletroposto CELESC",
          som="Começa no preto só com o som da estrada. A trilha entra baixa no primeiro detalhe do carro e cresce na montagem.",
          shots=[S(sc_black(), "0:00", "Preto", 0, "Tela preta, som ambiente de estrada", libras=False),
-                S(sc_dash(), "0:02", "Close", 1, "Painel acendendo, mão no volante"),
-                S(sc_plug(), "0:05", "Close", 1, "Cabo de recarga sendo conectado"),
-                S(sc_bridge_drone(), "0:07", "Drone", 1, "Ponte Hercílio Luz, corte rápido"),
-                S(sc_serra_drone(), "0:09", "Drone", 2, "Estrada em direção à Serra, corte rápido"),
+                S(sc_dash(), "0:02", "Close", 1, "Carro sendo ligado: botão de partida, painel acendendo", ref="e1_032"),
+                S(sc_plug(), "0:05", "Close", 1, "Cabo de recarga sendo conectado", ref="e2_100"),
+                S(sc_bridge_drone(), "0:07", "Drone", 1, "Ponte Hercílio Luz, corte rápido", ref="e2_184"),
+                S(sc_serra_drone(), "0:09", "Drone", 2, "Estrada em direção à Serra, corte rápido", ref="e1_116"),
                 S(sc_urubici(), "0:11", "Grande angular", 2, "Paisagem de Urubici, corte rápido"),
                 S(sc_joinville(), "0:13", "Grande angular", 3, "Joinville, Rua das Palmeiras, corte rápido"),
                 S(sc_laguna(), "0:15", "Grande angular", 4, "Laguna, centro histórico, corte rápido"),
-                S(sc_highway(), "0:17", "Plano médio", 1, "O carro começa a rodar", ov_number("", "2015", "INÍCIO DO PROJETO ELETROPOSTO CELESC", 26, 64))]),
+                S(sc_highway(), "0:17", "Plano médio", 1, "O carro começa a rodar", ref="e2_108", ov= ov_number("", "2015", "INÍCIO DO PROJETO ELETROPOSTO CELESC", 26, 64))]),
     dict(id="infra", no="01", titulo="De P&D à infraestrutura", t0=20, t1=55, cor="#00adee",
          ideia="A pesquisa ganha estrada: das primeiras estações ao Corredor Elétrico.",
          loc=["O desafio era entender como os veículos elétricos poderiam se integrar ao sistema de energia e como criar uma infraestrutura capaz de acompanhar essa transformação.",
@@ -379,12 +391,12 @@ SECOES = [
               "Hoje, a rede já conta com dezenas de estações espalhadas por Santa Catarina, conectando diferentes regiões do Estado e tornando possível percorrer grandes distâncias com a segurança de encontrar energia pelo caminho."],
          tela="36 estações · 31 municípios · mais de 1.500 km de território conectado (números a confirmar no fechamento)",
          som="A trilha ganha corpo. Ambiente de rodovia por baixo. Um som leve de “conexão” no close do carregador.",
-         shots=[S(sc_highway_drone(), "0:20", "Drone", 4, "Carro percorrendo rodovia (BR-101), plano aéreo"),
-                S(sc_lab(), "0:25", "Plano médio", 1, "Laboratório / CERTI: a dimensão de P&D"),
-                S(sc_archive(), "0:29", "Arquivo", 0, "Imagens de arquivo das primeiras estações (contraste com a rede atual)"),
-                S(sc_arrive_station(), "0:33", "Grande angular", 1, "Chegada a uma estação"),
-                S(sc_connected(), "0:37", "Close", 1, "Close no carregador, carro conectado"),
-                S(sc_map(False), "0:41", "Animação", 0, "Mapa de SC: a rede se expande ponto a ponto", ov_small("CORREDOR ELÉTRICO CATARINENSE", 20, 26)),
+         shots=[S(sc_highway_drone(), "0:20", "Drone", 4, "Carro percorrendo rodovia (BR-101), plano aéreo", ref="e2_160"),
+                S(sc_lab(), "0:25", "Plano médio", 1, "Equipe técnica / CERTI: a dimensão de P&D", ref="e2_052"),
+                S(sc_archive(), "0:29", "Arquivo", 0, "Imagens de arquivo das primeiras estações (contraste com a rede atual). Os vídeos das etapas 1 e 2 já servem de arquivo", ref="e1_080"),
+                S(sc_arrive_station(), "0:33", "Grande angular", 1, "Chegada a uma estação", ref="e2_064"),
+                S(sc_connected(), "0:37", "Close", 1, "Close no carregador, carro conectado", ref="e2_092"),
+                S(sc_map(False), "0:41", "Animação", 0, "Mapa de SC: a rede se expande ponto a ponto (mesmo mapa das etapas anteriores, atualizado)", ref="e2_164"),
                 S(sc_map(True), "0:47", "Animação", 0, "Rede completa e números",
                   ov_number("", "36", "ESTAÇÕES", 20, 62) + ov_number("", "31", "MUNICÍPIOS", 20, 112) + ov_small("+1.500 KM CONECTADOS", 20, 150))]),
     dict(id="experiencia", no="02", titulo="Não é só um eletroposto", t0=55, t1=85, cor="#8bc53f",
@@ -394,12 +406,12 @@ SECOES = [
               "Por isso, tecnologia, infraestrutura, operação e experiência do usuário caminharam juntas ao longo do projeto."],
          tela="Tecnologia + infraestrutura + operação + experiência",
          som="A trilha respira (menos instrumentos) nos detalhes do celular e volta a abrir na subida da serra.",
-         shots=[S(sc_bridge_car(), "0:55", "Plano médio", 1, "Carro passando pela Ponte Hercílio Luz"),
+         shots=[S(sc_bridge_car(), "0:55", "Plano médio", 1, "Carro passando pela Ponte Hercílio Luz", ref="e1_020"),
                 S(sc_arrive_station(), "1:00", "Grande angular", 1, "Corte para o carro chegando à estação"),
-                S(sc_plug(), "1:03", "Close", 1, "Detalhes da recarga"),
-                S(sc_phone("app"), "1:06", "Close", 1, "Usuário utilizando o celular"),
-                S(sc_phone("map"), "1:09", "Close", 1, "Mapa das estações no celular"),
-                S(sc_highway(), "1:12", "Plano médio", 2, "Carro novamente na estrada"),
+                S(sc_plug(), "1:03", "Close", 1, "Detalhes da recarga", ref="e2_136"),
+                S(sc_phone("app"), "1:06", "Close", 1, "Usuário utilizando o celular (app Eletroposto)", ref="e2_176"),
+                S(sc_phone("map"), "1:09", "Close", 1, "Mapa das estações no celular", ref="e2_076"),
+                S(sc_highway(), "1:12", "Plano médio", 2, "Carro novamente na estrada", ref="e2_144"),
                 S(sc_serra_drone(), "1:16", "Drone", 2, "Transição para Urubici: carro subindo a serra (Corvo Branco)",
                   ov_lines(["TECNOLOGIA +", "INFRAESTRUTURA +", "OPERAÇÃO +", "EXPERIÊNCIA"], 20, 40, 10)),
                 S(sc_urubici(), "1:21", "Grande angular", 2, "Paisagens da Serra Catarinense")]),
@@ -415,7 +427,7 @@ SECOES = [
                 S(sc_connected(), "1:29", "Plano médio", 3, "Usuário conecta o veículo"),
                 S(sc_phone("qr"), "1:33", "Close", 3, "Celular enquadrando o QR Code / aplicativo"),
                 S(sc_flow(), "1:37", "Animação", 0, "Energia → Recarga → Pagamento → Operação"),
-                S(sc_stations_mosaic(), "1:45", "Montagem", 0, "Diferentes tipos de estação (uma de cada cidade)"),
+                S(sc_stations_mosaic(), "1:45", "Montagem", 0, "Diferentes tipos de estação (rápida, semirrápida, com cobertura solar...)", ref="e2_148"),
                 S(sc_highway(), "1:50", "Plano médio", 3, "Fecho do bloco com a frase na tela",
                   ov_phrase("DE INFRAESTRUTURA EXPERIMENTAL PARA", "SERVIÇO", 20, 66) + ov_small("DE MOBILIDADE ELÉTRICA", 20, 84))]),
     dict(id="negocio", no="04", titulo="O modelo de negócio", t0=115, t1=145, cor="#e5287b",
@@ -427,7 +439,7 @@ SECOES = [
          tela="P&D → Modelo de negócio → Operação",
          som="A trilha volta a crescer no “saindo do laboratório e entrando no mercado”. Ambiente urbano leve em Joinville.",
          shots=[S(sc_joinville(), "1:55", "Drone", 3, "Joinville: carro pela Rua das Palmeiras"),
-                S(sc_city_station(), "2:00", "Grande angular", 3, "Chegada ao eletroposto, comércio e circulação de pessoas"),
+                S(sc_city_station(), "2:00", "Grande angular", 3, "Chegada ao eletroposto, comércio e circulação de pessoas", ref="e1_072"),
                 S(sc_ultra(), "2:04", "Close", 3, "Detalhes da infraestrutura: estação de maior capacidade (ultrarrápida)"),
                 S(sc_city_station(), "2:08", "Plano médio", 3, "Estação em operação",
                   ov_lines(["P&amp;D  →  MODELO DE NEGÓCIO  →  OPERAÇÃO"], 20, 34, 9)),
@@ -454,7 +466,7 @@ SECOES = [
          loc=["E o futuro, agora, está em movimento."],
          tela="ELETROPOSTO CELESC · Inovação que virou caminho · CELESC + Fundação CERTI",
          som="Última frase sobre a trilha; a música resolve no fecho e o som termina em fade.",
-         shots=[S(sc_br101_final(), "2:50", "Drone", 4, "Plano aéreo do carro seguindo pela estrada (BR-101, rumo ao litoral). O veículo se afasta"),
+         shots=[S(sc_br101_final(), "2:50", "Drone", 4, "Plano aéreo do carro seguindo pela estrada (BR-101, rumo ao litoral). O veículo se afasta", ref="e1_096"),
                 S(sc_connected(), "2:54", "Plano médio", 4, "Corte para uma estação de recarga"),
                 S(sc_endcard(), "2:56", "Fecho", 0, "Logo CELESC + CERTI, fade out")]),
 ]
@@ -492,7 +504,8 @@ def card(s):
         tag = f'D{d} · {D[d]}' if d else "Pós-produção"
         shots += (f'<figure class="shot"><div class="fr">{frame(sh["scene"], sh["ov"], sh["libras"])}</div>'
                   f'<figcaption><span class="tc">{sh["tc"]}</span><span class="pl">{e(sh["plano"])}</span><span class="dd d{d}">{tag}</span>'
-                  f'<span class="ds">{e(sh["desc"])}</span></figcaption></figure>')
+                  + (f'<span class="rf">Referência real · {ETAPA[sh["ref"][:2]]} · {int(sh["ref"][3:])//60}:{int(sh["ref"][3:])%60:02d}</span>' if sh["ref"] else '<span class="rf il">Ilustração (plano novo)</span>')
+                  + f'<span class="ds">{e(sh["desc"])}</span></figcaption></figure>')
     loc = "".join(f"<p>{e(l)}</p>" for l in s["loc"])
     return f'''
 <section class="sec" id="{s["id"]}" style="--c:{s["cor"]}">
@@ -572,6 +585,9 @@ figcaption{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;margin-top
 .dd{font-weight:700;padding:1px 6px;border-radius:3px;font-size:11px;border:1px solid var(--line2);color:var(--muted)}
 .dd.d1{border-color:#00adee;color:#007fb0}.dd.d2{border-color:#8bc53f;color:#4d7a17}.dd.d3{border-color:#e5287b;color:#b3125b}.dd.d4{border-color:#f08522;color:#b05a0c}
 .ds{flex-basis:100%;color:var(--muted)}
+.rf{flex-basis:100%;font-size:11px;font-weight:700;color:#4d7a17}.rf.il{color:var(--muted);font-weight:600}
+.cont{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:16px}.cont figure{margin:0}.cont figcaption{display:block;font-size:13px;color:var(--muted)}
+.hist{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;margin-top:16px;font-size:14px}.hist th,.hist td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.hist th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .info{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
 @media(max-width:780px){.info{grid-template-columns:1fr}}
 .info h3,dt{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
@@ -614,11 +630,24 @@ def page():
   <div class="chips"><span class="chip">16:9 · 1920×1080</span><span class="chip">{fmt(total)} · institucional</span><span class="chip">Voz em off</span><span class="chip">{n_shots} quadros</span><span class="chip">4 diárias</span><span class="chip">Janela de Libras</span><span class="chip">CELESC + Fundação CERTI</span></div>
 </div></div>
 <div class="bar"><div class="wrap" style="padding-bottom:0">{timeline()}
-  <div class="tog"><label><input type="checkbox" id="lb" checked> Mostrar janela de Libras nos quadros</label><span>Quadros ilustrados: servem para combinar enquadramento e ordem. Serão trocados pelos quadros reais depois da gravação.</span></div>
+  <div class="tog"><label><input type="checkbox" id="lb" checked> Mostrar janela de Libras nos quadros</label><span>Quadros reais vêm dos vídeos das etapas 1 e 2 e servem de referência de enquadramento. Os ilustrados são planos novos. Tudo será trocado pelos quadros da nova gravação.</span></div>
 </div></div>
 <div class="wrap">
 {"".join(card(s) for s in SECOES)}
 
+<div class="block"><h2>Continuidade com <b>as etapas 1 e 2</b></h2>
+<p>Os dois vídeos anteriores já criaram um vocabulário: o Nissan Leaf branco adesivado como protagonista, a Ponte Hercílio Luz, o mapa verde de SC com as estações, números em verde e o fecho com a assinatura de realização. Este terceiro filme continua a série, com tom mais cinematográfico.</p>
+<div class="cont">
+<figure><div class="fr">{frame(img("e2_024"), libras=False)}</div><figcaption>Etapa 2: números em verde sobre a imagem</figcaption></figure>
+<figure><div class="fr">{frame(img("e2_164"), libras=False)}</div><figcaption>Etapa 2: mapa de SC com as estações (rápidas e semirrápidas)</figcaption></figure>
+<figure><div class="fr">{frame(img("e1_128"), libras=False)}</div><figcaption>Etapa 1: realização CERTI, ANEEL, CELESC, Governo de SC</figcaption></figure>
+</div>
+<table class="hist"><thead><tr><th>Indicador</th><th>Etapa 1</th><th>Etapa 2</th><th>Etapa 3 (este vídeo)</th></tr></thead><tbody>
+<tr><td>Estações</td><td>32 eletropostos (8 rápidas + 24 semirrápidas)</td><td>33 estações (8 rápidas + 25 semirrápidas); 30 integradas ao app</td><td>36 (briefing novo) ou 48 (roteiro): confirmar</td></tr>
+<tr><td>Municípios</td><td>–</td><td>25</td><td>31 ou 38: confirmar</td></tr>
+<tr><td>Território</td><td>+1.500 km de rotas eletrificadas, conexão com o CONESUL</td><td>1.500 km de extensão, ±75% do estado</td><td>+1.500 km</td></tr>
+<tr><td>Outros</td><td>Armazenamento de energia</td><td>165 MWh; 900.000 km rodados; tecnologia V2G</td><td>Tarifação (set/2024), modelo de negócio, parceiros</td></tr>
+</tbody></table></div>
 <div class="block"><h2>Depoimentos <b>CELESC e CERTI</b></h2>
 <p>Gravados na Diária 1, nas sedes, com o carro e uma paisagem ao fundo (externa). O roteiro ainda não define onde entram. Sugestão para aprovar: trechos curtos de 5 a 8 s, por exemplo a CERTI depois da abertura (o desafio inicial) e a CELESC no modelo de negócio (o legado). Isso exige encurtar a locução ou passar de 3:00.</p>
 {entrevistas()}</div>
@@ -631,8 +660,10 @@ def page():
 <ul class="notes">
 <li><b>Números da rede:</b> o briefing novo informa 36 estações em 31 municípios; o roteiro anterior dizia 48 em 38. O storyboard usa 36 / 31 e +1.500 km. Confirmar o dado oficial no fechamento.</li>
 <li><b>Janela de Libras:</b> canto inferior direito, mais ou menos 1/4 da largura e metade da altura. Por isso os textos e números ficam à esquerda. Confirmar com o intérprete o tamanho e se haverá recorte ou fundo.</li>
-<li><b>Imagens de arquivo</b> das primeiras estações (2015): pedir à CELESC.</li>
-<li><b>Logo da CELESC:</b> o arquivo oficial ainda não está no repositório.</li>
+<li><b>Imagens de arquivo:</b> os vídeos das etapas 1 e 2 já cobrem boa parte. Se houver material bruto ou fotos de 2015, pedir à CELESC e à CERTI.</li>
+<li><b>Logos do fecho:</b> o roteiro fala só em CELESC + CERTI, mas as etapas 1 e 2 assinam também com ANEEL (Programa de P&amp;D) e Governo de SC, e a etapa 1 tem a tela de parceiros. Confirmar a assinatura e enviar o logo oficial da CELESC.</li>
+<li><b>Identidade dos textos na tela:</b> as etapas anteriores usam números em verde e o mapa verde. O storyboard mostra os textos no estilo CERTI (branco, Nunito Sans). Manter a linguagem verde da série ou seguir o CERTI?</li>
+<li><b>Carro:</b> confirmar se o mesmo Nissan Leaf adesivado “Eletroposto CELESC” está disponível para as 4 diárias.</li>
 <li><b>Estação ultrarrápida em Joinville:</b> confirmar se já está instalada antes da diária. O valor “150 kW” no quadro é só ilustração.</li>
 <li><b>Plano final:</b> o roteiro fecha com o carro numa estrada (BR-101). Alternativa forte: fechar sobre a Ponte Anita Garibaldi, que representa conexão, como sugere o plano de captação. Vale gravar os dois na Diária 4.</li>
 <li><b>Nomes nos depoimentos:</b> só se vocês quiserem lettering com nome e cargo; nesse caso, enviar nome e cargo de cada entrevistado.</li>
