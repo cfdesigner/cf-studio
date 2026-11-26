@@ -65,7 +65,7 @@ md.append("\n## Se falhar\n\n- Rosto mudando: reforce \"keep the exact same man 
 css = re.search(r"<style>(.*?)</style>", (AQUI/"storyboard-modelo.html").read_text(), re.S).group(1)
 _im = Image.open(RAIZ/"design-systems/cfdesigner/assets/logos/cfdesigner-horizontal-white.png"); _im.thumbnail((320,320)); _b=io.BytesIO(); _im.save(_b,"PNG",optimize=True)
 LOGO = "data:image/png;base64,"+base64.b64encode(_b.getvalue()).decode()
-FOTO = "data:image/webp;base64,"+base64.b64encode((AQUI/"quadros/desenhos/cena-03.webp").read_bytes()).decode()
+FOTO = "data:image/webp;base64,"+base64.b64encode((AQUI/"quadros/desenhos/cena-08-glitch.webp").read_bytes()).decode()
 extra = """
 .gcard{margin-top:26px;background:var(--white);border:1px solid var(--line);border-radius:26px;padding:28px;box-shadow:0 22px 44px -30px rgba(0,0,0,.8)}
 .gcard h3{font-weight:800;font-size:clamp(22px,2.8vw,30px);line-height:1.15;letter-spacing:-.02em;margin:10px 0 0}
@@ -136,12 +136,12 @@ page=f"""<title>Guia de produção Qual sou eu</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kaushan+Script&family=Lato:wght@400;700&family=Montserrat:wght@500;600;700;800&display=swap">
 <style>{css}{extra}</style>
 <div class="topbar"><div class="nav"><span class="plate"><img src="{LOGO}" alt="CFDesigner"></span>{nav}<span></span></div></div>
-<header class="hero"><div class="wrap"><div class="hgrid" id="topo" style="grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)">
+<header class="hero" style="padding:68px 0 22px"><div class="wrap"><div class="hgrid" id="topo" style="grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr)">
 <div><p class="eyebrow" style="color:var(--amber)">Guia de produção · Episódio 05 <i></i></p>
 <h1 style="font-size:clamp(44px,6.6vw,92px);white-space:nowrap;line-height:1.1">Como <span class="sc">gravar<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 14 C 25 2, 70 2, 98 10" stroke="#d9a441" stroke-width="4" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></h1>
 <p class="lead">Tudo o que você precisa para gravar os dois takes, a gravação principal e os clipes de IA: o que fazer, em que ordem, e os prompts prontos para colar.</p>
 <div class="selos" style="flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none"><span class="glass">6 arquivos</span><span class="glass">Takes de 8 s</span><span class="glass">Google Flow · Veo 3 Omni</span><span class="glass">Órbita esquerda e direita</span></div></div>
-<div class="hphoto" style="min-height:600px" aria-hidden="true"><span class="disc"></span><span class="ring"></span><div style="position:absolute;right:2%;bottom:0;width:66%;aspect-ratio:9/16;border-radius:24px;background:url({FOTO}) center/cover;border:1px solid rgba(217,164,65,.6);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);z-index:2"></div></div>
+<div class="hphoto" style="min-height:500px" aria-hidden="true"><span class="disc"></span><span class="ring"></span><div style="position:absolute;right:4%;bottom:-6px;width:60%;aspect-ratio:9/16;border-radius:22px;background:url({FOTO}) center/cover;border:1px solid rgba(217,164,65,.6);box-shadow:0 24px 50px -20px rgba(0,0,0,.8);z-index:5"></div></div>
 </div></div></header>
 <div class="wrap"><main>{''.join(secs)}</main><footer class="ft"><span class="plate"><img src="{LOGO}" alt="CFDesigner"></span><span>@CFDESIGNER.OFICIAL</span></footer></div>
 <script>
