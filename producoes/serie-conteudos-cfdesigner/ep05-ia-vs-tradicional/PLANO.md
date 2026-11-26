@@ -36,7 +36,7 @@ O dono aparece falando para a câmera, com **uma imagem flutuando sobre cada pal
 | 12 a 16 | 2 | **Pistas** | De volta a ele, imagens nas mãos; zoom suave nas imagens (mãos, sombra, borda) | "ONDE ESTÁ O ERRO?" | "Olha as mãos, olha a sombra. Comenta aí: 1 ou 2?" |
 | 16 a 18 | 2→3 | Pausa | Ele cala e sorri, olhando para a câmera | "1 OU 2?" | silêncio (ênfase só aqui, +4 dB) |
 | 18 a 20 | 3 | **Revelação** | Etiqueta "REAL" no holograma 1 e "IA" no 2 | "REAL" / "IA" | "O primeiro sou eu. O segundo é IA" |
-| 20 a 23,5 | 3 | **Transformação** | A imagem 2 (IA) abre em tela cheia e, no mesmo movimento, vira **alienígena → robô → alienígena → robô**, ~0,8 s cada, com um **glitch curto** em cada troca | pequeno: "MESMO MOVIMENTO" | "Mesmo movimento. Posso virar qualquer coisa" |
+| 20 a 23,5 | 3 | **Transformação** | A imagem 2 (IA) abre em tela cheia e, no mesmo movimento, vira **alienígena → robô → volta a ser você**, ~0,8 s cada, com um **glitch curto** em cada troca | pequeno: "MESMO MOVIMENTO" | "Mesmo movimento. Posso virar qualquer coisa" |
 | 23,5 a 26 | 3 Maratona | Tese + próximo | Volta a ele, mãos abertas | "QUEM DIRIGE É VOCÊ" e, pequeno, "PRÓXIMO: DA ARGILA AO 4K" | "A IA gera. Quem dirige é você. No próximo, da argila ao 4K" |
 | 26 a 27,5 | | Fecho | `FundoCF` variante `visor` + logo | | |
 

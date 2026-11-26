@@ -195,7 +195,7 @@ for lab,hd in [("Você (IA)","human"),("Alienígena","alien"),("Robô","robot"),
     strip.append((lab,svg(stage("void")+person("wide",1.25,135,150,head=hd)+vignette())))
 add(n=8,fase="mar",t="20 a 23,5 s",ini=20,dur=3.5,nome="Transformação",botao="Maratona de perfil",svg=svg(i),strip=strip,
  fala="Mesmo movimento. Posso virar qualquer coisa.",texto="MESMO MOVIMENTO",
- imagem="A imagem 2 (a IA) abre em tela cheia. No clipe, você gira e abre os braços. No meio do movimento, sem o movimento mudar, vira alienígena, robô, alienígena, robô, ~0,8 s cada. Em cada troca entra um glitch curto (6 a 8 quadros): cores separadas, fatias deslocadas e uma piscada. O quadro mostra o instante de uma troca.",
+ imagem="A imagem 2 (a IA) abre em tela cheia. No clipe, você gira e abre os braços. No meio do movimento, sem o movimento mudar, vira alienígena, depois robô e volta a ser você, ~0,8 s cada. Em cada troca entra um glitch curto (6 a 8 quadros): cores separadas, fatias deslocadas e uma piscada. O quadro mostra o instante de uma troca.",
  camera="Câmera parada nos clipes: o motion control mantém o movimento original.",
  tecnica="Clipes de IA com motion control (você gera), componente novo GlitchTroca, clipes alinhados quadro a quadro.",
  transicao="Glitch curto entre um personagem e outro. Sem morph de verdade.",
@@ -269,7 +269,7 @@ QMAP={"q1":"cena-01","q2":"cena-02","q3":"cena-03","q4":"cena-04","q4p":"cena-04
 def _q(nome):
     return "data:image/webp;base64,"+_b64.b64encode((AQUI/"quadros/desenhos"/(nome+".webp")).read_bytes()).decode()
 QCSS="<style>"+"".join(f".{c}{{background-image:url({_q(n)})}}" for c,n in QMAP.items())+"</style>"
-scenes[7]["strip"]=[("Você (IA)","q4p"),("Alienígena","q8a"),("Robô","q8r"),("Alienígena","q8a"),("Robô","q8r")]
+scenes[7]["strip"]=[("Você","q4p"),("Alienígena","q8a"),("Robô","q8r"),("Você","q4p")]
 fichas="\n".join(ficha(s) for s in scenes)
 minis="\n".join(mini(s) for s in scenes)
 card1=scenes[0]["svg"]
