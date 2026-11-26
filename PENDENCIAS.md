@@ -110,15 +110,21 @@
 - [x] **Episódio 04 aprovado pelo dono em 24/11/2026** (versão só com a narração; ele faz música e efeitos). Calendário e recapitulação em `producoes/serie-conteudos-cfdesigner/CALENDARIO.md`
 - [x] **Episódio 04 finalizado pelo dono por conta própria** (música e efeitos feitos por ele): nada mais a fazer
 
-### Episódio 05 (CFDesigner)
+### Episódio 05 (CFDesigner): "Qual sou eu?"
 
-- [x] Pasta da série renomeada: `producoes/serie-conteudos-cfdesigner/` (ep04, ep05 e `CALENDARIO.md` dentro; próximos episódios continuam ali)
+- [x] Pasta da série renomeada: `producoes/serie-conteudos-cfdesigner/` (ep04, ep05, ep06 e `CALENDARIO.md`)
+- [x] Roteiro v3.1 feito com a skill `conteudo-viral` (dono em cena, hologramas âmbar nas mãos, IA = imagem 2, transformação em alienígena e robô com glitch, gancho para o ep. 06 "Da argila ao 4K"). Plano em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/PLANO.md`
+- [ ] **[dono]** Confirmar a cena do clipe base (A: ele mesmo, de frente, gira de perfil e abre os braços) e aprovar falas e duração (~26 s)
+- [ ] **[Claude]** Guia de gravação, prompts de motion control (alienígena e robô) e imagens dos personagens; atualizar `storyboard.html` e `PROMPT-IA.md` (os de agora são da versão antiga da praia)
+- [ ] **[Claude]** Componentes novos `HologramaMao` e `GlitchTroca` + rastreio das mãos (MediaPipe); quadros de teste para o dono aprovar o estilo
+- [ ] **[dono]** Gravar: clipe base (6 s) e a gravação principal falando com as mãos abertas e quase paradas
+- [ ] **[dono]** Gerar os clipes de IA (alienígena e robô, mesmo movimento) e a narração; música e efeitos como no 04
+- [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado e entregar o MP4
 
-- [x] Tema escolhido pelo dono: **B, "Mesma cena: real ou IA?"**. Plano, narração (rascunho), storyboard e prompt do clipe de IA feitos em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/`
-- [ ] **[dono]** Aprovar o storyboard do 05 (real ou IA primeiro, gancho, tese, duração) e ajustar as falas
-- [ ] **[dono]** Gerar o clipe de IA (6 a 8 s, 9:16) com `PROMPT-IA.md` e a foto de referência, e mandar o MP4 (2 a 3 versões, se der)
-- [ ] **[dono]** Gravar a narração do 05 e fazer música e efeitos (como no 04)
-- [ ] **[Claude]** Depois que chegarem o clipe e a narração: montar o 05 no Remotion e entregar o MP4
+### Episódio 06 (CFDesigner): "Da argila ao 4K" (Grumvald)
+
+- [x] Tema definido pelo dono; rascunho v2 em `producoes/serie-conteudos-cfdesigner/ep06-do-basico-ao-4k/PLANO.md`
+- [ ] **[dono]** Reenviar depois as imagens e os trabalhos (texturas, cenário) e gerar o upscale Topaz 4K do render. Parado até o ep. 05 avançar
 
 ### Carrosséis do CFDesigner (Instagram 4:5)
 
