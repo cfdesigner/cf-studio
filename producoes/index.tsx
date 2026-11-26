@@ -11,8 +11,8 @@ import { NASCE_FRAMES, UmVideoNasceAqui } from "./um-video-nasce-aqui/UmVideoNas
 import { CERTI_NEWS_FRAMES, CertiNews } from "./certi-news/CertiNews";
 import { VideoTiagoLemos, calculaMetadados, type Edicao } from "../design-systems/tiago-lemos-01";
 import c02TiagoEdicao from "./c02-tiago/edicao.json";
-import { EP04_FRAMES, Ep04MesmaCena } from "./ep04-mesma-cena/Ep04MesmaCena";
-import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTeste } from "./ep04-mesma-cena/Ep04SomTeste";
+import { EP04_FRAMES, Ep04MesmaCena } from "./serie-conteudos-cfdesigner/ep04-mesma-cena/Ep04MesmaCena";
+import { EP04_SOM_FRAMES, EP04_TEXTO_FRAMES, Ep04Convite, Ep04Gancho, Ep04SomTeste } from "./serie-conteudos-cfdesigner/ep04-mesma-cena/Ep04SomTeste";
 
 /**
  * Registro das produções (vídeos e peças de verdade).

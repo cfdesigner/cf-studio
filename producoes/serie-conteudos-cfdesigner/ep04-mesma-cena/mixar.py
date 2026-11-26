@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mixa o som do episódio 04 "Mesma cena" e grava o MP4 final (vídeo copiado, sem recompressão).
 
-Uso: python3 producoes/ep04-mesma-cena/mixar.py <video-sem-audio.mp4> <saida.mp4> [--so-voz] [--wav-voz <narracao-alinhada.wav>]
+Uso: python3 producoes/serie-conteudos-cfdesigner/ep04-mesma-cena/mixar.py <video-sem-audio.mp4> <saida.mp4> [--so-voz] [--wav-voz <narracao-alinhada.wav>]
   --so-voz: só a narração (sem música nem efeitos). --wav-voz: também grava a narração alinhada com o vídeo (44,1 kHz, estéreo).
 Usa: public/entrada/ep04/narracao.wav (voz do dono), public/entrada/ep04/musica.mp3 (Suno) e os efeitos de design-systems/cfdesigner/assets/sfx.
 - A voz tem a pausa depois de "e por fim o som" ALARGADA em 1,4 s (corte dentro da pausa) para os efeitos aparecerem sozinhos.

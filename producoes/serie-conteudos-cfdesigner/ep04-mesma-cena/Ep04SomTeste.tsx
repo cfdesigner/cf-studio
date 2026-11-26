@@ -1,8 +1,8 @@
 // Teste da etapa "+ Som" do episódio 04: cena com look (arquivo em public/entrada/canajure/, ignorado pelo Git) + LinhasDeSom.
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, staticFile } from "remotion";
-import { colors, LinhasDeSom } from "../../design-systems/cfdesigner";
-import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
+import { colors, LinhasDeSom } from "../../../design-systems/cfdesigner";
+import { fontFamilies } from "../../../design-systems/cfdesigner/tokens";
 
 export const EP04_SOM_FRAMES = 150; // 5 s
 export const EP04_TEXTO_FRAMES = 60; // 2 s

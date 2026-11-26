@@ -65,13 +65,13 @@ Tempos pela voz do dono (narração de 17,1 s, pausa depois de "o som" alargada 
 
 Legendas (dia a dia) só no miolo da fala; o gancho e o convite já têm texto grande. Correção: o Whisper ouviu "saiba da câmera" e foi corrigido para "saiu da câmera".
 Áudio: voz −16 LUFS na mixagem, música abaixo (curva de volume), efeitos do design system; final −14,6 LUFS, pico −1,4 dBTP.
-Comando: `npx remotion render Ep04MesmaCena out/ep04-sem-audio.mp4 --browser-executable=/opt/pw-browsers/chromium && python3 producoes/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena.mp4`
+Comando: `npx remotion render Ep04MesmaCena out/ep04-sem-audio.mp4 --browser-executable=/opt/pw-browsers/chromium && python3 producoes/serie-conteudos-cfdesigner/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena.mp4`
 
 **Ajustes de som (pedido do dono):** cliques reduzidos de 3 para 1 (`tick` −6 dB), trocados por `suave`; entrada da caixinha com `timeline_in` (antes `cartao`); todos os efeitos 10 dB mais baixos (MASTER −8 dB; pico dos efeitos −16 dBFS contra −3 dBFS da voz); na pausa dramática depois de "o som" a música sobe ~4,5 dB e os efeitos +4 dB.
 
 ## Versão só com a narração (o dono faz música e efeitos)
 
-Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (voz a −14,1 LUFS), `out/ep04-narracao-alinhada.wav` (a voz com a pausa alargada, alinhada com a imagem) e `out/ep04-sem-audio.mp4` (vídeo limpo). Comando: `python3 producoes/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena-so-voz.mp4 --so-voz --wav-voz out/ep04-narracao-alinhada.wav`.
+Pedido do dono: ele faz o áudio. Entregues: `out/ep04-mesma-cena-so-voz.mp4` (voz a −14,1 LUFS), `out/ep04-narracao-alinhada.wav` (a voz com a pausa alargada, alinhada com a imagem) e `out/ep04-sem-audio.mp4` (vídeo limpo). Comando: `python3 producoes/serie-conteudos-cfdesigner/ep04-mesma-cena/mixar.py out/ep04-sem-audio.mp4 out/ep04-mesma-cena-so-voz.mp4 --so-voz --wav-voz out/ep04-narracao-alinhada.wav`.
 
 **Marcas de tempo para ele posicionar o som (s):**
 

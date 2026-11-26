@@ -107,12 +107,14 @@
 ### Episódio 04 "Mesma cena" (CFDesigner)
 
 - [x] Regra nova: **storyboard antes de todo vídeo**. Storyboard, narração (do dono) e música (Suno) feitos; vídeo montado (21,4 s)
-- [x] **Episódio 04 aprovado pelo dono em 24/11/2026** (versão só com a narração; ele faz música e efeitos). Calendário e recapitulação em `producoes/CALENDARIO.md`
+- [x] **Episódio 04 aprovado pelo dono em 24/11/2026** (versão só com a narração; ele faz música e efeitos). Calendário e recapitulação em `producoes/serie-conteudos-cfdesigner/CALENDARIO.md`
 - [x] **Episódio 04 finalizado pelo dono por conta própria** (música e efeitos feitos por ele): nada mais a fazer
 
 ### Episódio 05 (CFDesigner)
 
-- [x] Tema escolhido pelo dono: **B, "Mesma cena: real ou IA?"**. Plano, narração (rascunho), storyboard e prompt do clipe de IA feitos em `producoes/ep05-ia-vs-tradicional/`
+- [x] Pasta da série renomeada: `producoes/serie-conteudos-cfdesigner/` (ep04, ep05 e `CALENDARIO.md` dentro; próximos episódios continuam ali)
+
+- [x] Tema escolhido pelo dono: **B, "Mesma cena: real ou IA?"**. Plano, narração (rascunho), storyboard e prompt do clipe de IA feitos em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/`
 - [ ] **[dono]** Aprovar o storyboard do 05 (real ou IA primeiro, gancho, tese, duração) e ajustar as falas
 - [ ] **[dono]** Gerar o clipe de IA (6 a 8 s, 9:16) com `PROMPT-IA.md` e a foto de referência, e mandar o MP4 (2 a 3 versões, se der)
 - [ ] **[dono]** Gravar a narração do 05 e fazer música e efeitos (como no 04)

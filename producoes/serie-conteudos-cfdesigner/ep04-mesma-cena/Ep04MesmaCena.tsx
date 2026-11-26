@@ -1,6 +1,6 @@
 // PRODUÇÃO: Episódio 04 "Mesma cena" (Reels 21,4 s, CFDesigner, look Âmbar Cinema). 100 BPM: o primeiro kick da música cai em 9,2 s.
 // Arquivos de entrada (ignorados pelo Git) em public/entrada/canajure/: cena-bruto-full.mp4 (visual cinza) e cena-ambar-full.mp4 (com o look), 30,7 s cada.
-// O vídeo sai sem áudio; a narração (e, se pedido, música e efeitos) é mixada por producoes/ep04-mesma-cena/mixar.py.
+// O vídeo sai sem áudio; a narração (e, se pedido, música e efeitos) é mixada por producoes/serie-conteudos-cfdesigner/ep04-mesma-cena/mixar.py.
 import React from "react";
 import {
   AbsoluteFill,
@@ -21,8 +21,8 @@ import {
   VarreduraAmbar,
   VeuDeLuz,
   WipeReveal,
-} from "../../design-systems/cfdesigner";
-import { fontFamilies } from "../../design-systems/cfdesigner/tokens";
+} from "../../../design-systems/cfdesigner";
+import { fontFamilies } from "../../../design-systems/cfdesigner/tokens";
 
 const FPS = 30;
 const f = (s: number) => Math.round(s * FPS);

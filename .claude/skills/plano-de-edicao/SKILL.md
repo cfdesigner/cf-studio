@@ -53,7 +53,7 @@ ffmpeg -i <original> -vf "scale=<L>:<A>:flags=lanczos,fps=30" -c:v libx264 -crf 
 
 ### 4. Montar o plano e o storyboard
 
-**Storyboard obrigatório (pedido do dono):** além do `PLANO.md`, publique uma página visual (Artifact) com quadros reais extraídos do material (`ffmpeg -ss <t> -i <video> -frames:v 1`), a linha do tempo proporcional, o que entra por cima em cada trecho, o som e o que falta aprovar. Etiquetas e caixinhas no storyboard também ficam **viradas para o centro da imagem** (esquerda: lado direito se afasta; direita: lado esquerdo se afasta), como no design system. Só monte o vídeo depois da aprovação. Modelo: `producoes/ep04-mesma-cena/storyboard.html`.
+**Storyboard obrigatório (pedido do dono):** além do `PLANO.md`, publique uma página visual (Artifact) com quadros reais extraídos do material (`ffmpeg -ss <t> -i <video> -frames:v 1`), a linha do tempo proporcional, o que entra por cima em cada trecho, o som e o que falta aprovar. Etiquetas e caixinhas no storyboard também ficam **viradas para o centro da imagem** (esquerda: lado direito se afasta; direita: lado esquerdo se afasta), como no design system. Só monte o vídeo depois da aprovação. Modelo: `producoes/serie-conteudos-cfdesigner/ep04-mesma-cena/storyboard.html`.
 
 
 Copie `producoes/_modelo/PLANO.md` para `producoes/<nome>/PLANO.md` e preencha. Um bom plano tem:

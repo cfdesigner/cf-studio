@@ -9,7 +9,7 @@ Registro vivo do que já foi feito e do que vem. Base: auditoria de 23/11/2026 (
 | 01 | **Edição é ritmo, não efeito** (C01) | Reel 31 s, dono falando, cartões gráficos | Postado | `producoes/c01-ritmo` (só plano) | Posicionamento |
 | 02 | **O poder de transformar uma cena** (C02) | Reel 23 s, b-roll, texto atrás dele, checklist vertical | Postado | `producoes/c02-broll` | Demonstração |
 | extra | **Um vídeo nasce aqui** | Stories/Reel 15 s, making off, cortes em 100 BPM, sem fala | Fechado (v4); dono vai postar | `producoes/um-video-nasce-aqui` | Processo (prova) |
-| 04 | **Mesma cena** (ritmo, cor, som) | Reel 21,4 s, narração em off, plano contínuo + varredura âmbar | Aprovado em 24/11/2026; o dono faz música e efeitos | `producoes/ep04-mesma-cena` | Conhecimento técnico |
+| 04 | **Mesma cena** (ritmo, cor, som) | Reel 21,4 s, narração em off, plano contínuo + varredura âmbar | Aprovado em 24/11/2026; o dono faz música e efeitos | `producoes/serie-conteudos-cfdesigner/ep04-mesma-cena` | Conhecimento técnico |
 | fora da série | CERTI News | Vertical, fala real, design system CERTI | Entregue | `producoes/certi-news` | (cliente CERTI) |
 
 O episódio 03 do calendário de referência ("De onde vêm as boas ideias?") **não tem vídeo**; o making off ocupou o lugar do conteúdo de processo.
@@ -22,7 +22,7 @@ O episódio 03 do calendário de referência ("De onde vêm as boas ideias?") **
 
 | # | Tema | Função | Estado |
 | --- | --- | --- | --- |
-| 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | em estruturação; storyboard pronto, falta o clipe de IA e as falas (`producoes/ep05-ia-vs-tradicional`) |
+| 05 | **Mesma cena: real ou IA?** | Diferencial (IA) e tese "quem dirige é você" | em estruturação; storyboard pronto, falta o clipe de IA e as falas (`producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional`) |
 | 06 | "Um corte errado pode acabar com uma boa cena" (opção A) | Técnica de montagem; gera comentário | a estruturar |
 
 Opções para o 05:
