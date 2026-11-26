@@ -226,13 +226,16 @@ add(n=10,fase="mar",t="26 a 27,5 s",ini=26,dur=1.5,nome="Fecho",botao="Assinatur
  atencao="O logo desenhado aqui é só uma indicação: no vídeo entra o logo real do design system.")
 
 TOTAL=27.5
-FASE={"alc":("Alcance",""),"ret":("Retenção",""),"mar":("Maratona","")}
-import base64 as _b
+import base64 as _b64
+def _img(path,h):
+    im=Image.open(path).convert("RGBA"); r=h/im.size[1]; im=im.resize((int(im.size[0]*r),h)); b=io.BytesIO(); im.save(b,"PNG",optimize=True)
+    return "data:image/png;base64,"+_b64.b64encode(b.getvalue()).decode()
+FOTO=_img(RAIZ/"producoes/carrossel-video-ia/assets/eu-capa.png",1000)
+FASE={"alc":"Alcance","ret":"Retenção","mar":"Maratona"}
 def hl(nome):
     p=nome.rsplit(" ",1)
     return (esc(p[0])+" " if len(p)>1 else "")+f'<mark>{esc(p[-1])}</mark>'
-def card(s):
-    fn,_=FASE[s["fase"]]
+def ficha(s):
     left=s["ini"]/TOTAL*100; wd=s["dur"]/TOTAL*100
     strip=""
     if s.get("strip"):
@@ -242,25 +245,27 @@ def card(s):
             strip+=f'<li><div class="mini">{sv}</div><span>{esc(lab)}</span></li>'
         strip+='</ol></div>'
     bl="".join(f'<li><b>{a}</b> {esc(s[k])}</li>' for a,k in [("Câmera","camera"),("Técnica","tecnica"),("Transição","transicao"),("Som","som")])
-    return f'''<article class="card {s["fase"]}" id="c{s["n"]}">
-<div class="ghost" aria-hidden="true">{s["n"]:02d}</div>
-<div class="top"><span class="plate"><img src="%%LOGO%%" alt="CFDesigner"></span><span class="cnt">{s["n"]:02d} / 10</span></div>
-<p class="kick"><span class="ph">{fn}</span><span class="tm">{esc(s["t"])}</span></p>
+    return f'''<article class="ficha {s["fase"]}" id="c{s["n"]}">
+<div class="fl"><div class="phone"><div class="bez">{s["svg"]}</div></div></div>
+<div class="fr">
+<p class="eyebrow"><span class="ph">{FASE[s["fase"]]}</span> Cena {s["n"]:02d} de 10 <i></i> {esc(s["t"])}</p>
 <h3>{hl(s["nome"])}</h3>
 <div class="pos" role="img" aria-label="Posição no vídeo: {esc(s["t"])}"><i style="left:{left:.2f}%;width:{wd:.2f}%"></i></div>
-<div class="body"><figure class="frame"><div class="disc"></div><div class="bez">{s["svg"]}</div><figcaption>Ilustração do quadro, 9:16. A imagem real vem da sua gravação.</figcaption></figure>
-<div class="info">
 <div class="say"><span class="lab">Fala</span><p>“{esc(s["fala"])}”</p></div>
 <div class="scr"><span class="lab">Na tela</span><b class="placa">{esc(s["texto"])}</b></div>
 <div class="what"><span class="lab">Imagem</span><p>{esc(s["imagem"])}</p></div>
 <ul class="dia">{bl}</ul>
 <div class="att"><span class="lab">Atenção</span><p>{esc(s["atencao"])}</p></div>
-</div></div>{strip}
 <div class="chg"><label class="chk"><input type="checkbox" id="m{s["n"]}" data-n="{s["n"]}"> Quero mudar esta cena</label><label for="t{s["n"]}" class="vh">O que mudar na cena {s["n"]}</label><textarea id="t{s["n"]}" rows="2" placeholder="O que você quer diferente aqui?"></textarea></div>
-<footer class="ft"><span>@CFDESIGNER.OFICIAL</span><span class="pill">CENA {s["n"]:02d}</span></footer>
+</div>
+{('<div class="fx">'+strip+'</div>') if strip else ''}
 </article>'''
-
-tl="".join(f'<a class="{s["fase"]}" href="#c{s["n"]}" style="flex:{s["dur"]}" title="{esc(s["nome"])} · {esc(s["t"])}"><b>{s["n"]:02d}</b><i>{esc(s["nome"])}</i></a>' for s in scenes)
-cards="\n".join(card(s) for s in scenes)
-page=(AQUI/"storyboard-modelo.html").read_text().replace("%%TL%%",tl).replace("%%CARDS%%",cards).replace("%%DEFS%%",DEFS).replace("%%LOGO%%",LOGO)
+def mini(s):
+    return f'''<a class="mc" href="#c{s["n"]}"><div class="mb"><div class="bz">{s["svg"]}</div></div><div class="mt"><b>{s["n"]:02d}</b><span>{esc(s["nome"])}</span><em>{esc(s["t"])}</em></div><span class="ar" aria-hidden="true">↗</span></a>'''
+fichas="\n".join(ficha(s) for s in scenes)
+minis="\n".join(mini(s) for s in scenes)
+card1=scenes[0]["svg"]
+page=(AQUI/"storyboard-modelo.html").read_text()
+for k,v in {"%%FICHAS%%":fichas,"%%MINIS%%":minis,"%%CARD1%%":card1,"%%DEFS%%":DEFS,"%%LOGO%%":LOGO,"%%FOTO%%":FOTO}.items():
+    page=page.replace(k,v)
 (AQUI/"storyboard.html").write_text(page); print(len(page))
