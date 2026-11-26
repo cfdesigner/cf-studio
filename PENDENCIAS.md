@@ -117,7 +117,7 @@
 - [ ] **[dono]** Confirmar a cena do clipe base (A: ele mesmo, de frente, gira de perfil e abre os braços) e aprovar falas e duração (~26 s)
 - [ ] **[Claude]** Guia de gravação, prompts de motion control (alienígena e robô) e imagens dos personagens; atualizar `storyboard.html` e `PROMPT-IA.md` (os de agora são da versão antiga da praia)
 - [ ] **[Claude]** Componentes novos `HologramaMao` e `GlitchTroca` + rastreio das mãos (MediaPipe); quadros de teste para o dono aprovar o estilo
-- [ ] **[dono]** Gravar: clipe base (6 s) e a gravação principal falando com as mãos abertas e quase paradas
+- [ ] **[dono]** Gravar: clipe base de 8 s (você sentado na escada, dando tchau) e a gravação principal falando com as mãos abertas e quase paradas
 - [ ] **[dono]** Gerar os clipes de IA (alienígena e robô, mesmo movimento) e a narração; música e efeitos como no 04
 - [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado e entregar o MP4
 

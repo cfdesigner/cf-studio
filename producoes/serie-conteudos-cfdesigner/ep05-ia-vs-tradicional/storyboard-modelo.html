@@ -254,7 +254,7 @@ textarea::placeholder{color:#6d747d}
 <p class="eyebrow">Próximos passos <i></i></p>
 <h2 id="h-passos">Um passo simples. Um grande <mark>vídeo.</mark></h2>
 <ol class="steps">
-<li><span class="n">01</span><div><b>Gravar</b><span>Clipe base de 6 s (você de frente, girando e abrindo os braços) e a gravação principal falando, com as mãos abertas e quase paradas.</span></div></li>
+<li><span class="n">01</span><div><b>Gravar</b><span>Clipe base de 8 s (você sentado em uma escada, dando tchau) e a gravação principal falando, com as mãos abertas e quase paradas.</span></div></li>
 <li><span class="n">02</span><div><b>Gerar a IA</b><span>Os clipes de alienígena e robô com motion control, a partir do clipe base. Eu escrevo os prompts, você gera.</span></div></li>
 <li><span class="n">03</span><div><b>Montar</b><span>Quadros de teste do holograma e do glitch para você aprovar, narração e montagem no Remotion.</span></div></li>
 </ol>
@@ -263,9 +263,9 @@ textarea::placeholder{color:#6d747d}
 </section>
 
 <div class="cta" id="fim">
-<img class="trail2" src="%%IMG01T%%" alt=""><img class="spark" src="%%IMG05%%" alt="">
-<div><h2>Vamos ajustar <span class="sc">juntos?</span></h2><p>Marque o que não agradou nas fichas e copie a lista.</p></div>
-<button class="pill" type="button" id="cp2">COPIAR PEDIDOS <span aria-hidden="true">→</span></button>
+<img class="trail2" src="%%IMG01T%%" alt="">
+<div><h2>Aprovou? Então vamos <span class="sc">gravar.</span></h2><p>Com o storyboard fechado, o próximo passo é o clipe base e a gravação principal.</p></div>
+<a class="pill" href="#topo">VOLTAR AO INÍCIO <span aria-hidden="true">↑</span></a>
 </div>
 
 <footer class="ft"><span class="plate"><img src="%%LOGO%%" alt="CFDesigner"></span><nav aria-label="Rodapé"><a href="#sobre">Sobre</a><a href="#fases">Fases</a><a href="#cenas">Cenas</a><a href="#fichas">Fichas</a><a href="#passos">Passos</a></nav><span>@CFDESIGNER.OFICIAL</span></footer>
@@ -276,7 +276,7 @@ textarea::placeholder{color:#6d747d}
 
 <script>
 (function(){
-  var sum=document.getElementById('sum'),b1=document.getElementById('cp'),b2=document.getElementById('cp2');
+  var sum=document.getElementById('sum'),b1=document.getElementById('cp');
   function items(){
     var out=[];
     document.querySelectorAll('.chg').forEach(function(box){
@@ -308,6 +308,6 @@ textarea::placeholder{color:#6d747d}
     links.forEach(function(a){a.classList.remove('on')});if(map[cur]){map[cur].classList.add('on');var p=map[cur].parentNode;if(p.scrollWidth>p.clientWidth)p.scrollLeft=map[cur].offsetLeft-20}
   }
   window.addEventListener('scroll',spy,{passive:true});spy();
-  b1.addEventListener('click',function(){copy(b1)});b2.addEventListener('click',function(){copy(b2)});
+  b1.addEventListener('click',function(){copy(b1)});
 })();
 </script>

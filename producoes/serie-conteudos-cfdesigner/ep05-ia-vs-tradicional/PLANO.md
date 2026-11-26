@@ -74,7 +74,7 @@ Gravação do clipe base: **câmera parada** (tripé), mesmo fundo, luz difusa, 
 - [x] **[dono]** Rastreio (mão nua com holograma), ordem (IA = 2) e personagens (alienígena e robô) escolhidos.
 - [ ] **[dono]** Confirmar a cena do clipe base (A, ele mesmo, é a recomendada).
 - [ ] **[Claude]** Guia de gravação (distância, luz, mãos) e prompts.
-- [ ] **[dono]** Gravar: (a) o clipe base de 6 s, (b) a gravação principal falando com os cartões.
+- [ ] **[dono]** Gravar: (a) o clipe base de 8 s (você sentado na escada, dando tchau), (b) a gravação principal falando com os cartões.
 - [ ] **[Claude]** Prompts de motion control (alienígena e robô) e das imagens dos personagens.
 - [ ] **[dono]** Gerar os clipes de IA e a narração/som.
 - [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado.

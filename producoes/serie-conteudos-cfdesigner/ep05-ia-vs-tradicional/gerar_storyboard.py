@@ -130,12 +130,12 @@ add(n=2,fase="alc",t="3 a 6 s",ini=3,dur=3,nome="Promessa e laço aberto",botao=
 i=stage("clip")+person("wide",1.25,135,150,clip=True)+txt("1",24,44,size=28,fill=AMB,w=400,anchor="start",font="Bebas Neue",ls=1)+txt("CLIPE GRAVADO",24,58,size=7.5,fill="#5b564a",w=700,anchor="start",ls=1.8)
 add(n=3,fase="ret",t="6 a 9 s",ini=6,dur=3,nome="Imagem 1 em tela cheia",botao="Retenção",svg=svg(i),
  fala="Olha o primeiro.",texto="1",
- imagem="Você aponta com o olhar e o corpo para a mão esquerda. O holograma 1 cresce e abre em tela cheia (o clipe base: você sentado na escada, de frente, na pose do modelo de referência, e uma ação curta de 6 s). No fim, volta para a mão.",
+ imagem="Você aponta com o olhar e o corpo para a mão esquerda. O holograma 1 cresce e abre em tela cheia (o clipe base: você sentado na escada, de frente, na pose do modelo de referência, clipe de 8 s, dando tchau). No fim, volta para a mão.",
  camera="O clipe base tem câmera parada. A saída do holograma até a tela cheia é um movimento do Remotion (escala e posição) a partir da mão rastreada.",
  tecnica="Crescimento do holograma até o quadro e EtiquetaRotulo (número).",
  transicao="Cresce a partir da mão (~0,4 s) e volta ao fim (~0,3 s).",
  som="Swell suave ao abrir e queda suave ao voltar, bem baixos.",
- atencao="Depende do clipe base de 6 s (opção A). Se preferir outra cena, a gente troca.")
+ atencao="Depende do clipe base de 8 s (você sentado na escada, dando tchau). Se preferir outra cena, a gente troca.")
 # 4
 i=stage("clip")+person("wide",1.25,135,150,clip=True)+txt("2",24,44,size=28,fill=AMB,w=400,anchor="start",font="Bebas Neue",ls=1)+txt("CLIPE IA",24,58,size=7.5,fill="#5b564a",w=700,anchor="start",ls=1.8)
 add(n=4,fase="ret",t="9 a 12 s",ini=9,dur=3,nome="Imagem 2 em tela cheia",botao="Retenção",svg=svg(i),
