@@ -131,21 +131,21 @@ i=stage("clip")+person("wide",1.25,135,150,clip=True)+txt("1",24,44,size=28,fill
 add(n=3,fase="ret",t="6 a 9 s",ini=6,dur=3,nome="Imagem 1 em tela cheia",botao="Retenção",svg=svg(i),
  fala="Olha o primeiro.",texto="1",
  imagem="Você aponta com o olhar para o holograma 1, na sua mão esquerda. Ele cresce e abre em tela cheia: o clipe base, em que você está sentado na escada, de frente, na pose relaxada, e no fim dá tchau para a câmera (8 s). Depois a imagem encolhe e volta para a mão.",
- camera="O clipe base tem câmera parada, no mesmo enquadramento sentado nos dois clipes. A saída do holograma até a tela cheia é um movimento do Remotion (escala e posição) a partir da mão rastreada.",
+ camera="Câmera orbital: gira em arco ao redor de você sentado, da esquerda para a direita, num movimento lento e contínuo durante os 8 s. A saída do holograma até a tela cheia é um movimento do Remotion (escala e posição) a partir da mão rastreada.",
  tecnica="Crescimento do holograma até o quadro e EtiquetaRotulo (número).",
  transicao="Cresce a partir da mão (~0,4 s) e volta ao fim (~0,3 s).",
  som="Swell suave ao abrir e queda suave ao voltar, bem baixos.",
- atencao="Depende do clipe base de 8 s: você sentado na escada, dando tchau. O tchau acontece no mesmo momento nos dois clipes, para ficarem alinhados.")
+ atencao="Depende do clipe base de 8 s: você sentado na escada, dando tchau, com a câmera orbitando. O tchau e a órbita acontecem no mesmo ritmo nos dois clipes, para ficarem alinhados.")
 # 4
 i=stage("clip")+person("wide",1.25,135,150,clip=True)+txt("2",24,44,size=28,fill=AMB,w=400,anchor="start",font="Bebas Neue",ls=1)+txt("CLIPE IA",24,58,size=7.5,fill="#5b564a",w=700,anchor="start",ls=1.8)
 add(n=4,fase="ret",t="9 a 12 s",ini=9,dur=3,nome="Imagem 2 em tela cheia",botao="Retenção",svg=svg(i),
  fala="Agora o segundo.",texto="2",
  imagem="Mesma ação com a mão direita. O holograma 2, o clipe de IA, abre em tela cheia: o mesmo você sentado na escada, no mesmo enquadramento, dando tchau no mesmo instante. A diferença é pequena de propósito, para o público procurar. Depois volta para a mão.",
- camera="Câmera parada, igual ao clipe 1. O tchau acontece por volta dos 5 s nos dois clipes, para ficarem sincronizados.",
+ camera="Câmera orbital, igual à do clipe 1, mas no sentido contrário: da direita para a esquerda. O tchau acontece por volta dos 5 s nos dois clipes, para ficarem sincronizados.",
  tecnica="Mesma animação da cena 3, vinda da mão direita.",
  transicao="Igual à cena 3.",
  som="Igual à cena 3, com um tom um pouco diferente.",
- atencao="Se o clipe de IA ficar óbvio demais, o gancho muda para “olha o que a IA faz comigo” e a graça passa para a transformação. A mão, a sombra na escada e o tênis são os pontos que mais entregam.")
+ atencao="Se o clipe de IA ficar óbvio demais, o gancho muda para “olha o que a IA faz comigo” e a graça passa para a transformação. A mão, a sombra na escada, o tênis e a escada durante a órbita são os pontos que mais entregam.")
 # 5
 i=stage()+person("open")+holo(*HL,"1",glow=1.1)+holo(*HR,"2",glow=1.1)+vignette()+topt("ONDE ESTÁ O ERRO?",y=46,size=13)
 i+=f'<circle cx="222" cy="328" r="23" fill="none" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="48" cy="310" r="21" fill="none" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="3 3"/>'
