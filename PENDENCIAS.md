@@ -115,7 +115,8 @@
 - [x] Pasta da série renomeada: `producoes/serie-conteudos-cfdesigner/` (ep04, ep05, ep06 e `CALENDARIO.md`)
 - [x] Roteiro v3.1 feito com a skill `conteudo-viral` (dono em cena, hologramas âmbar nas mãos, IA = imagem 2, transformação em alienígena e robô com glitch, gancho para o ep. 06 "Da argila ao 4K"). Plano em `producoes/serie-conteudos-cfdesigner/ep05-ia-vs-tradicional/PLANO.md`
 - [ ] **[dono]** Confirmar a cena do clipe base (A: ele mesmo, de frente, gira de perfil e abre os braços) e aprovar falas e duração (~26 s)
-- [ ] **[Claude]** Guia de gravação, prompts de motion control (alienígena e robô) e imagens dos personagens; atualizar `storyboard.html` e `PROMPT-IA.md` (os de agora são da versão antiga da praia)
+- [x] **[Claude]** Storyboard fechado pelo dono (26/11/2026) e guia de produção feito: `guia-producao.html` e `PROMPT-IA.md` (prompts para o Google Flow, Veo 3 Omni Flash 2.1, pois o Seedance é caro para o dono)
+- [ ] **[dono]** Conferir no Omni se aceita vídeo de referência (copiar movimento) ou só imagem
 - [ ] **[Claude]** Componentes novos `HologramaMao` e `GlitchTroca` + rastreio das mãos (MediaPipe); quadros de teste para o dono aprovar o estilo
 - [ ] **[dono]** Gravar: clipe base de 8 s (você sentado na escada, dando tchau) e a gravação principal falando com as mãos abertas e quase paradas
 - [ ] **[dono]** Gerar os clipes de IA (alienígena e robô, mesmo movimento) e a narração; música e efeitos como no 04

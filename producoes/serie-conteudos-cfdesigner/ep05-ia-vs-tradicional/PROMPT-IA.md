@@ -1,61 +1,49 @@
-# Prompt do clipe de IA do episódio 05
+# Prompts de IA do episódio 05 (v3.1, sentado na escada)
+Substitui a versão antiga (praia). **Eu não gero nada**: os prompts abaixo você cola no gerador que preferir (Google Flow, Veo 3 Omni Flash 2.1). Escritos em inglês e em linguagem natural, no formato que o Veo entende bem (cena, sujeito, ação, câmera, áudio, negativo). Formato 9:16, 8 s, sem música.
+**Antes de gerar, confirme no Omni o que ele aceita:** vídeo de referência para copiar o movimento (modo ideal) ou só imagem de partida. Se só aceitar imagem, use a imagem de partida + o prompt (o movimento sai do texto, com menos precisão).
+Gere 2 a 3 versões de cada clipe e escolha a melhor. Os três clipes D, E e F saem do mesmo take B, para ficarem alinhados quadro a quadro.
 
-Regra do repositório: **eu não gero imagem nem vídeo** (nenhuma ferramenta paga). Este arquivo é só o prompt. O dono gera na ferramenta e com o custo que preferir, e manda o MP4.
-
-## Especificações
-
-| Item | Valor |
-| --- | --- |
-| Formato | vertical 9:16 (1080×1920 ou o máximo da ferramenta) |
-| Duração | 6 a 8 s (a edição usa 6 s) |
-| Câmera | **parada** (locked off), plano aberto, sem zoom |
-| Velocidade | tempo real (24 a 30 fps), sem câmera lenta |
-| Áudio | não precisa (o dono faz o som); sem música |
-| Onde entra | **cena 2** (8,4 a 14,4 s), e de novo lado a lado e na revelação |
-| Imagem de referência | `referencia-cena-real.jpg` (quadro da cena real, 1080×1920) |
-
-O ideal é gerar **2 a 3 versões** e escolher a mais convincente.
-
-> **v2 do roteiro:** a virada do homem tem que acontecer **por volta dos 2 s**, igual à cena real, para a tela dividida ficar sincronizada. Se a ferramenta errar o tempo, eu ajusto o início do clipe na edição (sem esticar).
-
-## Modo A: com a imagem de referência (recomendado)
-
-Cole na ferramenta de vídeo (o formato abaixo é o da Seedance 2.0; em outras ferramentas, use `image-to-video` com a mesma foto e o texto da SHOT 1):
+## Imagem de partida: alienígena sentado
 
 ```
-@image1: A man standing barefoot on top of a large rounded sandstone boulder at the edge of the sea. He wears a dark baseball cap, a dark long-sleeve zip hoodie with a red collar at the neck, and dark patterned athletic shorts. Relaxed, contemplative posture, one hand resting on his hip. Behind him: calm turquoise water, a distant hazy mountain ridge, a bright blue sky with large soft white cumulus clouds. Foreground: wet reflective sand mirroring the sky, dark green tree leaves framing the top edge of the image, a warm orange boulder on the left edge.
-
-SFX & ENVIRONMENT: midday beach, bright natural sunlight, light breeze, small gentle waves, the look of a real vertical smartphone video on a tripod.
-
-SHOT 1: Locked-off wide shot, vertical 9:16
-@image1 stands in profile facing left, hand on his hip, looking out at the sea. After about two seconds he slowly turns his whole body to face away from the camera, then stands still with his arms relaxed at his sides, breathing naturally. Static camera, locked off, zero camera movement, real-time speed (24fps), deep depth of field with everything sharp, framing identical to @image1. Only subtle natural motion: jacket fabric in the breeze, leaves trembling, small waves on the sand.
-SFX: soft waves lapping on the rock, light wind, distant seagulls. No Music.
+Photorealistic photo, edit the reference image: keep the exact same pose, framing, stairs, light and clothes, but replace the man with a friendly green alien with smooth green skin, big black almond eyes and no hair. Vertical 9:16. no text, no subtitles, no logos, no watermark, no extra people, no morphing of the face, no changing clothes, no warped hands or fingers, no extra fingers, no sliding feet, no human face.
 ```
 
-**Evite (se a ferramenta tiver campo de negativos):** camera movement, zoom, slow motion, extra people, text, watermark, logo, cartoon or 3D-render look, oversaturated HDR glow, lens flare, warped face or hands, extra limbs, drifting or sliding feet, changing clothes.
-
-## Modo B: sem imagem de referência (só texto)
+## Imagem de partida: robô sentado
 
 ```
-VISUAL STYLE: Photorealistic vertical smartphone footage on a tripod, natural midday light, shot looks real and unretouched.
-
-SUBJECT: A man in a dark baseball cap, dark long-sleeve zip hoodie with a red collar and dark patterned shorts, barefoot, standing on a large rounded sandstone boulder by the sea.
-
-ENVIRONMENT: Tropical beach at midday, calm turquoise water, a distant hazy mountain ridge, bright blue sky with large soft cumulus clouds, wet reflective sand in the foreground, dark green leaves framing the top of the image, a warm orange boulder on the left edge.
-
-EMOTIONAL TARGET: Calm and contemplative.
-
-COLOR LOGIC: Natural saturated colors, unretouched (the editor will add the color grade later).
-
-TIMELINE:
-00:00.0–00:02.0: He stands in profile facing left, hand on his hip, looking at the sea. Static locked-off wide camera. SFX: soft waves, light wind.
-00:02.0–00:06.0: He slowly turns his whole body to face away from the camera and stands still, arms relaxed, breathing. Camera stays locked off. SFX: waves lapping, distant gulls. No Music.
+Photorealistic photo, edit the reference image: keep the exact same pose, framing, stairs, light and clothes, but replace the man with a silver humanoid robot with a polished metal head, two softly glowing amber eyes, metal arms and hands. Vertical 9:16. no text, no subtitles, no logos, no watermark, no extra people, no morphing of the face, no changing clothes, no warped hands or fingers, no extra fingers, no sliding feet, no human face.
 ```
 
-## Nota do diretor
+## Clipe de IA: você (cena 4 e fim da cena 8)
 
-- **Momento principal:** o giro lento de perfil para as costas (é o que deixa a IA mais próxima do real; o corpo e os pés é que costumam denunciar).
-- **Gere primeiro:** o Modo A com a foto de referência. Ele mantém roupa, rocha e céu.
-- **O que olhar na saída:** pés estáveis sobre a rocha (sem deslizar), mãos sem deformar, sombra coerente com o sol, água sem "derreter".
-- **Se falhar:** troque o giro de corpo inteiro por um giro só da cabeça e do tronco, ou deixe ele parado de costas, sem giro.
-- **Dica:** se a ferramenta tiver "camera locked/static" como opção, ligue; evita o zoom lento que muitas IAs inventam.
+- **Entra em:** Cena 4 (imagem 2) e o último quadro da transformação (cena 8)
+- **Referências:** Imagem de referência: um quadro do take B (o primeiro, parado) ou a sua folha de personagem. Vídeo de referência (se o Omni aceitar): o take B.
+
+```
+Photorealistic live-action footage, natural overcast daylight, real skin texture, shot on a gimbal-stabilized cinema camera, vertical 9:16, 24 fps, 8 seconds. A man sitting on weathered concrete stairs in an urban alley, legs apart, elbows resting on his knees, hands hanging relaxed in front of him, wearing a plain white t-shirt, olive cargo pants and black-and-white sneakers, dark curly hair, mustache and goatee. Keep the exact same man as the reference (same face, hair, beard and clothes). Camera: slow orbital arc around him from the right side to the left side, smooth and continuous for the whole shot, keeping him centered in frame. Action: he sits relaxed and still for about 2 seconds, then raises one hand and waves goodbye to the camera at around the 5 second mark, then lowers it. Light breathing, subtle fabric movement. Audio: very soft ambient city sound, no music, no voice. Negative: no text, no subtitles, no logos, no watermark, no extra people, no morphing of the face, no changing clothes, no warped hands or fingers, no extra fingers, no sliding feet.
+```
+
+## Clipe de IA: alienígena (cena 8)
+
+- **Entra em:** Cena 8, segunda troca (depois do glitch)
+- **Referências:** Mesmo vídeo de referência (take B) e uma imagem de referência do alienígena sentado (veja os prompts de imagem abaixo).
+
+```
+Photorealistic live-action footage, natural overcast daylight, real skin texture, shot on a gimbal-stabilized cinema camera, vertical 9:16, 24 fps, 8 seconds. Same scene, same stairs, same camera orbit and same timing as the reference video, but the man is replaced by a friendly green alien with smooth green skin, big black almond eyes and no hair, wearing the same plain white t-shirt, olive cargo pants and sneakers. The alien copies the exact body movement of the reference: sits relaxed with elbows on knees, then waves goodbye at around the 5 second mark. Camera: slow orbital arc from the right side to the left side. Audio: soft ambient city sound, no music, no voice. Negative: no text, no subtitles, no logos, no watermark, no extra people, no morphing of the face, no changing clothes, no warped hands or fingers, no extra fingers, no sliding feet, no human face.
+```
+
+## Clipe de IA: robô (cena 8)
+
+- **Entra em:** Cena 8, terceira troca
+- **Referências:** Mesmo vídeo de referência (take B) e uma imagem de referência do robô sentado.
+
+```
+Photorealistic live-action footage, natural overcast daylight, real skin texture, shot on a gimbal-stabilized cinema camera, vertical 9:16, 24 fps, 8 seconds. Same scene, same stairs, same camera orbit and same timing as the reference video, but the man is replaced by a silver humanoid robot with a polished metal head, two softly glowing amber eyes, and metal arms and hands, wearing the same plain white t-shirt, olive cargo pants and sneakers. The robot copies the exact body movement of the reference: sits relaxed with elbows on knees, then waves goodbye at around the 5 second mark with smooth mechanical precision. Camera: slow orbital arc from the right side to the left side. Audio: soft ambient city sound with a faint servo hum, no music, no voice. Negative: no text, no subtitles, no logos, no watermark, no extra people, no morphing of the face, no changing clothes, no warped hands or fingers, no extra fingers, no sliding feet, no human face.
+```
+
+## Se falhar
+
+- Rosto mudando: reforce "keep the exact same man as the reference" e use a folha de personagem como imagem de referência.
+- Câmera sem órbita: reduza o prompt de câmera a uma frase ("slow orbital arc around him, right to left") e gere de novo; se persistir, gere com câmera parada.
+- Mão errada no tchau: troque por "raises his right hand" e repita a versão.
