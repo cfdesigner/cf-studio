@@ -20,6 +20,9 @@ export const colors = {
   terracota: "#c0622b", // semicírculo da página Percussão
   ocre: "#d98134", // sol da página Percussão
   // texto
+  branco: "#ffffff", // fundo das páginas do eBook
+  vinho: "#4a2720", // título do eBook (medido)
+  tintaTexto: "#231f20", // texto corrido do eBook (medido)
   tintaClara: "#fcf9f5",
   tintaEscura: "#1f1817",
 } as const;
@@ -45,6 +48,8 @@ export const fontFamilies = {
   pincel: '"Kaushan Script", "Permanent Marker", cursive',
   /** Texto corrido: serifa quente como no site. */
   corpo: '"Crimson Pro", "Lora", Georgia, serif',
+  /** Texto de página, como no eBook (Calibri no original; Carlito é a equivalente livre). */
+  texto: '"Carlito", Calibri, "Lato", sans-serif',
   /** Etiquetas, datas, serviço (menu e botões do site). */
   etiqueta: '"Staatliches", "Oswald", Impact, sans-serif',
 } as const;

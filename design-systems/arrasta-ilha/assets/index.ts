@@ -71,6 +71,12 @@ import icFerraduraEstrela from "./icones/ferradura-estrela.png";
 import icLequeCabaca from "./icones/leque-cabaca.png";
 import icMachadoDuplo from "./icones/machado-duplo.png";
 import icTridenteSetas from "./icones/tridente-setas.png";
+import ivArcoFlecha from "./icones-vinho/arco-flecha.png";
+import ivConeBordado from "./icones-vinho/cone-bordado.png";
+import ivFerraduraEstrela from "./icones-vinho/ferradura-estrela.png";
+import ivLequeCabaca from "./icones-vinho/leque-cabaca.png";
+import ivMachadoDuplo from "./icones-vinho/machado-duplo.png";
+import ivTridenteSetas from "./icones-vinho/tridente-setas.png";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -207,3 +213,14 @@ export const icones = {
   icTridenteSetas: { src: icTridenteSetas, w: 706, h: 964 },
 } as const;
 export type IconeNome = keyof typeof icones;
+
+/** Ícones em contorno vinho (#4a2720), para ao lado de títulos sobre fundo branco, como no eBook. */
+export const iconesVinho = {
+  ivArcoFlecha: { src: ivArcoFlecha, w: 751, h: 686 },
+  ivConeBordado: { src: ivConeBordado, w: 732, h: 795 },
+  ivFerraduraEstrela: { src: ivFerraduraEstrela, w: 511, h: 884 },
+  ivLequeCabaca: { src: ivLequeCabaca, w: 710, h: 875 },
+  ivMachadoDuplo: { src: ivMachadoDuplo, w: 798, h: 838 },
+  ivTridenteSetas: { src: ivTridenteSetas, w: 706, h: 964 },
+} as const;
+export type IconeVinhoNome = keyof typeof iconesVinho;
