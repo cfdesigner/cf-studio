@@ -151,50 +151,38 @@ export const PostCamisetas: React.FC<{ stories?: boolean }> = ({ stories = false
 // Foto: do grupo (arquivo do dono). Logos de produção, realização e apoio: pendentes (o print do cartaz original está cortado).
 import fotoDomingueira from "../assets/aplicacoes/domingueira-foto.jpg";
 
-export const PostDomingueira: React.FC<{ cor?: "marinho" | "verde" }> = ({ cor = "marinho" }) => {
-  const az = cor === "marinho";
-  const fundo = az ? colors.marinho : colors.verde;
-  const destaque = az ? colors.laranja : "#f6b47c";
-  const pillFundo = az ? colors.laranja : colors.creme;
-  const pillTexto = az ? colors.noite : colors.vinho;
-  const claro = colors.creme;
+import creditosDomingueira from "../assets/aplicacoes/creditos-domingueira.png";
+
+/** variante "branco": fundo branco. variante "azul": fundo azul-marinho com todos os textos em branco. */
+export const PostDomingueira: React.FC<{ variante?: "branco" | "azul" }> = ({ variante = "branco" }) => {
+  const azul = variante === "azul";
   const W = 1080;
-  const creditos: { rotulo: string; texto?: string }[] = [
-    { rotulo: "Produção" },
-    { rotulo: "Realização" },
-    { rotulo: "Apoio", texto: "Prefeitura de Florianópolis" },
-    { rotulo: "Acessível em Libras" },
-  ];
+  const txt = azul ? "#ffffff" : colors.tintaTexto;
+  const titulo = azul ? "#ffffff" : colors.vinho;
+  const pincel = azul ? "#ffffff" : colors.laranjaTexto;
+  const traco = azul ? "#ffffff" : colors.marinho;
+  const stripW = 480;
+  const stripH = (stripW * 88) / 453;
   return (
-    <AbsoluteFill style={{ background: fundo }}>
-      <Suave nome="elSolRespingo" largura={520} style={{ right: -120, top: 40 }} opacidade={0.18} />
-      <div style={{ position: "absolute", left: 0, right: 0, top: 92, textAlign: "center", fontFamily: fontFamilies.pincel, fontSize: 58, color: claro }}>maracatu arrasta ilha convida</div>
-      <T tam={184} cor={destaque} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 160 }}>Domingueira</T>
+    <AbsoluteFill style={{ background: azul ? colors.marinho : colors.branco }}>
+      <Suave nome="elSolRespingo" largura={560} style={{ right: -130, top: 40 }} opacidade={azul ? 0.2 : 0.2} />
+      {!azul && <Suave nome="elFolhaLarga" altura={820} style={{ left: -50, top: 560 }} opacidade={0.07} />}
+      <div style={{ position: "absolute", left: 0, right: 0, top: 92, textAlign: "center", fontFamily: fontFamilies.pincel, fontSize: 58, color: pincel }}>maracatu arrasta ilha convida</div>
+      <T tam={184} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 160 }}>Domingueira</T>
       <div style={{ position: "absolute", left: 0, right: 0, top: 340, display: "flex", justifyContent: "center" }}>
-        <div style={{ background: pillFundo, color: pillTexto, fontFamily: fontFamilies.display, fontSize: 52, lineHeight: 1, textTransform: "uppercase", padding: "14px 40px", borderRadius: 999, WebkitTextStroke: `${52 * engrossar.padrao}px ${pillTexto}`, paintOrder: "stroke fill" }}>Blocos Afros Floripa</div>
+        <div style={{ border: `3px solid ${traco}`, color: traco, fontFamily: fontFamilies.display, fontSize: 52, lineHeight: 1, textTransform: "uppercase", padding: "12px 40px", borderRadius: 999, WebkitTextStroke: `${52 * engrossar.padrao}px ${traco}`, paintOrder: "stroke fill" }}>Blocos Afros Floripa</div>
       </div>
-      <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 450, objectFit: "cover", objectPosition: "50% 0%" }} />
-      <T tam={124} cor={claro} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 908 }}>29 de novembro</T>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1028, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: claro }}>a partir das 14h · Pista de Skate da Costeira</div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1088, display: "flex", justifyContent: "center" }}>
-        <div style={{ background: az ? colors.verde : colors.marinho, color: claro, fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "8px 34px", borderRadius: 999 }}>ANCESTRALIDADE · AFETO · RESISTÊNCIA</div>
+      <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 440, objectFit: "cover", objectPosition: "50% 0%" }} />
+      <T tam={124} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 900 }}>29 de novembro</T>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1020, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: txt }}>a partir das 14h · Pista de Skate da Costeira</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1080, display: "flex", justifyContent: "center" }}>
+        <div style={azul ? { border: "3px solid #ffffff", color: "#ffffff", fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "6px 32px", borderRadius: 999 } : { background: colors.verde, color: colors.creme, fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "8px 34px", borderRadius: 999 }}>ANCESTRALIDADE · AFETO · RESISTÊNCIA</div>
       </div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1154, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: destaque }}>Entrada gratuita | Toda a comunidade convidada!</div>
-      {/* créditos: o print do cartaz original corta os logos; as vagas marcadas esperam os arquivos */}
-      <div style={{ position: "absolute", left: 60, right: 60, top: 1204, display: "flex", justifyContent: "space-between" }}>
-        {creditos.map((c) => (
-          <div key={c.rotulo} style={{ width: 230, textAlign: "center" }}>
-            <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 22, color: destaque }}>{c.rotulo}:</div>
-            {c.texto ? (
-              <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 22, lineHeight: 1.1, color: claro, marginTop: 8 }}>{c.texto}</div>
-            ) : (
-              <div style={{ marginTop: 6, height: 36, border: `2px dashed ${claro}`, opacity: 0.6, borderRadius: 8, fontFamily: fontFamilies.texto, fontSize: 18, color: claro, display: "flex", alignItems: "center", justifyContent: "center" }}>[logo]</div>
-            )}
-          </div>
-        ))}
-      </div>
-      <Faixa nome={az ? "ofTriangulos" : "ofDancarinos"} w={W} alt={az ? 56 : 72} style={{ position: "absolute", top: 0 }} />
-      <Faixa nome={az ? "ofHexagonos" : "ofDancarinos"} w={W} alt={az ? 44 : 60} style={{ position: "absolute", bottom: 0 }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1148, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: azul ? "#ffffff" : colors.laranjaTexto }}>Entrada gratuita | Toda a comunidade convidada!</div>
+      {azul && <div style={{ position: "absolute", left: 0, right: 0, top: 1196, height: 104, background: "#ffffff" }} />}
+      <Img src={creditosDomingueira} style={{ position: "absolute", left: (W - stripW) / 2, top: azul ? 1196 + (104 - stripH) / 2 : 1190, width: stripW, height: stripH }} />
+      <Faixa nome={azul ? "ofTriangulos" : "ofDancarinos"} w={W} alt={azul ? 56 : 72} style={{ position: "absolute", top: 0 }} />
+      <Faixa nome={azul ? "ofHexagonos" : "ofDancarinos"} w={W} alt={azul ? 50 : 60} style={{ position: "absolute", bottom: 0 }} />
     </AbsoluteFill>
   );
 };
