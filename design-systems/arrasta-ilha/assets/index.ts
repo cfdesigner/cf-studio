@@ -40,6 +40,13 @@ import fotoMestreSorrindoB from "./fotos/mestre-sorrindo-b.png";
 import fotoSaiaBrancaBraco from "./fotos/saia-branca-braco.png";
 import fotoChocalhoCacheada from "./fotos/chocalho-cacheada.png";
 import fotoMeninoBaqueta from "./fotos/menino-baqueta.png";
+import fotoXequereAzul from "./fotos/xequere-azul.png";
+import fotoTamborMadeiraTriangulos from "./fotos/tambor-madeira-triangulos.png";
+import fotoGanzaVime from "./fotos/ganza-vime.png";
+import fotoSinoPreto from "./fotos/sino-preto.png";
+import fotoCaixaAcoBaquetas from "./fotos/caixa-aco-baquetas.png";
+import fotoXequereVerde from "./fotos/xequere-verde.png";
+import fotoXequereAzulBuzios from "./fotos/xequere-azul-buzios.png";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -133,5 +140,12 @@ export const fotos = {
   fotoSaiaBrancaBraco: { src: fotoSaiaBrancaBraco, w: 697, h: 640 },
   fotoChocalhoCacheada: { src: fotoChocalhoCacheada, w: 487, h: 634 },
   fotoMeninoBaqueta: { src: fotoMeninoBaqueta, w: 434, h: 414 },
+  fotoXequereAzul: { src: fotoXequereAzul, w: 332, h: 602 },
+  fotoTamborMadeiraTriangulos: { src: fotoTamborMadeiraTriangulos, w: 538, h: 617 },
+  fotoGanzaVime: { src: fotoGanzaVime, w: 556, h: 412 },
+  fotoSinoPreto: { src: fotoSinoPreto, w: 480, h: 569 },
+  fotoCaixaAcoBaquetas: { src: fotoCaixaAcoBaquetas, w: 453, h: 453 },
+  fotoXequereVerde: { src: fotoXequereVerde, w: 328, h: 546 },
+  fotoXequereAzulBuzios: { src: fotoXequereAzulBuzios, w: 386, h: 579 },
 } as const;
 export type FotoNome = keyof typeof fotos;

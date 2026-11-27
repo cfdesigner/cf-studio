@@ -33,6 +33,9 @@ Arquivo do dono: `assets/oficiais/padrao-oficial.jpg` (1472x566, **repete sem em
 - Rosto de pessoa só em peça com autorização do grupo; não identificar ninguém por nome sem o dono dizer.
 - Fotos preto e branco e coloridas **não se misturam na mesma peça**.
 
+## Instrumentos soltos (enviados pelo dono, 27/11/2026)
+7 recortes de instrumento em `assets/fotos/` (chaves `foto*`): xequerê azul, xequerê verde, xequerê azul com búzios, tambor de madeira com triângulos, ganzá de vime, sino preto (agogô de uma boca) e caixa de aço com baquetas. Nomes provisórios, **o dono confirma o nome certo de cada instrumento** antes de entrarem em texto de peça. Servem para peças de percussão e oficina, como elemento isolado ou em grupo.
+
 ## Grafismos, faixas e recortes (ORIGINAIS do site; regra do dono: ser fiel, não inventar)
 Nada de grafismo desenhado por mim: tudo vem dos prints do site (material do próprio grupo). Faixas: as 5 que o dono enviou (`assets/faixas/`): X verde (Toadas), setas lilás (Percussão), zigue azul (Dança), triângulos verdes (Home), AXÉ · LUTA (Home). **Falta a faixa coral/rosa da página Fundamentos** (pedir ao dono). Recortes (`assets/recortes/`, gerados por `scripts/recortar-site.py` com rembg + filtros de cor): mulher com a bandeira, mulher com a cabaça, tocadores de caixa, tocador de agogô, tambores (alfaias), menino com caixa, sol de respingo, folhas, pontos, arcos, semicírculo com curvas, tracejado. **Pessoas de roupa branca (página Dança) não deram recorte limpo** (branco sobre branco): pedir os originais.
 Uso em código: `Faixa` e `Recorte` (`components/Original.tsx`), catálogo em `assets/index.ts`. Cada peça usa a faixa da página do site a que o tema pertence.

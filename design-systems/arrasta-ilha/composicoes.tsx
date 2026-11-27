@@ -17,7 +17,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-ModeloF-Evento-Stories" component={() => <ModeloEvento stories />} width={1080} height={1920} />
     <Still id="ArrastaIlha-ModeloG-Capa" component={ModeloCapa} width={1080} height={1350} />
     <Still id="ArrastaIlha-ModeloG-Capa-Stories" component={() => <ModeloCapa stories />} width={1080} height={1920} />
-    <Still id="ArrastaIlha-Fotos" component={PranchaFotos} width={1960} height={1330} />
+    <Still id="ArrastaIlha-Fotos" component={PranchaFotos} width={1960} height={1500} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );
