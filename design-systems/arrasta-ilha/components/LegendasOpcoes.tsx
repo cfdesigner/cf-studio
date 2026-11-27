@@ -78,13 +78,13 @@ const E: React.FC = () => (
   </Zona>
 );
 
-/** F (escolha do dono: mistura de A e C): tudo em Zenzero. "todo domingo tem" grande e branco (como na A), "maracatu" gigante em laranja
- *  (como na C) e "na UFSC" também em laranja, na mesma fonte e no mesmo contorno. Entrelinha curta. */
+/** F (escolha do dono, corrigida): "todo domingo tem" exatamente como na C (Carlito negrito, pequeno, branco, minúsculo);
+ *  "maracatu" gigante e "na UFSC" em Zenzero, laranja, no mesmo contorno. Entrelinha curta. */
 const F: React.FC = () => (
-  <Zona top={1010}>
-    <div style={{ ...base(128, "#ffffff"), ...contorno(128, "#ffffff"), textShadow: "0 3px 16px rgba(0,0,0,.6)" }}>Todo domingo tem</div>
-    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: -6 }}>maracatu</div>
-    <div style={{ ...base(128, colors.laranja), ...contorno(128, colors.laranja), textShadow: "0 3px 16px rgba(0,0,0,.6)", marginTop: -4 }}>na UFSC</div>
+  <Zona top={1060}>
+    <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, lineHeight: 1.0, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)" }}>todo domingo tem</div>
+    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>
+    <div style={{ ...base(150, colors.laranja), ...contorno(150, colors.laranja), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: -6 }}>na UFSC</div>
   </Zona>
 );
 
