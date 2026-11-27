@@ -39,6 +39,10 @@ Arquivo do dono: `assets/oficiais/padrao-oficial.jpg` (1472x566, **repete sem em
 - Respiro mínimo em volta: 10% da largura. Não esticar, não recolorir, não pôr sobre foto.
 - Usada em: A (canto), C (placa), G (capa) e **H, o fecho** (logo grande, ensaio todo domingo 15h, @arrastailhaoficial; feed e stories).
 
+## Elementos gráficos e ícones oficiais (enviados pelo dono, 27/11/2026)
+Em `assets/elementos/` (chaves `el*`; catálogo `ArrastaIlha-Elementos`): folhas (com curvas, com tracejado, com mancha azul, larga), arcos azuis (finos e grossos), pontos laranja e pêssego, sol de respingo, semicírculo com curvas, curvas azuis com semicírculo, manchas pêssego e azul, flor laranja e buquê. **Substituem os recortes do site** nos modelos. Vários vêm cortados na borda da folha original: encostar na borda do quadro, nunca deixar flutuando. O buquê vem pela metade (só o lado esquerdo): precisa do arquivo inteiro para uso.
+Em `assets/icones/` (chaves `ic*`, **brancos, só sobre fundo marinho, verde, terracota ou laranja**): arco e flecha, machado duplo, tridente com setas, leque de cabaça, ferradura com estrela, cone bordado. Nomes pela forma; o significado de cada um é do grupo e só entra em texto se o dono disser. Usados no modelo C.
+
 ## Instrumentos soltos (enviados pelo dono, 27/11/2026)
 7 recortes de instrumento em `assets/fotos/` (chaves `foto*`): xequerê azul, xequerê verde, xequerê azul com búzios, tambor de madeira com triângulos, ganzá de vime, sino preto (agogô de uma boca) e caixa de aço com baquetas. Nomes provisórios, **o dono confirma o nome certo de cada instrumento** antes de entrarem em texto de peça. Servem para peças de percussão e oficina, como elemento isolado ou em grupo.
 

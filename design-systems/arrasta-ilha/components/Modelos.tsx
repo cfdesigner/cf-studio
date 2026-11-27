@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
-import { fotos, type FotoNome } from "../assets";
+import { elementos, fotos, icones, type ElementoNome, type FotoNome, type IconeNome } from "../assets";
 import { Faixa, PadraoOficial, Recorte } from "./Original";
 
 const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties => ({
@@ -40,17 +40,17 @@ export const PranchaRecortes: React.FC = () => (
       <Recorte nome="meninoCaixa" altura={420} style={{ left: 940, top: 0 }} />
       <Recorte nome="tambores" altura={300} style={{ left: 1150, top: 0 }} />
       <Recorte nome="mulherCabaca" altura={330} style={{ left: 640, top: 440 }} />
-      <Recorte nome="folhaToadas" largura={300} style={{ left: 980, top: 330 }} />
-      <Recorte nome="folhaLarga" altura={300} style={{ left: 1300, top: 330 }} />
-      <Recorte nome="folhaFundamentos" altura={300} style={{ left: 1090, top: 450 }} />
-      <Recorte nome="solRespingo" largura={150} style={{ left: 1290, top: 650 }} />
+      <Recorte nome="elFolhaCurvasLaranja" largura={300} style={{ left: 980, top: 330 }} />
+      <Recorte nome="elFolhaLarga" altura={300} style={{ left: 1300, top: 330 }} />
+      <Recorte nome="elFolhaTracejado" altura={300} style={{ left: 1090, top: 450 }} />
+      <Recorte nome="elSolRespingo" largura={150} style={{ left: 1290, top: 650 }} />
     </div>
     <div style={{ display: "flex", gap: 20, alignItems: "flex-end", marginTop: 6 }}>
-      <Recorte nome="pontosLaranja" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="elPontosLaranja" altura={110} style={{ position: "relative" }} />
       <Recorte nome="pontosClaros" altura={110} style={{ position: "relative" }} />
       <Recorte nome="pontosDanca" altura={110} style={{ position: "relative" }} />
-      <Recorte nome="arcosAzuis" altura={140} style={{ position: "relative" }} />
-      <Recorte nome="semicirculoCurvas" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="elArcosAzuis" altura={140} style={{ position: "relative" }} />
+      <Recorte nome="elSemicirculoCurvas" altura={110} style={{ position: "relative" }} />
       <Recorte nome="tracejadoLaranja" altura={110} style={{ position: "relative" }} />
       <Recorte nome="folhaDanca" altura={140} style={{ position: "relative" }} />
     </div>
@@ -72,7 +72,7 @@ export const ModeloAviso: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofTriangulos" w={1080} alt={50} />
     <Recorte nome="logoVertical" largura={250} style={{ left: 60, top: 90 }} />
-    <Recorte nome="folhaFundamentos" altura={560} style={{ right: -50, top: 360 }} />
+    <Recorte nome="elFolhaTracejado" altura={560} style={{ right: -50, top: 360 }} />
     <Recorte nome="fotoMulherBandeira" altura={900} style={{ right: 10, top: 250 }} />
     <div style={{ position: "absolute", left: 72, top: 500, width: 600 }}>
       <Cabeca cor={colors.laranjaTexto} texto="ENSAIO ABERTO" />
@@ -87,9 +87,9 @@ export const ModeloAviso: React.FC = () => (
 export const ModeloToada: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofAxeBuzios" w={1080} alt={58} />
-    <Recorte nome="folhaToadas" largura={560} style={{ right: -20, top: 100 }} />
-    <Recorte nome="arcosAzuis" largura={380} style={{ left: -30, top: 560 }} />
-    <Recorte nome="pontosLaranja" largura={150} style={{ left: 60, top: 140 }} />
+    <Recorte nome="elFolhaCurvasLaranja" largura={560} style={{ right: -20, top: 100 }} />
+    <Recorte nome="elArcosAzuis" largura={380} style={{ left: -30, top: 560 }} />
+    <Recorte nome="elPontosLaranja" largura={150} style={{ left: 60, top: 140 }} />
     <Recorte nome="tocadorAgogo" altura={900} style={{ right: 30, top: 320 }} />
     <div style={{ position: "absolute", left: 72, top: 450, width: 560 }}>
       <Cabeca cor={colors.verde} texto="PLATAFORMA · TOADAS" />
@@ -104,7 +104,10 @@ export const ModeloToada: React.FC = () => (
 export const ModeloOficina: React.FC = () => (
   <AbsoluteFill style={{ background: colors.marinho }}>
     <Faixa nome="ofIcones" w={1080} alt={84} />
-    <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 130 }} />
+    <Recorte nome="elArcosAzuis" largura={460} style={{ right: -40, top: 130 }} />
+    <Recorte nome="icArcoFlecha" altura={120} style={{ left: 330, bottom: 90 }} />
+    <Recorte nome="icMachadoDuplo" altura={120} style={{ left: 430, bottom: 90 }} />
+    <Recorte nome="icFerraduraEstrela" altura={120} style={{ left: 515, bottom: 90 }} />
     
     <Recorte nome="fotoMulherMaosAoAlto" altura={760} style={{ right: 20, bottom: 54 }} />
     <div style={{ position: "absolute", left: 72, top: 250, width: 600 }}>
@@ -122,9 +125,9 @@ export const ModeloOficina: React.FC = () => (
 export const ModeloPercussao: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofArmas" w={1080} alt={62} />
-    <Recorte nome="solRespingo" largura={260} style={{ left: 70, top: 110 }} />
-    <Recorte nome="folhaLarga" altura={520} style={{ right: -10, top: 120 }} />
-    <Recorte nome="semicirculoCurvas" largura={500} style={{ left: -20, bottom: 120 }} />
+    <Recorte nome="elSolRespingo" largura={260} style={{ left: 70, top: 110 }} />
+    <Recorte nome="elFolhaLarga" altura={520} style={{ right: -10, top: 120 }} />
+    <Recorte nome="elSemicirculoCurvas" largura={500} style={{ left: -20, bottom: 120 }} />
     <Recorte nome="fotoAlfaiaEChocalhos" largura={500} style={{ right: -10, bottom: 125 }} />
     <div style={{ position: "absolute", left: 72, top: 420, width: 560 }}>
       <Cabeca cor={colors.terracota} texto="PERCUSSÃO · TOQUE BÁSICO" />
@@ -139,7 +142,7 @@ export const ModeloPercussao: React.FC = () => (
 export const ModeloDestaque: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofDancarinos" w={1080} alt={85} />
-    <Recorte nome="pontosLaranja" largura={170} style={{ right: 60, top: 140 }} />
+    <Recorte nome="elPontosLaranja" largura={170} style={{ right: 60, top: 140 }} />
     <Recorte nome="fotoMulherCabaca" altura={560} style={{ left: -10, top: 330 }} />
     <div style={{ position: "absolute", left: 610, top: 330, width: 420 }}>
       <Cabeca cor={colors.laranjaTexto} texto="DESDE 2002" />
@@ -158,10 +161,9 @@ export const ModeloEvento: React.FC<{ stories?: boolean }> = ({ stories = false 
   return (
     <AbsoluteFill style={{ background: colors.creme }}>
       <Faixa nome="ofTriangulos" w={1080} alt={50} />
-      <Recorte nome="manchaPessego" largura={760} style={{ left: 40, top: stories ? 300 : 120 }} />
-      <Recorte nome="manchaAzul" largura={520} style={{ right: -10, top: stories ? 160 : 60 }} />
-      <Recorte nome="folhaFundamentos" altura={stories ? 640 : 480} style={{ left: -40, bottom: stories ? 150 : 130 }} />
-      <Recorte nome="tocadoresCaixa" altura={stories ? 480 : 520} style={{ right: 10, bottom: stories ? 150 : 130 }} />
+      <Recorte nome="elManchasPessegoAzul" largura={1000} style={{ right: 0, top: stories ? 190 : 60 }} />
+      <Recorte nome="elFolhaTracejado" altura={stories ? 600 : 400} style={{ left: -40, bottom: stories ? 150 : 130 }} />
+      <Recorte nome="tocadoresCaixa" altura={stories ? 480 : 400} style={{ right: 10, bottom: stories ? 150 : 150 }} />
       <div style={{ position: "absolute", left: 90, right: 90, top: stories ? 250 : 170, textAlign: "center" }}>
         <div style={titulo(104 * k)}>[Título do evento]<br />[segunda linha]</div>
         <div style={{ ...titulo(112 * k, colors.laranjaTexto), marginTop: 26 * k }}>Maracatu<br />Arrasta Ilha</div>
@@ -217,8 +219,7 @@ export const PranchaFotos: React.FC = () => {
 export const ModeloFecho: React.FC<{ stories?: boolean }> = ({ stories = false }) => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofTriangulos" w={1080} alt={50} />
-    <Recorte nome="manchaPessego" largura={800} style={{ left: 140, top: stories ? 420 : 200 }} />
-    <Recorte nome="manchaAzul" largura={500} style={{ right: -10, top: stories ? 260 : 80 }} />
+    <Recorte nome="elManchasPessegoAzul" largura={1000} style={{ right: 0, top: stories ? 330 : 110 }} />
     <Recorte nome="logoVertical" largura={stories ? 760 : 640} style={{ left: stories ? 160 : 220, top: stories ? 520 : 210 }} />
     <div style={{ position: "absolute", left: 0, right: 0, top: stories ? 1380 : 930, textAlign: "center" }}>
       <div style={etiqueta(38, colors.laranjaTexto)}>ENSAIO TODO DOMINGO · 15H</div>
@@ -228,3 +229,28 @@ export const ModeloFecho: React.FC<{ stories?: boolean }> = ({ stories = false }
     <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: stories ? 110 : 96, background: colors.marinho, ...etiqueta(32, colors.creme), display: "flex", alignItems: "center", justifyContent: "center" }}>@ARRASTAILHAOFICIAL</div>
   </AbsoluteFill>
 );
+
+/** Catálogo dos elementos gráficos e ícones oficiais. */
+export const PranchaElementos: React.FC = () => {
+  const els = Object.keys(elementos) as ElementoNome[];
+  const ics = Object.keys(icones) as IconeNome[];
+  const cell = 280;
+  const caixa = (n: ElementoNome | IconeNome, bg: string, tx: string, tab: { w: number; h: number }) => {
+    const k = Math.min((cell - 30) / tab.w, (cell - 40) / tab.h);
+    return (
+      <div key={n} style={{ position: "relative", width: cell, height: cell, background: bg, flex: "none" }}>
+        <Recorte nome={n} altura={tab.h * k} style={{ left: (cell - tab.w * k) / 2, top: 8 }} />
+        <div style={{ position: "absolute", left: 6, bottom: 4, fontFamily: fontFamilies.corpo, fontSize: 14, color: tx }}>{n} · {tab.w}x{tab.h}</div>
+      </div>
+    );
+  };
+  return (
+    <AbsoluteFill style={{ background: colors.creme, padding: 30 }}>
+      <div style={{ fontFamily: fontFamilies.pincel, fontSize: 48 }}>Elementos e ícones oficiais</div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+        {els.map((n) => caixa(n, "#f7f1e8", "#333", elementos[n]))}
+        {ics.map((n) => caixa(n, colors.marinho, "#fff", icones[n]))}
+      </div>
+    </AbsoluteFill>
+  );
+};

@@ -50,6 +50,27 @@ import fotoXequereAzulBuzios from "./fotos/xequere-azul-buzios.png";
 import logoVertical from "./logos/logo-vertical.png";
 import logoGrafismos from "./logos/logo-com-grafismos.png";
 import logoAmbiente from "./logos/logo-ambiente-horizontal.png";
+import elArcoAzulGrosso from "./elementos/arco-azul-grosso.png";
+import elArcosAzuis from "./elementos/arcos-azuis.png";
+import elBuqueMeio from "./elementos/buque-meio.png";
+import elCurvasAzuisSemicirculo from "./elementos/curvas-azuis-semicirculo.png";
+import elFlorLaranja from "./elementos/flor-laranja.png";
+import elFolhaCurvasLaranja from "./elementos/folha-curvas-laranja.png";
+import elFolhaLarga from "./elementos/folha-larga.png";
+import elFolhaManchaAzul from "./elementos/folha-mancha-azul.png";
+import elFolhaTracejado from "./elementos/folha-tracejado.png";
+import elManchasPessegoAzul from "./elementos/manchas-pessego-azul.png";
+import elPontosLaranjaB from "./elementos/pontos-laranja-b.png";
+import elPontosLaranja from "./elementos/pontos-laranja.png";
+import elPontosPessego from "./elementos/pontos-pessego.png";
+import elSemicirculoCurvas from "./elementos/semicirculo-curvas.png";
+import elSolRespingo from "./elementos/sol-respingo.png";
+import icArcoFlecha from "./icones/arco-flecha.png";
+import icConeBordado from "./icones/cone-bordado.png";
+import icFerraduraEstrela from "./icones/ferradura-estrela.png";
+import icLequeCabaca from "./icones/leque-cabaca.png";
+import icMachadoDuplo from "./icones/machado-duplo.png";
+import icTridenteSetas from "./icones/tridente-setas.png";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -155,3 +176,34 @@ export const fotos = {
   fotoXequereAzulBuzios: { src: fotoXequereAzulBuzios, w: 386, h: 579 },
 } as const;
 export type FotoNome = keyof typeof fotos;
+
+/** Elementos gráficos ORIGINAIS do grupo (folhas, pontos, arcos, sol, curvas, manchas), em alta. Vários vêm cortados na borda da folha: encostar fora do quadro. */
+export const elementos = {
+  elArcoAzulGrosso: { src: elArcoAzulGrosso, w: 266, h: 174 },
+  elArcosAzuis: { src: elArcosAzuis, w: 769, h: 486 },
+  elBuqueMeio: { src: elBuqueMeio, w: 463, h: 1282 },
+  elCurvasAzuisSemicirculo: { src: elCurvasAzuisSemicirculo, w: 568, h: 482 },
+  elFlorLaranja: { src: elFlorLaranja, w: 117, h: 105 },
+  elFolhaCurvasLaranja: { src: elFolhaCurvasLaranja, w: 916, h: 654 },
+  elFolhaLarga: { src: elFolhaLarga, w: 419, h: 917 },
+  elFolhaManchaAzul: { src: elFolhaManchaAzul, w: 691, h: 890 },
+  elFolhaTracejado: { src: elFolhaTracejado, w: 1128, h: 890 },
+  elManchasPessegoAzul: { src: elManchasPessegoAzul, w: 991, h: 448 },
+  elPontosLaranjaB: { src: elPontosLaranjaB, w: 383, h: 306 },
+  elPontosLaranja: { src: elPontosLaranja, w: 357, h: 388 },
+  elPontosPessego: { src: elPontosPessego, w: 355, h: 341 },
+  elSemicirculoCurvas: { src: elSemicirculoCurvas, w: 771, h: 439 },
+  elSolRespingo: { src: elSolRespingo, w: 478, h: 473 },
+} as const;
+export type ElementoNome = keyof typeof elementos;
+
+/** Ícones brancos oficiais (transparentes): só sobre fundo de cor escura ou viva. Nomeados pela forma; o significado é do grupo. */
+export const icones = {
+  icArcoFlecha: { src: icArcoFlecha, w: 751, h: 686 },
+  icConeBordado: { src: icConeBordado, w: 732, h: 795 },
+  icFerraduraEstrela: { src: icFerraduraEstrela, w: 511, h: 884 },
+  icLequeCabaca: { src: icLequeCabaca, w: 710, h: 875 },
+  icMachadoDuplo: { src: icMachadoDuplo, w: 798, h: 838 },
+  icTridenteSetas: { src: icTridenteSetas, w: 706, h: 964 },
+} as const;
+export type IconeNome = keyof typeof icones;

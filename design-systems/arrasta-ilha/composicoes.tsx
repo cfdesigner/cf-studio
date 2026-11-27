@@ -1,7 +1,7 @@
 import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
-import { ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
+import { ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
 export const ArrastaIlhaComposicoes: React.FC = () => (
@@ -20,6 +20,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Fotos" component={PranchaFotos} width={1960} height={1500} />
     <Still id="ArrastaIlha-ModeloH-Fecho" component={ModeloFecho} width={1080} height={1350} />
     <Still id="ArrastaIlha-ModeloH-Fecho-Stories" component={() => <ModeloFecho stories />} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Elementos" component={PranchaElementos} width={1900} height={1260} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );
