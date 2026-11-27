@@ -119,7 +119,9 @@
 - [ ] **[dono]** Conferir no Omni se aceita vídeo de referência (copiar movimento) ou só imagem
 - [ ] **[Claude]** Componentes novos `HologramaMao` e `GlitchTroca` + rastreio das mãos (MediaPipe); quadros de teste para o dono aprovar o estilo
 - [ ] **[dono]** Gravar: clipe base de 8 s (você sentado na escada, dando tchau) e a gravação principal falando com as mãos abertas e quase paradas
-- [ ] **[dono]** Gerar os clipes de IA (alienígena e robô, mesmo movimento) e a narração; música e efeitos como no 04
+- [x] **[Claude + dono]** Alienígena do ep. 05 criado e **aprovado pelo dono em 27/11/2026** com a skill de personagem hiper-realista (Grey de pele translúcida, com veias e tendões, corpo inteiro sentado na escada, roupa tecnológica mínima grafite, olhos pretos úmidos). 5 etapas feitas no Magnific, **480 créditos** no total (base de argila 80 no GPT 2.6; foto realista 140 + 130 no Seedream 5.5, a 1ª descartada por canelas vermelhas; folha de personagem 50; cenário da escada 80). Links: [base de argila](https://www.magnific.com/app/creation/p84TH6Gehw), [foto realista aprovada](https://www.magnific.com/app/creation/JNuSdpAOq4), [folha de personagem](https://www.magnific.com/app/creation/1lBbYVpr4r), [cenário](https://www.magnific.com/app/creation/VXOWjGoMMU). As 10 fotos de textura reais estão subidas na conta
+- [ ] **[dono]** Gerar os clipes de IA (alienígena e robô, mesmo movimento) e a narração; música e efeitos como no 04. **O alienígena já tem folha e cenário prontos** para usar como referência no clipe (o robô ainda não foi criado)
+- [ ] **[dono]** (opcional) Pedir o upscale 4K da folha (~270 créditos), uma 2ª versão do cenário (80) ou o vídeo curto (etapa 6 da skill, só se ele pedir; o preço da finalização pode ser o cheio)
 - [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado e entregar o MP4
 
 ### Episódio 06 (CFDesigner): "Da argila ao 4K" (Grumvald)
