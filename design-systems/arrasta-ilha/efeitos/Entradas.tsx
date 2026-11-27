@@ -10,10 +10,11 @@ export const TituloBatida: React.FC<{ texto: string; style: React.CSSProperties;
     <div style={{ ...style, display: "flex", flexWrap: "wrap", columnGap: "0.28em" }}>
       {palavras.map((p, i) => {
         const t = interpolate(frame - atraso - i * tempos.intervaloPalavra, [0, tempos.entradaTitulo], [0, 1], clamp);
-        const y = interpolate(batida(t), [0, 1], [105, 0]);
+        // Em "em" (não em %): a palavra começa inteira abaixo da máscara, sem o topo das letras aparecendo antes da hora.
+        const y = interpolate(batida(t), [0, 1], [1.7, 0]);
         return (
-          <span key={i} style={{ display: "inline-block", overflow: "hidden", paddingTop: "0.08em", paddingBottom: "0.18em", marginBottom: "-0.18em" }}>
-            <span style={{ display: "inline-block", transform: `translateY(${y}%)` }}>{p}</span>
+          <span key={i} style={{ display: "inline-block", overflow: "hidden", padding: "0.25em 0.04em", margin: "-0.25em -0.04em", visibility: t <= 0 ? "hidden" : "visible" }}>
+            <span style={{ display: "inline-block", transform: `translateY(${y}em)` }}>{p}</span>
           </span>
         );
       })}
