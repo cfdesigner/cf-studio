@@ -70,3 +70,8 @@ export const formatos = {
 /** Zenzero só tem peso Regular: engrossada com contorno da mesma cor (escolha do dono, 27/11/2026: 1,5 px num corpo de 84 px; no máximo 2 px).
  *  Em proporção ao corpo da letra: padrão 1,8%, máximo 2,4%. Use paintOrder "stroke fill". */
 export const engrossar = { padrao: 0.018, maximo: 0.024 } as const;
+
+/** Entrelinha (regra geral do dono: nada de espaço grande entre linhas). Multiplicador do tamanho da letra.
+ *  Títulos em caixa alta 0,88; pincel 0,8 (as hastes se encostam de leve, é o jeito do traço); texto corrido 1,22.
+ *  Entre linhas de blocos diferentes (título e subtítulo), o vão visível fica entre 4% e 8% do tamanho da letra. */
+export const entrelinha = { titulo: 0.88, pincel: 0.8, corrido: 1.22 } as const;

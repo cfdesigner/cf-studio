@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Img } from "remotion";
 import "../fonts";
 import fotoQuadro from "../assets/aplicacoes/domingueira-foto.jpg";
-import { colors, engrossar, fontFamilies } from "../tokens";
+import { colors, engrossar, entrelinha, fontFamilies } from "../tokens";
 
 // ETAPA DE VÍDEO, LEGENDAS: 4 opções em imagem para o dono escolher (frame 9:16 com a foto do grupo como fundo de exemplo).
 // Frase de exemplo, na voz do grupo e SEM ponto final: "Todo domingo tem maracatu na UFSC" (palavra falada: "maracatu").
@@ -11,7 +11,7 @@ type Op = "A" | "B" | "C" | "D" | "E";
 const base = (tam: number, cor: string, extra?: React.CSSProperties): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
   fontSize: tam,
-  lineHeight: 1.0,
+  lineHeight: entrelinha.titulo,
   color: cor,
   textTransform: "uppercase",
   ...extra,
@@ -34,8 +34,8 @@ const Zona: React.FC<{ children: React.ReactNode; top?: number }> = ({ children,
 const A: React.FC = () => (
   <Zona>
     <div style={{ ...base(112, "#ffffff"), ...contorno(112, "#ffffff"), textShadow: "0 3px 16px rgba(0,0,0,.55)" }}>Todo domingo tem</div>
-    <div style={{ ...base(150, colors.laranja), ...contorno(150, colors.laranja), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: 6 }}>maracatu</div>
-    <div style={{ ...base(112, "#ffffff"), ...contorno(112, "#ffffff"), textShadow: "0 3px 16px rgba(0,0,0,.55)", marginTop: 6 }}>na UFSC</div>
+    <div style={{ ...base(150, colors.laranja), ...contorno(150, colors.laranja), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>
+    <div style={{ ...base(112, "#ffffff"), ...contorno(112, "#ffffff"), textShadow: "0 3px 16px rgba(0,0,0,.55)", marginTop: 0 }}>na UFSC</div>
   </Zona>
 );
 
@@ -53,28 +53,28 @@ const B: React.FC = () => (
 const C: React.FC = () => (
   <Zona top={1060}>
     <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)" }}>todo domingo tem</div>
-    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), lineHeight: 0.95, marginTop: 4, textShadow: "0 6px 26px rgba(0,0,0,.55)" }}>maracatu</div>
-    <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)", marginTop: 6 }}>na UFSC</div>
+    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), lineHeight: entrelinha.titulo, marginTop: -4, textShadow: "0 6px 26px rgba(0,0,0,.55)" }}>maracatu</div>
+    <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)", marginTop: 0 }}>na UFSC</div>
   </Zona>
 );
 
 /** D: pincel (Kaushan), a letra manual do nome do grupo; a palavra falada em pêssego. */
 const D: React.FC = () => (
   <Zona top={1200}>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: entrelinha.pincel, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>
       todo domingo tem
     </div>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 168, lineHeight: 1.0, color: "#f6b47c", textShadow: "0 5px 22px rgba(0,0,0,.65)" }}>maracatu</div>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>na UFSC</div>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 168, lineHeight: entrelinha.pincel, color: "#f6b47c", textShadow: "0 5px 22px rgba(0,0,0,.65)" }}>maracatu</div>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: entrelinha.pincel, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>na UFSC</div>
   </Zona>
 );
 
 /** E: como a D (pincel nas frases), mas a palavra falada em Zenzero, a fonte principal, em pêssego. */
 const E: React.FC = () => (
   <Zona top={1170}>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>todo domingo tem</div>
-    <div style={{ ...base(190, "#f6b47c"), ...contorno(190, "#f6b47c"), lineHeight: 0.95, textShadow: "0 5px 22px rgba(0,0,0,.65)", marginTop: 4 }}>maracatu</div>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)", marginTop: 4 }}>na UFSC</div>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: entrelinha.pincel, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>todo domingo tem</div>
+    <div style={{ ...base(190, "#f6b47c"), ...contorno(190, "#f6b47c"), lineHeight: entrelinha.titulo, textShadow: "0 5px 22px rgba(0,0,0,.65)", marginTop: 0 }}>maracatu</div>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: entrelinha.pincel, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)", marginTop: 0 }}>na UFSC</div>
   </Zona>
 );
 
