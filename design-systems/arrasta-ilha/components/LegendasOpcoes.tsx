@@ -80,15 +80,15 @@ const E: React.FC = () => (
 
 /** F (escolha do dono, corrigida): "todo domingo tem" exatamente como na C (Carlito negrito, pequeno, branco, minúsculo);
  *  "maracatu" gigante e "na UFSC" em Zenzero, laranja, no mesmo contorno. Entrelinha curta. */
-const F: React.FC = () => (
+const F: React.FC<{ cor?: string; borda?: string }> = ({ cor = colors.laranja, borda }) => (
   <Zona top={1060}>
     <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, lineHeight: 1.0, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)" }}>todo domingo tem</div>
-    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>
+    <div style={{ ...base(236, cor), ...contorno(236, cor), ...(borda ? { WebkitTextStroke: `${236 * 0.03}px ${borda}`, paintOrder: "stroke fill" } : {}), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>
     <div style={{ ...base(150, "#ffffff"), ...contorno(150, "#ffffff"), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: -6 }}>na UFSC</div>
   </Zona>
 );
 
-export const LegendaOpcao: React.FC<{ opcao: Op }> = ({ opcao }) => (
+export const LegendaOpcao: React.FC<{ opcao: Op; cor?: string; borda?: string }> = ({ opcao, cor, borda }) => (
   <AbsoluteFill>
     <Fundo escuro={opcao === "C" || opcao === "F" ? 0.9 : 0.5} />
     {opcao === "A" && <A />}
@@ -96,6 +96,6 @@ export const LegendaOpcao: React.FC<{ opcao: Op }> = ({ opcao }) => (
     {opcao === "C" && <C />}
     {opcao === "D" && <D />}
     {opcao === "E" && <E />}
-    {opcao === "F" && <F />}
+    {opcao === "F" && <F cor={cor} borda={borda} />}
   </AbsoluteFill>
 );

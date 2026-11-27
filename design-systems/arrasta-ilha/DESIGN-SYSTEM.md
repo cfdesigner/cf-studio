@@ -107,3 +107,4 @@ Componente `Legendas` (`components/Legendas.tsx`), exemplo `ArrastaIlha-Legendas
 - **Dia a dia (opção A):** Zenzero branca com contorno fino, **palavra falada em laranja**, palavras entrando uma a uma, até 26 caracteres e 5 palavras por página, gradiente escuro suave embaixo para leitura sobre fotos claras. Sombra suave.
 - Posição: acima dos ~24% de baixo (botões do Reels). **Nunca ponto final nem reticências**; `?` e `!` ficam.
 - Usar a frase de efeito só em frases curtas e fortes, nunca em mais de ~30% do vídeo.
+- Cor da palavra-chave ("maracatu") da legenda F: o laranja `#f38b4c` ficou apagado sobre as fotos (reclamação do dono). Alternativas em imagem (`out/legendas/comparativo-cor.png`, composições `ArrastaIlha-Legenda-F-Vivo/-Ouro/-Borda/-Creme`): vivo `#ff7a1a` (mais saturado, perto do laranja oficial da faixa MARACATU, `#f47f22`), ouro `#ffb81c`, vivo com borda escura, pêssego claro. Aguardando a escolha.
