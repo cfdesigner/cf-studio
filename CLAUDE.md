@@ -18,7 +18,6 @@ Leia `PENDENCIAS.md` no começo da sessão e **lembre o dono das pendências abe
 ## Regras do dono (valem para TODOS os design systems)
 
 - **Legenda nunca termina com ponto final nem com reticências.** Vírgula, `?` e `!` podem.
-- **Letras bem juntas, nunca espaçadas** (pedido do dono, mais de uma vez): sem tracking largo em títulos, etiquetas ou caixa alta. Entre letras, quase encostadas (letterSpacing negativo ou zero).
 - **Sem barras de REC, timecode ou fps** nos vídeos, a menos que ele peça.
 - **Limpo e premium.** O elemento principal manda; texto de apoio é pequeno, suave e discreto. Nunca "textão" nem texto chamativo sobrando. Na dúvida: menos texto, menor, mais suave.
 - **Vídeo bruto: primeiro o plano de edição** (skill `plano-de-edicao`), mostrar ao dono e esperar aprovação, depois editar.
