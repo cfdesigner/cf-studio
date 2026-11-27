@@ -17,6 +17,29 @@ import seloArrastaIlha from "./oficiais/selo-arrasta-ilha.png";
 import arrastaIlhaVertical from "./oficiais/arrasta-ilha-vertical.png";
 import passaroParasol from "./oficiais/passaro-parasol.png";
 import padraoOficial from "./oficiais/padrao-oficial.jpg";
+import fotoAdultoEMeninoCaixa from "./fotos/adulto-e-menino-caixa.png";
+import fotoMeninoCaixa from "./fotos/menino-caixa.png";
+import fotoChocalhosPar from "./fotos/chocalhos-par.png";
+import fotoAlfaiasDetalhe from "./fotos/alfaias-detalhe.png";
+import fotoAlfaiaEChocalhos from "./fotos/alfaia-e-chocalhos.png";
+import fotoMulherBandeira from "./fotos/mulher-bandeira.png";
+import fotoTocadoresChapeuPb from "./fotos/tocadores-chapeu-pb.png";
+import fotoTocadoresChapeuCor from "./fotos/tocadores-chapeu-cor.png";
+import fotoCabacaDetalhe from "./fotos/cabaca-detalhe.png";
+import fotoMulherCabaca from "./fotos/mulher-cabaca.png";
+import fotoChocalhosColoridosA from "./fotos/chocalhos-coloridos-a.png";
+import fotoSaiasBrancasPes from "./fotos/saias-brancas-pes.png";
+import fotoMulherAzulCabaca from "./fotos/mulher-azul-cabaca.png";
+import fotoTocadorPb from "./fotos/tocador-pb.png";
+import fotoChocalhosColoridosB from "./fotos/chocalhos-coloridos-b.png";
+import fotoChocalhosColoridosC from "./fotos/chocalhos-coloridos-c.png";
+import fotoMestreSorrindoA from "./fotos/mestre-sorrindo-a.png";
+import fotoCasalAgogo from "./fotos/casal-agogo.png";
+import fotoMulherMaosAoAlto from "./fotos/mulher-maos-ao-alto.png";
+import fotoMestreSorrindoB from "./fotos/mestre-sorrindo-b.png";
+import fotoSaiaBrancaBraco from "./fotos/saia-branca-braco.png";
+import fotoChocalhoCacheada from "./fotos/chocalho-cacheada.png";
+import fotoMeninoBaqueta from "./fotos/menino-baqueta.png";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -84,3 +107,31 @@ export type RecorteNome = keyof typeof recortes;
 
 /** Folha oficial de grafismos (1472x566), repete sem emenda: usar como padrão de fundo, nunca esticada. */
 export const padrao = { src: padraoOficial, w: 1472, h: 566 } as const;
+
+/** Fotos recortadas enviadas pelo dono (qualidade melhor que os recortes do site). Chaves `foto*`. */
+export const fotos = {
+  fotoAdultoEMeninoCaixa: { src: fotoAdultoEMeninoCaixa, w: 389, h: 623 },
+  fotoMeninoCaixa: { src: fotoMeninoCaixa, w: 183, h: 471 },
+  fotoChocalhosPar: { src: fotoChocalhosPar, w: 411, h: 424 },
+  fotoAlfaiasDetalhe: { src: fotoAlfaiasDetalhe, w: 492, h: 466 },
+  fotoAlfaiaEChocalhos: { src: fotoAlfaiaEChocalhos, w: 938, h: 682 },
+  fotoMulherBandeira: { src: fotoMulherBandeira, w: 792, h: 1746 },
+  fotoTocadoresChapeuPb: { src: fotoTocadoresChapeuPb, w: 888, h: 823 },
+  fotoTocadoresChapeuCor: { src: fotoTocadoresChapeuCor, w: 749, h: 694 },
+  fotoCabacaDetalhe: { src: fotoCabacaDetalhe, w: 408, h: 448 },
+  fotoMulherCabaca: { src: fotoMulherCabaca, w: 617, h: 601 },
+  fotoChocalhosColoridosA: { src: fotoChocalhosColoridosA, w: 846, h: 750 },
+  fotoSaiasBrancasPes: { src: fotoSaiasBrancasPes, w: 549, h: 540 },
+  fotoMulherAzulCabaca: { src: fotoMulherAzulCabaca, w: 253, h: 367 },
+  fotoTocadorPb: { src: fotoTocadorPb, w: 524, h: 952 },
+  fotoChocalhosColoridosB: { src: fotoChocalhosColoridosB, w: 846, h: 750 },
+  fotoChocalhosColoridosC: { src: fotoChocalhosColoridosC, w: 846, h: 750 },
+  fotoMestreSorrindoA: { src: fotoMestreSorrindoA, w: 637, h: 562 },
+  fotoCasalAgogo: { src: fotoCasalAgogo, w: 288, h: 453 },
+  fotoMulherMaosAoAlto: { src: fotoMulherMaosAoAlto, w: 920, h: 1594 },
+  fotoMestreSorrindoB: { src: fotoMestreSorrindoB, w: 608, h: 562 },
+  fotoSaiaBrancaBraco: { src: fotoSaiaBrancaBraco, w: 697, h: 640 },
+  fotoChocalhoCacheada: { src: fotoChocalhoCacheada, w: 487, h: 634 },
+  fotoMeninoBaqueta: { src: fotoMeninoBaqueta, w: 434, h: 414 },
+} as const;
+export type FotoNome = keyof typeof fotos;

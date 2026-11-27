@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
+import { fotos, type FotoNome } from "../assets";
 import { Faixa, PadraoOficial, Recorte } from "./Original";
 
 const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties => ({
@@ -72,7 +73,7 @@ export const ModeloAviso: React.FC = () => (
     <Faixa nome="ofTriangulos" w={1080} alt={50} />
     <Recorte nome="seloArrastaIlha" largura={220} style={{ left: 72, top: 96 }} />
     <Recorte nome="folhaFundamentos" altura={560} style={{ right: -50, top: 360 }} />
-    <Recorte nome="mulherBandeira" altura={800} style={{ right: 20, top: 300 }} />
+    <Recorte nome="fotoMulherBandeira" altura={900} style={{ right: 10, top: 250 }} />
     <div style={{ position: "absolute", left: 72, top: 500, width: 600 }}>
       <Cabeca cor={colors.laranjaTexto} texto="ENSAIO ABERTO" />
       <div style={titulo(150)}>Domingo<br />tem<br />maracatu</div>
@@ -105,7 +106,7 @@ export const ModeloOficina: React.FC = () => (
     <Faixa nome="ofIcones" w={1080} alt={84} />
     <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 130 }} />
     
-    <Recorte nome="tocadoresCaixa" altura={480} style={{ right: 30, top: 700 }} />
+    <Recorte nome="fotoMulherMaosAoAlto" altura={760} style={{ right: 20, bottom: 54 }} />
     <div style={{ position: "absolute", left: 72, top: 300, width: 600 }}>
       <Cabeca cor={colors.laranja} texto="OFICINA COM MESTRE" />
       <div style={titulo(128, colors.creme)}>Oficina<br />de maracatu</div>
@@ -124,7 +125,7 @@ export const ModeloPercussao: React.FC = () => (
     <Recorte nome="solRespingo" largura={260} style={{ left: 70, top: 110 }} />
     <Recorte nome="folhaLarga" altura={520} style={{ right: -10, top: 120 }} />
     <Recorte nome="semicirculoCurvas" largura={500} style={{ left: -20, bottom: 120 }} />
-    <Recorte nome="tambores" altura={470} style={{ right: -50, bottom: 120 }} />
+    <Recorte nome="fotoAlfaiaEChocalhos" largura={500} style={{ right: -10, bottom: 125 }} />
     <div style={{ position: "absolute", left: 72, top: 420, width: 560 }}>
       <Cabeca cor={colors.terracota} texto="PERCUSSÃO · TOQUE BÁSICO" />
       <div style={titulo(150)}>Solfejo<br />base</div>
@@ -139,7 +140,7 @@ export const ModeloDestaque: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofDancarinos" w={1080} alt={85} />
     <Recorte nome="pontosLaranja" largura={170} style={{ right: 60, top: 140 }} />
-    <Recorte nome="mulherCabaca" altura={700} style={{ left: -20, top: 260 }} />
+    <Recorte nome="fotoMulherCabaca" altura={560} style={{ left: -10, top: 330 }} />
     <div style={{ position: "absolute", left: 610, top: 330, width: 420 }}>
       <Cabeca cor={colors.laranjaTexto} texto="DESDE 2002" />
       <div style={titulo(100)}>Maracatu<br />de baque<br />virado</div>
@@ -184,6 +185,29 @@ export const ModeloCapa: React.FC<{ stories?: boolean }> = ({ stories = false })
         <div style={titulo(112)}>[Título da<br />capa]</div>
         <div style={{ ...corpo(40), marginTop: 28 }}>[linha de apoio]</div>
         <div style={{ ...etiqueta(32, colors.laranjaTexto), marginTop: 36 }}>@ARRASTAILHAOFICIAL</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/** Catálogo das fotos recortadas enviadas pelo dono. */
+export const PranchaFotos: React.FC = () => {
+  const nomes = Object.keys(fotos) as FotoNome[];
+  const cell = 270;
+  return (
+    <AbsoluteFill style={{ background: colors.creme, padding: 30 }}>
+      <div style={{ fontFamily: fontFamilies.pincel, fontSize: 50 }}>Fotos recortadas do grupo</div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 14 }}>
+        {nomes.map((n, i) => {
+          const r = fotos[n];
+          const k = Math.min((cell - 40) / r.w, (cell - 40) / r.h);
+          return (
+            <div key={n} style={{ position: "relative", width: cell, height: cell, background: i % 2 ? "#e9dfd2" : "#2c3d5c", flex: "none" }}>
+              <Recorte nome={n} altura={r.h * k} style={{ left: (cell - r.w * k) / 2, top: 6 }} />
+              <div style={{ position: "absolute", left: 6, bottom: 4, fontFamily: fontFamilies.corpo, fontSize: 15, color: i % 2 ? "#333" : "#fff" }}>{n.replace("foto", "")} · {r.w}x{r.h}</div>
+            </div>
+          );
+        })}
       </div>
     </AbsoluteFill>
   );

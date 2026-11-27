@@ -1,6 +1,6 @@
 import React from "react";
 import { Img } from "remotion";
-import { faixas, padrao, recortes, type FaixaNome, type RecorteNome } from "../assets";
+import { faixas, fotos, padrao, recortes, type FaixaNome, type FotoNome, type RecorteNome } from "../assets";
 
 /** Faixa de padrão original do site, repetida na horizontal (lado a lado, sem background-image). `alt` é a altura final. */
 export const Faixa: React.FC<{ nome: FaixaNome; w?: number; alt?: number; fundo?: string; style?: React.CSSProperties }> = ({ nome, w = 1080, alt = 56, fundo, style }) => {
@@ -18,13 +18,13 @@ export const Faixa: React.FC<{ nome: FaixaNome; w?: number; alt?: number; fundo?
 
 /** Recorte original posicionado pelo canto. Informe `altura` (ou `largura`); a proporção é mantida. */
 export const Recorte: React.FC<{
-  nome: RecorteNome;
+  nome: RecorteNome | FotoNome;
   altura?: number;
   largura?: number;
   style?: React.CSSProperties;
   espelhar?: boolean;
 }> = ({ nome, altura, largura, style, espelhar }) => {
-  const r = recortes[nome];
+  const r = nome in fotos ? fotos[nome as FotoNome] : recortes[nome as RecorteNome];
   const h = altura ?? (largura ? (largura * r.h) / r.w : r.h);
   const w = (h * r.w) / r.h;
   return <Img src={r.src} style={{ position: "absolute", width: w, height: h, transform: espelhar ? "scaleX(-1)" : undefined, ...style }} />;
