@@ -42,7 +42,7 @@ export const fontFamilies = {
   /** Texto corrido: serifa quente como no site. */
   corpo: '"Crimson Pro", "Lora", Georgia, serif',
   /** Etiquetas, datas, serviço (menu e botões do site). */
-  etiqueta: '"Staatliches", "Oswald", Impact, sans-serif',
+  etiqueta: '"Zenzero Grotesk Sans", "Staatliches", Impact, sans-serif',
 } as const;
 
 export const espaco = { 4: 4, 8: 8, 12: 12, 16: 16, 24: 24, 32: 32, 48: 48, 64: 64, 96: 96 } as const;
@@ -61,3 +61,6 @@ export const formatos = {
 /** Zenzero só tem peso Regular: engrossada com contorno da mesma cor (escolha do dono, 27/11/2026: 1,5 px num corpo de 84 px; no máximo 2 px).
  *  Em proporção ao corpo da letra: padrão 1,8%, máximo 2,4%. Use paintOrder "stroke fill". */
 export const engrossar = { padrao: 0.018, maximo: 0.024 } as const;
+
+/** Espaçamento entre letras (escolha do dono: letras bem juntas, nada de texto espaçado). Em em, aplicar como letterSpacing. */
+export const espacamento = { titulo: "-0.045em", etiqueta: "-0.01em", corpo: "-0.005em" } as const;
