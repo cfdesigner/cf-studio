@@ -1,7 +1,7 @@
 import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
-import { CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
+import { FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
 export const ArrastaIlhaComposicoes: React.FC = () => (
@@ -27,6 +27,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Pagina4-Capa" component={() => <CapaPainel />} width={1080} height={1350} />
     <Still id="ArrastaIlha-Pagina1-Titulo-Stories" component={() => <PaginaTitulo stories />} width={1080} height={1920} />
     <Still id="ArrastaIlha-Pagina2-Personagem-Stories" component={() => <PaginaPersonagem stories />} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Folha" component={FolhaDesignSystem} width={2400} height={5350} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );
