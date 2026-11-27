@@ -145,3 +145,26 @@ export const ModeloDestaque: React.FC = () => (
     <Servico tema="laranja" texto="@ARRASTAILHAOFICIAL" />
   </AbsoluteFill>
 );
+
+/** F: cartaz de evento (estrutura do cartaz "Lançamento da plataforma", feito pelo dono). Centralizado:
+ *  título escuro em duas linhas, nome do grupo em laranja, DATA grande, serviço pequeno. Fundo creme com manchas pêssego e azul-claras,
+ *  faixa azul de zigue no topo, folha à esquerda, instrumentista à direita. Serve para feed 4:5 e stories 9:16. */
+export const ModeloEvento: React.FC<{ stories?: boolean }> = ({ stories = false }) => {
+  const k = stories ? 1.25 : 1; // escala dos textos
+  return (
+    <AbsoluteFill style={{ background: colors.creme }}>
+      <Faixa nome="azulZigue" w={1080} alt={50} fundo="#fff" />
+      <Recorte nome="manchaPessego" largura={760} style={{ left: 40, top: stories ? 300 : 120 }} />
+      <Recorte nome="manchaAzul" largura={520} style={{ right: -10, top: stories ? 160 : 60 }} />
+      <Recorte nome="folhaFundamentos" altura={stories ? 640 : 480} style={{ left: -40, bottom: stories ? 150 : 130 }} />
+      <Recorte nome="tocadoresCaixa" altura={stories ? 480 : 520} style={{ right: 10, bottom: stories ? 150 : 130 }} />
+      <div style={{ position: "absolute", left: 90, right: 90, top: stories ? 250 : 170, textAlign: "center" }}>
+        <div style={titulo(104 * k)}>[Título do evento]<br />[segunda linha]</div>
+        <div style={{ ...titulo(112 * k, colors.laranjaTexto), marginTop: 26 * k }}>Maracatu<br />Arrasta Ilha</div>
+        <div style={{ ...titulo(92 * k), marginTop: 44 * k }}>[00 de mês]</div>
+        <div style={{ ...etiqueta(40 * k, colors.noite), marginTop: 18 * k, lineHeight: 1.25 }}>[DIA] · [HORÁRIO]<br />[LOCAL OU CANAL]</div>
+      </div>
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: stories ? 110 : 96, background: colors.marinho, ...etiqueta(32, colors.creme), display: "flex", alignItems: "center", justifyContent: "center" }}>@ARRASTAILHAOFICIAL</div>
+    </AbsoluteFill>
+  );
+};

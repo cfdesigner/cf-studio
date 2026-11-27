@@ -21,6 +21,8 @@ import pontosLaranja from "./recortes/pontos-laranja.png";
 import pontosDanca from "./recortes/pontos-danca.png";
 import semicirculoCurvas from "./recortes/semicirculo-curvas.png";
 import arcosAzuis from "./recortes/arcos-azuis.png";
+import manchaPessego from "./recortes/mancha-pessego.png";
+import manchaAzul from "./recortes/mancha-azul.png";
 import tracejadoLaranja from "./recortes/tracejado-laranja.png";
 
 /** Faixas de padrão (cada uma pertence a uma página do site). */
@@ -51,6 +53,8 @@ export const recortes = {
   pontosDanca: { src: pontosDanca, w: 125, h: 119 },
   semicirculoCurvas: { src: semicirculoCurvas, w: 310, h: 177 },
   arcosAzuis: { src: arcosAzuis, w: 288, h: 226 },
+  manchaPessego: { src: manchaPessego, w: 328, h: 220 },
+  manchaAzul: { src: manchaAzul, w: 259, h: 181 }, // cortada na borda direita do print: encostar fora do quadro
   tracejadoLaranja: { src: tracejadoLaranja, w: 234, h: 197 },
 } as const;
 export type RecorteNome = keyof typeof recortes;

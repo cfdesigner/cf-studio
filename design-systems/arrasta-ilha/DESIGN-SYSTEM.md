@@ -34,3 +34,6 @@ Uso em código: `Faixa` e `Recorte` (`components/Original.tsx`), catálogo em `a
 
 ## Modelos de peça (feed 4:5, em aprovação)
 **A** aviso do ensaio (mulher da bandeira, faixa de triângulos, laranja) · **B** toada nova (tocador de agogô, faixa de X, verde) · **C** oficina com mestre (tocadores, faixa de zigue azul, azul-marinho, campos entre colchetes) · **D** toque de percussão (alfaias, faixa de setas, terracota) · **E** destaque institucional (mulher com a cabaça, faixa AXÉ · LUTA). Composições `ArrastaIlha-ModeloA-Aviso`, `-B-Toada`, `-C-Oficina`, `-D-Percussao`, `-E-Destaque`, `ArrastaIlha-Recortes`.
+
+## Cartaz de evento (referência do dono: "Lançamento da plataforma", 02 de julho)
+Estrutura do cartaz que o dono fez na época da plataforma, agora modelo **F** (`ModeloEvento`, feed 4:5 e stories 9:16): faixa azul de zigue no topo; **tudo centralizado**; título em duas linhas escuras, **nome do grupo em laranja**, **data grande**, serviço (dia, hora, canal ou local) pequeno; fundo creme com **manchas orgânicas pêssego e azul-claras** (recortadas do site); folha marrom na lateral; instrumentista ilustrado à direita. O cartaz original usa uma ilustração de instrumentista (estilo ilustrado, roupa branca com listras azul e laranja): ilustração e foto recortada convivem, mas **não misturar numa mesma peça**.
