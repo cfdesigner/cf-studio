@@ -116,6 +116,8 @@
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
+- [x] **[Claude]** Ensaio/oficina e aviso de programação refeitos (feed 4:5). Falta foto original do ensaio
+
 ### Arrasta Ilha: plano para amadurecer a proposta (combinado com o dono em 27/11/2026)
 
 Ideia: ir com calma, estudar mais o grupo e só apresentar quando houver uma versão bem definida, com exemplos reais do que será entregue. A apresentação "Identidade em ação" (artefato) é o rascunho vivo e vai sendo alimentada.

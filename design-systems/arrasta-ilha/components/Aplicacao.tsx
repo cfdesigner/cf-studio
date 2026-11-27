@@ -232,3 +232,77 @@ export const PostDomingueiraStories: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// ---------------------------------------------------------------------------------------------
+// APLICAÇÕES DO DIA A DIA: ensaio e oficina (com foto) e aviso de programação. Refeitas de dois posts atuais do grupo.
+import fotoEnsaioOficina from "../assets/aplicacoes/ensaio-oficina-foto.png";
+
+export type EnsaioProps = {
+  titulo?: string; // "Ensaio"
+  subtitulo?: string; // "Maracatu Arrasta Ilha"
+  destaque?: string; // "e oficina para iniciantes"
+  nota?: string; // "(continuação)"
+  data?: string; // "Domingo 30/08 | 15h00"
+  linha?: string; // "ensaios e oficinas semanais"
+  local?: string; // "Espaço Aruanda (em frente ao lago) | UFSC"
+  foto?: string;
+};
+
+export const ModeloEnsaio: React.FC<EnsaioProps> = ({
+  titulo = "Ensaio",
+  subtitulo = "Maracatu Arrasta Ilha",
+  destaque = "e oficina para iniciantes",
+  nota = "(continuação)",
+  data = "Domingo 30/08 | 15h00",
+  linha = "ensaios e oficinas semanais",
+  local = "Espaço Aruanda (em frente ao lago) | UFSC",
+  foto,
+}) => {
+  const src = foto ?? fotoEnsaioOficina;
+  const fw = 960;
+  const fh = 470;
+  return (
+    <AbsoluteFill style={{ background: colors.branco }}>
+      <Suave nome="elFolhaLarga" altura={760} style={{ right: -40, top: 330 }} opacidade={0.08} />
+      <Suave nome="elSolRespingo" largura={380} style={{ right: -80, top: 60 }} opacidade={0.18} />
+      <Faixa nome="ofTriangulos" w={1080} alt={56} style={{ position: "absolute", top: 0 }} />
+      <Recorte nome="logoVertical" largura={190} style={{ right: 60, top: 90 }} />
+      <T tam={190} style={{ position: "absolute", left: 60, top: 95 }}>{titulo}</T>
+      <T tam={78} cor={colors.laranjaTexto} style={{ position: "absolute", left: 60, top: 280 }}>{subtitulo}</T>
+      <div style={{ position: "absolute", left: 66, top: 378, fontFamily: fontFamilies.pincel, fontSize: 56, color: colors.marinho }}>{destaque}</div>
+      <div style={{ position: "absolute", left: 66, top: 462, fontFamily: fontFamilies.texto, fontSize: 32, color: "#6a564c" }}>{nota}</div>
+      <div style={{ position: "absolute", left: 60 + 28, top: 530 + 26, width: fw - 28, height: fh, background: colors.marinho }} />
+      <Img src={src} style={{ position: "absolute", left: 60, top: 530, width: fw - 28, height: fh, objectFit: "cover", objectPosition: "50% 35%" }} />
+      <div style={{ position: "absolute", left: 66, top: 1050, fontFamily: fontFamilies.display, fontSize: 80, lineHeight: 1, color: colors.vinho, textTransform: "uppercase", WebkitTextStroke: `${80 * engrossar.padrao}px ${colors.vinho}`, paintOrder: "stroke fill" }}>{data}</div>
+      <div style={{ position: "absolute", left: 66, top: 1150, fontFamily: fontFamilies.pincel, fontSize: 40, color: colors.laranjaTexto }}>{linha}</div>
+      <div style={{ position: "absolute", left: 66, top: 1205, fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 36, color: colors.tintaTexto }}>{local}</div>
+      <Faixa nome="ofHexagonos" w={1080} alt={44} style={{ position: "absolute", bottom: 0 }} />
+    </AbsoluteFill>
+  );
+};
+
+export type AvisoProps = { titulo?: string; subtitulo?: string; data?: string; mensagem?: string; detalhe?: string };
+
+/** Aviso de programação (ex.: "não haverá ensaio"). Sem foto: título grande, logo e mensagem em destaque. */
+export const ModeloProgramacao: React.FC<AvisoProps> = ({
+  titulo = "Programação",
+  subtitulo = "Maracatu Arrasta Ilha",
+  data = "Domingo: 11/10",
+  mensagem = "Não haverá | ensaio na UFSC",
+  detalhe = "",
+}) => (
+  <AbsoluteFill style={{ background: colors.branco }}>
+    <Suave nome="elFolhaLarga" altura={900} style={{ left: -60, top: 400 }} opacidade={0.09} />
+    <Suave nome="elSolRespingo" largura={560} style={{ right: -110, top: 480 }} opacidade={0.16} />
+    <Faixa nome="ofTriangulos" w={1080} alt={56} style={{ position: "absolute", top: 0 }} />
+    <Recorte nome="logoVertical" largura={200} style={{ right: 60, top: 90 }} />
+    <T tam={128} style={{ position: "absolute", left: 60, top: 125 }}>{titulo}</T>
+    <div style={{ position: "absolute", left: 66, top: 262, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.laranjaTexto }}>{subtitulo}</div>
+    <div style={{ position: "absolute", left: 60, right: 60, top: 560, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 26 }}>
+      <div style={{ background: colors.verde, color: colors.creme, fontFamily: fontFamilies.etiqueta, fontSize: 60, padding: "10px 40px", borderRadius: 999 }}>{data.toUpperCase()}</div>
+      <div>{mensagem.split("|").map((l, i) => (<T key={i} tam={150} cor={colors.marinho} style={{ marginBottom: 8 }}>{l.trim()}</T>))}</div>
+      {detalhe ? <div style={{ fontFamily: fontFamilies.texto, fontSize: 42, color: colors.tintaTexto, maxWidth: 800 }}>{detalhe}</div> : null}
+    </div>
+    <Faixa nome="ofDancarinos" w={1080} alt={72} style={{ position: "absolute", bottom: 0 }} />
+  </AbsoluteFill>
+);

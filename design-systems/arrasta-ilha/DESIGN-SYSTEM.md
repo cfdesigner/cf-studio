@@ -86,3 +86,9 @@ Composição `ArrastaIlha-Folha` (2400x5350, `components/Folha.tsx`): prancha ú
 - **Domingueira, versão "degradê"** (`ArrastaIlha-Aplicacao-Domingueira-Degrade`, `variante: "degrade"`): a **versão branca foi aprovada pelo dono como está** e fica intacta; esta é a variação pedida para trabalhar a foto: foto maior que se dissolve no branco por degradê de opacidade embaixo e nas laterais (duas máscaras aninhadas), topo reto sob a etiqueta dos convidados, data sobre a parte já esmaecida.
 - Degradê da Domingueira ajustado: **rosto e tronco da pessoa que segura o estandarte ficam sempre opacos** (rosto em ~y 385 da foto original 1280x854); o esmaecimento começa em 76% da altura da foto e cobre só o último quarto. Regra geral: antes de aplicar degradê em foto com pessoa, localizar o rosto e garantir opacidade total nele.
 - Domingueira em **stories 9:16** (versão degradê): `PostDomingueiraStories`, composição `ArrastaIlha-Aplicacao-Domingueira-Degrade-Stories`. Foto de 740 px de altura (rosto e tronco opacos, degradê só no último quarto), texto importante fora das faixas de interface do Instagram (topo ~180 px e rodapé ~220 px livres de informação essencial; os créditos terminam em ~1710).
+
+## Aplicações do dia a dia: ensaio e aviso de programação
+Refeitas de dois posts atuais (verdes, com a data 30/08 e 11/10). Componentes em `components/Aplicacao.tsx`, com props:
+- `ModeloEnsaio` (`ArrastaIlha-Aplicacao-Ensaio`): título, subtítulo, destaque em pincel, nota, data, linha, local, foto. Foto em bloco azul deslocado. A foto do exemplo é o recorte do print (muito baixa, ~390 px, borrada): **trocar pela original**.
+- `ModeloProgramacao` (`ArrastaIlha-Aplicacao-Programacao`): título, subtítulo, data (etiqueta verde), mensagem (`|` quebra a linha) e detalhe opcional. Sem foto; serve para avisos (sem ensaio, mudança de horário ou local).
+O dono pediu para refazer os dois no estilo branco do design system; os verdes originais foram abandonados.
