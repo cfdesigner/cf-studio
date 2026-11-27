@@ -4,3 +4,4 @@ export * from "./Modelos";
 export * from "./Pagina";
 export * from "./Folha";
 export * from "./Carrossel";
+export * from "./Aplicacao";
