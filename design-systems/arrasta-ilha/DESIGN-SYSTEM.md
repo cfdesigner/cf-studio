@@ -25,7 +25,12 @@ Sem vídeo de referência do grupo: a personalidade vem da identidade. Entra fir
 ## Temas por página do site
 Fundamentos laranja · Toadas verde · Dança azul · **Percussão terracota** (`#c0622b`, do semicírculo da página; o título dela no site está em cinza, sem cor-tema) · Home petróleo. Grafismos da Percussão: sol de respingo, semicírculo com curvas de nível, folha larga com nervuras, faixa de triângulos. A foto real da página mostra alfaias com cordas e padrão de triângulos azuis: referência para fotos de instrumento.
 
-## Grafismos e modelos (etapa visual, em aprovação)
-Desenhados a partir do repertório do site (não são os arquivos originais; trocar quando o grupo mandar): folha de palma, aglomerado de pontos, sol, arcos concêntricos, mancha orgânica, tracejado, moldura de tambor para fotos e faixas de padrão (zigue, losangos, triângulos, símbolos geométricos). Componentes em `components/Grafismos.tsx`; modelos em `components/Modelos.tsx`: **A** aviso (laranja), **B** foto em moldura de tambor (verde), **C** cartaz de oficina com mestre (azul, com campos entre colchetes), **D** toque de percussão (terracota). Composições `ArrastaIlha-Grafismos`, `ArrastaIlha-ModeloA-Aviso`, `-ModeloB-Moldura`, `-ModeloC-Oficina`.
-- Grafismos nunca passam por cima de texto nem de rosto.
-- Sem símbolos religiosos e sem figuras do grupo desenhadas por mim: só formas geométricas e vegetais.
+## Grafismos, faixas e recortes (ORIGINAIS do site; regra do dono: ser fiel, não inventar)
+Nada de grafismo desenhado por mim: tudo vem dos prints do site (material do próprio grupo). Faixas: as 5 que o dono enviou (`assets/faixas/`): X verde (Toadas), setas lilás (Percussão), zigue azul (Dança), triângulos verdes (Home), AXÉ · LUTA (Home). **Falta a faixa coral/rosa da página Fundamentos** (pedir ao dono). Recortes (`assets/recortes/`, gerados por `scripts/recortar-site.py` com rembg + filtros de cor): mulher com a bandeira, mulher com a cabaça, tocadores de caixa, tocador de agogô, tambores (alfaias), menino com caixa, sol de respingo, folhas, pontos, arcos, semicírculo com curvas, tracejado. **Pessoas de roupa branca (página Dança) não deram recorte limpo** (branco sobre branco): pedir os originais.
+Uso em código: `Faixa` e `Recorte` (`components/Original.tsx`), catálogo em `assets/index.ts`. Cada peça usa a faixa da página do site a que o tema pertence.
+- Recortes são do tamanho dos prints (até ~900 px de altura): não ampliar mais de ~1,3x; trocar pelos arquivos de origem em alta quando o grupo mandar.
+- Grafismos e recortes nunca passam por cima de texto; rostos livres.
+- Fotos de pessoas só com autorização do grupo (as dos recortes são as que o próprio grupo já publicou no site).
+
+## Modelos de peça (feed 4:5, em aprovação)
+**A** aviso do ensaio (mulher da bandeira, faixa de triângulos, laranja) · **B** toada nova (tocador de agogô, faixa de X, verde) · **C** oficina com mestre (tocadores, faixa de zigue azul, azul-marinho, campos entre colchetes) · **D** toque de percussão (alfaias, faixa de setas, terracota) · **E** destaque institucional (mulher com a cabaça, faixa AXÉ · LUTA). Composições `ArrastaIlha-ModeloA-Aviso`, `-B-Toada`, `-C-Oficina`, `-D-Percussao`, `-E-Destaque`, `ArrastaIlha-Recortes`.

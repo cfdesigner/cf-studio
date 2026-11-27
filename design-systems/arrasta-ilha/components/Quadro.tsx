@@ -1,18 +1,8 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
+import { Faixa } from "./Original";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
-
-/** Faixa de zigue-zague (inspirada no padrão do site; desenhada aqui, não é a arte do grupo). */
-export const FaixaZigue: React.FC<{ cor: string; fundo?: string; alt?: number; w?: number }> = ({ cor, fundo = "transparent", alt = 28, w = 1080 }) => {
-  const n = Math.ceil(w / alt);
-  const pts = Array.from({ length: n * 2 + 2 }, (_, i) => `${(i * alt) / 2},${i % 2 ? alt - 6 : 6}`).join(" ");
-  return (
-    <svg width={w} height={alt} style={{ display: "block", background: fundo }}>
-      <polyline points={pts} fill="none" stroke={cor} strokeWidth={3} strokeLinejoin="miter" />
-    </svg>
-  );
-};
 
 const Amostra: React.FC<{ nome: string; hex: string; claro?: boolean; nota?: string }> = ({ nome, hex, claro, nota }) => (
   <div style={{ width: 168 }}>
@@ -26,7 +16,7 @@ const Post: React.FC<{ tema: TemaNome; etiqueta: string; titulo: string; linha: 
   const t = temas[tema];
   return (
     <div style={{ width: 360, height: 450, background: colors.creme, border: `1px solid ${colors.areia}`, display: "flex", flexDirection: "column", overflow: "hidden", boxShadow: "0 6px 18px #0002" }}>
-      <FaixaZigue cor={t.sobreCreme} w={360} alt={18} />
+      <Faixa nome="azulZigue" w={360} alt={22} />
       <div style={{ flex: 1, padding: "26px 28px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ fontFamily: fontFamilies.etiqueta, fontSize: 20, letterSpacing: 4, color: t.sobreCreme }}>{etiqueta}</div>
         <div style={{ height: 3, width: 70, background: t.sobreCreme, margin: "8px 0 14px" }} />

@@ -1,0 +1,56 @@
+// Grafismos, faixas e recortes ORIGINAIS do site do grupo (prints do arrastailha.com.br, material do próprio grupo).
+// Recortes gerados por scripts/recortar-site.py; trocar pelos arquivos de origem em alta quando o grupo enviar.
+import faixaVerdeXis from "./faixas/faixa-verde-xis.png";
+import faixaLilasSetas from "./faixas/faixa-lilas-setas.png";
+import faixaAzulZigue from "./faixas/faixa-azul-zigue.png";
+import faixaVerdeTriangulos from "./faixas/faixa-verde-triangulos.png";
+import faixaSimbolos from "./faixas/faixa-simbolos-axe-luta.png";
+import mulherBandeira from "./recortes/mulher-bandeira.png";
+import mulherCabaca from "./recortes/mulher-cabaca.png";
+import tocadoresCaixa from "./recortes/tocadores-caixa.png";
+import tocadorAgogo from "./recortes/tocador-agogo.png";
+import tambores from "./recortes/tambores.png";
+import meninoCaixa from "./recortes/menino-caixa.png";
+import solRespingo from "./recortes/sol-respingo.png";
+import folhaLarga from "./recortes/folha-larga.png";
+import folhaToadas from "./recortes/folha-toadas.png";
+import folhaFundamentos from "./recortes/folha-fundamentos.png";
+import folhaDanca from "./recortes/folha-danca.png";
+import pontosClaros from "./recortes/pontos-claros.png";
+import pontosLaranja from "./recortes/pontos-laranja.png";
+import pontosDanca from "./recortes/pontos-danca.png";
+import semicirculoCurvas from "./recortes/semicirculo-curvas.png";
+import arcosAzuis from "./recortes/arcos-azuis.png";
+import tracejadoLaranja from "./recortes/tracejado-laranja.png";
+
+/** Faixas de padrão (cada uma pertence a uma página do site). */
+export const faixas = {
+  verdeXis: { src: faixaVerdeXis, w: 1036, h: 35 }, // página Toadas
+  lilasSetas: { src: faixaLilasSetas, w: 1080, h: 34 }, // página Percussão
+  azulZigue: { src: faixaAzulZigue, w: 1198, h: 40 }, // página Dança
+  verdeTriangulos: { src: faixaVerdeTriangulos, w: 1851, h: 43 }, // Home
+  simbolos: { src: faixaSimbolos, w: 1766, h: 35 }, // Home: AXÉ · LUTA (búzios, facas, chifre)
+} as const;
+export type FaixaNome = keyof typeof faixas;
+
+/** Recortes: pessoas e instrumentos (tamanho original em px) e grafismos. */
+export const recortes = {
+  mulherBandeira: { src: mulherBandeira, w: 392, h: 870 },
+  mulherCabaca: { src: mulherCabaca, w: 512, h: 661 },
+  tocadoresCaixa: { src: tocadoresCaixa, w: 400, h: 529 },
+  tocadorAgogo: { src: tocadorAgogo, w: 436, h: 792 },
+  tambores: { src: tambores, w: 508, h: 525 },
+  meninoCaixa: { src: meninoCaixa, w: 213, h: 604 },
+  solRespingo: { src: solRespingo, w: 194, h: 191 },
+  folhaLarga: { src: folhaLarga, w: 154, h: 368 },
+  folhaToadas: { src: folhaToadas, w: 422, h: 292 },
+  folhaFundamentos: { src: folhaFundamentos, w: 311, h: 418 },
+  folhaDanca: { src: folhaDanca, w: 289, h: 378 },
+  pontosClaros: { src: pontosClaros, w: 139, h: 138 },
+  pontosLaranja: { src: pontosLaranja, w: 165, h: 179 },
+  pontosDanca: { src: pontosDanca, w: 125, h: 119 },
+  semicirculoCurvas: { src: semicirculoCurvas, w: 310, h: 177 },
+  arcosAzuis: { src: arcosAzuis, w: 288, h: 226 },
+  tracejadoLaranja: { src: tracejadoLaranja, w: 234, h: 197 },
+} as const;
+export type RecorteNome = keyof typeof recortes;

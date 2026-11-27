@@ -4,7 +4,7 @@ import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
 import { clamp, firme, tempos } from "../movimento";
 import { CortinaZigue, EtiquetaFirme, FileteDesenha, SocoDeBatida, TituloBatida } from "../efeitos";
-import { FaixaZigue } from "../components";
+import { Faixa } from "../components";
 
 const W = 1080;
 const H = 1920;
@@ -16,7 +16,7 @@ const Cena: React.FC<{ tema: TemaNome; etiqueta: string; titulo: string; linha: 
   return (
     <SocoDeBatida>
       <AbsoluteFill style={{ background: colors.creme }}>
-        <FaixaZigue cor={t.sobreCreme} w={W} alt={44} />
+        <Faixa nome="azulZigue" w={W} alt={56} fundo="#fff" />
         <div style={{ position: "absolute", left: 90, right: 90, top: 560 }}>
           <EtiquetaFirme atraso={4} style={{ fontFamily: fontFamilies.etiqueta, fontSize: 44, letterSpacing: 8, color: t.sobreCreme }}>{etiqueta}</EtiquetaFirme>
           <div style={{ margin: "20px 0 36px" }}><FileteDesenha cor={t.sobreCreme} largura={170} atraso={8} /></div>

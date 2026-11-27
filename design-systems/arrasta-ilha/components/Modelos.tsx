@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
-import { Arcos, FaixaPadrao, FolhaLarga, FolhaPalma, GrupoPontos, Mancha, MolduraTambor, SemiCirculoCurvas, Sol, SolRespingo, Tracejado } from "./Grafismos";
+import { Faixa, Recorte } from "./Original";
 
 const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
@@ -14,115 +14,134 @@ const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties =>
   paintOrder: "stroke fill",
 });
 const etiqueta = (tam: number, cor: string): React.CSSProperties => ({ fontFamily: fontFamilies.etiqueta, fontSize: tam, letterSpacing: tam * 0.18, color: cor });
-
-const Foto: React.FC<{ rotulo?: string }> = ({ rotulo = "FOTO DO GRUPO" }) => (
-  <AbsoluteFill style={{ background: `repeating-linear-gradient(135deg, ${colors.areia} 0 22px, #ecd9c8 22px 44px)`, alignItems: "center", justifyContent: "center" }}>
-    <div style={etiqueta(30, "#8a6a55")}>{rotulo}</div>
-  </AbsoluteFill>
-);
-
-/** Prancha com todos os grafismos. */
-export const PranchaGrafismos: React.FC = () => (
-  <AbsoluteFill style={{ background: colors.creme, padding: 48, color: colors.noite }}>
-    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 60 }}>Grafismos do Arrasta Ilha</div>
-    <div style={etiqueta(22, colors.laranjaTexto)}>DESENHADOS A PARTIR DO REPERTÓRIO DO SITE · TROCAR PELOS ORIGINAIS DO GRUPO</div>
-    <div style={{ display: "flex", gap: 40, marginTop: 30, alignItems: "flex-end", flexWrap: "wrap" }}>
-      <FolhaPalma size={330} />
-      <FolhaPalma size={330} cor={colors.verde} />
-      <GrupoPontos size={250} />
-      <Sol size={210} />
-      <Arcos size={330} />
-      <Tracejado size={240} />
-      <div style={{ position: "relative" }}><Mancha size={300} /></div>
-      <MolduraTambor size={250}><Foto rotulo="FOTO" /></MolduraTambor>
-      <SolRespingo size={230} />
-      <SemiCirculoCurvas size={300} />
-      <FolhaLarga size={330} />
-    </div>
-    <div style={{ ...etiqueta(22, colors.noite), margin: "34px 0 10px" }}>FAIXAS DE PADRÃO</div>
-    <div style={{ display: "flex", flexDirection: "column", gap: 14, width: 1100 }}>
-      <FaixaPadrao variante="zigue" cor={colors.laranjaTexto} w={1100} />
-      <FaixaPadrao variante="losangos" cor={colors.verde} w={1100} />
-      <FaixaPadrao variante="triangulos" cor={colors.terra} w={1100} />
-      <FaixaPadrao variante="simbolos" cor="#fff" fundo={colors.azulBandeira} w={1100} />
-    </div>
-  </AbsoluteFill>
-);
+const corpo = (tam: number, cor = "#4a3a33"): React.CSSProperties => ({ fontFamily: fontFamilies.corpo, fontSize: tam, color: cor, lineHeight: 1.25 });
 
 const Servico: React.FC<{ tema: TemaNome; texto: string }> = ({ tema, texto }) => (
-  <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 120, background: temas[tema].fundo, color: temas[tema].texto, ...etiqueta(36, temas[tema].texto), display: "flex", alignItems: "center", paddingLeft: 72 }}>{texto}</div>
+  <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 120, background: temas[tema].fundo, ...etiqueta(36, temas[tema].texto), display: "flex", alignItems: "center", paddingLeft: 72 }}>{texto}</div>
 );
 
-/** A: aviso tipográfico, folha e pontos nos cantos, sol discreto. Laranja. */
+const Cabeca: React.FC<{ cor: string; texto: string; marginBottom?: number }> = ({ cor, texto, marginBottom = 30 }) => (
+  <>
+    <div style={etiqueta(34, cor)}>{texto}</div>
+    <div style={{ height: 5, width: 150, background: cor, margin: `16px 0 ${marginBottom}px` }} />
+  </>
+);
+
+/** Prancha com todos os recortes e faixas originais do site (conferência). */
+export const PranchaRecortes: React.FC = () => (
+  <AbsoluteFill style={{ background: colors.creme, padding: 40, color: colors.noite }}>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 56 }}>Recortes e faixas do site</div>
+    <div style={etiqueta(20, colors.laranjaTexto)}>MATERIAL DO PRÓPRIO GRUPO · RECORTADO DOS PRINTS · TROCAR PELOS ARQUIVOS DE ORIGEM EM ALTA</div>
+    <div style={{ position: "relative", height: 760, marginTop: 20 }}>
+      <Recorte nome="mulherBandeira" altura={640} style={{ left: 0, top: 0 }} />
+      <Recorte nome="tocadorAgogo" altura={640} style={{ left: 290, top: 0 }} />
+      <Recorte nome="tocadoresCaixa" altura={420} style={{ left: 640, top: 0 }} />
+      <Recorte nome="meninoCaixa" altura={420} style={{ left: 940, top: 0 }} />
+      <Recorte nome="tambores" altura={300} style={{ left: 1150, top: 0 }} />
+      <Recorte nome="mulherCabaca" altura={330} style={{ left: 640, top: 440 }} />
+      <Recorte nome="folhaToadas" largura={300} style={{ left: 980, top: 330 }} />
+      <Recorte nome="folhaLarga" altura={300} style={{ left: 1300, top: 330 }} />
+      <Recorte nome="folhaFundamentos" altura={300} style={{ left: 1090, top: 450 }} />
+      <Recorte nome="solRespingo" largura={150} style={{ left: 1290, top: 650 }} />
+    </div>
+    <div style={{ display: "flex", gap: 20, alignItems: "flex-end", marginTop: 6 }}>
+      <Recorte nome="pontosLaranja" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="pontosClaros" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="pontosDanca" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="arcosAzuis" altura={140} style={{ position: "relative" }} />
+      <Recorte nome="semicirculoCurvas" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="tracejadoLaranja" altura={110} style={{ position: "relative" }} />
+      <Recorte nome="folhaDanca" altura={140} style={{ position: "relative" }} />
+    </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 14, width: 1380 }}>
+      <Faixa nome="verdeXis" w={1380} alt={42} />
+      <Faixa nome="lilasSetas" w={1380} alt={42} />
+      <Faixa nome="azulZigue" w={1380} alt={42} />
+      <Faixa nome="verdeTriangulos" w={1380} alt={42} />
+      <Faixa nome="simbolos" w={1380} alt={42} />
+    </div>
+  </AbsoluteFill>
+);
+
+/** A: aviso do ensaio. Home do site (triângulos verdes), laranja. Mulher com a bandeira do grupo. */
 export const ModeloAviso: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <div style={{ position: "absolute", right: -60, top: 40 }}><Mancha size={640} /></div>
-    <div style={{ position: "absolute", right: 30, top: 120, transform: "rotate(14deg)" }}><FolhaPalma size={560} /></div>
-    <div style={{ position: "absolute", right: 360, top: 90 }}><Sol size={190} /></div>
-    <div style={{ position: "absolute", left: 40, top: 110 }}><GrupoPontos size={230} /></div>
-    <FaixaPadrao variante="zigue" cor={colors.laranjaTexto} w={1080} alt={50} />
-    <div style={{ position: "absolute", left: 72, top: 520 }}>
-      <div style={etiqueta(34, colors.laranjaTexto)}>ENSAIO ABERTO</div>
-      <div style={{ height: 5, width: 150, background: colors.laranjaTexto, margin: "16px 0 30px" }} />
-      <div style={titulo(190)}>Domingo<br />tem<br />maracatu</div>
-      <div style={{ fontFamily: fontFamilies.corpo, fontSize: 46, color: "#4a3a33", marginTop: 34 }}>Chegue, toque e dance com o grupo</div>
+    <Faixa nome="verdeTriangulos" w={1080} alt={50} />
+    <Recorte nome="folhaFundamentos" altura={560} style={{ right: -50, top: 360 }} />
+    <Recorte nome="solRespingo" largura={190} style={{ left: 60, top: 100 }} />
+    <Recorte nome="mulherBandeira" altura={800} style={{ right: 20, top: 300 }} />
+    <div style={{ position: "absolute", left: 72, top: 500, width: 600 }}>
+      <Cabeca cor={colors.laranjaTexto} texto="ENSAIO ABERTO" />
+      <div style={titulo(150)}>Domingo<br />tem<br />maracatu</div>
+      <div style={{ ...corpo(46), marginTop: 34 }}>Chegue, toque e dance com o grupo</div>
     </div>
     <Servico tema="laranja" texto="DOMINGOS · 15H · ESPAÇO ARUANDA · UFSC" />
   </AbsoluteFill>
 );
 
-/** B: foto do grupo na moldura de tambor, faixa de símbolos no topo. Verde. */
-export const ModeloMoldura: React.FC = () => (
+/** B: toada nova. Página Toadas (faixa de X verde), verde. Tocador de agogô. */
+export const ModeloToada: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <FaixaPadrao variante="simbolos" cor="#fff" fundo={colors.verde} w={1080} alt={64} />
-    <div style={{ position: "absolute", left: -90, top: 360 }}><Arcos size={620} cor="#a9cdb8" /></div>
-    <div style={{ position: "absolute", right: -40, top: 230 }}><FolhaPalma size={420} cor={colors.verde} /></div>
-    <div style={{ position: "absolute", left: 280, top: 120 }}>
-      <MolduraTambor size={520}><Foto /></MolduraTambor>
+    <Faixa nome="verdeXis" w={1080} alt={58} />
+    <Recorte nome="folhaToadas" largura={560} style={{ right: -20, top: 100 }} />
+    <Recorte nome="arcosAzuis" largura={380} style={{ left: -30, top: 560 }} />
+    <Recorte nome="pontosLaranja" largura={150} style={{ left: 60, top: 140 }} />
+    <Recorte nome="tocadorAgogo" altura={900} style={{ right: 30, top: 320 }} />
+    <div style={{ position: "absolute", left: 72, top: 450, width: 560 }}>
+      <Cabeca cor={colors.verde} texto="PLATAFORMA · TOADAS" />
+      <div style={titulo(160)}>Toada<br />nova<br />no ar</div>
+      <div style={{ ...corpo(44), marginTop: 30 }}>Escute e aprenda com o grupo</div>
     </div>
-    <div style={{ position: "absolute", left: 72, right: 72, top: 680 }}>
-      <div style={etiqueta(34, colors.verde)}>PLATAFORMA</div>
-      <div style={{ height: 5, width: 150, background: colors.verde, margin: "14px 0 26px" }} />
-      <div style={titulo(150)}>Toada nova no ar</div>
-      <div style={{ fontFamily: fontFamilies.corpo, fontSize: 44, color: "#4a3a33", marginTop: 26 }}>Escute e aprenda com o grupo</div>
-    </div>
-    <div style={{ position: "absolute", right: 50, bottom: 150 }}><GrupoPontos size={170} cor={colors.verdeFolha} /></div>
-    <Servico tema="verde" texto="ARRASTAILHA.COM.BR · PLATAFORMA DIGITAL" />
+    <Servico tema="verde" texto="ARRASTAILHA.COM.BR · TOADAS" />
   </AbsoluteFill>
 );
 
-/** C: cartaz de oficina com mestre convidado, fundo marinho, creme sobre cor. Azul. */
+/** C: oficina com mestre convidado. Página Dança (faixa azul de zigue), azul-marinho, com campos entre colchetes. */
 export const ModeloOficina: React.FC = () => (
   <AbsoluteFill style={{ background: colors.marinho }}>
-    <FaixaPadrao variante="losangos" cor={colors.creme} w={1080} alt={58} />
-    <div style={{ position: "absolute", right: -50, top: 130 }}><Arcos size={640} cor="#3b6b9e" /></div>
-    <div style={{ position: "absolute", right: 60, top: 150 }}><Sol size={200} cor={colors.laranja} /></div>
-    <div style={{ position: "absolute", left: 72, top: 400 }}>
-      <div style={etiqueta(34, colors.laranja)}>OFICINA COM MESTRE CONVIDADO</div>
-      <div style={{ height: 5, width: 150, background: colors.laranja, margin: "16px 0 30px" }} />
-      <div style={titulo(170, colors.creme)}>Oficina<br />de maracatu</div>
-      <div style={{ ...titulo(96, colors.laranja), marginTop: 34 }}>[Nome do mestre]</div>
-      <div style={{ fontFamily: fontFamilies.corpo, fontSize: 46, color: colors.creme, marginTop: 34, lineHeight: 1.25 }}>[Data] · [Horário]<br />[Local] · [Vagas e inscrição]</div>
+    <Faixa nome="azulZigue" w={1080} alt={56} fundo="#fff" />
+    <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 90 }} />
+    <Recorte nome="pontosDanca" largura={130} style={{ left: 60, top: 130 }} />
+    <Recorte nome="tocadoresCaixa" altura={480} style={{ right: 30, top: 700 }} />
+    <div style={{ position: "absolute", left: 72, top: 300, width: 600 }}>
+      <Cabeca cor={colors.laranja} texto="OFICINA COM MESTRE" />
+      <div style={titulo(128, colors.creme)}>Oficina<br />de maracatu</div>
+      <div style={{ ...titulo(76, colors.laranja), marginTop: 28 }}>[Nome do mestre]</div>
+      <div style={{ ...corpo(44, colors.creme), marginTop: 30 }}>[Data] · [Horário]<br />[Local]<br />[Vagas e inscrição]</div>
     </div>
-    <div style={{ position: "absolute", left: 50, top: 130 }}><GrupoPontos size={190} cor={colors.laranja} /></div>
-    <div style={{ position: "absolute", right: 60, bottom: 140, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.creme }}>Arrasta Ilha</div>
-    <FaixaPadrao variante="simbolos" cor="#fff" fundo={colors.azulBandeira} w={1080} alt={64} />
+    <div style={{ position: "absolute", left: 72, bottom: 150, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.creme }}>Arrasta Ilha</div>
+    <Faixa nome="azulZigue" w={1080} alt={56} fundo="#fff" style={{ position: "absolute", bottom: 0 }} />
   </AbsoluteFill>
 );
 
-/** D: toque de percussão (página Percussão do site), terracota, foto do instrumento em moldura, sol de respingo e semicírculo. */
+/** D: toque de percussão. Página Percussão (faixa lilás de setas), terracota. */
 export const ModeloPercussao: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <FaixaPadrao variante="triangulos" cor={colors.terracota} w={1080} alt={54} />
-    <div style={{ position: "absolute", right: 40, top: 110 }}><SolRespingo size={280} /></div>
-    <div style={{ position: "absolute", left: -30, bottom: 120 }}><SemiCirculoCurvas size={520} /></div>
-    <div style={{ position: "absolute", right: -30, top: 410 }}><FolhaLarga size={540} /></div>
-    <div style={{ position: "absolute", left: 72, top: 360 }}>
-      <div style={etiqueta(34, colors.terracota)}>PERCUSSÃO · TOQUE BÁSICO</div>
-      <div style={{ height: 5, width: 150, background: colors.terracota, margin: "16px 0 30px" }} />
-      <div style={titulo(170)}>Solfejo<br />base</div>
-      <div style={{ fontFamily: fontFamilies.corpo, fontSize: 46, color: "#4a3a33", marginTop: 30, maxWidth: 560, lineHeight: 1.25 }}>Aprenda a batida do grupo, passo a passo</div>
+    <Faixa nome="lilasSetas" w={1080} alt={54} fundo="#fff" />
+    <Recorte nome="solRespingo" largura={260} style={{ left: 70, top: 110 }} />
+    <Recorte nome="folhaLarga" altura={520} style={{ right: -10, top: 120 }} />
+    <Recorte nome="semicirculoCurvas" largura={500} style={{ left: -20, bottom: 120 }} />
+    <Recorte nome="tambores" altura={470} style={{ right: -50, bottom: 120 }} />
+    <div style={{ position: "absolute", left: 72, top: 420, width: 560 }}>
+      <Cabeca cor={colors.terracota} texto="PERCUSSÃO · TOQUE BÁSICO" />
+      <div style={titulo(150)}>Solfejo<br />base</div>
+      <div style={{ ...corpo(46), marginTop: 30, maxWidth: 520 }}>Aprenda a batida do grupo, passo a passo</div>
     </div>
     <Servico tema="terracota" texto="ARRASTAILHA.COM.BR · INTRODUÇÃO À PERCUSSÃO" />
+  </AbsoluteFill>
+);
+
+/** E: foto-destaque com a cabaça (Fundamentos). Faixa AXÉ · LUTA. */
+export const ModeloDestaque: React.FC = () => (
+  <AbsoluteFill style={{ background: colors.creme }}>
+    <Faixa nome="simbolos" w={1080} alt={64} fundo={colors.verde} />
+    <Recorte nome="pontosLaranja" largura={170} style={{ right: 60, top: 140 }} />
+    <Recorte nome="mulherCabaca" altura={700} style={{ left: -20, top: 260 }} />
+    <div style={{ position: "absolute", left: 610, top: 330, width: 420 }}>
+      <Cabeca cor={colors.laranjaTexto} texto="DESDE 2002" />
+      <div style={titulo(100)}>Maracatu<br />de baque<br />virado</div>
+      <div style={{ ...corpo(38), marginTop: 26 }}>Em Florianópolis, com as raízes de Pernambuco</div>
+    </div>
+    <Servico tema="laranja" texto="@ARRASTAILHAOFICIAL" />
   </AbsoluteFill>
 );
