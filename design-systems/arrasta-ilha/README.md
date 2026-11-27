@@ -10,6 +10,8 @@ Base de conhecimento: `clientes/arrata-ilha/` (BASE, VOZ, PILARES, AUDITORIA).
 
 ## Fontes
 - **Títulos e menu do site: Zenzero Grotesk Sans** (nome confirmado pelo dono no editor do Wix, 27/11/2026). Não existe no Google Fonts. Condensada, com T em cruz, D de haste aberta, R em laço e S riscado. **Arquivo fornecido pelo dono em 27/11/2026** (`assets/fonts/ZenzeroGroteskSans-Regular.otf`, só o peso Regular). Licença de uso fora do Wix: não verificada, o dono assume. Plano B: Odibee Sans.
+- **Zenzero Grotesk Round** (arquivo do dono, `assets/fonts/ZenzeroGrotesk-Round.otf`): mesma família, com pontas arredondadas e terminais em bolinha.
+- **Peso:** os arquivos só têm Regular; para títulos fortes engrossamos com contorno da mesma cor (`engrossar` em `tokens.ts`; comparativo `ArrastaIlha-Peso`).
 - Nome "ARRASTA ILHA" do logo: letra desenhada à mão (arquivo do grupo), não é fonte.
 - Texto corrido do site (serifada): nome ainda não informado (descobrir no editor do Wix); provisório Crimson Pro.
 

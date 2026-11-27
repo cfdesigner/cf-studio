@@ -57,3 +57,7 @@ export const formatos = {
   banner: { w: 1920, h: 1080 },
   cartaz: { w: 1080, h: 1528 }, // A-series
 } as const;
+
+/** Zenzero só tem peso Regular: para títulos fortes, engrossar com contorno da mesma cor, proporcional ao corpo.
+ *  Valor provisório (a aprovar): médio 3,5% do tamanho; forte 6%. Use paintOrder "stroke fill". */
+export const engrossar = { leve: 0.018, medio: 0.035, forte: 0.06 } as const;
