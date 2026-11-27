@@ -95,30 +95,47 @@ const modelosCamiseta = [
   { nome: "Corte Real", src: camCorteReal, w: 580, h: 501 },
 ];
 
-export const PostCamisetas: React.FC = () => {
-  const altura = 300;
-  const colX = [60, 560];
-  const rowY = [470, 880];
+/** Nomes ao lado, como no original: o rótulo ocupa o canto vazio embaixo à direita de cada par (frente + costas). */
+export const PostCamisetas: React.FC<{ stories?: boolean }> = ({ stories = false }) => {
+  const H = stories ? 1920 : 1350;
+  const larg = stories ? 480 : 440;
+  const colX = stories ? [40, 560] : [50, 560];
+  const rowY = stories ? [930, 1390] : [480, 890];
   return (
     <AbsoluteFill style={{ background: colors.branco }}>
-      <Suave nome="elFolhaLarga" altura={900} style={{ right: -50, top: 380 }} opacidade={0.09} />
-      <Suave nome="elSolRespingo" largura={420} style={{ right: -90, top: 70 }} opacidade={0.16} />
-      <Suave nome="elFolhaLarga" altura={700} style={{ left: -60, top: 640 }} opacidade={0.06} />
-      <Recorte nome="logoVertical" largura={210} style={{ left: 60, top: 100 }} />
-      <div style={{ position: "absolute", left: 304, top: 104, fontFamily: fontFamilies.pincel, fontSize: 58, color: colors.laranjaTexto }}>vem vadiá!</div>
-      <T tam={116} style={{ position: "absolute", left: 300, top: 168 }}>Carnaval 2027</T>
-      <T tam={116} cor={colors.laranjaTexto} style={{ position: "absolute", left: 300, top: 262 }}>25 anos</T>
-      <div style={{ position: "absolute", left: 66, top: 396, width: 940, fontFamily: fontFamilies.texto, fontSize: 36, color: colors.tintaTexto }}>Conheça os 4 modelos de camisetas e escolha a sua:</div>
+      <Suave nome="elFolhaLarga" altura={H * 0.66} style={{ right: -50, top: stories ? 520 : 380 }} opacidade={0.09} />
+      <Suave nome="elSolRespingo" largura={stories ? 560 : 420} style={{ right: -90, top: stories ? 130 : 70 }} opacidade={0.16} />
+      <Suave nome="elFolhaLarga" altura={H * 0.5} style={{ left: -60, top: stories ? 900 : 640 }} opacidade={0.06} />
+      {stories ? (
+        <>
+          <Recorte nome="logoVertical" largura={330} style={{ left: 375, top: 110 }} />
+          <div style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 490, fontFamily: fontFamilies.pincel, fontSize: 72, color: colors.laranjaTexto }}>vem vadiá!</div>
+          <T tam={150} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 580 }}>Carnaval 2027</T>
+          <T tam={150} cor={colors.laranjaTexto} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 700 }}>25 anos</T>
+          <div style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 850, fontFamily: fontFamilies.texto, fontSize: 44, color: colors.tintaTexto }}>Conheça os 4 modelos de camisetas e escolha a sua:</div>
+        </>
+      ) : (
+        <>
+          <Recorte nome="logoVertical" largura={210} style={{ left: 60, top: 100 }} />
+          <div style={{ position: "absolute", left: 304, top: 104, fontFamily: fontFamilies.pincel, fontSize: 58, color: colors.laranjaTexto }}>vem vadiá!</div>
+          <T tam={116} style={{ position: "absolute", left: 300, top: 168 }}>Carnaval 2027</T>
+          <T tam={116} cor={colors.laranjaTexto} style={{ position: "absolute", left: 300, top: 262 }}>25 anos</T>
+          <div style={{ position: "absolute", left: 66, top: 396, width: 940, fontFamily: fontFamilies.texto, fontSize: 36, color: colors.tintaTexto }}>Conheça os 4 modelos de camisetas e escolha a sua:</div>
+        </>
+      )}
       {modelosCamiseta.map((m, i) => {
-        const w = (altura * m.w) / m.h;
-        const cx = colX[i % 2] + 230;
+        const w = larg;
+        const h = (w * m.h) / m.w;
+        const x = colX[i % 2];
         const y = rowY[Math.floor(i / 2)];
+        const lw = w * 0.4;
+        const tam = Math.min(stories ? 54 : 48, Math.floor(lw / (m.nome.length * 0.45)));
         return (
           <React.Fragment key={m.nome}>
-            <Img src={m.src} style={{ position: "absolute", left: cx - w / 2, top: y, width: w, height: altura }} />
-            <div style={{ position: "absolute", left: colX[i % 2], width: 460, top: y + altura + 14, display: "flex", justifyContent: "center", alignItems: "baseline", gap: 14 }}>
-              <span style={{ fontFamily: fontFamilies.pincel, fontSize: 36, color: colors.laranjaTexto }}>modelo</span>
-              <span style={{ fontFamily: fontFamilies.display, fontSize: 60, lineHeight: 1, color: colors.vinho, textTransform: "uppercase", WebkitTextStroke: `${60 * engrossar.padrao}px ${colors.vinho}`, paintOrder: "stroke fill" }}>{m.nome}</span>
+            <Img src={m.src} style={{ position: "absolute", left: x, top: y, width: w, height: h }} />
+            <div style={{ position: "absolute", left: x + w * 0.62, top: y + h * 0.6, width: lw }}>
+              <div style={{ fontFamily: fontFamilies.pincel, fontSize: stories ? 38 : 34, color: colors.laranjaTexto, lineHeight: 1 }}>modelo</div>
+              <div style={{ fontFamily: fontFamilies.display, fontSize: tam, lineHeight: 1, marginTop: 6, color: colors.vinho, textTransform: "uppercase", whiteSpace: "nowrap", WebkitTextStroke: `${tam * engrossar.padrao}px ${colors.vinho}`, paintOrder: "stroke fill" }}>{m.nome}</div>
             </div>
           </React.Fragment>
         );
