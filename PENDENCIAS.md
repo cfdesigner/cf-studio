@@ -111,6 +111,8 @@
 - [ ] **[dono]** Foto original da Regente Karen e dos próximos aniversariantes (autorizadas), em alta
 - [ ] **[dono]** Mandar mais 2 ou 3 posts que o grupo faz com frequência para virarem modelos
 - [ ] **[dono]** Logos dos blocos convidados e os logos de produção, realização, apoio e Libras em arquivos separados (hoje só a fileira em baixa resolução), para o cartaz da Domingueira
+- [x] **[Claude]** Apresentação em HTML com as aplicações e pacotes de serviço (https://claude.ai/artifact/RYACE4rjqiYYzv4YVYZmUn; arquivo em `clientes/arrata-ilha/proposta-apresentacao.html`), privada
+- [ ] **[dono]** Definir os valores dos pacotes (campos "R$ ___" em branco), conferir se o grupo autoriza mostrar as fotos antes de compartilhar e preencher nome e contato no fim da página
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
