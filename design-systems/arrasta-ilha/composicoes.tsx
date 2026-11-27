@@ -2,6 +2,7 @@ import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
 import fotoKaren from "./assets/aplicacoes/regente-karen.png";
+import { ExemploLegendas } from "./exemplo/ExemploLegendas";
 import { LegendaOpcao, ModeloEnsaio, ModeloProgramacao as ModeloAvisoProgramacao, PostDomingueiraStories, PostDomingueira, PostCamisetas, ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
@@ -53,6 +54,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Legenda-D" component={LegendaOpcao} defaultProps={{ opcao: "D" }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Legenda-E" component={LegendaOpcao} defaultProps={{ opcao: "E" }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Legenda-F" component={LegendaOpcao} defaultProps={{ opcao: "F" }} width={1080} height={1920} />
+    <Composition id="ArrastaIlha-Legendas-Exemplo" component={ExemploLegendas} durationInFrames={270} fps={30} width={1080} height={1920} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );

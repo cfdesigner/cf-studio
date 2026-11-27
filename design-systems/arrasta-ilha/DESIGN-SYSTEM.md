@@ -100,3 +100,10 @@ O dono pediu para refazer os dois no estilo branco do design system; os verdes o
 ## Regra geral: entrelinha curta (dono, 27/11/2026)
 O dono não gosta de espaço grande entre linhas. Tokens em `tokens.ts` (`entrelinha`): título 0,88, pincel 0,8, texto corrido 1,22; entre blocos o vão visível fica entre 4% e 8% do tamanho da letra. Vale para legendas, títulos, cartazes e vídeo. Já aplicado nas legendas D e E; os cartazes aprovados (aniversário, camisetas, Domingueira) já seguem. Também gravada no `CLAUDE.md` para todos os design systems.
 - **Legenda F** (corrigida pelo dono): "todo domingo tem" na fonte da C (Carlito negrito, pequeno, branco, minúsculo, como a referência que ele enviou); "maracatu" gigante e "na UFSC" em Zenzero laranja, mesma fonte e contorno; entrelinha curta; fundo escurecido. Composição `ArrastaIlha-Legenda-F`. Aguardando aprovação final para virar o componente de vídeo.
+
+## Legendas: FECHADAS pelo dono (27/11/2026)
+Componente `Legendas` (`components/Legendas.tsx`), exemplo `ArrastaIlha-Legendas-Exemplo` (9:16, 9 s, palavras de tempo sintético; em produção vêm do Whisper). Mesmo contrato do CFDesigner: `captions` + `punchLines` aprovadas.
+- **Frase de efeito (opção F, escolha final):** "todo domingo tem" (texto antes da palavra-chave) em **Carlito negrito, pequeno, branco, minúsculo**; **palavra-chave gigante em Zenzero laranja** ("maracatu"); o resto ("na UFSC") em **Zenzero branca**, mesmo contorno; entrelinha curta; escurecimento só no terço de baixo; a palavra-chave sobe com a "batida".
+- **Dia a dia (opção A):** Zenzero branca com contorno fino, **palavra falada em laranja**, palavras entrando uma a uma, até 26 caracteres e 5 palavras por página, gradiente escuro suave embaixo para leitura sobre fotos claras. Sombra suave.
+- Posição: acima dos ~24% de baixo (botões do Reels). **Nunca ponto final nem reticências**; `?` e `!` ficam.
+- Usar a frase de efeito só em frases curtas e fortes, nunca em mais de ~30% do vídeo.

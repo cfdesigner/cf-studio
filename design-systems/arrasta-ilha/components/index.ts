@@ -6,3 +6,4 @@ export * from "./Folha";
 export * from "./Carrossel";
 export * from "./Aplicacao";
 export * from "./LegendasOpcoes";
+export * from "./Legendas";

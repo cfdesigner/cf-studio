@@ -84,7 +84,7 @@ const F: React.FC = () => (
   <Zona top={1060}>
     <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, lineHeight: 1.0, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)" }}>todo domingo tem</div>
     <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>
-    <div style={{ ...base(150, colors.laranja), ...contorno(150, colors.laranja), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: -6 }}>na UFSC</div>
+    <div style={{ ...base(150, "#ffffff"), ...contorno(150, "#ffffff"), textShadow: "0 4px 18px rgba(0,0,0,.55)", marginTop: -6 }}>na UFSC</div>
   </Zona>
 );
 
