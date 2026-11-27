@@ -43,6 +43,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Aplicacao-Camisetas-Stories" component={PostCamisetas} defaultProps={{ stories: true }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Aplicacao-Domingueira-Branco" component={PostDomingueira} defaultProps={{ variante: "branco" }} width={1080} height={1350} />
     <Still id="ArrastaIlha-Aplicacao-Domingueira-Azul" component={PostDomingueira} defaultProps={{ variante: "azul" }} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Aplicacao-Domingueira-Degrade" component={PostDomingueira} defaultProps={{ variante: "degrade" }} width={1080} height={1350} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );

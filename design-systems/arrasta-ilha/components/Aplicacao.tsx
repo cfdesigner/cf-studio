@@ -154,8 +154,9 @@ import fotoDomingueira from "../assets/aplicacoes/domingueira-foto.jpg";
 import creditosDomingueira from "../assets/aplicacoes/creditos-domingueira.png";
 
 /** variante "branco": fundo branco. variante "azul": fundo azul-marinho com todos os textos em branco. */
-export const PostDomingueira: React.FC<{ variante?: "branco" | "azul" }> = ({ variante = "branco" }) => {
+export const PostDomingueira: React.FC<{ variante?: "branco" | "azul" | "degrade" }> = ({ variante = "branco" }) => {
   const azul = variante === "azul";
+  const deg = variante === "degrade";
   const W = 1080;
   const txt = azul ? "#ffffff" : colors.tintaTexto;
   const titulo = azul ? "#ffffff" : colors.vinho;
@@ -172,15 +173,24 @@ export const PostDomingueira: React.FC<{ variante?: "branco" | "azul" }> = ({ va
       <div style={{ position: "absolute", left: 0, right: 0, top: 340, display: "flex", justifyContent: "center" }}>
         <div style={{ border: `3px solid ${traco}`, color: traco, fontFamily: fontFamilies.display, fontSize: 52, lineHeight: 1, textTransform: "uppercase", padding: "12px 40px", borderRadius: 999, WebkitTextStroke: `${52 * engrossar.padrao}px ${traco}`, paintOrder: "stroke fill" }}>Blocos Afros Floripa</div>
       </div>
-      <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 440, objectFit: "cover", objectPosition: "50% 0%" }} />
-      <T tam={124} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 900 }}>29 de novembro</T>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1020, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: txt }}>a partir das 14h · Pista de Skate da Costeira</div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1080, display: "flex", justifyContent: "center" }}>
+      {deg ? (
+        // foto trabalhada: maior, com degradê que a dissolve no branco embaixo e nas laterais
+        <div style={{ position: "absolute", left: 0, top: 440, width: W, height: 560, WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 46%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0) 94%)", maskImage: "linear-gradient(to bottom, #000 0%, #000 46%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0) 94%)" }}>
+          <div style={{ position: "absolute", inset: 0, WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, #000 12%, #000 88%, rgba(0,0,0,0) 100%)", maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, #000 12%, #000 88%, rgba(0,0,0,0) 100%)" }}>
+            <Img src={fotoDomingueira} style={{ position: "absolute", left: -70, top: 0, width: W + 140, height: 560, objectFit: "cover", objectPosition: "50% 0%" }} />
+          </div>
+        </div>
+      ) : (
+        <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 440, objectFit: "cover", objectPosition: "50% 0%" }} />
+      )}
+      <T tam={124} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: deg ? 915 : 900 }}>29 de novembro</T>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1035 : 1020, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: txt }}>a partir das 14h · Pista de Skate da Costeira</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1092 : 1080, display: "flex", justifyContent: "center" }}>
         <div style={azul ? { border: "3px solid #ffffff", color: "#ffffff", fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "6px 32px", borderRadius: 999 } : { background: colors.verde, color: colors.creme, fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "8px 34px", borderRadius: 999 }}>ANCESTRALIDADE · AFETO · RESISTÊNCIA</div>
       </div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1148, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: azul ? "#ffffff" : colors.laranjaTexto }}>Entrada gratuita | Toda a comunidade convidada!</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1148 : 1148, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: azul ? "#ffffff" : colors.laranjaTexto }}>Entrada gratuita | Toda a comunidade convidada!</div>
       {azul && <div style={{ position: "absolute", left: 0, right: 0, top: 1196, height: 104, background: "#ffffff" }} />}
-      <Img src={creditosDomingueira} style={{ position: "absolute", left: (W - stripW) / 2, top: azul ? 1196 + (104 - stripH) / 2 : 1190, width: stripW, height: stripH }} />
+      <Img src={creditosDomingueira} style={{ position: "absolute", left: (W - stripW) / 2, top: azul ? 1196 + (104 - stripH) / 2 : deg ? 1194 : 1190, width: stripW, height: stripH }} />
       <Faixa nome={azul ? "ofTriangulos" : "ofDancarinos"} w={W} alt={azul ? 56 : 72} style={{ position: "absolute", top: 0 }} />
       <Faixa nome={azul ? "ofHexagonos" : "ofDancarinos"} w={W} alt={azul ? 50 : 60} style={{ position: "absolute", bottom: 0 }} />
     </AbsoluteFill>
