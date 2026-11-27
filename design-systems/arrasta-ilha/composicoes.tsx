@@ -51,6 +51,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Legenda-B" component={LegendaOpcao} defaultProps={{ opcao: "B" }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Legenda-C" component={LegendaOpcao} defaultProps={{ opcao: "C" }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Legenda-D" component={LegendaOpcao} defaultProps={{ opcao: "D" }} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Legenda-E" component={LegendaOpcao} defaultProps={{ opcao: "E" }} width={1080} height={1920} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );

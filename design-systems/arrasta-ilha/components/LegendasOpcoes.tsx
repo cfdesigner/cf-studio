@@ -7,7 +7,7 @@ import { colors, engrossar, fontFamilies } from "../tokens";
 // ETAPA DE VÍDEO, LEGENDAS: 4 opções em imagem para o dono escolher (frame 9:16 com a foto do grupo como fundo de exemplo).
 // Frase de exemplo, na voz do grupo e SEM ponto final: "Todo domingo tem maracatu na UFSC" (palavra falada: "maracatu").
 
-type Op = "A" | "B" | "C" | "D";
+type Op = "A" | "B" | "C" | "D" | "E";
 const base = (tam: number, cor: string, extra?: React.CSSProperties): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
   fontSize: tam,
@@ -69,6 +69,15 @@ const D: React.FC = () => (
   </Zona>
 );
 
+/** E: como a D (pincel nas frases), mas a palavra falada em Zenzero, a fonte principal, em pêssego. */
+const E: React.FC = () => (
+  <Zona top={1170}>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)" }}>todo domingo tem</div>
+    <div style={{ ...base(190, "#f6b47c"), ...contorno(190, "#f6b47c"), lineHeight: 0.95, textShadow: "0 5px 22px rgba(0,0,0,.65)", marginTop: 4 }}>maracatu</div>
+    <div style={{ fontFamily: fontFamilies.pincel, fontSize: 118, lineHeight: 1.05, color: colors.creme, textShadow: "0 4px 18px rgba(0,0,0,.65)", marginTop: 4 }}>na UFSC</div>
+  </Zona>
+);
+
 export const LegendaOpcao: React.FC<{ opcao: Op }> = ({ opcao }) => (
   <AbsoluteFill>
     <Fundo escuro={opcao === "C" ? 0.9 : 0.5} />
@@ -76,5 +85,6 @@ export const LegendaOpcao: React.FC<{ opcao: Op }> = ({ opcao }) => (
     {opcao === "B" && <B />}
     {opcao === "C" && <C />}
     {opcao === "D" && <D />}
+    {opcao === "E" && <E />}
   </AbsoluteFill>
 );
