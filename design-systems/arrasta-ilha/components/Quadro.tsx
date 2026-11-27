@@ -66,7 +66,7 @@ export const QuadroEtapa1: React.FC = () => (
         <div style={{ fontFamily: fontFamilies.corpo, fontSize: 26, marginTop: 8, maxWidth: 520 }}>O domingo à tarde é o momento pleno do grupo: troca, ensaio, assembleia e vivência.</div>
       </div>
       <div style={{ fontFamily: fontFamilies.corpo, fontSize: 20, color: "#5b4a42", width: 300 }}>
-        <b>Títulos:</b> Odibee Sans, provisória p/ Zenzero Grotesk Sans<br /><b>Pincel:</b> Kaushan Script<br /><b>Texto:</b> Crimson Pro<br /><b>Etiquetas:</b> Staatliches
+        <b>Títulos:</b> Zenzero Grotesk Sans (a do site)<br /><b>Pincel:</b> Kaushan Script<br /><b>Texto:</b> Crimson Pro<br /><b>Etiquetas:</b> Staatliches
       </div>
     </div>
 

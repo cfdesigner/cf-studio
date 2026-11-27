@@ -9,7 +9,7 @@ Base de conhecimento: `clientes/arrata-ilha/` (BASE, VOZ, PILARES, AUDITORIA).
 - 2 prints do Instagram: perfil e grade (cartazes verdes em molde, mistura com fotos).
 
 ## Fontes
-- **Títulos e menu do site: Zenzero Grotesk Sans** (nome confirmado pelo dono no editor do Wix, 27/11/2026). Não existe no Google Fonts. Condensada, com T em cruz, D de haste aberta, R em laço e S riscado. Uso fora do Wix depende de licença: confirmar com o Wix ou com quem fez o site. Provisório: Odibee Sans.
+- **Títulos e menu do site: Zenzero Grotesk Sans** (nome confirmado pelo dono no editor do Wix, 27/11/2026). Não existe no Google Fonts. Condensada, com T em cruz, D de haste aberta, R em laço e S riscado. **Arquivo fornecido pelo dono em 27/11/2026** (`assets/fonts/ZenzeroGroteskSans-Regular.otf`, só o peso Regular). Licença de uso fora do Wix: não verificada, o dono assume. Plano B: Odibee Sans.
 - Nome "ARRASTA ILHA" do logo: letra desenhada à mão (arquivo do grupo), não é fonte.
 - Texto corrido do site (serifada): nome ainda não informado (descobrir no editor do Wix); provisório Crimson Pro.
 

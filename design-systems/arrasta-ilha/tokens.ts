@@ -35,8 +35,7 @@ export const temas = {
 export type TemaNome = keyof typeof temas;
 
 export const fontFamilies = {
-  /** Títulos e menu: no site é "Zenzero Grotesk Sans" (fonte da biblioteca do Wix, fora do Google Fonts).
-   *  Enquanto não houver o arquivo licenciado, o substituto provisório é Odibee Sans (condensada, traço limpo). */
+  /** Títulos e menu: "Zenzero Grotesk Sans" (a do site do grupo; arquivo em assets/fonts/). Plano B: Odibee Sans. */
   display: '"Zenzero Grotesk Sans", "Odibee Sans", "Staatliches", Impact, sans-serif',
   /** Nome do grupo e frases de impacto: pincel solto como o logo. */
   pincel: '"Kaushan Script", "Permanent Marker", cursive',
