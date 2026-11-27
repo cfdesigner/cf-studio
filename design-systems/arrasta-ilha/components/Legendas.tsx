@@ -219,7 +219,7 @@ export const Legendas: React.FC<LegendasProps> = ({
               clamp,
             );
             const y = interpolate(firme(entra), [0, 1], [18 * k, 0]);
-            const cor = idx === active ? colors.laranja : "#ffffff";
+            const cor = idx === active ? colors.laranjaVivo : "#ffffff";
             return (
               <span
                 key={idx}

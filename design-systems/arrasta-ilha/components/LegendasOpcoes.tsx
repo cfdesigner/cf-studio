@@ -80,7 +80,7 @@ const E: React.FC = () => (
 
 /** F (escolha do dono, corrigida): "todo domingo tem" exatamente como na C (Carlito negrito, pequeno, branco, minúsculo);
  *  "maracatu" gigante e "na UFSC" em Zenzero, laranja, no mesmo contorno. Entrelinha curta. */
-const F: React.FC<{ cor?: string; borda?: string }> = ({ cor = colors.laranja, borda }) => (
+const F: React.FC<{ cor?: string; borda?: string }> = ({ cor = colors.laranjaVivo, borda }) => (
   <Zona top={1060}>
     <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 58, lineHeight: 1.0, color: "#ffffff", textShadow: "0 3px 14px rgba(0,0,0,.6)" }}>todo domingo tem</div>
     <div style={{ ...base(236, cor), ...contorno(236, cor), ...(borda ? { WebkitTextStroke: `${236 * 0.03}px ${borda}`, paintOrder: "stroke fill" } : {}), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: 0 }}>maracatu</div>

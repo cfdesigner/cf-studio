@@ -19,6 +19,7 @@ export const colors = {
   terra: "#593226", // folhas marrons
   terracota: "#c0622b", // semicírculo da página Percussão
   ocre: "#d98134", // sol da página Percussão
+  laranjaVivo: "#ff7a1a", // palavra-chave das legendas (escolha do dono, 27/11/2026); perto do laranja da faixa MARACATU (#f47f22)
   // texto
   branco: "#ffffff", // fundo das páginas do eBook
   vinho: "#4a2720", // título do eBook (medido)

@@ -108,3 +108,4 @@ Componente `Legendas` (`components/Legendas.tsx`), exemplo `ArrastaIlha-Legendas
 - Posição: acima dos ~24% de baixo (botões do Reels). **Nunca ponto final nem reticências**; `?` e `!` ficam.
 - Usar a frase de efeito só em frases curtas e fortes, nunca em mais de ~30% do vídeo.
 - Cor da palavra-chave ("maracatu") da legenda F: o laranja `#f38b4c` ficou apagado sobre as fotos (reclamação do dono). Alternativas em imagem (`out/legendas/comparativo-cor.png`, composições `ArrastaIlha-Legenda-F-Vivo/-Ouro/-Borda/-Creme`): vivo `#ff7a1a` (mais saturado, perto do laranja oficial da faixa MARACATU, `#f47f22`), ouro `#ffb81c`, vivo com borda escura, pêssego claro. Aguardando a escolha.
+- **Cor da palavra-chave FECHADA (dono, 27/11/2026): laranja vivo `#ff7a1a`, SEM borda escura** (o dono testou a borda e preferiu sem), token `laranjaVivo`. Vale para "maracatu" (frase de efeito) e para a palavra falada do dia a dia. Substitui o `#f38b4c`, que ficou apagado sobre as fotos.
