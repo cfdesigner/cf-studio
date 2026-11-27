@@ -11,5 +11,7 @@ Amostras: texto do site (5 prints) e o texto do ensaio de domingo, escrito pelo 
 
 7. **Coletivo, inclusivo e político.** "Maracatuzeiros/as", "maracatuzeires", "encontros/ensaios/sonhos/assembleias e deliberações" (texto do ensaio). O domingo é "tão precioso" e é "o momento pleno do grupo".
 
+8. **Toada como voz do grupo (eBook das Toadas, 43 letras):** repertório de coro e resposta, orgulho do lugar e da ancestralidade. Exemplos de versos curtos: "Maracatu / Baque virado / Baque dobrado" ("Rainha da Diáspora"); "Dança todo o povo, dança a corte real"; "É o Arrasta Ilha, que já vem chegando". Para peças, citar no máximo um verso, com o nome da toada e do criador.
+
 Vocabulário recorrente: domingo, deliberações, formação, vivência, troca, ancestralidade, oralidade, coletividade, nação, baque virado, axé, tecnologia ancestral, "tocarmos juntos".
 Cuidado: o texto do site é longo e acadêmico em vários trechos. A voz das redes deve ficar mais curta e falada, mas continuar com "bora", "juntos" e o respeito às raízes.

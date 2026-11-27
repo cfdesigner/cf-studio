@@ -1,6 +1,6 @@
 # Base: Arrasta Ilha (Maracatu Arrasta Ilha)
 
-Atualizado em: 27/11/2026 · Fontes: 6 prints do site (inclui Introdução à Percussão) (Home, Fundamentos, Toadas, Introdução à Dança, Intercâmbio Nações/Grupos), enviados pelo dono. Provisória: só site, sem redes, sem fala. O nome aparece como "Arrasta Ilha" (no site). O dono escreveu "Arrata Ilha": confirmar a grafia.
+Atualizado em: 27/11/2026 · Fontes: 6 prints do site (inclui Introdução à Percussão), eBook das Toadas (PDF) (Home, Fundamentos, Toadas, Introdução à Dança, Intercâmbio Nações/Grupos), enviados pelo dono. Provisória: só site, sem redes, sem fala. O nome aparece como "Arrasta Ilha" (no site). O dono escreveu "Arrata Ilha": confirmar a grafia.
 
 ## Quem é
 Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa Catarina**, **desde 2002** (site, Fundamentos). **Nasceu no campus da UFSC e toca lá até hoje**, com ensaio todo domingo, e sai no Carnaval de Florianópolis. **Em 2027 faz 25 anos** (dono, 27/11/2026; confirmar se a comemoração é no Carnaval 2027 ou ao longo do ano). Trabalha a música (orquestra percussiva) e a dança, com base nas nações pernambucanas, e "entrelaça rotas" entre Santa Catarina e Pernambuco. Mantém ensaios abertos **aos domingos, a partir das 15h, no Espaço Aruanda, em frente ao laguinho da UFSC** (site, rodapé da Home). Liderança, número de integrantes e porte: não informado.
@@ -18,6 +18,12 @@ Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa 
 - **Percussão (página "Introdução à Percussão A.I.")**: a orquestra percussiva do grupo fundamenta o trabalho junto às nações pernambucanas, com atenção especial a Leão Coroado, Estrela de Igarassu, Estrela Brilhante de Recife, Porto Rico e Encanto do Pina; foi com elas que o grupo se formou, por intercâmbio intenso e contínuo com mestres/as, rainhas, dançarinos/as, batuqueiros/as e maracatuzeiros. Trilhas: **Solfejos base, Toque dos Orixás, Convenções**. Objetivo declarado: apresentar a musicalidade e a corporalidade que dão base ao Arrasta, sem substituir o contato direto com as nações ("o contato direto com as Nações e seus representantes é o melhor caminho para compreensão das mesmas e suas particularidades").
 - **Intercâmbio contínuo** com nações: Leão Coroado, Estrela Brilhante de Igarassu, Estrela Brilhante do Recife, Porto Rico, Encanto do Pina, Raízes de África; e com o grupo Baque Mulher Floripa (site, Intercâmbio).
 - Números de público, alcance, apresentações e prêmios além do de 2020: não informado.
+
+### eBook das Toadas (PDF de 20 páginas, A4, maio de 2021; arquivo em `entrada/ebook-toadas.pdf`, fora do Git)
+- **43 toadas** com letra, **criadores nomeados e ano** (de 2002 a 2020; vários criadores por toada, entre eles Charles Raimundo, com 12 toadas, além de Gabriel Caboclo, Erik Dijkstra, Mestre Chaco, Tiriba Moore, Jaguarito, Elaine, Paola, Léo Umpierrez e outros). Sumário: de "Irmandade do Rosário" a "Baque no Ar". As seis toadas do site (Rua, Ubuntu, Maracatu Sagrado, Rainha da Diáspora, Adeus, Xangô Meus Ancestrais) são uma amostra deste acervo.
+- Capa com a logo vertical e o texto "Ambiente Virtual de Aprendizado"; contracapa com a logo horizontal e arrastailha.com.br.
+- **Obras autorais com creditos:** letras e criadores pertencem a quem criou. Em peças que citem trecho de toada, **creditar o criador** e pedir autorização ao grupo; nunca republicar a letra inteira sem acordo.
+- **Layout (referência de como o grupo já combina os elementos):** páginas creme, **faixa oficial no topo e no rodapé** (AXÉ · LUTA, MARACATU, triângulos, X), título da toada em negrito escuro com criador e ano em linha menor, letra em coluna estreita, **foto recortada grande no canto** (bandeira, tambores, tocadores, cantoras) com folhas, pontos e curvas ao redor, e **ícones brancos sobre cor** (arco, leque, cone, tridente) como ilustração de página. Capa com o painel azul, logo e um recorte de cenário.
 
 ## Público
 Hipóteses (confirmar):
