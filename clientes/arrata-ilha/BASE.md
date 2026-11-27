@@ -5,6 +5,11 @@ Atualizado em: 27/11/2026 · Fontes: 5 prints do site (Home, Fundamentos, Toadas
 ## Quem é
 Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa Catarina**, **desde 2002** (site, Fundamentos). **Nasceu no campus da UFSC e toca lá até hoje**, com ensaio todo domingo, e sai no Carnaval de Florianópolis. **Em 2027 faz 25 anos** (dono, 27/11/2026; confirmar se a comemoração é no Carnaval 2027 ou ao longo do ano). Trabalha a música (orquestra percussiva) e a dança, com base nas nações pernambucanas, e "entrelaça rotas" entre Santa Catarina e Pernambuco. Mantém ensaios abertos **aos domingos, a partir das 15h, no Espaço Aruanda, em frente ao laguinho da UFSC** (site, rodapé da Home). Liderança, número de integrantes e porte: não informado.
 
+### O ensaio de domingo (texto do grupo, enviado pelo dono)
+"Desde 2002, o grupo se encontra no espaço público da UFSC para praticar e alimentar o maracatu com danças, toques e outras deliberações. Os domingos a tarde, tão precioso a todos/as maracatuzeiros/as, é o momento pleno do grupo. É nele que o coletivo troca e tem uma das vivências mais fortes dentro do Arrasta - encontros/ensaios/sonhos/assembleias e deliberações, pautam a formação de nossos/as maracatuzeires."
+- **O que:** ensaio do Maracatu Arrasta Ilha · **Quando:** todos os domingos à tarde, a partir das 15h · **Onde:** Espaço Aruanda (Centro de Convivência, região central do campus da UFSC, Trindade, Florianópolis).
+- O ensaio é também assembleia: o grupo decide junto e forma os seus maracatuzeires ali (gestão coletiva).
+
 ## Oferta e provas
 - **Plataforma "Ambiente Virtual de Aprendizado"**: vídeos explicativos de música e dança, mais materiais de apoio feitos pelos integrantes. Oficinas gratuitas (site, Home).
 - Origem do projeto: "Maracatu Arrasta Ilha em tempos de pandemia: criação de ambiente de aprendizagem virtual", **Prêmio Elisabete Anderle de Incentivo à Cultura 2020, Fundação Catarinense de Cultura** (site, Home).
@@ -36,6 +41,7 @@ Medida a olho nos prints (cores em hex ainda não medidas; medir no arquivo orig
 
 ## O que NÃO fazer
 Hipóteses a confirmar com o dono e o grupo:
+- Linguagem inclusiva do próprio grupo: "maracatuzeiros/as", "maracatuzeires", "Amigues". Manter como eles escrevem.
 - Não falar em nome de outras nações nem explicar o maracatu "de cima", como dono da tradição. Citar as nações pelo nome correto.
 - Não tratar a cultura como exótica, nem como "folclore" ou fantasia. Linguagem de respeito, ancestralidade e prática viva.
 - Não inventar toadas, datas, nomes de mestres ou histórias. Só o que o grupo informar.
