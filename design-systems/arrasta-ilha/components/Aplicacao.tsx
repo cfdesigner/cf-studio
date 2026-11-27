@@ -175,22 +175,22 @@ export const PostDomingueira: React.FC<{ variante?: "branco" | "azul" | "degrade
       </div>
       {deg ? (
         // foto trabalhada: maior, com degradê que a dissolve no branco embaixo e nas laterais
-        <div style={{ position: "absolute", left: 0, top: 440, width: W, height: 560, WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 46%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0) 94%)", maskImage: "linear-gradient(to bottom, #000 0%, #000 46%, rgba(0,0,0,0.5) 66%, rgba(0,0,0,0) 94%)" }}>
+        <div style={{ position: "absolute", left: 0, top: 440, width: W, height: 520, WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 76%, rgba(0,0,0,0.35) 88%, rgba(0,0,0,0) 100%)", maskImage: "linear-gradient(to bottom, #000 0%, #000 76%, rgba(0,0,0,0.35) 88%, rgba(0,0,0,0) 100%)" }}>
           <div style={{ position: "absolute", inset: 0, WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, #000 12%, #000 88%, rgba(0,0,0,0) 100%)", maskImage: "linear-gradient(to right, rgba(0,0,0,0) 0%, #000 12%, #000 88%, rgba(0,0,0,0) 100%)" }}>
-            <Img src={fotoDomingueira} style={{ position: "absolute", left: -70, top: 0, width: W + 140, height: 560, objectFit: "cover", objectPosition: "50% 0%" }} />
+            <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 0, width: W, height: 520, objectFit: "cover", objectPosition: "50% 0%" }} />
           </div>
         </div>
       ) : (
         <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 440, objectFit: "cover", objectPosition: "50% 0%" }} />
       )}
-      <T tam={124} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: deg ? 915 : 900 }}>29 de novembro</T>
-      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1035 : 1020, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: txt }}>a partir das 14h · Pista de Skate da Costeira</div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1092 : 1080, display: "flex", justifyContent: "center" }}>
+      <T tam={124} cor={titulo} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: deg ? 930 : 900 }}>29 de novembro</T>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1048 : 1020, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: txt }}>a partir das 14h · Pista de Skate da Costeira</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1104 : 1080, display: "flex", justifyContent: "center" }}>
         <div style={azul ? { border: "3px solid #ffffff", color: "#ffffff", fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "6px 32px", borderRadius: 999 } : { background: colors.verde, color: colors.creme, fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "8px 34px", borderRadius: 999 }}>ANCESTRALIDADE · AFETO · RESISTÊNCIA</div>
       </div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1148 : 1148, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: azul ? "#ffffff" : colors.laranjaTexto }}>Entrada gratuita | Toda a comunidade convidada!</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: deg ? 1158 : 1148, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: azul ? "#ffffff" : colors.laranjaTexto }}>Entrada gratuita | Toda a comunidade convidada!</div>
       {azul && <div style={{ position: "absolute", left: 0, right: 0, top: 1196, height: 104, background: "#ffffff" }} />}
-      <Img src={creditosDomingueira} style={{ position: "absolute", left: (W - stripW) / 2, top: azul ? 1196 + (104 - stripH) / 2 : deg ? 1194 : 1190, width: stripW, height: stripH }} />
+      <Img src={creditosDomingueira} style={{ position: "absolute", left: (W - stripW) / 2, top: azul ? 1196 + (104 - stripH) / 2 : deg ? 1198 : 1190, width: stripW, height: stripH }} />
       <Faixa nome={azul ? "ofTriangulos" : "ofDancarinos"} w={W} alt={azul ? 56 : 72} style={{ position: "absolute", top: 0 }} />
       <Faixa nome={azul ? "ofHexagonos" : "ofDancarinos"} w={W} alt={azul ? 50 : 60} style={{ position: "absolute", bottom: 0 }} />
     </AbsoluteFill>
