@@ -101,7 +101,7 @@
 
 - [x] **[Claude]** Pasta do cliente `clientes/arrata-ilha/` com base, voz, auditoria provisória (site e Instagram) e entrada de prints
 - [x] **[Claude + dono]** Design system `arrasta-ilha`: cores, tipografia (Zenzero Grotesk Sans, contorno 1,5 px, letras sem juntar) e movimento "batida" aprovados; modelos A a G (aviso, toada, oficina, percussão, destaque, evento, capa) montados com os grafismos oficiais e recortes do site
-- [ ] **[dono]** Mandar as **logos** (vetor ou PNG grande, fundo transparente) para o fecho e o selo
+- [x] **[dono]** Logos recebidas em 27/11/2026 (vertical, com grafismos e horizontal da plataforma, PNG transparente); em uso no fecho (modelo H). Se tiver em vetor, mandar depois
 - [ ] **[dono]** Dizer **qual modelo vira stories, carrossel e reels** (o F e o G já existem em stories)
 - [ ] **[dono]** (quando puder) fotos em alta, ilustração do instrumentista do cartaz, faixa coral da página Fundamentos, pessoas de roupa branca da página Dança, nome da fonte do texto corrido do site
 - [ ] **[dono]** Confirmar: grafia do nome (Arrasta Ilha), promessa, pilares, objetivo (conteúdo para redes e cartazes de oficina), data e planos dos 25 anos (2027)

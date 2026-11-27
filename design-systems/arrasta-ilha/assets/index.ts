@@ -47,6 +47,9 @@ import fotoSinoPreto from "./fotos/sino-preto.png";
 import fotoCaixaAcoBaquetas from "./fotos/caixa-aco-baquetas.png";
 import fotoXequereVerde from "./fotos/xequere-verde.png";
 import fotoXequereAzulBuzios from "./fotos/xequere-azul-buzios.png";
+import logoVertical from "./logos/logo-vertical.png";
+import logoGrafismos from "./logos/logo-com-grafismos.png";
+import logoAmbiente from "./logos/logo-ambiente-horizontal.png";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -109,6 +112,9 @@ export const recortes = {
   seloArrastaIlha: { src: seloArrastaIlha, w: 140, h: 44 }, // OFICIAL
   arrastaIlhaVertical: { src: arrastaIlhaVertical, w: 36, h: 134 }, // OFICIAL
   passaroParasol: { src: passaroParasol, w: 42, h: 142 }, // OFICIAL
+  logoVertical: { src: logoVertical, w: 1400, h: 1497 },
+  logoGrafismos: { src: logoGrafismos, w: 1400, h: 1373 },
+  logoAmbiente: { src: logoAmbiente, w: 1067, h: 320 },
 } as const;
 export type RecorteNome = keyof typeof recortes;
 

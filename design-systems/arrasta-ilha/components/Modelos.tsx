@@ -71,7 +71,7 @@ export const PranchaRecortes: React.FC = () => (
 export const ModeloAviso: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
     <Faixa nome="ofTriangulos" w={1080} alt={50} />
-    <Recorte nome="seloArrastaIlha" largura={220} style={{ left: 72, top: 96 }} />
+    <Recorte nome="logoVertical" largura={250} style={{ left: 60, top: 90 }} />
     <Recorte nome="folhaFundamentos" altura={560} style={{ right: -50, top: 360 }} />
     <Recorte nome="fotoMulherBandeira" altura={900} style={{ right: 10, top: 250 }} />
     <div style={{ position: "absolute", left: 72, top: 500, width: 600 }}>
@@ -107,13 +107,13 @@ export const ModeloOficina: React.FC = () => (
     <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 130 }} />
     
     <Recorte nome="fotoMulherMaosAoAlto" altura={760} style={{ right: 20, bottom: 54 }} />
-    <div style={{ position: "absolute", left: 72, top: 300, width: 600 }}>
+    <div style={{ position: "absolute", left: 72, top: 250, width: 600 }}>
       <Cabeca cor={colors.laranja} texto="OFICINA COM MESTRE" />
       <div style={titulo(128, colors.creme)}>Oficina<br />de maracatu</div>
       <div style={{ ...titulo(76, colors.laranja), marginTop: 28 }}>[Nome do mestre]</div>
       <div style={{ ...corpo(44, colors.creme), marginTop: 30 }}>[Data] · [Horário]<br />[Local]<br />[Vagas e inscrição]</div>
     </div>
-    <Recorte nome="seloArrastaIlha" largura={240} style={{ left: 72, bottom: 150 }} />
+    <div style={{ position: "absolute", left: 60, bottom: 76, width: 220, height: 170, background: colors.creme, borderRadius: 14 }}><Recorte nome="logoVertical" altura={150} style={{ left: 45, top: 10 }} /></div>
     <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: 0 }} />
   </AbsoluteFill>
 );
@@ -180,8 +180,8 @@ export const ModeloCapa: React.FC<{ stories?: boolean }> = ({ stories = false })
   return (
     <AbsoluteFill style={{ background: colors.marinho }}>
       <PadraoOficial w={1080} h={H} escala={0.95} />
-      <div style={{ position: "absolute", left: 90, right: 90, top: stories ? 560 : 330, bottom: stories ? 560 : 330, background: colors.creme, boxShadow: "0 18px 40px #0006", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 40 }}>
-        <Recorte nome="seloArrastaIlha" largura={300} style={{ position: "relative", marginBottom: 36 }} />
+      <div style={{ position: "absolute", left: 90, right: 90, top: stories ? 440 : 190, bottom: stories ? 440 : 190, background: colors.creme, boxShadow: "0 18px 40px #0006", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 40 }}>
+        <Recorte nome="logoVertical" largura={300} style={{ position: "relative", marginBottom: 24 }} />
         <div style={titulo(112)}>[Título da<br />capa]</div>
         <div style={{ ...corpo(40), marginTop: 28 }}>[linha de apoio]</div>
         <div style={{ ...etiqueta(32, colors.laranjaTexto), marginTop: 36 }}>@ARRASTAILHAOFICIAL</div>
@@ -212,3 +212,19 @@ export const PranchaFotos: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/** H: fecho. Logo oficial grande sobre creme, "Siga @arrastailhaoficial" e faixa de triângulos; a assinatura final de vídeo e carrossel. */
+export const ModeloFecho: React.FC<{ stories?: boolean }> = ({ stories = false }) => (
+  <AbsoluteFill style={{ background: colors.creme }}>
+    <Faixa nome="ofTriangulos" w={1080} alt={50} />
+    <Recorte nome="manchaPessego" largura={800} style={{ left: 140, top: stories ? 420 : 200 }} />
+    <Recorte nome="manchaAzul" largura={500} style={{ right: -10, top: stories ? 260 : 80 }} />
+    <Recorte nome="logoVertical" largura={stories ? 760 : 640} style={{ left: stories ? 160 : 220, top: stories ? 520 : 210 }} />
+    <div style={{ position: "absolute", left: 0, right: 0, top: stories ? 1380 : 930, textAlign: "center" }}>
+      <div style={etiqueta(38, colors.laranjaTexto)}>ENSAIO TODO DOMINGO · 15H</div>
+      <div style={{ ...corpo(40), marginTop: 12 }}>Espaço Aruanda, campus da UFSC</div>
+    </div>
+    <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: stories ? 110 : 96 }} />
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: stories ? 110 : 96, background: colors.marinho, ...etiqueta(32, colors.creme), display: "flex", alignItems: "center", justifyContent: "center" }}>@ARRASTAILHAOFICIAL</div>
+  </AbsoluteFill>
+);
