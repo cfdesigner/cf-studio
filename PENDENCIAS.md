@@ -107,6 +107,9 @@
 - [ ] **[dono]** Confirmar: grafia do nome (Arrasta Ilha), promessa, pilares, objetivo (conteúdo para redes e cartazes de oficina), data e planos dos 25 anos (2027)
 - [x] **[Claude]** Folha do design system (`ArrastaIlha-Folha`) e versão para a barra lateral: artefato "Arrasta Ilha" (https://claude.ai/artifact/R7VvntKWUCV3WoDDXsteVG), privado. Se o design system mudar, republicar o artefato
 - [ ] **[dono]** Aprovar a folha e dizer o que sobra ou falta; depois, carrossel de exemplo (capa, páginas, fecho)
+- [x] **[Claude]** Modelo reutilizável de aniversário/homenagem (feed e stories) com campos, guia em `design-systems/arrasta-ilha/docs/modelo-aniversario.md`
+- [ ] **[dono]** Foto original da Regente Karen e dos próximos aniversariantes (autorizadas), em alta
+- [ ] **[dono]** Mandar mais 2 ou 3 posts que o grupo faz com frequência para virarem modelos
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
