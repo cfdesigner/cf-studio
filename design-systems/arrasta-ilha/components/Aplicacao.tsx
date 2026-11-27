@@ -17,14 +17,14 @@ export const PostAniversario: React.FC<{ stories?: boolean }> = ({ stories = fal
   const H = stories ? 1920 : 1350;
   const fw = stories ? 620 : 520;
   const fh = (fw * 1512) / 1131;
-  const fotoTop = stories ? 800 : 610;
+  const fotoTop = stories ? 770 : 575;
   return (
     <AbsoluteFill style={{ background: colors.branco }}>
       <Suave nome="elFolhaLarga" altura={H * 0.5} style={{ left: -30, top: stories ? 760 : 520 }} opacidade={0.1} />
       <Suave nome="elSolRespingo" largura={380} style={{ right: -70, top: 70 }} opacidade={0.2} />
       <div style={{ position: "absolute", left: 66, top: 112, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.laranjaTexto }}>parabéns</div>
       <T tam={stories ? 270 : 220} style={{ position: "absolute", left: 60, top: 176 }}>Regente</T>
-      <T tam={stories ? 360 : 300} cor={colors.laranjaTexto} style={{ position: "absolute", left: 56, top: stories ? 440 : 360 }}>Karen</T>
+      <T tam={stories ? 360 : 300} cor={colors.laranjaTexto} style={{ position: "absolute", left: 56, top: stories ? 412 : 336 }}>Karen</T>
       {/* bloco de cor atrás da foto, deslocado: profundidade sem moldura branca */}
       <div style={{ position: "absolute", right: 0, top: fotoTop + 26, width: fw - 6, height: fh, background: colors.marinho, transform: "translateX(-34px)" }} />
       <Img src={fotoKaren} style={{ position: "absolute", right: 0, top: fotoTop, width: fw, height: fh, objectFit: "cover" }} />
