@@ -99,3 +99,4 @@ O dono pediu para refazer os dois no estilo branco do design system; os verdes o
 
 ## Regra geral: entrelinha curta (dono, 27/11/2026)
 O dono não gosta de espaço grande entre linhas. Tokens em `tokens.ts` (`entrelinha`): título 0,88, pincel 0,8, texto corrido 1,22; entre blocos o vão visível fica entre 4% e 8% do tamanho da letra. Vale para legendas, títulos, cartazes e vídeo. Já aplicado nas legendas D e E; os cartazes aprovados (aniversário, camisetas, Domingueira) já seguem. Também gravada no `CLAUDE.md` para todos os design systems.
+- **Legenda F** (mistura de A e C, escolha do dono): tudo em Zenzero. "Todo domingo tem" grande e branco, "maracatu" gigante em laranja e "na UFSC" em laranja na mesma fonte e contorno; entrelinha curta; fundo escurecido. Composição `ArrastaIlha-Legenda-F`. Aguardando aprovação final para virar o componente de vídeo.

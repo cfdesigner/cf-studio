@@ -7,7 +7,7 @@ import { colors, engrossar, entrelinha, fontFamilies } from "../tokens";
 // ETAPA DE VÍDEO, LEGENDAS: 4 opções em imagem para o dono escolher (frame 9:16 com a foto do grupo como fundo de exemplo).
 // Frase de exemplo, na voz do grupo e SEM ponto final: "Todo domingo tem maracatu na UFSC" (palavra falada: "maracatu").
 
-type Op = "A" | "B" | "C" | "D" | "E";
+type Op = "A" | "B" | "C" | "D" | "E" | "F";
 const base = (tam: number, cor: string, extra?: React.CSSProperties): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
   fontSize: tam,
@@ -78,13 +78,24 @@ const E: React.FC = () => (
   </Zona>
 );
 
+/** F (escolha do dono: mistura de A e C): tudo em Zenzero. "todo domingo tem" grande e branco (como na A), "maracatu" gigante em laranja
+ *  (como na C) e "na UFSC" também em laranja, na mesma fonte e no mesmo contorno. Entrelinha curta. */
+const F: React.FC = () => (
+  <Zona top={1010}>
+    <div style={{ ...base(128, "#ffffff"), ...contorno(128, "#ffffff"), textShadow: "0 3px 16px rgba(0,0,0,.6)" }}>Todo domingo tem</div>
+    <div style={{ ...base(236, colors.laranja), ...contorno(236, colors.laranja), textShadow: "0 6px 26px rgba(0,0,0,.55)", marginTop: -6 }}>maracatu</div>
+    <div style={{ ...base(128, colors.laranja), ...contorno(128, colors.laranja), textShadow: "0 3px 16px rgba(0,0,0,.6)", marginTop: -4 }}>na UFSC</div>
+  </Zona>
+);
+
 export const LegendaOpcao: React.FC<{ opcao: Op }> = ({ opcao }) => (
   <AbsoluteFill>
-    <Fundo escuro={opcao === "C" ? 0.9 : 0.5} />
+    <Fundo escuro={opcao === "C" || opcao === "F" ? 0.9 : 0.5} />
     {opcao === "A" && <A />}
     {opcao === "B" && <B />}
     {opcao === "C" && <C />}
     {opcao === "D" && <D />}
     {opcao === "E" && <E />}
+    {opcao === "F" && <F />}
   </AbsoluteFill>
 );
