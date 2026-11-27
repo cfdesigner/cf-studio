@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
-import { colors, fontFamilies, temas, type TemaNome } from "../tokens";
+import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
 
 /** Faixa de zigue-zague (inspirada no padrão do site; desenhada aqui, não é a arte do grupo). */
 export const FaixaZigue: React.FC<{ cor: string; fundo?: string; alt?: number; w?: number }> = ({ cor, fundo = "transparent", alt = 28, w = 1080 }) => {
@@ -30,7 +30,7 @@ const Post: React.FC<{ tema: TemaNome; etiqueta: string; titulo: string; linha: 
       <div style={{ flex: 1, padding: "26px 28px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
         <div style={{ fontFamily: fontFamilies.etiqueta, fontSize: 20, letterSpacing: 4, color: t.sobreCreme }}>{etiqueta}</div>
         <div style={{ height: 3, width: 70, background: t.sobreCreme, margin: "8px 0 14px" }} />
-        <div style={{ fontFamily: fontFamilies.display, fontWeight: 400, fontSize: 72, lineHeight: 0.95, color: colors.noite, textTransform: "uppercase" }}>{titulo}</div>
+        <div style={{ fontFamily: fontFamilies.display, fontWeight: 400, fontSize: 72, lineHeight: 0.95, color: colors.noite, textTransform: "uppercase", WebkitTextStroke: `${72 * engrossar.padrao}px ${colors.noite}`, paintOrder: "stroke fill" }}>{titulo}</div>
         <div style={{ fontFamily: fontFamilies.corpo, fontSize: 21, color: "#4a3a33", marginTop: 14 }}>{linha}</div>
       </div>
       <div style={{ background: t.fundo, color: t.texto, fontFamily: fontFamilies.etiqueta, letterSpacing: 3, fontSize: 20, padding: "10px 28px" }}>DOMINGOS · 15H · ESPAÇO ARUANDA · UFSC</div>
@@ -61,7 +61,7 @@ export const QuadroEtapa1: React.FC = () => (
     <div style={{ fontFamily: fontFamilies.etiqueta, fontSize: 24, letterSpacing: 4, margin: "30px 0 10px" }}>TIPOGRAFIA (proposta, a aprovar)</div>
     <div style={{ display: "flex", gap: 32, alignItems: "flex-end" }}>
       <div style={{ flex: 1 }}>
-        <div style={{ fontFamily: fontFamilies.display, fontWeight: 400, fontSize: 104, lineHeight: 0.95, textTransform: "uppercase" }}>Toque junto</div>
+        <div style={{ fontFamily: fontFamilies.display, fontWeight: 400, fontSize: 104, lineHeight: 0.95, textTransform: "uppercase", WebkitTextStroke: `${104 * engrossar.padrao}px ${colors.noite}`, paintOrder: "stroke fill" }}>Toque junto</div>
         <div style={{ fontFamily: fontFamilies.pincel, fontSize: 52, color: colors.laranjaTexto }}>maracatu de baque virado</div>
         <div style={{ fontFamily: fontFamilies.corpo, fontSize: 26, marginTop: 8, maxWidth: 520 }}>O domingo à tarde é o momento pleno do grupo: troca, ensaio, assembleia e vivência.</div>
       </div>

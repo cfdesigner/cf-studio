@@ -5,12 +5,8 @@ import { colors, fontFamilies } from "../tokens";
 
 const linhas: { rotulo: string; familia: string; stroke: number; }[] = [
   { rotulo: "Sans, Regular (como veio)", familia: "Zenzero Grotesk Sans", stroke: 0 },
-  { rotulo: "Sans + contorno 1,5 px", familia: "Zenzero Grotesk Sans", stroke: 1.5 },
-  { rotulo: "Sans + contorno 3 px", familia: "Zenzero Grotesk Sans", stroke: 3 },
-  { rotulo: "Sans + contorno 5 px", familia: "Zenzero Grotesk Sans", stroke: 5 },
-  { rotulo: "Round, Regular (como veio)", familia: "Zenzero Grotesk Round", stroke: 0 },
-  { rotulo: "Round + contorno 3 px", familia: "Zenzero Grotesk Round", stroke: 3 },
-  { rotulo: "Round + contorno 5 px", familia: "Zenzero Grotesk Round", stroke: 5 },
+  { rotulo: "Sans + contorno 1,5 px (escolhido)", familia: "Zenzero Grotesk Sans", stroke: 1.5 },
+  { rotulo: "Sans + contorno 2 px (máximo)", familia: "Zenzero Grotesk Sans", stroke: 2 },
 ];
 
 /** Prancha para escolher como engrossar a Zenzero (o arquivo só veio no peso Regular). */
