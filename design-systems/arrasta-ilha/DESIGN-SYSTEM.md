@@ -61,3 +61,6 @@ Estrutura do cartaz que o dono fez na época da plataforma, agora modelo **F** (
 
 ## Referência: eBook das Toadas (2021, feito pelo dono)
 `clientes/arrata-ilha/entrada/ebook-toadas.pdf` (fora do Git) mostra a gramática visual que o grupo já usa em página: fundo creme, **faixa oficial no topo e no rodapé**, título escuro em negrito com crédito pequeno, **recorte de foto grande no canto** com folha, pontos e curvas, **ícones brancos sobre bloco de cor** (por página) e capa em painel azul. Os modelos A a H seguem essa gramática; **o eBook é a prova de que o sistema já funciona para o grupo**. Para uma versão de toada em carrossel: uma toada por slide, título, criador e ano, um verso e um recorte (sempre creditando o criador).
+
+## Carrossel "43 toadas" (primeiro conteúdo, rascunho para aprovação)
+Composições `ArrastaIlha-Toadas-1-Capa` a `-5-Fecho` (`SlideCapaToadas`, `SlideToada`, `ModeloFecho`): capa, três toadas (Rainha da Diáspora, Rua, Ubuntu) e fecho. Dados tirados do eBook: criador sempre no slide; ano só quando consta ("Rainha da Diáspora" não traz ano; "Rua" traz os criadores como "Charles Raimundo e Léo", o nome do segundo parece cortado no PDF: confirmar). PNG final: `--scale=2.5 --image-format=png` (2700x3375). Um verso por slide, no máximo.

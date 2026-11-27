@@ -254,3 +254,57 @@ export const PranchaElementos: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/** Slide de toada (gramática do eBook das Toadas): faixa oficial no topo e no rodapé, título escuro, crédito pequeno,
+ *  um verso e foto recortada grande no canto, com folha ou pontos ao redor. SEMPRE creditar o criador (e o ano, se constar no eBook). */
+export const SlideToada: React.FC<{
+  numero: string;
+  titulo: string;
+  credito: string;
+  verso: string[];
+  foto: FotoNome;
+  alturaFoto?: number;
+  topoFoto?: number;
+  faixaTopo?: "ofTriangulos" | "ofAxeBuzios" | "ofArmas" | "ofDancarinos" | "ofIcones";
+  elemento?: ElementoNome;
+  lado?: "direita" | "esquerda";
+  larguraTexto?: number;
+  fotoNaBorda?: boolean;
+}> = ({ numero, titulo, credito, verso, foto, alturaFoto = 760, topoFoto = 440, faixaTopo = "ofAxeBuzios", elemento = "elFolhaCurvasLaranja", lado = "direita", larguraTexto = 560, fotoNaBorda = false }) => {
+  const dir = lado === "direita";
+  return (
+    <AbsoluteFill style={{ background: colors.creme }}>
+      <Faixa nome={faixaTopo} w={1080} alt={faixaTopo === "ofAxeBuzios" ? 58 : 70} />
+      <Recorte nome={elemento} largura={560} style={dir ? { right: -30, top: 90 } : { left: -30, top: 90 }} />
+      <Recorte nome={foto} altura={alturaFoto} style={fotoNaBorda ? { left: 0, top: topoFoto } : dir ? { right: 20, top: topoFoto } : { left: 20, top: topoFoto }} />
+      <div style={{ position: "absolute", [dir ? "left" : "right"]: 72, top: 200, width: larguraTexto }}>
+        <div style={etiqueta(30, colors.laranjaTexto)}>TOADA {numero}</div>
+        <div style={{ height: 5, width: 130, background: colors.laranjaTexto, margin: "14px 0 26px" }} />
+        <div style={titulo_(120)}>{titulo}</div>
+        <div style={{ ...corpo(30, "#6a564c"), marginTop: 18 }}>{credito}</div>
+        <div style={{ ...corpo(48, colors.noite), marginTop: 56, lineHeight: 1.22 }}>
+          {verso.map((l, i) => (
+            <div key={i}>{l}</div>
+          ))}
+        </div>
+      </div>
+      <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: 80 }} />
+      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 80, background: colors.marinho, ...etiqueta(28, colors.creme), display: "flex", alignItems: "center", justifyContent: "center" }}>@ARRASTAILHAOFICIAL · EBOOK DAS TOADAS</div>
+    </AbsoluteFill>
+  );
+};
+const titulo_ = titulo;
+
+/** Capa do carrossel de toadas. */
+export const SlideCapaToadas: React.FC = () => (
+  <AbsoluteFill style={{ background: colors.marinho }}>
+    <PadraoOficial w={1080} h={1350} escala={0.95} />
+    <div style={{ position: "absolute", left: 90, right: 90, top: 190, bottom: 190, background: colors.creme, boxShadow: "0 18px 40px #0006", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 40 }}>
+      <Recorte nome="logoVertical" largura={260} style={{ position: "relative", marginBottom: 20 }} />
+      <div style={etiqueta(30, colors.laranjaTexto)}>EBOOK</div>
+      <div style={titulo(124)}>43 toadas<br />do Arrasta Ilha</div>
+      <div style={{ ...corpo(38), marginTop: 22 }}>Letras e criadores, de 2002 até hoje</div>
+      <div style={{ ...etiqueta(28, colors.noite), marginTop: 30 }}>DESLIZE →</div>
+    </div>
+  </AbsoluteFill>
+);

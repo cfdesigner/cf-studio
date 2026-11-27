@@ -105,6 +105,7 @@
 - [ ] **[dono]** Dizer **qual modelo vira stories, carrossel e reels** (o F e o G já existem em stories)
 - [ ] **[dono]** (quando puder) fotos em alta, ilustração do instrumentista do cartaz, faixa coral da página Fundamentos, pessoas de roupa branca da página Dança, nome da fonte do texto corrido do site
 - [ ] **[dono]** Confirmar: grafia do nome (Arrasta Ilha), promessa, pilares, objetivo (conteúdo para redes e cartazes de oficina), data e planos dos 25 anos (2027)
+- [ ] **[dono]** Aprovar o carrossel das toadas (5 slides em `out/carrossel/arrasta-toadas/`, fora do Git) e confirmar com o grupo o uso dos versos e o nome completo do 2º criador de "Rua"
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
