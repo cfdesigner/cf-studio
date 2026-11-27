@@ -7,3 +7,4 @@ export * from "./Carrossel";
 export * from "./Aplicacao";
 export * from "./LegendasOpcoes";
 export * from "./Legendas";
+export * from "./Fecho";
