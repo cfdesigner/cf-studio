@@ -21,3 +21,8 @@ Sem vídeo de referência do grupo: a personalidade vem da identidade. Entra fir
 - Fotos de pessoas só com autorização do grupo; rosto nunca coberto por texto ou caixa.
 - Linguagem inclusiva como o grupo escreve ("maracatuzeiros/as", "Amigues").
 - Legenda nunca termina com ponto final nem reticências. Visual limpo e premium.
+
+## Grafismos e modelos (etapa visual, em aprovação)
+Desenhados a partir do repertório do site (não são os arquivos originais; trocar quando o grupo mandar): folha de palma, aglomerado de pontos, sol, arcos concêntricos, mancha orgânica, tracejado, moldura de tambor para fotos e faixas de padrão (zigue, losangos, triângulos, símbolos geométricos). Componentes em `components/Grafismos.tsx`; modelos em `components/Modelos.tsx`: **A** aviso (laranja), **B** foto em moldura de tambor (verde), **C** cartaz de oficina com mestre (azul, com campos entre colchetes). Composições `ArrastaIlha-Grafismos`, `ArrastaIlha-ModeloA-Aviso`, `-ModeloB-Moldura`, `-ModeloC-Oficina`.
+- Grafismos nunca passam por cima de texto nem de rosto.
+- Sem símbolos religiosos e sem figuras do grupo desenhadas por mim: só formas geométricas e vegetais.
