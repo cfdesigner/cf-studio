@@ -125,6 +125,11 @@
 - [ ] **[dono]** (opcional) Pedir o upscale 4K da folha (~270 créditos), uma 2ª versão do cenário (80) ou o vídeo curto (etapa 6 da skill, só se ele pedir; o preço da finalização pode ser o cheio)
 - [ ] **[Claude]** Montar no Remotion depois do storyboard aprovado e entregar o MP4
 
+### Personagem "Ancestral" (dark fantasy, corpo inteiro, skill de personagem hiper-realista)
+
+- [x] **[Claude + dono]** 5 etapas feitas no Magnific, todas aprovadas pelo dono em 27/11/2026, **400 créditos** no total: base de argila 80 (GPT 2.6), foto realista 110 (Seedream 5.5, com 6 texturas reais), folha de personagem 50, cenário 80 (floresta petrificada na neblina, três quartos, 28 mm). 6 fotos de textura reais subidas na conta, sem custo. Links: [base de argila](https://www.magnific.com/app/creation/eINveS2dqL), [foto realista](https://www.magnific.com/app/creation/YMUXlkAWeC), [folha de personagem](https://www.magnific.com/app/creation/4RbzxxK9Aa), [cenário](https://www.magnific.com/app/creation/Cqc1tXzEEy). Ressalvas: osso sem foto (só descrito), couro saiu avermelhado, rostos dos painéis de busto da folha cortados mais fechados que o pedido
+- [ ] **[dono]** (opcional) Upscale 4K da folha (~270 créditos), vídeo curto (etapa 6 da skill, só se pedir)
+
 ### Episódio 06 (CFDesigner): "Da argila ao 4K" (Grumvald)
 
 - [x] Tema definido pelo dono; rascunho v2 em `producoes/serie-conteudos-cfdesigner/ep06-do-basico-ao-4k/PLANO.md`
