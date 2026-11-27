@@ -79,3 +79,52 @@ export const ModeloAniversario: React.FC<AniversarioProps> = (props) => {
     </AbsoluteFill>
   );
 };
+
+// ---------------------------------------------------------------------------------------------
+// APLICAÇÃO: "Vem vadiá! Carnaval 2027 · 25 anos", escolha de camiseta (refeita de um post atual do grupo).
+// As camisetas são recortes do print do post (baixa resolução): trocar pelos arquivos originais.
+import camCatirinas from "../assets/aplicacoes/camiseta-catirinas.png";
+import camEstandarte from "../assets/aplicacoes/camiseta-estandarte.png";
+import camBatuqueiros from "../assets/aplicacoes/camiseta-batuqueiros.png";
+import camCorteReal from "../assets/aplicacoes/camiseta-corte-real.png";
+
+const modelosCamiseta = [
+  { nome: "Catirinas", src: camCatirinas, w: 581, h: 489 },
+  { nome: "Estandarte", src: camEstandarte, w: 562, h: 497 },
+  { nome: "Batuqueiros", src: camBatuqueiros, w: 578, h: 444 },
+  { nome: "Corte Real", src: camCorteReal, w: 580, h: 501 },
+];
+
+export const PostCamisetas: React.FC = () => {
+  const altura = 300;
+  const colX = [60, 560];
+  const rowY = [470, 880];
+  return (
+    <AbsoluteFill style={{ background: colors.branco }}>
+      <Suave nome="elFolhaLarga" altura={900} style={{ right: -50, top: 380 }} opacidade={0.09} />
+      <Suave nome="elSolRespingo" largura={420} style={{ right: -90, top: 70 }} opacidade={0.16} />
+      <Suave nome="elFolhaLarga" altura={700} style={{ left: -60, top: 640 }} opacidade={0.06} />
+      <Recorte nome="logoVertical" largura={210} style={{ left: 60, top: 100 }} />
+      <div style={{ position: "absolute", left: 304, top: 104, fontFamily: fontFamilies.pincel, fontSize: 58, color: colors.laranjaTexto }}>vem vadiá!</div>
+      <T tam={116} style={{ position: "absolute", left: 300, top: 168 }}>Carnaval 2027</T>
+      <T tam={116} cor={colors.laranjaTexto} style={{ position: "absolute", left: 300, top: 262 }}>25 anos</T>
+      <div style={{ position: "absolute", left: 66, top: 396, width: 940, fontFamily: fontFamilies.texto, fontSize: 36, color: colors.tintaTexto }}>Conheça os 4 modelos de camisetas e escolha a sua:</div>
+      {modelosCamiseta.map((m, i) => {
+        const w = (altura * m.w) / m.h;
+        const cx = colX[i % 2] + 230;
+        const y = rowY[Math.floor(i / 2)];
+        return (
+          <React.Fragment key={m.nome}>
+            <Img src={m.src} style={{ position: "absolute", left: cx - w / 2, top: y, width: w, height: altura }} />
+            <div style={{ position: "absolute", left: colX[i % 2], width: 460, top: y + altura + 14, display: "flex", justifyContent: "center", alignItems: "baseline", gap: 14 }}>
+              <span style={{ fontFamily: fontFamilies.pincel, fontSize: 36, color: colors.laranjaTexto }}>modelo</span>
+              <span style={{ fontFamily: fontFamilies.display, fontSize: 60, lineHeight: 1, color: colors.vinho, textTransform: "uppercase", WebkitTextStroke: `${60 * engrossar.padrao}px ${colors.vinho}`, paintOrder: "stroke fill" }}>{m.nome}</span>
+            </div>
+          </React.Fragment>
+        );
+      })}
+      <Faixa nome="ofDancarinos" w={1080} alt={72} style={{ position: "absolute", top: 0 }} />
+      <Faixa nome="ofDancarinos" w={1080} alt={72} style={{ position: "absolute", bottom: 0 }} />
+    </AbsoluteFill>
+  );
+};

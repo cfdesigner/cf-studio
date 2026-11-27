@@ -2,7 +2,7 @@ import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
 import fotoKaren from "./assets/aplicacoes/regente-karen.png";
-import { ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
+import { PostCamisetas, ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
 export const ArrastaIlhaComposicoes: React.FC = () => (
@@ -39,6 +39,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Modelo-Aniversario-Stories" component={ModeloAniversario} defaultProps={{ stories: true }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Aplicacao-Aniversario" component={ModeloAniversario} defaultProps={{ titulo: "Regente", nome: "Karen", data: "22 de novembro", mensagem: "A Família Arrasta Ilha lhe deseja um vendaval de axé para o novo ciclo!", foto: fotoKaren }} width={1080} height={1350} />
     <Still id="ArrastaIlha-Aplicacao-Aniversario-Stories" component={ModeloAniversario} defaultProps={{ stories: true, titulo: "Regente", nome: "Karen", data: "22 de novembro", mensagem: "A Família Arrasta Ilha lhe deseja um vendaval de axé para o novo ciclo!", foto: fotoKaren }} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Aplicacao-Camisetas" component={PostCamisetas} width={1080} height={1350} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );
