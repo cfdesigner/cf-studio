@@ -2,7 +2,7 @@ import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
 import fotoKaren from "./assets/aplicacoes/regente-karen.png";
-import { ModeloEnsaio, ModeloProgramacao as ModeloAvisoProgramacao, PostDomingueiraStories, PostDomingueira, PostCamisetas, ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
+import { LegendaOpcao, ModeloEnsaio, ModeloProgramacao as ModeloAvisoProgramacao, PostDomingueiraStories, PostDomingueira, PostCamisetas, ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
 export const ArrastaIlhaComposicoes: React.FC = () => (
@@ -47,6 +47,10 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Aplicacao-Domingueira-Degrade-Stories" component={PostDomingueiraStories} width={1080} height={1920} />
     <Still id="ArrastaIlha-Aplicacao-Ensaio" component={ModeloEnsaio} width={1080} height={1350} />
     <Still id="ArrastaIlha-Aplicacao-Programacao" component={ModeloAvisoProgramacao} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Legenda-A" component={LegendaOpcao} defaultProps={{ opcao: "A" }} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Legenda-B" component={LegendaOpcao} defaultProps={{ opcao: "B" }} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Legenda-C" component={LegendaOpcao} defaultProps={{ opcao: "C" }} width={1080} height={1920} />
+    <Still id="ArrastaIlha-Legenda-D" component={LegendaOpcao} defaultProps={{ opcao: "D" }} width={1080} height={1920} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );

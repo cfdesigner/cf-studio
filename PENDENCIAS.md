@@ -123,7 +123,8 @@
 Ideia: ir com calma, estudar mais o grupo e só apresentar quando houver uma versão bem definida, com exemplos reais do que será entregue. A apresentação "Identidade em ação" (artefato) é o rascunho vivo e vai sendo alimentada.
 
 - [ ] **[dono]** Estudar mais o grupo e trazer informações (rotina, eventos do ano, o que o grupo sente falta, o que já paga de arte, quem decide). Eu atualizo base, auditoria e pacotes a cada informação
-- [ ] **[Claude]** **Etapa de vídeo do design system** (legendas em 4 opções em imagem, terceiro de nome para mestre convidado, números, fecho com a logo; movimento "batida" já aprovado)
+- [ ] **[dono]** Escolher a legenda (A, B, C ou D, imagens em `out/legendas/`)
+- [ ] **[Claude]** **Etapa de vídeo do design system** (legendas em 4 opções em imagem, já feitas; terceiro de nome para mestre convidado, números, fecho com a logo; movimento "batida" já aprovado)
 - [ ] **[Claude]** Vídeo de exemplo para a apresentação (como o grupo seria atendido em vídeo): precisa de storyboard antes e de aprovação; som só do próprio grupo (percussão), nunca sintetizado
 - [ ] **[Claude]** Completar a auditoria do grupo (Doc + página visual) quando houver métricas, fala e prints do Instagram
 - [ ] **[Claude]** Fechar a lista do que será fornecido (peças por mês, prazos, rodadas) e preencher os valores quando o dono definir; criar versão curta só com os pacotes
