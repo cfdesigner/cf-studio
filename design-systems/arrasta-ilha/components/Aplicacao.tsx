@@ -145,3 +145,56 @@ export const PostCamisetas: React.FC<{ stories?: boolean }> = ({ stories = false
     </AbsoluteFill>
   );
 };
+
+// ---------------------------------------------------------------------------------------------
+// APLICAÇÃO: cartaz de chamada de evento "Domingueira" (refeito de um cartaz atual do grupo), em duas cores.
+// Foto: do grupo (arquivo do dono). Logos de produção, realização e apoio: pendentes (o print do cartaz original está cortado).
+import fotoDomingueira from "../assets/aplicacoes/domingueira-foto.jpg";
+
+export const PostDomingueira: React.FC<{ cor?: "marinho" | "verde" }> = ({ cor = "marinho" }) => {
+  const az = cor === "marinho";
+  const fundo = az ? colors.marinho : colors.verde;
+  const destaque = az ? colors.laranja : "#f6b47c";
+  const pillFundo = az ? colors.laranja : colors.creme;
+  const pillTexto = az ? colors.noite : colors.vinho;
+  const claro = colors.creme;
+  const W = 1080;
+  const creditos: { rotulo: string; texto?: string }[] = [
+    { rotulo: "Produção" },
+    { rotulo: "Realização" },
+    { rotulo: "Apoio", texto: "Prefeitura de Florianópolis" },
+    { rotulo: "Acessível em Libras" },
+  ];
+  return (
+    <AbsoluteFill style={{ background: fundo }}>
+      <Suave nome="elSolRespingo" largura={520} style={{ right: -120, top: 40 }} opacidade={0.18} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 92, textAlign: "center", fontFamily: fontFamilies.pincel, fontSize: 58, color: claro }}>maracatu arrasta ilha convida</div>
+      <T tam={184} cor={destaque} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 160 }}>Domingueira</T>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 340, display: "flex", justifyContent: "center" }}>
+        <div style={{ background: pillFundo, color: pillTexto, fontFamily: fontFamilies.display, fontSize: 52, lineHeight: 1, textTransform: "uppercase", padding: "14px 40px", borderRadius: 999, WebkitTextStroke: `${52 * engrossar.padrao}px ${pillTexto}`, paintOrder: "stroke fill" }}>Blocos Afros Floripa</div>
+      </div>
+      <Img src={fotoDomingueira} style={{ position: "absolute", left: 0, top: 440, width: W, height: 450, objectFit: "cover", objectPosition: "50% 0%" }} />
+      <T tam={124} cor={claro} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 908 }}>29 de novembro</T>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1028, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 40, color: claro }}>a partir das 14h · Pista de Skate da Costeira</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1088, display: "flex", justifyContent: "center" }}>
+        <div style={{ background: az ? colors.verde : colors.marinho, color: claro, fontFamily: fontFamilies.etiqueta, fontSize: 36, padding: "8px 34px", borderRadius: 999 }}>ANCESTRALIDADE · AFETO · RESISTÊNCIA</div>
+      </div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1154, textAlign: "center", fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 34, color: destaque }}>Entrada gratuita | Toda a comunidade convidada!</div>
+      {/* créditos: o print do cartaz original corta os logos; as vagas marcadas esperam os arquivos */}
+      <div style={{ position: "absolute", left: 60, right: 60, top: 1204, display: "flex", justifyContent: "space-between" }}>
+        {creditos.map((c) => (
+          <div key={c.rotulo} style={{ width: 230, textAlign: "center" }}>
+            <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 22, color: destaque }}>{c.rotulo}:</div>
+            {c.texto ? (
+              <div style={{ fontFamily: fontFamilies.texto, fontWeight: 700, fontSize: 22, lineHeight: 1.1, color: claro, marginTop: 8 }}>{c.texto}</div>
+            ) : (
+              <div style={{ marginTop: 6, height: 36, border: `2px dashed ${claro}`, opacity: 0.6, borderRadius: 8, fontFamily: fontFamilies.texto, fontSize: 18, color: claro, display: "flex", alignItems: "center", justifyContent: "center" }}>[logo]</div>
+            )}
+          </div>
+        ))}
+      </div>
+      <Faixa nome={az ? "ofTriangulos" : "ofDancarinos"} w={W} alt={az ? 56 : 72} style={{ position: "absolute", top: 0 }} />
+      <Faixa nome={az ? "ofHexagonos" : "ofDancarinos"} w={W} alt={az ? 44 : 60} style={{ position: "absolute", bottom: 0 }} />
+    </AbsoluteFill>
+  );
+};

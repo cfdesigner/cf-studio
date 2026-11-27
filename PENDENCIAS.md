@@ -110,6 +110,7 @@
 - [x] **[Claude]** Modelo reutilizável de aniversário/homenagem (feed e stories) com campos, guia em `design-systems/arrasta-ilha/docs/modelo-aniversario.md`
 - [ ] **[dono]** Foto original da Regente Karen e dos próximos aniversariantes (autorizadas), em alta
 - [ ] **[dono]** Mandar mais 2 ou 3 posts que o grupo faz com frequência para virarem modelos
+- [ ] **[dono]** Logos de produção, realização, apoio (Prefeitura) e Libras, e dos blocos convidados, para o cartaz da Domingueira
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
