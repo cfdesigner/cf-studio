@@ -17,6 +17,8 @@ export const colors = {
   verdeFolha: "#6eb140", // borda do topo da Home
   azulBandeira: "#007bc3", // faixa de ícones brancos
   terra: "#593226", // folhas marrons
+  terracota: "#c0622b", // semicírculo da página Percussão
+  ocre: "#d98134", // sol da página Percussão
   // texto
   tintaClara: "#fcf9f5",
   tintaEscura: "#1f1817",
@@ -30,6 +32,8 @@ export const temas = {
   verde: { fundo: colors.verde, texto: colors.tintaClara, destaque: colors.verdeFolha, sobreCreme: colors.verde },
   azul: { fundo: colors.marinho, texto: colors.tintaClara, destaque: colors.azulBandeira, sobreCreme: colors.marinho },
   petroleo: { fundo: colors.petroleo, texto: colors.tintaClara, destaque: colors.laranja, sobreCreme: colors.petroleo },
+  /** Página Percussão do site (o título dela está em cinza, sem cor-tema; adotei o terracota do semicírculo e do sol dela). */
+  terracota: { fundo: colors.terracota, texto: colors.tintaClara, destaque: colors.ocre, sobreCreme: colors.terracota },
 } as const;
 
 export type TemaNome = keyof typeof temas;

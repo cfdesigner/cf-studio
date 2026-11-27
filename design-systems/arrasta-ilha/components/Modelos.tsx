@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
-import { Arcos, FaixaPadrao, FolhaPalma, GrupoPontos, Mancha, MolduraTambor, Sol, Tracejado } from "./Grafismos";
+import { Arcos, FaixaPadrao, FolhaLarga, FolhaPalma, GrupoPontos, Mancha, MolduraTambor, SemiCirculoCurvas, Sol, SolRespingo, Tracejado } from "./Grafismos";
 
 const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
@@ -26,7 +26,7 @@ export const PranchaGrafismos: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme, padding: 48, color: colors.noite }}>
     <div style={{ fontFamily: fontFamilies.pincel, fontSize: 60 }}>Grafismos do Arrasta Ilha</div>
     <div style={etiqueta(22, colors.laranjaTexto)}>DESENHADOS A PARTIR DO REPERTÓRIO DO SITE · TROCAR PELOS ORIGINAIS DO GRUPO</div>
-    <div style={{ display: "flex", gap: 40, marginTop: 36, alignItems: "flex-end", flexWrap: "wrap" }}>
+    <div style={{ display: "flex", gap: 40, marginTop: 30, alignItems: "flex-end", flexWrap: "wrap" }}>
       <FolhaPalma size={330} />
       <FolhaPalma size={330} cor={colors.verde} />
       <GrupoPontos size={250} />
@@ -35,6 +35,9 @@ export const PranchaGrafismos: React.FC = () => (
       <Tracejado size={240} />
       <div style={{ position: "relative" }}><Mancha size={300} /></div>
       <MolduraTambor size={250}><Foto rotulo="FOTO" /></MolduraTambor>
+      <SolRespingo size={230} />
+      <SemiCirculoCurvas size={300} />
+      <FolhaLarga size={330} />
     </div>
     <div style={{ ...etiqueta(22, colors.noite), margin: "34px 0 10px" }}>FAIXAS DE PADRÃO</div>
     <div style={{ display: "flex", flexDirection: "column", gap: 14, width: 1100 }}>
@@ -104,5 +107,22 @@ export const ModeloOficina: React.FC = () => (
     <div style={{ position: "absolute", left: 50, top: 130 }}><GrupoPontos size={190} cor={colors.laranja} /></div>
     <div style={{ position: "absolute", right: 60, bottom: 140, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.creme }}>Arrasta Ilha</div>
     <FaixaPadrao variante="simbolos" cor="#fff" fundo={colors.azulBandeira} w={1080} alt={64} />
+  </AbsoluteFill>
+);
+
+/** D: toque de percussão (página Percussão do site), terracota, foto do instrumento em moldura, sol de respingo e semicírculo. */
+export const ModeloPercussao: React.FC = () => (
+  <AbsoluteFill style={{ background: colors.creme }}>
+    <FaixaPadrao variante="triangulos" cor={colors.terracota} w={1080} alt={54} />
+    <div style={{ position: "absolute", right: 40, top: 110 }}><SolRespingo size={280} /></div>
+    <div style={{ position: "absolute", left: -30, bottom: 120 }}><SemiCirculoCurvas size={520} /></div>
+    <div style={{ position: "absolute", right: -30, top: 410 }}><FolhaLarga size={540} /></div>
+    <div style={{ position: "absolute", left: 72, top: 360 }}>
+      <div style={etiqueta(34, colors.terracota)}>PERCUSSÃO · TOQUE BÁSICO</div>
+      <div style={{ height: 5, width: 150, background: colors.terracota, margin: "16px 0 30px" }} />
+      <div style={titulo(170)}>Solfejo<br />base</div>
+      <div style={{ fontFamily: fontFamilies.corpo, fontSize: 46, color: "#4a3a33", marginTop: 30, maxWidth: 560, lineHeight: 1.25 }}>Aprenda a batida do grupo, passo a passo</div>
+    </div>
+    <Servico tema="terracota" texto="ARRASTAILHA.COM.BR · INTRODUÇÃO À PERCUSSÃO" />
   </AbsoluteFill>
 );

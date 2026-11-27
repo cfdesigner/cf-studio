@@ -117,3 +117,51 @@ export const FaixaPadrao: React.FC<{ variante: "zigue" | "losangos" | "triangulo
     </svg>
   );
 };
+
+/** Sol de respingo: miolo cheio e raios orgânicos afilados, com pontinhos (o sol da página Percussão). */
+export const SolRespingo: React.FC<G> = ({ size = 230, cor = colors.ocre, style }) => (
+  <svg width={size} height={size} viewBox="-120 -120 240 240" style={style}>
+    <circle r={32} fill={cor} />
+    {Array.from({ length: 11 }, (_, i) => {
+      const comp = 62 + ((i * 37) % 28);
+      const larg = 11 + (i % 3) * 3;
+      return (
+        <path key={i} transform={`rotate(${(i * 360) / 11 + 8})`} d={`M${-larg} -30 Q${-larg * 0.4} ${-comp * 0.6} ${(i % 2 ? 6 : -6)} ${-comp} Q${larg * 0.5} ${-comp * 0.6} ${larg} -30 Z`} fill={cor} />
+      );
+    })}
+    {Array.from({ length: 14 }, (_, i) => (
+      <circle key={i} cx={Math.cos((i * 2 * Math.PI) / 14) * 108} cy={Math.sin((i * 2 * Math.PI) / 14) * 108} r={3.2 + (i % 3)} fill={cor} />
+    ))}
+  </svg>
+);
+
+/** Semicírculo cheio com curvas de nível em linha fina (o semicírculo da página Percussão). */
+export const SemiCirculoCurvas: React.FC<G> = ({ size = 320, cor = colors.terracota, style }) => (
+  <svg width={size} height={size * 0.62} viewBox="0 0 320 198" style={style}>
+    <path d="M60 198 A100 100 0 0 1 260 198 Z" fill={cor} />
+    {[0, 1, 2, 3].map((i) => (
+      <path key={i} d={`M${10 + i * 14} 190 C${30 + i * 10} ${40 + i * 12}, ${120 + i * 6} ${150 - i * 14}, ${170 + i * 8} ${60 + i * 16} S${300 - i * 10} ${40 + i * 14}, ${310 - i * 8} 190`} fill="none" stroke="#9bb9d3" strokeWidth={2.2} />
+    ))}
+  </svg>
+);
+
+/** Folha larga com nervuras claras (a folha marrom grande da página Percussão). */
+export const FolhaLarga: React.FC<G> = ({ size = 420, cor = colors.terra, style }) => {
+  const lobos = Array.from({ length: 7 }, (_, i) => {
+    const y = 340 - i * 44;
+    const c = 78 - i * 7.5;
+    return [-1, 1].map((lado) => (
+      <g key={`${i}${lado}`}>
+        <path d={`M100 ${y} Q${100 + lado * c * 0.8} ${y - 14} ${100 + lado * c * 1.5} ${y - 66} Q${100 + lado * c * 0.55} ${y - 56} ${100 + lado * c * 0.1} ${y - 30} Q${100 + lado * c * 0.45} ${y - 30} 100 ${y} Z`} fill={cor} />
+        <path d={`M100 ${y - 4} Q${100 + lado * c * 0.7} ${y - 22} ${100 + lado * c * 1.25} ${y - 56}`} stroke="#f3ece3" strokeWidth={1.8} fill="none" opacity={0.75} />
+      </g>
+    ));
+  });
+  return (
+    <svg width={size * 0.5} height={size} viewBox="0 0 200 400" style={style}>
+      <path d="M100 396 Q96 200 100 24" stroke={cor} strokeWidth={7} fill="none" strokeLinecap="round" />
+      <path d="M100 40 Q122 6 100 0 Q78 6 100 40 Z" fill={cor} />
+      {lobos}
+    </svg>
+  );
+};

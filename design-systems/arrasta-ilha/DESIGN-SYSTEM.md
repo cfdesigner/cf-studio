@@ -22,7 +22,10 @@ Sem vídeo de referência do grupo: a personalidade vem da identidade. Entra fir
 - Linguagem inclusiva como o grupo escreve ("maracatuzeiros/as", "Amigues").
 - Legenda nunca termina com ponto final nem reticências. Visual limpo e premium.
 
+## Temas por página do site
+Fundamentos laranja · Toadas verde · Dança azul · **Percussão terracota** (`#c0622b`, do semicírculo da página; o título dela no site está em cinza, sem cor-tema) · Home petróleo. Grafismos da Percussão: sol de respingo, semicírculo com curvas de nível, folha larga com nervuras, faixa de triângulos. A foto real da página mostra alfaias com cordas e padrão de triângulos azuis: referência para fotos de instrumento.
+
 ## Grafismos e modelos (etapa visual, em aprovação)
-Desenhados a partir do repertório do site (não são os arquivos originais; trocar quando o grupo mandar): folha de palma, aglomerado de pontos, sol, arcos concêntricos, mancha orgânica, tracejado, moldura de tambor para fotos e faixas de padrão (zigue, losangos, triângulos, símbolos geométricos). Componentes em `components/Grafismos.tsx`; modelos em `components/Modelos.tsx`: **A** aviso (laranja), **B** foto em moldura de tambor (verde), **C** cartaz de oficina com mestre (azul, com campos entre colchetes). Composições `ArrastaIlha-Grafismos`, `ArrastaIlha-ModeloA-Aviso`, `-ModeloB-Moldura`, `-ModeloC-Oficina`.
+Desenhados a partir do repertório do site (não são os arquivos originais; trocar quando o grupo mandar): folha de palma, aglomerado de pontos, sol, arcos concêntricos, mancha orgânica, tracejado, moldura de tambor para fotos e faixas de padrão (zigue, losangos, triângulos, símbolos geométricos). Componentes em `components/Grafismos.tsx`; modelos em `components/Modelos.tsx`: **A** aviso (laranja), **B** foto em moldura de tambor (verde), **C** cartaz de oficina com mestre (azul, com campos entre colchetes), **D** toque de percussão (terracota). Composições `ArrastaIlha-Grafismos`, `ArrastaIlha-ModeloA-Aviso`, `-ModeloB-Moldura`, `-ModeloC-Oficina`.
 - Grafismos nunca passam por cima de texto nem de rosto.
 - Sem símbolos religiosos e sem figuras do grupo desenhadas por mim: só formas geométricas e vegetais.
