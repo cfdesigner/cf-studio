@@ -15,8 +15,8 @@ Base de conhecimento: `clientes/arrata-ilha/` (BASE, VOZ, PILARES, AUDITORIA).
 - Texto corrido do site (serifada): nome ainda não informado (descobrir no editor do Wix); provisório Crimson Pro.
 
 ## Etapas
-1. [em aprovação] Cores, tipografia, quadro de componentes (`ArrastaIlha-Etapa1`).
-2. Movimento e transições (vídeo de teste).
+1. [aprovada] Cores, tipografia, quadro de componentes (`ArrastaIlha-Etapa1`).
+2. [em aprovação] Movimento "batida" e transições (`ArrastaIlha-Movimento`).
 3. Legendas (4 opções em imagem).
 4. Modelos de peças: feed 4:5, carrossel, stories, reels, banner, cartaz de oficina e com mestre, terceiro de nome do mestre, fecho.
 
