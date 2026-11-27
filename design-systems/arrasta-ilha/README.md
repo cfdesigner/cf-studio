@@ -8,6 +8,11 @@ Base de conhecimento: `clientes/arrata-ilha/` (BASE, VOZ, PILARES, AUDITORIA).
 - 5 prints do site (Home, Fundamentos, Toadas, Introdução à Dança, Intercâmbio): cores medidas por amostragem de áreas chapadas, tipografia por observação, grafismos (faixas, folhas, pontos, ondas, ícones brancos, molduras de tambor).
 - 2 prints do Instagram: perfil e grade (cartazes verdes em molde, mistura com fotos).
 
+## Fontes
+- **Títulos e menu do site: Zenzero Grotesk Sans** (nome confirmado pelo dono no editor do Wix, 27/11/2026). Não existe no Google Fonts. Condensada, com T em cruz, D de haste aberta, R em laço e S riscado. Uso fora do Wix depende de licença: confirmar com o Wix ou com quem fez o site. Provisório: Odibee Sans.
+- Nome "ARRASTA ILHA" do logo: letra desenhada à mão (arquivo do grupo), não é fonte.
+- Texto corrido do site (serifada): nome ainda não informado (descobrir no editor do Wix); provisório Crimson Pro.
+
 ## Etapas
 1. [em aprovação] Cores, tipografia, quadro de componentes (`ArrastaIlha-Etapa1`).
 2. Movimento e transições (vídeo de teste).

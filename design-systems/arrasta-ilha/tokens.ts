@@ -35,8 +35,9 @@ export const temas = {
 export type TemaNome = keyof typeof temas;
 
 export const fontFamilies = {
-  /** Títulos em caixa alta, entrelinha larga: no site é uma fonte de recorte manual. */
-  display: '"Londrina Solid", "Staatliches", Impact, sans-serif',
+  /** Títulos e menu: no site é "Zenzero Grotesk Sans" (fonte da biblioteca do Wix, fora do Google Fonts).
+   *  Enquanto não houver o arquivo licenciado, o substituto provisório é Odibee Sans (condensada, traço limpo). */
+  display: '"Zenzero Grotesk Sans", "Odibee Sans", "Staatliches", Impact, sans-serif',
   /** Nome do grupo e frases de impacto: pincel solto como o logo. */
   pincel: '"Kaushan Script", "Permanent Marker", cursive',
   /** Texto corrido: serifa quente como no site. */
