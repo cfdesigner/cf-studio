@@ -1,7 +1,7 @@
 import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
-import { FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
+import { CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
 /** Composições de referência do Arrasta Ilha. */
 export const ArrastaIlhaComposicoes: React.FC = () => (
@@ -28,6 +28,12 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Pagina1-Titulo-Stories" component={() => <PaginaTitulo stories />} width={1080} height={1920} />
     <Still id="ArrastaIlha-Pagina2-Personagem-Stories" component={() => <PaginaPersonagem stories />} width={1080} height={1920} />
     <Still id="ArrastaIlha-Folha" component={FolhaDesignSystem} width={2400} height={5350} />
+    <Still id="ArrastaIlha-Carrossel-1-Capa" component={CarrosselCapa} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Carrossel-2-Toque" component={CarrosselToque} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Carrossel-3-Baque" component={CarrosselBaque} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Carrossel-4-Servico" component={CarrosselServico} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Carrossel-5-Oficina" component={CarrosselOficina} width={1080} height={1350} />
+    <Still id="ArrastaIlha-Carrossel-6-Fecho" component={CarrosselFecho} width={1080} height={1350} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );

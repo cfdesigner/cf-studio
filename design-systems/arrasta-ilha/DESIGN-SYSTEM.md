@@ -68,3 +68,6 @@ Receita medida no eBook: **fundo branco** (`branco`); **grafismos suaves** atrá
 
 ## Folha do design system
 Composição `ArrastaIlha-Folha` (2400x5350, `components/Folha.tsx`): prancha única com logos, cores, tipografia, faixas, grafismos, ícones, personagens e instrumentos, 12 modelos de peça em miniatura, regras e movimento. Renderizar: `npx remotion still ArrastaIlha-Folha out/arrasta-folha.png --image-format=png`.
+
+## Carrossel de impacto (diagramação da referência do dono, visual do Arrasta Ilha)
+`components/Carrossel.tsx`, composições `ArrastaIlha-Carrossel-1-Capa` a `-6-Fecho` (6 slides 4:5; PNG final `--scale=2.5`). Da referência (feed de uma agência, só a diagramação): **título enorme e apertado**, **abertura curta em pincel** acima, **palavra gigante fantasma** atrás, **personagem recortado sobrepondo o título**, texto pequeno no canto, **etiquetas arredondadas**, alternando fundos de cor e branco. Do design system: Zenzero, cores-tema, faixas, elementos, recortes e logo. Slides: capa (marinho), toque (branco), baque (marinho), serviço com número gigante (branco), oficina com campos (terracota), fecho com logo (marinho). Textos são de exemplo com dados reais do grupo (domingo, 15h, Espaço Aruanda, desde 2002).
