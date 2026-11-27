@@ -116,6 +116,17 @@
 - [ ] **[Claude]** Etapa de legendas do design system (4 opções em imagem), depois terceiro de nome para mestres convidados, números e fecho
 - [ ] **[Claude]** Quando houver métricas e fala: fechar a auditoria (Doc + página visual), voz e pilares
 
+### Arrasta Ilha: plano para amadurecer a proposta (combinado com o dono em 27/11/2026)
+
+Ideia: ir com calma, estudar mais o grupo e só apresentar quando houver uma versão bem definida, com exemplos reais do que será entregue. A apresentação "Identidade em ação" (artefato) é o rascunho vivo e vai sendo alimentada.
+
+- [ ] **[dono]** Estudar mais o grupo e trazer informações (rotina, eventos do ano, o que o grupo sente falta, o que já paga de arte, quem decide). Eu atualizo base, auditoria e pacotes a cada informação
+- [ ] **[Claude]** **Etapa de vídeo do design system** (legendas em 4 opções em imagem, terceiro de nome para mestre convidado, números, fecho com a logo; movimento "batida" já aprovado)
+- [ ] **[Claude]** Vídeo de exemplo para a apresentação (como o grupo seria atendido em vídeo): precisa de storyboard antes e de aprovação; som só do próprio grupo (percussão), nunca sintetizado
+- [ ] **[Claude]** Completar a auditoria do grupo (Doc + página visual) quando houver métricas, fala e prints do Instagram
+- [ ] **[Claude]** Fechar a lista do que será fornecido (peças por mês, prazos, rodadas) e preencher os valores quando o dono definir; criar versão curta só com os pacotes
+- [ ] **[dono]** Pedir ao grupo os arquivos originais (fotos, logos de apoio, vetores) para trocar os recortes de baixa resolução dos exemplos
+
 ### Design system tiago-lemos-01 e skill `video-tiago-lemos`
 
 - [x] **[Claude]** Design system criado a partir do vídeo de referência (tela dividida, ouro e preto, Bebas Neue/Poppins/Space Mono), com legenda palavra por palavra, 4 tipos de elemento animado (ícone, título, número, lista; 32 ícones) e 6 sons suaves sintetizados. Skill `video-tiago-lemos` + `scripts/cortar-pausas.py`
