@@ -3,7 +3,7 @@
 Atualizado em: 27/11/2026 · Fontes: 5 prints do site (Home, Fundamentos, Toadas, Introdução à Dança, Intercâmbio Nações/Grupos), enviados pelo dono. Provisória: só site, sem redes, sem fala. O nome aparece como "Arrasta Ilha" (no site). O dono escreveu "Arrata Ilha": confirmar a grafia.
 
 ## Quem é
-Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa Catarina**, **desde 2002** (site, Fundamentos). Trabalha a música (orquestra percussiva) e a dança, com base nas nações pernambucanas, e "entrelaça rotas" entre Santa Catarina e Pernambuco. Mantém ensaios abertos **aos domingos, a partir das 15h, no Espaço Aruanda, em frente ao laguinho da UFSC** (site, rodapé da Home). Liderança, número de integrantes e porte: não informado.
+Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa Catarina**, **desde 2002** (site, Fundamentos). **Nasceu no campus da UFSC e toca lá até hoje**, com ensaio todo domingo, e sai no Carnaval de Florianópolis. **Em 2027 faz 25 anos** (dono, 27/11/2026; confirmar se a comemoração é no Carnaval 2027 ou ao longo do ano). Trabalha a música (orquestra percussiva) e a dança, com base nas nações pernambucanas, e "entrelaça rotas" entre Santa Catarina e Pernambuco. Mantém ensaios abertos **aos domingos, a partir das 15h, no Espaço Aruanda, em frente ao laguinho da UFSC** (site, rodapé da Home). Liderança, número de integrantes e porte: não informado.
 
 ## Oferta e provas
 - **Plataforma "Ambiente Virtual de Aprendizado"**: vídeos explicativos de música e dança, mais materiais de apoio feitos pelos integrantes. Oficinas gratuitas (site, Home).
@@ -15,6 +15,7 @@ Grupo de maracatu de baque virado (maracatu-nação) de **Florianópolis, Santa 
 
 ## Público
 Hipóteses (confirmar):
+0. **Amigues e foliões do Carnaval de Florianópolis**: quem apoia o grupo, veste a camiseta e sai na ala (informado pelo dono).
 1. Quem quer aprender maracatu: praticantes, músicos, luthiers, pesquisadores, integrantes atuais e futuros (o site cita esse público, na Home).
 2. Outros grupos e nações de maracatu (intercâmbio, rede).
 3. Florianópolis: público de cultura popular, estudantes (UFSC), editais e apoiadores.
@@ -46,15 +47,17 @@ Site na Plataforma de Ensino Online (rodapé "© 2021"). Ícones no cabeçalho: 
 **Instagram @arrastailhaoficial** (print do perfil, 27/11/2026):
 - 826 posts · 8.009 seguidores · 304 seguindo · categoria "Artista".
 - Bio: "Batuque amizade com fé e emoção" · Floripa, UFSC · "Desde 2002, praticando e difundindo a cultura do maracatu de baque…" (texto cortado no print).
-- Link da bio: um formulário do Google (finalidade: não informada; confirmar se é inscrição para ensaio ou oficina).
-- Destaques: ARVO, Carnaval 2025, Oficina Mestres, Costeira, Apresentações, Carnaval 2024, Ensaios (podem existir mais à direita).
+- **Links da bio (3):** (1) formulário "Camisetas Ala dus Amigues 2027": os amigos que ajudam o grupo no Carnaval se inscrevem e pedem a camiseta; (2) "Plataforma digital": arrastailha.com.br, o site; (3) "Entrevista - Cultura Catarina - TV ALESC": entrevista do grupo à TV da Assembleia Legislativa (não consegui abrir os links daqui; o conteúdo da entrevista não foi lido).
+- **Ala dos Amigues:** rede de apoiadores que sai com o grupo no Carnaval (explicação do dono).
+- Destaques (ARVO é um festival em que o grupo tocou, segundo o dono): ARVO, Carnaval 2025, Oficina Mestres, Costeira, Apresentações, Carnaval 2024, Ensaios (podem existir mais à direita).
 - Grade (leitura de baixa confiança, imagem muito reduzida): muitos cartazes e cards de divulgação em verde, com o mesmo molde, misturados com fotos de apresentações, ensaios e eventos.
 - Frequência e engajamento por post: não informado.
 
 ## Lacunas
 - Grafia oficial do nome e do @.
 - Instagram: grade em melhor resolução, melhores e piores posts com curtidas, comentários, alcance, salvamentos e compartilhamentos; origem dos seguidores e do público (cidade, idade). Prints de YouTube e Spotify.
-- O que significa "ARVO" nos destaques e o que é o formulário do link da bio.
+- Transcrição ou resumo da entrevista à TV ALESC (vira amostra de voz e história).
+- O que o grupo planeja para os 25 anos (data, shows, ações).
 - O que o grupo pediu (plano, campanha, vídeos, apresentação) e o objetivo: mais alunos? público nos ensaios? editais? recursos?
 - Quem fala pelo grupo e uma fala de 2 minutos ou textos (para a voz).
 - Logo e fotos em alta, manual de identidade, se houver.
