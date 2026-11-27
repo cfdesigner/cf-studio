@@ -29,10 +29,10 @@ const Apoio: React.FC<{ cor: string; tam?: number; children: React.ReactNode; st
 const Etiqueta: React.FC<{ fundo: string; cor: string; children: React.ReactNode; style?: React.CSSProperties }> = ({ fundo, cor, children, style }) => (
   <div style={{ position: "absolute", background: fundo, color: cor, fontFamily: fontFamilies.etiqueta, fontSize: 30, padding: "8px 22px", borderRadius: 999, ...style }}>{children}</div>
 );
-const Rodape: React.FC<{ escuro?: boolean; n: string }> = ({ escuro, n }) => (
+const Rodape: React.FC<{ escuro?: boolean; n: string; arrobaDireita?: boolean }> = ({ escuro, n, arrobaDireita }) => (
   <>
-    <div style={{ position: "absolute", left: 60, bottom: 82, fontFamily: fontFamilies.etiqueta, fontSize: 26, color: escuro ? colors.creme : colors.vinho }}>@ARRASTAILHAOFICIAL</div>
-    <div style={{ position: "absolute", right: 60, bottom: 82, fontFamily: fontFamilies.etiqueta, fontSize: 26, color: escuro ? colors.creme : colors.vinho }}>{n} / 6</div>
+    <div style={{ position: "absolute", [arrobaDireita ? "right" : "left"]: arrobaDireita ? 60 : 60, bottom: 82, fontFamily: fontFamilies.etiqueta, fontSize: 26, color: escuro ? colors.creme : colors.vinho }}>@ARRASTAILHAOFICIAL</div>
+    {!arrobaDireita && <div style={{ position: "absolute", right: 60, bottom: 82, fontFamily: fontFamilies.etiqueta, fontSize: 26, color: escuro ? colors.creme : colors.vinho }}>{n} / 6</div>}
   </>
 );
 const Quadro: React.FC<{ fundo: string; topo: "ofTriangulos" | "ofHexagonos" | "ofAxeBuzios" | "ofArmas" | "ofIcones" | "ofMaracatu"; base: "ofHexagonos" | "ofTriangulos" | "ofArmas" | "ofDancarinos"; children: React.ReactNode }> = ({ fundo, topo, base, children }) => (
@@ -68,9 +68,9 @@ export const CarrosselToque: React.FC = () => (
     <Pincel cor={colors.laranjaTexto} style={{ position: "absolute", left: 66, top: 120 }}>vem batucar</Pincel>
     <T tam={330} style={{ position: "absolute", left: 60, top: 190 }}>Toque</T>
     <T tam={330} cor={colors.laranjaTexto} style={{ position: "absolute", left: 60, top: 460 }}>junto</T>
-    <Recorte nome="fotoTocadoresChapeuCor" altura={570} style={{ right: 10, bottom: 80 }} />
-    <Apoio cor={colors.tintaTexto} style={{ left: 66, top: 800, width: 360 }}>Quem quer aprender entra na roda. O ensaio é aberto, com troca, vivência e muito baque.</Apoio>
-    <Rodape n="2" />
+    <Recorte nome="fotoTocadoresChapeuCor" altura={680} style={{ left: 0, bottom: 40 }} />
+    <Apoio cor={colors.tintaTexto} style={{ right: 60, top: 850, width: 300 }}>Quem quer aprender entra na roda. O ensaio é aberto, com troca, vivência e muito baque.</Apoio>
+    <Rodape n="2" arrobaDireita />
   </Quadro>
 );
 
@@ -82,9 +82,9 @@ export const CarrosselBaque: React.FC = () => (
     <Pincel cor={colors.creme} style={{ position: "absolute", left: 66, top: 150 }}>maracatu de</Pincel>
     <T tam={250} cor={colors.creme} style={{ position: "absolute", left: 60, top: 220 }}>Baque</T>
     <T tam={250} cor={colors.laranja} style={{ position: "absolute", left: 60, top: 440 }}>Virado</T>
-    <Recorte nome="fotoMulherCabaca" altura={640} style={{ right: 0, bottom: 50 }} />
+    <Recorte nome="fotoMulherCabaca" altura={780} style={{ right: 0, bottom: 40 }} />
     <Recorte nome="icMachadoDuplo" altura={170} style={{ left: 70, bottom: 360 }} />
-    <Apoio cor={colors.creme} style={{ left: 66, bottom: 150, width: 340 }}>Desde 2002 em Florianópolis, com as raízes de Pernambuco.</Apoio>
+    <Apoio cor={colors.creme} style={{ left: 66, bottom: 150, width: 230 }}>Desde 2002 em Florianópolis, com as raízes de Pernambuco.</Apoio>
     <Rodape escuro n="3" />
   </Quadro>
 );
@@ -99,8 +99,8 @@ export const CarrosselServico: React.FC = () => (
     <Etiqueta fundo={colors.marinho} cor={colors.creme} style={{ left: 66, top: 640 }}>ESPAÇO ARUANDA</Etiqueta>
     <Etiqueta fundo={colors.laranja} cor={colors.noite} style={{ left: 66, top: 706 }}>CAMPUS DA UFSC</Etiqueta>
     <Etiqueta fundo={colors.verde} cor={colors.creme} style={{ left: 66, top: 772 }}>TRINDADE · FLORIANÓPOLIS</Etiqueta>
-    <Recorte nome="fotoAdultoEMeninoCaixa" altura={760} style={{ right: 30, bottom: 66 }} />
-    <Apoio cor={colors.tintaTexto} style={{ left: 66, top: 880, width: 420 }}>Centro de Convivência, região central do campus.</Apoio>
+    <Recorte nome="fotoAdultoEMeninoCaixa" altura={1060} style={{ right: 20, bottom: 68 }} />
+    <Apoio cor={colors.tintaTexto} style={{ left: 66, top: 900, width: 360 }}>Centro de Convivência, região central do campus.</Apoio>
     <Rodape n="4" />
   </Quadro>
 );
@@ -112,24 +112,24 @@ export const CarrosselOficina: React.FC = () => (
     <G nome="elPontosPessego" largura={320} op={0.7} style={{ right: 40, top: 110 }} />
     <Pincel cor={colors.creme} style={{ position: "absolute", left: 66, top: 120 }}>com mestre convidado</Pincel>
     <T tam={290} cor={colors.creme} style={{ position: "absolute", left: 60, top: 190 }}>Oficina</T>
-    <T tam={110} cor={colors.noite} style={{ position: "absolute", left: 66, top: 450 }}>[nome do mestre]</T>
-    <Recorte nome="fotoMulherMaosAoAlto" altura={820} style={{ right: 10, bottom: 50 }} />
+    <T tam={92} cor={colors.noite} style={{ position: "absolute", left: 66, top: 460 }}>[nome do mestre]</T>
+    <Recorte nome="fotoMulherMaosAoAlto" altura={1010} style={{ right: 0, bottom: 40 }} />
     <Apoio cor={colors.creme} style={{ left: 66, top: 600, width: 420 }}>[Data] · [Horário]<br />[Local]<br />[Vagas e inscrição]</Apoio>
     <Etiqueta fundo={colors.creme} cor={colors.vinho} style={{ left: 66, top: 790 }}>VAGAS LIMITADAS</Etiqueta>
     <Rodape escuro n="5" />
   </Quadro>
 );
 
-/** 6, fecho: logo em placa clara, chamada e arroba. */
+/** 6, fecho: fundo claro e a logo direto sobre ele, sem placa (regra do dono: nunca quadro branco atrás da imagem). */
 export const CarrosselFecho: React.FC = () => (
-  <Quadro fundo={colors.marinho} topo="ofTriangulos" base="ofHexagonos">
-    <G nome="elPontosPessego" largura={320} op={0.8} style={{ left: 40, top: 120 }} />
-    <G nome="elArcosAzuis" largura={620} op={0.5} style={{ right: -80, bottom: 120 }} />
-    <div style={{ position: "absolute", left: 190, right: 190, top: 210, height: 640, background: colors.creme, borderRadius: 14, boxShadow: "0 18px 40px #0005" }}>
-      <Recorte nome="logoVertical" largura={600} style={{ left: 50, top: 18 }} />
-    </div>
-    <Pincel cor={colors.creme} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 900 }}>bora arrastar com a gente</Pincel>
-    <T tam={170} cor={colors.laranja} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 990 }}>Siga</T>
-    <div style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 1150, fontFamily: fontFamilies.etiqueta, fontSize: 44, color: colors.creme }}>@ARRASTAILHAOFICIAL</div>
+  <Quadro fundo={colors.branco} topo="ofTriangulos" base="ofHexagonos">
+    <G nome="elManchasPessegoAzul" largura={1000} op={1} style={{ right: 0, top: 56 }} />
+    <G nome="elFolhaLarga" altura={820} op={0.1} style={{ right: -30, bottom: 60 }} />
+    <G nome="elSolRespingo" largura={430} op={0.16} style={{ left: -90, top: 560 }} />
+    <G nome="elPontosLaranja" largura={240} op={0.9} style={{ left: 50, bottom: 80 }} />
+    <Recorte nome="logoVertical" largura={760} style={{ left: 160, top: 110 }} />
+    <Pincel cor={colors.laranjaTexto} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 960 }}>bora arrastar com a gente</Pincel>
+    <T tam={190} style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 1040 }}>Siga</T>
+    <div style={{ position: "absolute", left: 0, right: 0, textAlign: "center", top: 1215, fontFamily: fontFamilies.etiqueta, fontSize: 44, color: colors.vinho }}>@ARRASTAILHAOFICIAL</div>
   </Quadro>
 );

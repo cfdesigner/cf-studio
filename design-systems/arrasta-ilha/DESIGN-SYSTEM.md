@@ -35,7 +35,7 @@ Arquivo do dono: `assets/oficiais/padrao-oficial.jpg` (1472x566, **repete sem em
 
 ## Logos oficiais (enviadas pelo dono, 27/11/2026)
 `assets/logos/`: **logo vertical** (tocador de alfaia e dançarina, "MARACATU ARRASTA ILHA", fundo transparente), **logo com grafismos de fundo** (a mesma sobre folhas, pontos e curvas de nível suaves) e **logo horizontal "Ambiente Virtual de Aprendizado"** (uso da plataforma). Chaves `logoVertical`, `logoGrafismos`, `logoAmbiente`.
-- O nome da logo é preto com sombra cinza: **só sobre creme ou branco**; em fundo escuro (azul-marinho, noite), colocar sobre uma placa creme com cantos arredondados.
+- O nome da logo é preto com sombra cinza: **só sobre creme ou branco, direto, sem placa**. **Regra do dono (27/11/2026): nunca quadro branco atrás da imagem.** Em fundo escuro, não usar a logo: usar o nome em pincel (Kaushan, creme) ou mudar o slide para fundo claro (como o fecho do carrossel).
 - Respiro mínimo em volta: 10% da largura. Não esticar, não recolorir, não pôr sobre foto.
 - Usada em: A (canto), C (placa), G (capa) e **H, o fecho** (logo grande, ensaio todo domingo 15h, @arrastailhaoficial; feed e stories).
 
@@ -71,3 +71,5 @@ Composição `ArrastaIlha-Folha` (2400x5350, `components/Folha.tsx`): prancha ú
 
 ## Carrossel de impacto (diagramação da referência do dono, visual do Arrasta Ilha)
 `components/Carrossel.tsx`, composições `ArrastaIlha-Carrossel-1-Capa` a `-6-Fecho` (6 slides 4:5; PNG final `--scale=2.5`). Da referência (feed de uma agência, só a diagramação): **título enorme e apertado**, **abertura curta em pincel** acima, **palavra gigante fantasma** atrás, **personagem recortado sobrepondo o título**, texto pequeno no canto, **etiquetas arredondadas**, alternando fundos de cor e branco. Do design system: Zenzero, cores-tema, faixas, elementos, recortes e logo. Slides: capa (marinho), toque (branco), baque (marinho), serviço com número gigante (branco), oficina com campos (terracota), fecho com logo (marinho). Textos são de exemplo com dados reais do grupo (domingo, 15h, Espaço Aruanda, desde 2002).
+
+- **Ajustes do carrossel (27/11/2026):** recortes com corte reto de origem vão **colados na borda** do quadro (ou sob a faixa), nunca no meio; **personagens grandes** (até 1000 px de altura em 1350), podendo subir atrás do título se o texto continuar legível.

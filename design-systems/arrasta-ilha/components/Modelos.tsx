@@ -116,7 +116,7 @@ export const ModeloOficina: React.FC = () => (
       <div style={{ ...titulo(76, colors.laranja), marginTop: 28 }}>[Nome do mestre]</div>
       <div style={{ ...corpo(44, colors.creme), marginTop: 30 }}>[Data] · [Horário]<br />[Local]<br />[Vagas e inscrição]</div>
     </div>
-    <div style={{ position: "absolute", left: 60, bottom: 76, width: 220, height: 170, background: colors.creme, borderRadius: 14 }}><Recorte nome="logoVertical" altura={150} style={{ left: 45, top: 10 }} /></div>
+    <div style={{ position: "absolute", left: 72, bottom: 84, fontFamily: fontFamilies.pincel, fontSize: 60, color: colors.creme }}>Arrasta Ilha</div>
     <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: 0 }} />
   </AbsoluteFill>
 );
