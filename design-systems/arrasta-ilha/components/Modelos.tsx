@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import "../fonts";
 import { colors, engrossar, fontFamilies, temas, type TemaNome } from "../tokens";
-import { Faixa, Recorte } from "./Original";
+import { Faixa, PadraoOficial, Recorte } from "./Original";
 
 const titulo = (tam: number, cor: string = colors.noite): React.CSSProperties => ({
   fontFamily: fontFamilies.display,
@@ -59,6 +59,9 @@ export const PranchaRecortes: React.FC = () => (
       <Faixa nome="azulZigue" w={1380} alt={42} />
       <Faixa nome="verdeTriangulos" w={1380} alt={42} />
       <Faixa nome="simbolos" w={1380} alt={42} />
+      <Faixa nome="ofTriangulos" w={1380} alt={42} />
+      <Faixa nome="ofIcones" w={1380} alt={56} />
+      <Faixa nome="ofDancarinos" w={1380} alt={57} />
     </div>
   </AbsoluteFill>
 );
@@ -66,9 +69,9 @@ export const PranchaRecortes: React.FC = () => (
 /** A: aviso do ensaio. Home do site (triângulos verdes), laranja. Mulher com a bandeira do grupo. */
 export const ModeloAviso: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <Faixa nome="verdeTriangulos" w={1080} alt={50} />
+    <Faixa nome="ofTriangulos" w={1080} alt={50} />
+    <Recorte nome="seloArrastaIlha" largura={220} style={{ left: 72, top: 96 }} />
     <Recorte nome="folhaFundamentos" altura={560} style={{ right: -50, top: 360 }} />
-    <Recorte nome="solRespingo" largura={190} style={{ left: 60, top: 100 }} />
     <Recorte nome="mulherBandeira" altura={800} style={{ right: 20, top: 300 }} />
     <div style={{ position: "absolute", left: 72, top: 500, width: 600 }}>
       <Cabeca cor={colors.laranjaTexto} texto="ENSAIO ABERTO" />
@@ -82,7 +85,7 @@ export const ModeloAviso: React.FC = () => (
 /** B: toada nova. Página Toadas (faixa de X verde), verde. Tocador de agogô. */
 export const ModeloToada: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <Faixa nome="verdeXis" w={1080} alt={58} />
+    <Faixa nome="ofAxeBuzios" w={1080} alt={58} />
     <Recorte nome="folhaToadas" largura={560} style={{ right: -20, top: 100 }} />
     <Recorte nome="arcosAzuis" largura={380} style={{ left: -30, top: 560 }} />
     <Recorte nome="pontosLaranja" largura={150} style={{ left: 60, top: 140 }} />
@@ -99,9 +102,9 @@ export const ModeloToada: React.FC = () => (
 /** C: oficina com mestre convidado. Página Dança (faixa azul de zigue), azul-marinho, com campos entre colchetes. */
 export const ModeloOficina: React.FC = () => (
   <AbsoluteFill style={{ background: colors.marinho }}>
-    <Faixa nome="azulZigue" w={1080} alt={56} fundo="#fff" />
-    <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 90 }} />
-    <Recorte nome="pontosDanca" largura={130} style={{ left: 60, top: 130 }} />
+    <Faixa nome="ofIcones" w={1080} alt={84} />
+    <Recorte nome="arcosAzuis" largura={460} style={{ right: -40, top: 130 }} />
+    
     <Recorte nome="tocadoresCaixa" altura={480} style={{ right: 30, top: 700 }} />
     <div style={{ position: "absolute", left: 72, top: 300, width: 600 }}>
       <Cabeca cor={colors.laranja} texto="OFICINA COM MESTRE" />
@@ -109,15 +112,15 @@ export const ModeloOficina: React.FC = () => (
       <div style={{ ...titulo(76, colors.laranja), marginTop: 28 }}>[Nome do mestre]</div>
       <div style={{ ...corpo(44, colors.creme), marginTop: 30 }}>[Data] · [Horário]<br />[Local]<br />[Vagas e inscrição]</div>
     </div>
-    <div style={{ position: "absolute", left: 72, bottom: 150, fontFamily: fontFamilies.pincel, fontSize: 64, color: colors.creme }}>Arrasta Ilha</div>
-    <Faixa nome="azulZigue" w={1080} alt={56} fundo="#fff" style={{ position: "absolute", bottom: 0 }} />
+    <Recorte nome="seloArrastaIlha" largura={240} style={{ left: 72, bottom: 150 }} />
+    <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: 0 }} />
   </AbsoluteFill>
 );
 
 /** D: toque de percussão. Página Percussão (faixa lilás de setas), terracota. */
 export const ModeloPercussao: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <Faixa nome="lilasSetas" w={1080} alt={54} fundo="#fff" />
+    <Faixa nome="ofArmas" w={1080} alt={62} />
     <Recorte nome="solRespingo" largura={260} style={{ left: 70, top: 110 }} />
     <Recorte nome="folhaLarga" altura={520} style={{ right: -10, top: 120 }} />
     <Recorte nome="semicirculoCurvas" largura={500} style={{ left: -20, bottom: 120 }} />
@@ -134,7 +137,7 @@ export const ModeloPercussao: React.FC = () => (
 /** E: foto-destaque com a cabaça (Fundamentos). Faixa AXÉ · LUTA. */
 export const ModeloDestaque: React.FC = () => (
   <AbsoluteFill style={{ background: colors.creme }}>
-    <Faixa nome="simbolos" w={1080} alt={64} fundo={colors.verde} />
+    <Faixa nome="ofDancarinos" w={1080} alt={85} />
     <Recorte nome="pontosLaranja" largura={170} style={{ right: 60, top: 140 }} />
     <Recorte nome="mulherCabaca" altura={700} style={{ left: -20, top: 260 }} />
     <div style={{ position: "absolute", left: 610, top: 330, width: 420 }}>
@@ -153,7 +156,7 @@ export const ModeloEvento: React.FC<{ stories?: boolean }> = ({ stories = false 
   const k = stories ? 1.25 : 1; // escala dos textos
   return (
     <AbsoluteFill style={{ background: colors.creme }}>
-      <Faixa nome="azulZigue" w={1080} alt={50} fundo="#fff" />
+      <Faixa nome="ofTriangulos" w={1080} alt={50} />
       <Recorte nome="manchaPessego" largura={760} style={{ left: 40, top: stories ? 300 : 120 }} />
       <Recorte nome="manchaAzul" largura={520} style={{ right: -10, top: stories ? 160 : 60 }} />
       <Recorte nome="folhaFundamentos" altura={stories ? 640 : 480} style={{ left: -40, bottom: stories ? 150 : 130 }} />
@@ -164,7 +167,24 @@ export const ModeloEvento: React.FC<{ stories?: boolean }> = ({ stories = false 
         <div style={{ ...titulo(92 * k), marginTop: 44 * k }}>[00 de mês]</div>
         <div style={{ ...etiqueta(40 * k, colors.noite), marginTop: 18 * k, lineHeight: 1.25 }}>[DIA] · [HORÁRIO]<br />[LOCAL OU CANAL]</div>
       </div>
+      <Faixa nome="ofHexagonos" w={1080} alt={54} style={{ position: "absolute", bottom: stories ? 110 : 96 }} />
       <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: stories ? 110 : 96, background: colors.marinho, ...etiqueta(32, colors.creme), display: "flex", alignItems: "center", justifyContent: "center" }}>@ARRASTAILHAOFICIAL</div>
+    </AbsoluteFill>
+  );
+};
+
+/** G: capa e fecho. O padrão oficial do grupo em tela cheia, com painel creme no centro (título e arroba). Feed 4:5 e stories 9:16. */
+export const ModeloCapa: React.FC<{ stories?: boolean }> = ({ stories = false }) => {
+  const H = stories ? 1920 : 1350;
+  return (
+    <AbsoluteFill style={{ background: colors.marinho }}>
+      <PadraoOficial w={1080} h={H} escala={0.95} />
+      <div style={{ position: "absolute", left: 90, right: 90, top: stories ? 560 : 330, bottom: stories ? 560 : 330, background: colors.creme, boxShadow: "0 18px 40px #0006", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 40 }}>
+        <Recorte nome="seloArrastaIlha" largura={300} style={{ position: "relative", marginBottom: 36 }} />
+        <div style={titulo(112)}>[Título da<br />capa]</div>
+        <div style={{ ...corpo(40), marginTop: 28 }}>[linha de apoio]</div>
+        <div style={{ ...etiqueta(32, colors.laranjaTexto), marginTop: 36 }}>@ARRASTAILHAOFICIAL</div>
+      </div>
     </AbsoluteFill>
   );
 };

@@ -5,6 +5,18 @@ import faixaLilasSetas from "./faixas/faixa-lilas-setas.png";
 import faixaAzulZigue from "./faixas/faixa-azul-zigue.png";
 import faixaVerdeTriangulos from "./faixas/faixa-verde-triangulos.png";
 import faixaSimbolos from "./faixas/faixa-simbolos-axe-luta.png";
+import ofTriangulos from "./oficiais/triangulos.png";
+import ofHexagonos from "./oficiais/hexagonos.png";
+import ofAxeBuzios from "./oficiais/axe-buzios.png";
+import ofIcones from "./oficiais/icones.png";
+import ofArmas from "./oficiais/armas.png";
+import ofDancarinos from "./oficiais/dancarinos.png";
+import ofMaracatu from "./oficiais/maracatu.png";
+import coroa from "./oficiais/coroa.png";
+import seloArrastaIlha from "./oficiais/selo-arrasta-ilha.png";
+import arrastaIlhaVertical from "./oficiais/arrasta-ilha-vertical.png";
+import passaroParasol from "./oficiais/passaro-parasol.png";
+import padraoOficial from "./oficiais/padrao-oficial.jpg";
 import mulherBandeira from "./recortes/mulher-bandeira.png";
 import mulherCabaca from "./recortes/mulher-cabaca.png";
 import tocadoresCaixa from "./recortes/tocadores-caixa.png";
@@ -32,6 +44,13 @@ export const faixas = {
   azulZigue: { src: faixaAzulZigue, w: 1198, h: 40 }, // página Dança
   verdeTriangulos: { src: faixaVerdeTriangulos, w: 1851, h: 43 }, // Home
   simbolos: { src: faixaSimbolos, w: 1766, h: 35 }, // Home: AXÉ · LUTA (búzios, facas, chifre)
+  ofTriangulos: { src: ofTriangulos, w: 418, h: 25 }, // OFICIAL (folha de grafismos do grupo)
+  ofHexagonos: { src: ofHexagonos, w: 418, h: 27 }, // OFICIAL (folha de grafismos do grupo)
+  ofAxeBuzios: { src: ofAxeBuzios, w: 330, h: 29 }, // OFICIAL (folha de grafismos do grupo)
+  ofIcones: { src: ofIcones, w: 330, h: 56 }, // OFICIAL (folha de grafismos do grupo)
+  ofArmas: { src: ofArmas, w: 417, h: 31 }, // OFICIAL (folha de grafismos do grupo)
+  ofDancarinos: { src: ofDancarinos, w: 417, h: 57 }, // OFICIAL (folha de grafismos do grupo)
+  ofMaracatu: { src: ofMaracatu, w: 417, h: 18 }, // OFICIAL (folha de grafismos do grupo)
 } as const;
 export type FaixaNome = keyof typeof faixas;
 
@@ -56,5 +75,12 @@ export const recortes = {
   manchaPessego: { src: manchaPessego, w: 328, h: 220 },
   manchaAzul: { src: manchaAzul, w: 259, h: 181 }, // cortada na borda direita do print: encostar fora do quadro
   tracejadoLaranja: { src: tracejadoLaranja, w: 234, h: 197 },
+  coroa: { src: coroa, w: 88, h: 88 }, // OFICIAL
+  seloArrastaIlha: { src: seloArrastaIlha, w: 140, h: 44 }, // OFICIAL
+  arrastaIlhaVertical: { src: arrastaIlhaVertical, w: 36, h: 134 }, // OFICIAL
+  passaroParasol: { src: passaroParasol, w: 42, h: 142 }, // OFICIAL
 } as const;
 export type RecorteNome = keyof typeof recortes;
+
+/** Folha oficial de grafismos (1472x566), repete sem emenda: usar como padrão de fundo, nunca esticada. */
+export const padrao = { src: padraoOficial, w: 1472, h: 566 } as const;
