@@ -41,11 +41,20 @@ Hipóteses a confirmar com o dono e o grupo:
 - Não usar fotos de pessoas sem autorização do grupo.
 
 ## Canais
-Site na Plataforma de Ensino Online (rodapé "© 2021"). Ícones no cabeçalho: Facebook, Blogger, Instagram, YouTube, SoundCloud, Spotify. Os @ não foram informados. Frequência e resultados: não informado.
+Site na Plataforma de Ensino Online (rodapé "© 2021"). Ícones no cabeçalho: Facebook, Blogger, Instagram, YouTube, SoundCloud, Spotify (só o Instagram foi enviado; @ dos outros: não informado).
+
+**Instagram @arrastailhaoficial** (print do perfil, 27/11/2026):
+- 826 posts · 8.009 seguidores · 304 seguindo · categoria "Artista".
+- Bio: "Batuque amizade com fé e emoção" · Floripa, UFSC · "Desde 2002, praticando e difundindo a cultura do maracatu de baque…" (texto cortado no print).
+- Link da bio: um formulário do Google (finalidade: não informada; confirmar se é inscrição para ensaio ou oficina).
+- Destaques: ARVO, Carnaval 2025, Oficina Mestres, Costeira, Apresentações, Carnaval 2024, Ensaios (podem existir mais à direita).
+- Grade (leitura de baixa confiança, imagem muito reduzida): muitos cartazes e cards de divulgação em verde, com o mesmo molde, misturados com fotos de apresentações, ensaios e eventos.
+- Frequência e engajamento por post: não informado.
 
 ## Lacunas
 - Grafia oficial do nome e do @.
-- Prints do Instagram (bio, grade, melhores e piores posts, métricas), YouTube e Spotify.
+- Instagram: grade em melhor resolução, melhores e piores posts com curtidas, comentários, alcance, salvamentos e compartilhamentos; origem dos seguidores e do público (cidade, idade). Prints de YouTube e Spotify.
+- O que significa "ARVO" nos destaques e o que é o formulário do link da bio.
 - O que o grupo pediu (plano, campanha, vídeos, apresentação) e o objetivo: mais alunos? público nos ensaios? editais? recursos?
 - Quem fala pelo grupo e uma fala de 2 minutos ou textos (para a voz).
 - Logo e fotos em alta, manual de identidade, se houver.
