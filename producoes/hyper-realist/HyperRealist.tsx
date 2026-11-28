@@ -117,7 +117,7 @@ export const HyperRealist: React.FC<{ versao: Versao; titulo?: string; apoio?: s
   const f = useCurrentFrame();
   return (
     <AbsoluteFill style={{ backgroundColor: c.void }}>
-      <OffthreadVideo src={staticFile(fonte)} />
+      <OffthreadVideo src={staticFile(fonte)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(11,12,14,.55) 0%, rgba(11,12,14,0) 28%)" }} />
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 72px 150px" }}>
         {versao === "calma" ? <Calma f={f} /> : versao === "interessante" ? <Interessante f={f} titulo={titulo} apoio={apoio} /> : <Agressiva f={f} />}
