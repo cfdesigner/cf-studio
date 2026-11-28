@@ -111,16 +111,19 @@ const Agressiva: React.FC<{ f: number }> = ({ f }) => {
 };
 
 /** Personagem intacto; só muda a aparição do texto (CFDesigner). Canto inferior esquerdo. */
-export const HyperRealist: React.FC<{ versao: Versao; titulo?: string; apoio?: string; fonte?: string }> = ({
-  versao, titulo = "hyper-realistic-skill", apoio = "Seedance 2.5", fonte = "entrada/hyper-realist.mov",
+export const HyperRealist: React.FC<{ versao: Versao; titulo?: string; apoio?: string; fonte?: string; saida?: number }> = ({
+  versao, titulo = "hyper-realistic-skill", apoio = "Seedance 2.5", fonte = "entrada/hyper-realist.mov", saida,
 }) => {
   const f = useCurrentFrame();
+  const q = saida === undefined ? 0 : p(f, saida, saida + 10, Easing.in(Easing.quad));
   return (
     <AbsoluteFill style={{ backgroundColor: c.void }}>
       <OffthreadVideo src={staticFile(fonte)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
       <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(11,12,14,.55) 0%, rgba(11,12,14,0) 28%)" }} />
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 72px 150px" }}>
-        {versao === "calma" ? <Calma f={f} /> : versao === "interessante" ? <Interessante f={f} titulo={titulo} apoio={apoio} /> : <Agressiva f={f} />}
+        <div style={{ opacity: 1 - q, filter: `blur(${q * 8}px)`, transform: `translateY(${-q * 14}px)` }}>
+          {versao === "calma" ? <Calma f={f} /> : versao === "interessante" ? <Interessante f={f} titulo={titulo} apoio={apoio} /> : <Agressiva f={f} />}
+        </div>
       </AbsoluteFill>
     </AbsoluteFill>
   );
