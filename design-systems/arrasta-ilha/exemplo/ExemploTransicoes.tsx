@@ -43,8 +43,11 @@ const montar = () => {
 const { caps, inicios, total } = montar();
 // Frases de efeito (para o dono aprovar): corte 1 "Esse maracatu já está fundado" e corte 3 "Aqui a gente distribui sinceridade"
 const iniMs = (i: number) => (inicios[i] / FPS) * 1000;
+// Corte 1: primeiro a frase de efeito NA FRENTE (embaixo), depois, quando a cena vira para o recorte, a frente apaga e a frase entra atrás da cabeça.
+const TROCA = 28; // quadro da troca (frente → atrás)
 const punch: PunchArrasta[] = [
-  { startMs: iniMs(0) - 60, endMs: iniMs(0) + (25.2 - 23.3) * 1000, keyword: "Maracatu", atras: true },
+  { startMs: iniMs(0) - 60, endMs: iniMs(0) + (TROCA / FPS) * 1000, keyword: "Maracatu" },
+  { startMs: iniMs(0) + (TROCA / FPS) * 1000, endMs: iniMs(0) + 2100, keyword: "Maracatu", atras: true },
   { startMs: iniMs(2) - 60, endMs: iniMs(2) + (50.6 - 48.3) * 1000, keyword: "sinceridade" },
 ];
 
@@ -62,7 +65,7 @@ export const ExemploTransicoes: React.FC = () => (
             endAt={Math.round(c.b * FPS)}
             style={{ position: "absolute", left: "50%", top: 0, height: 1920, width: "auto", transform: "translateX(-50%)", filter: "contrast(1.04) saturate(1.05)" }}
           />
-          {i === 0 && <TextoAtras pessoa="entrada/pessoa-corte1" quadros={66} sai={58} linhas={[{ texto: "Maracatu", tamanho: 240, centroY: 300 }, { texto: "já está fundado", tamanho: 124, centroY: 470, cor: "#ffffff" }]} />}
+          {i === 0 && <TextoAtras pessoa="entrada/pessoa-corte1" quadros={66} entra={TROCA} sai={62} linhas={[{ texto: "Maracatu", tamanho: 240, centroY: 300 }, { texto: "já está fundado", tamanho: 124, centroY: 470, cor: "#ffffff" }]} />}
         </SocoDeBatida>
       </Sequence>
     ))}
