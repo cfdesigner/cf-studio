@@ -19,8 +19,11 @@ export type LegendasProps = {
   /** Palavras com tempo, de scripts/transcrever.py (ou @remotion/captions). */
   captions: Caption[];
   /** Frases de efeito aprovadas pelo dono. A palavra-chave vira o "maracatu" gigante. */
-  punchLines?: PunchLine[];
+  punchLines?: PunchArrasta[];
 };
+
+/** Frase de efeito; com `atras` a palavra-chave NÃO é desenhada aqui (ela vai atrás da pessoa, pelo `TextoAtras`). */
+export type PunchArrasta = PunchLine & { atras?: boolean };
 
 const clean = (s: string) => s.replace(/[.,!?…:;"“”()]/g, "").trim();
 const stroke = (tam: number, cor: string): React.CSSProperties => ({
@@ -136,20 +139,22 @@ export const Legendas: React.FC<LegendasProps> = ({
                 {above}
               </div>
             ) : null}
-            <div
-              style={{
-                ...zen(kwTam, colors.laranjaVivo),
-                opacity: kw,
-                transform: `translateY(${sobe}px)`,
-              }}
-            >
-              {texts[ki]}
-            </div>
+            {punch.atras ? null : (
+              <div
+                style={{
+                  ...zen(kwTam, colors.laranjaVivo),
+                  opacity: kw,
+                  transform: `translateY(${sobe}px)`,
+                }}
+              >
+                {texts[ki]}
+              </div>
+            )}
             {below ? (
               <div
                 style={{
                   ...zen(cabe(below.length, maxW, 150 * k, 70 * k), "#ffffff"),
-                  marginTop: -6 * k,
+                  marginTop: punch.atras ? 12 * k : -6 * k,
                   opacity: interpolate(
                     t,
                     [punch.startMs + 180, punch.startMs + 420],
@@ -180,12 +185,18 @@ export const Legendas: React.FC<LegendasProps> = ({
   page.words.forEach((w, idx) => {
     if (w.startMs <= t) active = idx;
   });
-  const fadeIn = interpolate(t, [page.startMs, page.startMs + 90], [0, 1], clamp);
+  const fadeIn = interpolate(
+    t,
+    [page.startMs, page.startMs + 90],
+    [0, 1],
+    clamp,
+  );
   return (
     <AbsoluteFill>
       <AbsoluteFill
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,0.45) 100%)",
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,0.45) 100%)",
           opacity: fadeIn,
         }}
       />
@@ -205,7 +216,12 @@ export const Legendas: React.FC<LegendasProps> = ({
           }}
         >
           {page.words.map((w, idx) => {
-            const entra = interpolate(t, [w.startMs, w.startMs + 160], [0, 1], clamp);
+            const entra = interpolate(
+              t,
+              [w.startMs, w.startMs + 160],
+              [0, 1],
+              clamp,
+            );
             const cor = idx === active ? colors.laranjaVivo : "#ffffff";
             return (
               <span
@@ -217,7 +233,8 @@ export const Legendas: React.FC<LegendasProps> = ({
                   opacity: entra,
                 }}
               >
-                {clean(w.text) + (/[?!,]$/.test(w.text.trim()) ? w.text.trim().slice(-1) : "")}
+                {clean(w.text) +
+                  (/[?!,]$/.test(w.text.trim()) ? w.text.trim().slice(-1) : "")}
               </span>
             );
           })}

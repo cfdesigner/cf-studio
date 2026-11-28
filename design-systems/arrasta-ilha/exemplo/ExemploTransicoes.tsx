@@ -1,12 +1,12 @@
 import React from "react";
 import { AbsoluteFill, OffthreadVideo, Sequence, staticFile } from "remotion";
 import captionsBrutas from "../../../public/entrada/arrasta-gravacao.captions.json";
-import { Legendas } from "../components/Legendas";
+import { Legendas, type PunchArrasta } from "../components/Legendas";
 import { FechoLogo } from "../components/Fecho";
-import { CortinaZigue, SocoDeBatida } from "../efeitos";
+import { CortinaZigue, SocoDeBatida, TextoAtras } from "../efeitos";
 import { colors } from "../tokens";
 import { tempos } from "../movimento";
-import type { Caption, PunchLine } from "../../../tecnicas/legendas/texto";
+import type { Caption } from "../../../tecnicas/legendas/texto";
 
 // TESTE de transição + legenda + fecho com uma gravação de tela (312x482, só para teste interno).
 // O vídeo é de OUTRO grupo (Maracatu Raízes de África): serve só para testar; não publicar.
@@ -43,8 +43,8 @@ const montar = () => {
 const { caps, inicios, total } = montar();
 // Frases de efeito (para o dono aprovar): corte 1 "Esse maracatu já está fundado" e corte 3 "Aqui a gente distribui sinceridade"
 const iniMs = (i: number) => (inicios[i] / FPS) * 1000;
-const punch: PunchLine[] = [
-  { startMs: iniMs(0) - 60, endMs: iniMs(0) + (25.2 - 23.3) * 1000, keyword: "Maracatu" },
+const punch: PunchArrasta[] = [
+  { startMs: iniMs(0) - 60, endMs: iniMs(0) + (25.2 - 23.3) * 1000, keyword: "Maracatu", atras: true },
   { startMs: iniMs(2) - 60, endMs: iniMs(2) + (50.6 - 48.3) * 1000, keyword: "sinceridade" },
 ];
 
@@ -61,6 +61,7 @@ export const ExemploTransicoes: React.FC = () => (
             endAt={Math.round(c.b * FPS)}
             style={{ position: "absolute", left: "50%", top: 0, height: 1920, width: "auto", transform: "translateX(-50%)", filter: "contrast(1.04) saturate(1.05)" }}
           />
+          {i === 0 && <TextoAtras palavra="Maracatu" pessoa="entrada/pessoa-corte1" quadros={66} centroY={230} sai={60} />}
         </SocoDeBatida>
       </Sequence>
     ))}
