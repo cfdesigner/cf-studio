@@ -244,3 +244,72 @@ export const Legendas: React.FC<LegendasProps> = ({
     </AbsoluteFill>
   );
 };
+
+/**
+ * Frase de efeito FIXA, com o texto completo desde o primeiro quadro (sem palavra por palavra), na frente do vídeo.
+ * Mesmo desenho da frase de efeito (F): palavra-chave gigante em Zenzero laranja vivo, resto em Zenzero branca.
+ * Use dentro de uma <Sequence>; a frase entra com a "batida" e sai com fade. A `Legendas` precisa ter uma punchLine com `atras: true` nesse intervalo.
+ */
+export const FraseEfeitoFixa: React.FC<{
+  chave: string;
+  resto: string;
+  saiEm: number;
+}> = ({ chave, resto, saiEm }) => {
+  const fr = useCurrentFrame();
+  const { width, height } = useVideoConfig();
+  const k = width / 1080;
+  const maxW = 940 * k;
+  const p = batida(interpolate(fr, [0, 16], [0, 1], clamp));
+  const sumir = interpolate(fr, [saiEm - 5, saiEm], [1, 0], clamp);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0) 35%, rgba(0,0,0,0.6) 100%)",
+          opacity: Math.min(1, fr / 8) * sumir,
+        }}
+      />
+      <AbsoluteFill
+        style={{
+          justifyContent: "flex-end",
+          alignItems: "center",
+          paddingBottom: height * 0.24,
+          opacity: sumir,
+        }}
+      >
+        <div
+          style={{
+            width: maxW,
+            display: "grid",
+            justifyItems: "center",
+            textAlign: "center",
+            textShadow: "0 5px 26px rgba(0,0,0,.6)",
+          }}
+        >
+          <div
+            style={{
+              ...zen(
+                cabe(chave.length, maxW, 236 * k, 120 * k),
+                colors.laranjaVivo,
+              ),
+              opacity: p,
+              transform: `translateY(${(1 - p) * 90 * k}px)`,
+            }}
+          >
+            {chave}
+          </div>
+          <div
+            style={{
+              ...zen(cabe(resto.length, maxW, 150 * k, 70 * k), "#ffffff"),
+              marginTop: 12 * k,
+              opacity: p,
+            }}
+          >
+            {resto}
+          </div>
+        </div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
