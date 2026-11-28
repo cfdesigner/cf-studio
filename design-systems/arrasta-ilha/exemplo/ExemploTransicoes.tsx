@@ -82,7 +82,9 @@ export const ExemploTransicoes: React.FC = () => (
     <Sequence from={total} durationInFrames={75}>
       <FechoLogo />
     </Sequence>
-    <Legendas captions={caps} punchLines={punch} />
+    <Sequence durationInFrames={total}>
+      <Legendas captions={caps} punchLines={punch} />
+    </Sequence>
     {CORTES.map((c, i) => {
       const corte = i === 0 ? null : inicios[i];
       return corte === null ? null : (
