@@ -84,7 +84,7 @@ export const Producoes: React.FC = () => (
     <Composition id="HyperRealistInteressante" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "interessante" as const }} />
     <Composition id="HyperRealistAgressiva" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "agressiva" as const }} />
     <Composition id="VideoUpscale" component={HyperRealist} durationInFrames={HYPER_FRAMES} fps={24} width={1080} height={1920} defaultProps={{ versao: "interessante" as const, titulo: "video-upscale-4k", apoio: "Topaz Video IA", fonte: "entrada/video-upscale.mov" }} />
-    <Composition id="GuardiaoOrmuk" component={HyperRealist} durationInFrames={193} fps={24} width={1080} height={1920} defaultProps={{ versao: "interessante" as const, titulo: "Guardião-Ormuk", apoio: "Magi 2", fonte: "entrada/ormuk.mov" }} />
+    <Composition id="GuardiaoOrmuk" component={HyperRealist} durationInFrames={193} fps={24} width={1080} height={1920} defaultProps={{ versao: "interessante" as const, titulo: "Guardião-Ormuk", apoio: "Magi 2", fonte: "entrada/ormuk.mov", saida: 48 }} />
     <Composition id="C02Broll" component={C02Broll} durationInFrames={C02_BROLL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition
       id="UmVideoNasceAqui"
