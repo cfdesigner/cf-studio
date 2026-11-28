@@ -41,7 +41,7 @@ const cabe = (chars: number, maxW: number, max: number, min: number) =>
 
 /**
  * Legendas do Arrasta Ilha (escolhas do dono, 27/11/2026). Sempre acima dos ~24% de baixo (botões do Reels).
- * - Dia a dia (opção A): Zenzero branca, contorno fino, a palavra falada em laranja, sombra suave. Palavra por palavra, entrada "batida".
+ * - Dia a dia (ajuste do dono, 28/11/2026): letra secundária simples (Carlito negrito), pequena, branca, minúscula, como o "todo domingo tem" da frase de efeito; a palavra falada em laranja vivo.
  * - Frase de efeito (opção F): "todo domingo tem" pequeno em Carlito negrito branco (minúsculo), palavra-chave GIGANTE em Zenzero laranja,
  *   o resto em Zenzero branca; fundo escurecido; entrelinha curta. Nunca termina com ponto final.
  */
@@ -54,7 +54,7 @@ export const Legendas: React.FC<LegendasProps> = ({
   const t = (frame / fps) * 1000;
   const k = width / 1080;
   const pages = useMemo(
-    () => buildPages(captions, punchLines, { maxChars: 26, maxWords: 5 }),
+    () => buildPages(captions, punchLines, { maxChars: 34, maxWords: 7 }),
     [captions, punchLines],
   );
   const zone: React.CSSProperties = {
@@ -138,7 +138,7 @@ export const Legendas: React.FC<LegendasProps> = ({
             ) : null}
             <div
               style={{
-                ...zen(kwTam, colors.laranja),
+                ...zen(kwTam, colors.laranjaVivo),
                 opacity: kw,
                 transform: `translateY(${sobe}px)`,
               }}
@@ -180,23 +180,12 @@ export const Legendas: React.FC<LegendasProps> = ({
   page.words.forEach((w, idx) => {
     if (w.startMs <= t) active = idx;
   });
-  const chars = page.words.reduce((n, w) => n + clean(w.text).length + 1, 0);
-  const tam = Math.min(
-    112 * k,
-    Math.max(72 * k, (maxW * 1.6) / Math.max(chars, 1) / 0.435),
-  );
-  const fadeIn = interpolate(
-    t,
-    [page.startMs, page.startMs + 90],
-    [0, 1],
-    clamp,
-  );
+  const fadeIn = interpolate(t, [page.startMs, page.startMs + 90], [0, 1], clamp);
   return (
     <AbsoluteFill>
       <AbsoluteFill
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,0.45) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0) 45%, rgba(0,0,0,0.45) 100%)",
           opacity: fadeIn,
         }}
       />
@@ -207,33 +196,30 @@ export const Legendas: React.FC<LegendasProps> = ({
             opacity: fadeIn,
             textAlign: "center",
             textWrap: "balance",
-            textShadow: "0 3px 16px rgba(0,0,0,.55)",
-            ...zen(tam, "#ffffff"),
+            fontFamily: fontFamilies.texto,
+            fontWeight: 700,
+            fontSize: 58 * k,
+            lineHeight: 1.12,
+            color: "#ffffff",
+            textShadow: "0 3px 14px rgba(0,0,0,.65)",
           }}
         >
           {page.words.map((w, idx) => {
-            const entra = interpolate(
-              t,
-              [w.startMs, w.startMs + 160],
-              [0, 1],
-              clamp,
-            );
-            const y = interpolate(firme(entra), [0, 1], [18 * k, 0]);
+            const entra = interpolate(t, [w.startMs, w.startMs + 140], [0, 1], clamp);
+            const y = interpolate(firme(entra), [0, 1], [14 * k, 0]);
             const cor = idx === active ? colors.laranjaVivo : "#ffffff";
             return (
               <span
                 key={idx}
                 style={{
                   display: "inline-block",
-                  marginRight: "0.26em",
+                  marginRight: "0.28em",
                   color: cor,
-                  WebkitTextStroke: `${tam * engrossar.padrao}px ${cor}`,
                   transform: `translateY(${idx > active ? 0 : y}px)`,
-                  opacity: idx > active ? 0.35 : 1,
+                  opacity: idx > active ? 0.4 : 1,
                 }}
               >
-                {clean(w.text) +
-                  (/[?!,]$/.test(w.text.trim()) ? w.text.trim().slice(-1) : "")}
+                {clean(w.text) + (/[?!,]$/.test(w.text.trim()) ? w.text.trim().slice(-1) : "")}
               </span>
             );
           })}
