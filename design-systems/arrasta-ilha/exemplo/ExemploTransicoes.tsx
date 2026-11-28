@@ -62,7 +62,7 @@ export const ExemploTransicoes: React.FC = () => (
             endAt={Math.round(c.b * FPS)}
             style={{ position: "absolute", left: "50%", top: 0, height: 1920, width: "auto", transform: "translateX(-50%)", filter: "contrast(1.04) saturate(1.05)" }}
           />
-          {i === 0 && <TextoAtras pessoa="entrada/pessoa-corte1" quadros={66} sai={58} linhas={[{ texto: "Maracatu", tamanho: 200, centroY: 120 }, { texto: "já está fundado", tamanho: 104, centroY: 262, cor: "#ffffff" }]} />}
+          {i === 0 && <TextoAtras pessoa="entrada/pessoa-corte1" quadros={66} sai={58} linhas={[{ texto: "Maracatu", tamanho: 240, centroY: 300 }, { texto: "já está fundado", tamanho: 124, centroY: 470, cor: "#ffffff" }]} />}
         </SocoDeBatida>
       </Sequence>
     ))}
