@@ -22,7 +22,7 @@ export type LegendasProps = {
   punchLines?: PunchArrasta[];
 };
 
-/** Frase de efeito; com `atras` a palavra-chave NÃO é desenhada aqui (ela vai atrás da pessoa, pelo `TextoAtras`). */
+/** Frase de efeito; com `atras` a frase inteira NÃO é desenhada aqui (ela vai atrás da pessoa, pelo `TextoAtras`). */
 export type PunchArrasta = PunchLine & { atras?: boolean };
 
 const clean = (s: string) => s.replace(/[.,!?…:;"“”()]/g, "").trim();
@@ -68,6 +68,7 @@ export const Legendas: React.FC<LegendasProps> = ({
   const maxW = 940 * k;
 
   const punch = punchLines.find((p) => t >= p.startMs && t < p.endMs);
+  if (punch?.atras) return null; // a frase inteira está atrás da pessoa (TextoAtras)
   if (punch) {
     const words = captions.filter(
       (w) => w.startMs >= punch.startMs && w.startMs < punch.endMs,

@@ -2,7 +2,7 @@ import React from "react";
 import { Composition, Still } from "remotion";
 import { ExemploMovimento } from "./exemplo/ExemploMovimento";
 import fotoKaren from "./assets/aplicacoes/regente-karen.png";
-import { ExemploTransicoes, FRAMES_TRANSICOES } from "./exemplo/ExemploTransicoes";
+import { ExemploTransicoes, FRAMES_RECORTE, FRAMES_TRANSICOES } from "./exemplo/ExemploTransicoes";
 import { ExemploLegendas } from "./exemplo/ExemploLegendas";
 import { LegendaOpcao, ModeloEnsaio, ModeloProgramacao as ModeloAvisoProgramacao, PostDomingueiraStories, PostDomingueira, PostCamisetas, ModeloAniversario, CarrosselBaque, CarrosselCapa, CarrosselFecho, CarrosselOficina, CarrosselServico, CarrosselToque, FolhaDesignSystem, CapaPainel, PaginaIcone, PaginaPersonagem, PaginaTitulo, ModeloAviso, ModeloCapa, ModeloDestaque, ModeloEvento, ModeloFecho, ModeloOficina, ModeloPercussao, ModeloToada, PranchaElementos, PranchaFotos, PranchaRecortes, QuadroEtapa1 } from "./components";
 
@@ -61,6 +61,7 @@ export const ArrastaIlhaComposicoes: React.FC = () => (
     <Still id="ArrastaIlha-Legenda-F-Borda" component={LegendaOpcao} defaultProps={{ opcao: "F", cor: "#ff8a2a", borda: "#3a1a0c" }} width={1080} height={1920} />
     <Still id="ArrastaIlha-Legenda-F-Creme" component={LegendaOpcao} defaultProps={{ opcao: "F", cor: "#ffd9b0" }} width={1080} height={1920} />
     <Composition id="ArrastaIlha-Teste-Transicoes" component={ExemploTransicoes} durationInFrames={FRAMES_TRANSICOES} fps={30} width={1080} height={1920} />
+    <Composition id="ArrastaIlha-Teste-Recorte" component={ExemploTransicoes} durationInFrames={FRAMES_RECORTE} fps={30} width={1080} height={1920} />
     <Composition id="ArrastaIlha-Movimento" component={ExemploMovimento} durationInFrames={66 * 3 + 90} fps={30} width={1080} height={1920} />
   </>
 );
