@@ -13,7 +13,7 @@ import {
 } from "../../../tecnicas/legendas/texto";
 import "../fonts";
 import { colors, engrossar, entrelinha, fontFamilies } from "../tokens";
-import { batida, clamp, firme } from "../movimento";
+import { batida, clamp } from "../movimento";
 
 export type LegendasProps = {
   /** Palavras com tempo, de scripts/transcrever.py (ou @remotion/captions). */
@@ -205,8 +205,7 @@ export const Legendas: React.FC<LegendasProps> = ({
           }}
         >
           {page.words.map((w, idx) => {
-            const entra = interpolate(t, [w.startMs, w.startMs + 140], [0, 1], clamp);
-            const y = interpolate(firme(entra), [0, 1], [14 * k, 0]);
+            const entra = interpolate(t, [w.startMs, w.startMs + 160], [0, 1], clamp);
             const cor = idx === active ? colors.laranjaVivo : "#ffffff";
             return (
               <span
@@ -215,8 +214,7 @@ export const Legendas: React.FC<LegendasProps> = ({
                   display: "inline-block",
                   marginRight: "0.28em",
                   color: cor,
-                  transform: `translateY(${idx > active ? 0 : y}px)`,
-                  opacity: idx > active ? 0.4 : 1,
+                  opacity: entra,
                 }}
               >
                 {clean(w.text) + (/[?!,]$/.test(w.text.trim()) ? w.text.trim().slice(-1) : "")}

@@ -117,3 +117,7 @@ Componente `Legendas` (`components/Legendas.tsx`), exemplo `ArrastaIlha-Legendas
 
 ## Legenda do dia a dia, AJUSTADA pelo dono (28/11/2026)
 Substitui a opção A para o dia a dia: **letra secundária simples** (Carlito negrito), **pequena** (58 px na base de 1080, a mesma do "todo domingo tem" da frase de efeito), **branca, minúscula**, sombra suave, gradiente escuro leve embaixo; **a palavra que a pessoa está falando fica em laranja vivo `#ff7a1a`**; as ainda não faladas ficam esmaecidas. Até 34 caracteres e 7 palavras por página. A frase de efeito (F) continua com a palavra-chave gigante em Zenzero. Corrigido também: a palavra-chave da frase de efeito estava em `#f38b4c` (laranja antigo) no vídeo de teste anterior, e agora usa `laranjaVivo`, como o dono escolheu.
+
+## Ajustes do dono (28/11/2026): legenda sem bounce e fecho só com a logo
+- **Legenda do dia a dia:** as palavras entram **só com opacidade** (fade de ~160 ms), sem subir nem "bounce". A palavra falada fica em laranja vivo. (A palavra-chave gigante da frase de efeito continua subindo com a "batida", porque a regra era só para as letrinhas.)
+- **Fecho (`FechoLogo`, 75 quadros):** **só a logo**, menor (540 px de largura) e centralizada na tela; **sem "Arrasta Ilha" em texto e sem nenhum texto embaixo** (a logo já traz o nome). Fundo branco com manchas suaves, faixas oficiais deslizando e a logo entrando com a "batida".

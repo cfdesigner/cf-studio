@@ -48,7 +48,7 @@ const punch: PunchLine[] = [
   { startMs: iniMs(2) - 60, endMs: iniMs(2) + (50.6 - 48.3) * 1000, keyword: "sinceridade" },
 ];
 
-export const FRAMES_TRANSICOES = total + 90;
+export const FRAMES_TRANSICOES = total + 75;
 
 export const ExemploTransicoes: React.FC = () => (
   <AbsoluteFill style={{ background: "#000" }}>
@@ -64,7 +64,7 @@ export const ExemploTransicoes: React.FC = () => (
         </SocoDeBatida>
       </Sequence>
     ))}
-    <Sequence from={total} durationInFrames={90}>
+    <Sequence from={total} durationInFrames={75}>
       <FechoLogo />
     </Sequence>
     <Legendas captions={caps} punchLines={punch} />
